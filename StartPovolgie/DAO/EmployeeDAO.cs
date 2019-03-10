@@ -17,7 +17,7 @@ namespace StartPovolgie.DAO
             Employee emp = null;
             try
             {
-                SqlConnection sqlConnection = Connect();
+                SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select id_emp, lname, fname, patronymic, phone, address, job From Employee Where login= Lower('{0}') AND pass='{1}' AND status='Работает'", login.ToLower(), pass);
 
                 SqlCommand cmd = sqlConnection.CreateCommand();
@@ -26,7 +26,7 @@ namespace StartPovolgie.DAO
                 while (dataReader.Read())
                 {
                     if (dataReader[6].ToString().Equals("Админ"))
-                        emp = new Admin(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString());
+                        emp = new Administrator(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString());
                     else if (dataReader[6].ToString().Equals("Мастер")) {
                         int id_emp = Convert.ToInt32(dataReader[0]);
                         string lname = dataReader[1].ToString();
@@ -58,7 +58,7 @@ namespace StartPovolgie.DAO
 
                 }
                 dataReader.Close();
-                Disconnect(sqlConnection);
+                ConnectionDB.Disconnect(sqlConnection);
             }
             catch (SqlException ex)
             {
@@ -67,36 +67,5 @@ namespace StartPovolgie.DAO
             return emp;
         }
 
-        static SqlConnection Connect()
-        {
-            SqlConnection sqlConnection = null;
-            try
-            {
-                string connectionString = @"Data Source=VLAD;Initial Catalog=StartPovolgie;Integrated Security=True";
-                sqlConnection = new SqlConnection();
-                sqlConnection.ConnectionString = connectionString;
-                sqlConnection.Open();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return sqlConnection;
-        }
-        static void Disconnect(SqlConnection sqlConnection)
-        {
-            try
-            {
-                if (sqlConnection != null)
-                {
-                    sqlConnection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }

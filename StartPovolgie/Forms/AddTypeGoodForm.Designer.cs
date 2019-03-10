@@ -105,7 +105,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Изменение типа товара";
+            this.groupBox1.Text = "Добавление нового типа товара";
             // 
             // button1
             // 
@@ -113,7 +113,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Изменить";
+            this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -121,7 +121,6 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(94, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Text = nameTypeGood;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
@@ -141,7 +140,7 @@
             this.ClientSize = new System.Drawing.Size(226, 121);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddTypeGoodForm";
-            this.Text = "Изменение типа товара";
+            this.Text = "Добавление типа товара";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

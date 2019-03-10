@@ -32,5 +32,10 @@ namespace StartPovolgie.Forms
             ReportsForm rf = new ReportsForm();
             rf.Show();
         }
+
+        private void офисныеТелефоныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new OfficePhoneForm().ShowDialog();
+        }
     }
 }

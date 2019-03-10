@@ -17,7 +17,7 @@ namespace StartPovolgie.DAO
             {
                 if (!HasSameType(type, false))
                 {
-                    SqlConnection sqlConnection = Connect();
+                    SqlConnection sqlConnection = ConnectionDB.Connect();
                     string sql = "Insert into TypeGood (name_tg) values (UPPER(LEFT(@typeGood_name, 1))+ SUBSTRING (@typeGood_name,2,len (@typeGood_name))) ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
@@ -30,7 +30,7 @@ namespace StartPovolgie.DAO
                         cmd.Parameters.Add(param);
                         cmd.ExecuteNonQuery();
                     }
-                    Disconnect(sqlConnection);
+                    ConnectionDB.Disconnect(sqlConnection);
                     return true;
                 }
                 else
@@ -48,7 +48,7 @@ namespace StartPovolgie.DAO
             {
                 if (!HasSameType(type, true))
                 {
-                    SqlConnection sqlConnection = Connect();
+                    SqlConnection sqlConnection = ConnectionDB.Connect();
                     string sql = "Update TypeGood Set name_tg=(UPPER(LEFT(@typeGood_name, 1))+ SUBSTRING (@typeGood_name,2,len (@typeGood_name))) Where id_tg=(@typeGood_id);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
@@ -69,7 +69,7 @@ namespace StartPovolgie.DAO
 
                         cmd.ExecuteNonQuery();
                     }
-                    Disconnect(sqlConnection);
+                    ConnectionDB.Disconnect(sqlConnection);
                     return true;
                 }
                 else
@@ -85,7 +85,7 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                SqlConnection sqlConnection = Connect();
+                SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_tg) From TypeGood Where UPPER(REPLACE(name_tg,' ',''))=UPPER(REPLACE('{0}',' ',''))", typeGood.Name);
                 if (isUpdate)
                     sql = string.Format("Select count(id_tg) From TypeGood Where UPPER(REPLACE(name_tg,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_tg!='{1}'", typeGood.Name, typeGood.Id);
@@ -98,7 +98,7 @@ namespace StartPovolgie.DAO
                     count = Convert.ToInt32(dataReader[0]);
                 }
                 dataReader.Close();
-                Disconnect(sqlConnection);
+                ConnectionDB.Disconnect(sqlConnection);
                 if (count > 0) return true;
                 else
                     return false;
@@ -113,11 +113,11 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                SqlConnection sqlConnection = Connect();
+                SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Delete From TypeGood Where id_tg= '{0}'", id);
                 SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.ExecuteNonQuery();
-                Disconnect(sqlConnection);
+                ConnectionDB.Disconnect(sqlConnection);
             }
             catch (SqlException ex)
             {
@@ -125,36 +125,5 @@ namespace StartPovolgie.DAO
             }
         }
 
-        static SqlConnection Connect()
-        {
-            SqlConnection sqlConnection = null;
-            try
-            {
-                string connectionString = @"Data Source=VLAD;Initial Catalog=StartPovolgie;Integrated Security=True";
-                sqlConnection = new SqlConnection();
-                sqlConnection.ConnectionString = connectionString;
-                sqlConnection.Open();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return sqlConnection;
-        }
-
-        static void Disconnect(SqlConnection sqlConnection)
-        {
-            try
-            {
-                if (sqlConnection != null)
-                {
-                    sqlConnection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }

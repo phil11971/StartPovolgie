@@ -1,6 +1,6 @@
 ﻿namespace StartPovolgie.Forms
 {
-    partial class MastersForm
+    partial class MasterForm
     {
         /// <summary>
         /// Required designer variable.

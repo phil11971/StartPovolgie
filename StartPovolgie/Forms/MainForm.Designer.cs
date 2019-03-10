@@ -180,6 +180,7 @@
             this.офисныеТелефоныToolStripMenuItem.Name = "офисныеТелефоныToolStripMenuItem";
             this.офисныеТелефоныToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.офисныеТелефоныToolStripMenuItem.Text = "Офисные телефоны";
+            this.офисныеТелефоныToolStripMenuItem.Click += new System.EventHandler(this.офисныеТелефоныToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -194,13 +195,13 @@
             // новаяЗаявкаНаРемонтToolStripMenuItem
             // 
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Name = "новаяЗаявкаНаРемонтToolStripMenuItem";
-            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт для ФЛ";
             // 
             // оформитьДоговорЗаказнарядаToolStripMenuItem
             // 
             this.оформитьДоговорЗаказнарядаToolStripMenuItem.Name = "оформитьДоговорЗаказнарядаToolStripMenuItem";
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.оформитьДоговорЗаказнарядаToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.оформитьДоговорЗаказнарядаToolStripMenuItem.Text = "Договор заказ-наряда для ЮЛ";
             // 
             // новаяЗаявкаНаЗапчастиToolStripMenuItem

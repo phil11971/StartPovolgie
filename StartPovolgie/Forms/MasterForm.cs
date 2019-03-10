@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class MastersForm : Form
+    public partial class MasterForm : Form
     {
-        public MastersForm()
+        public MasterForm()
         {
             InitializeComponent();
         }

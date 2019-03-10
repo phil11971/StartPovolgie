@@ -67,6 +67,12 @@ namespace StartPovolgie.Forms
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            tbFilter.Text = "";
+            typeGoodBindingSource.Filter = null;
+        }
+
         private void btnSelect_Click(object sender, EventArgs e)
         {
             typeGoodBindingSource.Filter = String.Format("name_tg = '{0}'", tbFilter.Text.ToString());
@@ -77,12 +83,6 @@ namespace StartPovolgie.Forms
             //    Console.WriteLine((typeGoodBindingSource.Current as DataRowView).Row[1]);
             //    typeGoodBindingSource.MoveNext();
             //}
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            tbFilter.Text = "";
-            typeGoodBindingSource.Filter = null;
         }
     }
 }
