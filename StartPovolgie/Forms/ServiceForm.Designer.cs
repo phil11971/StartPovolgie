@@ -32,6 +32,8 @@
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.lblType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
+            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnPullOut = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -39,21 +41,19 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.serviceTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceTableAdapter();
+            this.dgvService = new System.Windows.Forms.DataGridView();
             this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvTypeGood = new System.Windows.Forms.DataGridView();
-            this.typeServiceTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeServiceTableAdapter();
-            this.typeServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.serviceTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceTableAdapter();
+            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.idserviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameserviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idtsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.gbSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTypeGood)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeServiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSearch
@@ -82,11 +82,23 @@
             // 
             // cbType
             // 
+            this.cbType.DataSource = this.typeGoodBindingSource;
+            this.cbType.DisplayMember = "name_tg";
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(100, 55);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 21);
             this.cbType.TabIndex = 4;
+            // 
+            // typeGoodBindingSource
+            // 
+            this.typeGoodBindingSource.DataMember = "TypeGood";
+            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnPullOut
             // 
@@ -96,6 +108,7 @@
             this.btnPullOut.TabIndex = 3;
             this.btnPullOut.Text = "Вывести полный список";
             this.btnPullOut.UseVisualStyleBackColor = true;
+            this.btnPullOut.Click += new System.EventHandler(this.btnPullOut_Click);
             // 
             // btnFind
             // 
@@ -105,6 +118,7 @@
             this.btnFind.TabIndex = 2;
             this.btnFind.Text = "Найти";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // tbName
             // 
@@ -130,6 +144,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -139,6 +154,7 @@
             this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "Изменить";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 
@@ -148,55 +164,46 @@
             this.btnDel.TabIndex = 8;
             this.btnDel.Text = "Удалить";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // spDataSet
+            // dgvService
             // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // serviceTableAdapter
-            // 
-            this.serviceTableAdapter.ClearBeforeFill = true;
+            this.dgvService.AllowUserToAddRows = false;
+            this.dgvService.AllowUserToDeleteRows = false;
+            this.dgvService.AllowUserToResizeRows = false;
+            this.dgvService.AutoGenerateColumns = false;
+            this.dgvService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idserviceDataGridViewTextBoxColumn,
+            this.nameserviceDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.idtgDataGridViewTextBoxColumn});
+            this.dgvService.DataSource = this.serviceBindingSource;
+            this.dgvService.EnableHeadersVisualStyles = false;
+            this.dgvService.Location = new System.Drawing.Point(12, 156);
+            this.dgvService.MultiSelect = false;
+            this.dgvService.Name = "dgvService";
+            this.dgvService.ReadOnly = true;
+            this.dgvService.RowHeadersVisible = false;
+            this.dgvService.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvService.Size = new System.Drawing.Size(545, 148);
+            this.dgvService.TabIndex = 9;
             // 
             // serviceBindingSource
             // 
             this.serviceBindingSource.DataMember = "Service";
             this.serviceBindingSource.DataSource = this.spDataSet;
             // 
-            // dgvTypeGood
+            // serviceTableAdapter
             // 
-            this.dgvTypeGood.AllowUserToAddRows = false;
-            this.dgvTypeGood.AllowUserToDeleteRows = false;
-            this.dgvTypeGood.AllowUserToResizeRows = false;
-            this.dgvTypeGood.AutoGenerateColumns = false;
-            this.dgvTypeGood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTypeGood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvTypeGood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTypeGood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idserviceDataGridViewTextBoxColumn,
-            this.nameserviceDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.idtsDataGridViewTextBoxColumn});
-            this.dgvTypeGood.DataSource = this.serviceBindingSource;
-            this.dgvTypeGood.EnableHeadersVisualStyles = false;
-            this.dgvTypeGood.Location = new System.Drawing.Point(12, 156);
-            this.dgvTypeGood.MultiSelect = false;
-            this.dgvTypeGood.Name = "dgvTypeGood";
-            this.dgvTypeGood.ReadOnly = true;
-            this.dgvTypeGood.RowHeadersVisible = false;
-            this.dgvTypeGood.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvTypeGood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTypeGood.Size = new System.Drawing.Size(545, 148);
-            this.dgvTypeGood.TabIndex = 9;
+            this.serviceTableAdapter.ClearBeforeFill = true;
             // 
-            // typeServiceTableAdapter
+            // typeGoodTableAdapter
             // 
-            this.typeServiceTableAdapter.ClearBeforeFill = true;
-            // 
-            // typeServiceBindingSource
-            // 
-            this.typeServiceBindingSource.DataMember = "TypeService";
-            this.typeServiceBindingSource.DataSource = this.spDataSet;
+            this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
             // idserviceDataGridViewTextBoxColumn
             // 
@@ -220,36 +227,37 @@
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // idtsDataGridViewTextBoxColumn
+            // idtgDataGridViewTextBoxColumn
             // 
-            this.idtsDataGridViewTextBoxColumn.DataPropertyName = "id_ts";
-            this.idtsDataGridViewTextBoxColumn.DataSource = this.typeServiceBindingSource;
-            this.idtsDataGridViewTextBoxColumn.DisplayMember = "name_ts";
-            this.idtsDataGridViewTextBoxColumn.HeaderText = "Тип услуги";
-            this.idtsDataGridViewTextBoxColumn.Name = "idtsDataGridViewTextBoxColumn";
-            this.idtsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idtsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idtsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idtsDataGridViewTextBoxColumn.ValueMember = "id_ts";
+            this.idtgDataGridViewTextBoxColumn.DataPropertyName = "id_tg";
+            this.idtgDataGridViewTextBoxColumn.DataSource = this.typeGoodBindingSource;
+            this.idtgDataGridViewTextBoxColumn.DisplayMember = "name_tg";
+            this.idtgDataGridViewTextBoxColumn.HeaderText = "Тип";
+            this.idtgDataGridViewTextBoxColumn.Name = "idtgDataGridViewTextBoxColumn";
+            this.idtgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
             // 
             // ServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 316);
-            this.Controls.Add(this.dgvTypeGood);
+            this.Controls.Add(this.dgvService);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbSearch);
             this.Name = "ServiceForm";
             this.Text = "Услуги";
+            this.Load += new System.EventHandler(this.ServiceForm_Load);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTypeGood)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeServiceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,13 +276,13 @@
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.BindingSource serviceBindingSource;
         private SPDataSet spDataSet;
+        private System.Windows.Forms.DataGridView dgvService;
+        private System.Windows.Forms.BindingSource typeGoodBindingSource;
         private SPDataSetTableAdapters.ServiceTableAdapter serviceTableAdapter;
-        private System.Windows.Forms.DataGridView dgvTypeGood;
-        private SPDataSetTableAdapters.TypeServiceTableAdapter typeServiceTableAdapter;
-        private System.Windows.Forms.BindingSource typeServiceBindingSource;
+        private SPDataSetTableAdapters.TypeGoodTableAdapter typeGoodTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idserviceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameserviceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn idtsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idtgDataGridViewTextBoxColumn;
     }
 }

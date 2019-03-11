@@ -76,7 +76,6 @@
     <Compile Include="Controller\SparePartStatusController.cs" />
     <Compile Include="Controller\SpecializationController.cs" />
     <Compile Include="Controller\TypeGoodController.cs" />
-    <Compile Include="Controller\TypeServiceController.cs" />
     <Compile Include="Controller\WorkController.cs" />
     <Compile Include="Controller\WorkStatusController.cs" />
     <Compile Include="DAO\AcceptForRepairDAO.cs" />
@@ -101,7 +100,6 @@
     <Compile Include="DAO\SparePartStatusDAO.cs" />
     <Compile Include="DAO\SpecializationDAO.cs" />
     <Compile Include="DAO\TypeGoodDAO.cs" />
-    <Compile Include="DAO\TypeServiceDAO.cs" />
     <Compile Include="DAO\WorkDAO.cs" />
     <Compile Include="DAO\WorkStatusDAO.cs" />
     <Compile Include="Forms\AddMasterForm.cs">
@@ -122,17 +120,17 @@
     <Compile Include="Forms\AddOfficePhoneForm.Designer.cs">
       <DependentUpon>AddOfficePhoneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddSpareForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddSpareForm.Designer.cs">
-      <DependentUpon>AddSpareForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddServiceForm.Designer.cs">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSpareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSpareForm.Designer.cs">
+      <DependentUpon>AddSpareForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddEmployeeForm.cs">
       <SubType>Form</SubType>
@@ -163,12 +161,6 @@
     </Compile>
     <Compile Include="Forms\AddWorkStatusForm.Designer.cs">
       <DependentUpon>AddWorkStatusForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddTypeServiceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddTypeServiceForm.Designer.cs">
-      <DependentUpon>AddTypeServiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddTypeGoodForm.cs">
       <SubType>Form</SubType>
@@ -302,12 +294,6 @@
     <Compile Include="Forms\WorkStatusForm.Designer.cs">
       <DependentUpon>WorkStatusForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TypeServiceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TypeServiceForm.Designer.cs">
-      <DependentUpon>TypeServiceForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\TypeGoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,7 +339,6 @@
     <Compile Include="Model\SparePartStatus.cs" />
     <Compile Include="Model\Specialization.cs" />
     <Compile Include="Model\TypeGood.cs" />
-    <Compile Include="Model\TypeService.cs" />
     <Compile Include="Model\Work.cs" />
     <Compile Include="Model\WorkStatus.cs" />
     <Compile Include="Program.cs" />
@@ -377,11 +362,11 @@
     <EmbeddedResource Include="Forms\AddOfficePhoneForm.resx">
       <DependentUpon>AddOfficePhoneForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddSpareForm.resx">
-      <DependentUpon>AddSpareForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSpareForm.resx">
+      <DependentUpon>AddSpareForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
@@ -397,9 +382,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddWorkStatusForm.resx">
       <DependentUpon>AddWorkStatusForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTypeServiceForm.resx">
-      <DependentUpon>AddTypeServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTypeGoodForm.resx">
       <DependentUpon>AddTypeGoodForm.cs</DependentUpon>
@@ -466,9 +448,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WorkStatusForm.resx">
       <DependentUpon>WorkStatusForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TypeServiceForm.resx">
-      <DependentUpon>TypeServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeGoodForm.resx">
       <DependentUpon>TypeGoodForm.cs</DependentUpon>

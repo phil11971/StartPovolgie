@@ -20,9 +20,7 @@ namespace StartPovolgie.Forms
 
         private void OfficePhoneForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "spDataSet.OfficePhone". При необходимости она может быть перемещена или удалена.
             this.officePhoneTableAdapter.Fill(this.spDataSet.OfficePhone);
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

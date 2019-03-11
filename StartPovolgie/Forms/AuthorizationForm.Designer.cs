@@ -51,7 +51,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(129, 20);
             this.tbLogin.TabIndex = 1;
-            this.tbLogin.Text = "Логин";
+            this.tbLogin.Text = "phil";
             // 
             // tbPass
             // 
@@ -59,7 +59,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(129, 20);
             this.tbPass.TabIndex = 2;
-            this.tbPass.Text = "Пароль";
+            this.tbPass.Text = "phil";
             // 
             // btnEntry
             // 

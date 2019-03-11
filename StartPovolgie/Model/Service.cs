@@ -11,18 +11,25 @@ namespace StartPovolgie.Model
         public int IdService { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public TypeService TypeService { get; set; }
+        public TypeGood TypeGood { get; set; }
 
         public Service(string name)
         {
             Name = name;
         }
-        public Service(int idService, string name, int price, TypeService typeService)
+
+        public Service(string name, int price, TypeGood typeGood) : this(name)
+        {
+            Price = price;
+            TypeGood = typeGood;
+        }
+
+        public Service(int idService, string name, int price, TypeGood typeGood)
         {
             IdService = idService;
             Name = name;
             Price = price;
-            TypeService = typeService;
+            TypeGood = typeGood;
         }
     }
 }

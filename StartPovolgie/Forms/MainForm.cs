@@ -37,5 +37,10 @@ namespace StartPovolgie.Forms
         {
             new OfficePhoneForm().ShowDialog();
         }
+
+        private void работыУслугиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ServiceForm().ShowDialog();
+        }
     }
 }
