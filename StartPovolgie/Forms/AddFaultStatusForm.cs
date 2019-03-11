@@ -12,28 +12,26 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class AddOfficePhoneForm : Form
+    public partial class AddFaultStatusForm : Form
     {
-
         private int id;
-        OfficePhoneController officePhoneController;
+        FaultStatusController faultStatusController;
 
-        public AddOfficePhoneForm()
+        public AddFaultStatusForm()
         {
             InitializeComponent();
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            faultStatusController = new FaultStatusController();
         }
 
-        public AddOfficePhoneForm(int id, string numberOfficePhone)
+        public AddFaultStatusForm(int id, string nameTypeGood)
         {
-            //todo подправить везде update и MessageBox'ы при удалении итд
-            InitializeComponent(numberOfficePhone);
+            InitializeComponent(nameTypeGood);
             this.id = id;
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            faultStatusController = new FaultStatusController();
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Trim().Equals(""))
@@ -46,8 +44,8 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        OfficePhone officePhone = new OfficePhone(textBox1.Text.Trim());
-                        if (!officePhoneController.Insert(officePhone))
+                        FaultStatus faultStatus = new FaultStatus(textBox1.Text.Trim());
+                        if (!faultStatusController.Insert(faultStatus))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -58,14 +56,14 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            OfficePhone officePhone = new OfficePhone(id, textBox1.Text.Trim());
-                            if (!officePhoneController.Update(officePhone))
+                            FaultStatus faultStatus = new FaultStatus(id, textBox1.Text.Trim());
+                            if (!faultStatusController.Update(faultStatus))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
-
+                            
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {

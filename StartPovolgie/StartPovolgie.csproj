@@ -140,6 +140,36 @@
     <Compile Include="Forms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddSpecializationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSpecializationForm.Designer.cs">
+      <DependentUpon>AddSpecializationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSparePartStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSparePartStatusForm.Designer.cs">
+      <DependentUpon>AddSparePartStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddFaultStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddFaultStatusForm.Designer.cs">
+      <DependentUpon>AddFaultStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddWorkStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddWorkStatusForm.Designer.cs">
+      <DependentUpon>AddWorkStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTypeServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTypeServiceForm.Designer.cs">
+      <DependentUpon>AddTypeServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddTypeGoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +284,24 @@
     <Compile Include="Forms\SpecializationForm.Designer.cs">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SparePartStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SparePartStatusForm.Designer.cs">
+      <DependentUpon>SparePartStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FaultStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FaultStatusForm.Designer.cs">
+      <DependentUpon>FaultStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WorkStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkStatusForm.Designer.cs">
+      <DependentUpon>WorkStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TypeServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,11 +368,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SPDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="StartPovolgieDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StartPovolgieDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\AddMasterForm.resx">
       <DependentUpon>AddMasterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,6 +385,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSpecializationForm.resx">
+      <DependentUpon>AddSpecializationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSparePartStatusForm.resx">
+      <DependentUpon>AddSparePartStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddFaultStatusForm.resx">
+      <DependentUpon>AddFaultStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddWorkStatusForm.resx">
+      <DependentUpon>AddWorkStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTypeServiceForm.resx">
+      <DependentUpon>AddTypeServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTypeGoodForm.resx">
       <DependentUpon>AddTypeGoodForm.cs</DependentUpon>
@@ -400,6 +458,15 @@
     <EmbeddedResource Include="Forms\SpecializationForm.resx">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SparePartStatusForm.resx">
+      <DependentUpon>SparePartStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FaultStatusForm.resx">
+      <DependentUpon>FaultStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkStatusForm.resx">
+      <DependentUpon>WorkStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeServiceForm.resx">
       <DependentUpon>TypeServiceForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,17 +508,6 @@
     </None>
     <None Include="SPDataSet.xss">
       <DependentUpon>SPDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StartPovolgieDataSet.xsc">
-      <DependentUpon>StartPovolgieDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StartPovolgieDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StartPovolgieDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StartPovolgieDataSet.xss">
-      <DependentUpon>StartPovolgieDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

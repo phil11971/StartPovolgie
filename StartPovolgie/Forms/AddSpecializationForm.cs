@@ -12,28 +12,26 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class AddOfficePhoneForm : Form
+    public partial class AddSpecializationForm : Form
     {
-
         private int id;
-        OfficePhoneController officePhoneController;
+        SpecializationController specializationController;
 
-        public AddOfficePhoneForm()
+        public AddSpecializationForm()
         {
             InitializeComponent();
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            specializationController = new SpecializationController();
         }
 
-        public AddOfficePhoneForm(int id, string numberOfficePhone)
+        public AddSpecializationForm(int id, string nameTypeGood)
         {
-            //todo подправить везде update и MessageBox'ы при удалении итд
-            InitializeComponent(numberOfficePhone);
+            InitializeComponent(nameTypeGood);
             this.id = id;
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            specializationController = new SpecializationController();
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Trim().Equals(""))
@@ -46,8 +44,8 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        OfficePhone officePhone = new OfficePhone(textBox1.Text.Trim());
-                        if (!officePhoneController.Insert(officePhone))
+                        Specialization specialization = new Specialization(textBox1.Text.Trim());
+                        if (!specializationController.Insert(specialization))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -58,14 +56,14 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            OfficePhone officePhone = new OfficePhone(id, textBox1.Text.Trim());
-                            if (!officePhoneController.Update(officePhone))
+                            Specialization specialization = new Specialization(textBox1.Text.Trim());
+                            if (!specializationController.Update(specialization))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
-
+                            
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {

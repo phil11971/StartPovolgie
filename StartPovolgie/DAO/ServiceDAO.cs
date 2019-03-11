@@ -35,7 +35,7 @@ namespace StartPovolgie.DAO
                         cmd.Parameters.Add(param);
 
                         param.ParameterName = "@service_id_ts";
-                        param.Value = service.IdTS;
+                        param.Value = service.TypeService.Id;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 

@@ -12,28 +12,26 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class AddOfficePhoneForm : Form
+    public partial class AddSparePartStatusForm : Form
     {
-
         private int id;
-        OfficePhoneController officePhoneController;
+        SparePartStatusController sparePartStatusController;
 
-        public AddOfficePhoneForm()
+        public AddSparePartStatusForm()
         {
             InitializeComponent();
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            sparePartStatusController = new SparePartStatusController();
         }
 
-        public AddOfficePhoneForm(int id, string numberOfficePhone)
+        public AddSparePartStatusForm(int id, string nameTypeGood)
         {
-            //todo подправить везде update и MessageBox'ы при удалении итд
-            InitializeComponent(numberOfficePhone);
+            InitializeComponent(nameTypeGood);
             this.id = id;
             this.ActiveControl = textBox1;
-            officePhoneController = new OfficePhoneController();
+            sparePartStatusController = new SparePartStatusController();
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Trim().Equals(""))
@@ -46,8 +44,8 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        OfficePhone officePhone = new OfficePhone(textBox1.Text.Trim());
-                        if (!officePhoneController.Insert(officePhone))
+                        SparePartStatus sparePartStatus = new SparePartStatus(textBox1.Text.Trim());
+                        if (!sparePartStatusController.Insert(sparePartStatus))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -58,14 +56,14 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            OfficePhone officePhone = new OfficePhone(id, textBox1.Text.Trim());
-                            if (!officePhoneController.Update(officePhone))
+                            SparePartStatus sparePartStatus = new SparePartStatus(id, textBox1.Text.Trim());
+                            if (!sparePartStatusController.Update(sparePartStatus))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
-
+                            
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {

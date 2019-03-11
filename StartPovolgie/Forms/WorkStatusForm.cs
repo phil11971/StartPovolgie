@@ -11,43 +11,52 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class OfficePhoneForm : Form
+    public partial class WorkStatusForm : Form
     {
-        public OfficePhoneForm()
+        public WorkStatusForm()
         {
             InitializeComponent();
         }
 
-        private void OfficePhoneForm_Load(object sender, EventArgs e)
+        private void WorkStatusForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "spDataSet.OfficePhone". При необходимости она может быть перемещена или удалена.
-            this.officePhoneTableAdapter.Fill(this.spDataSet.OfficePhone);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "spDataSet.WorkStatus". При необходимости она может быть перемещена или удалена.
+            this.workStatusTableAdapter.Fill(this.spDataSet.WorkStatus);
 
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addOfficePhoneForm = new AddOfficePhoneForm();
-            addOfficePhoneForm.Closing += AddTypeOfDevicesForm_Closing;
-            addOfficePhoneForm.ShowDialog();
+            var addWorkStatusForm = new AddWorkStatusForm();
+            addWorkStatusForm.Closing += AddTypeOfDevicesForm_Closing;
+            addWorkStatusForm.ShowDialog();
         }
 
         private void AddTypeOfDevicesForm_Closing(object sender, CancelEventArgs e)
         {
-            officePhoneTableAdapter.Fill(spDataSet.OfficePhone);
+            workStatusTableAdapter.Fill(spDataSet.WorkStatus);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dgvTypeGood.CurrentRow.Cells[0].Value);
+            string s = (string)dgvTypeGood.CurrentRow.Cells[1].Value;
+            var editWorkStatusForm = new AddWorkStatusForm(id, s);
+            editWorkStatusForm.Closing += AddTypeOfDevicesForm_Closing;
+            editWorkStatusForm.ShowDialog();
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(dgvOfficePhone.CurrentRow.Cells[0].Value);
+                int id = Convert.ToInt32(dgvTypeGood.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
                 try
                 {
                     //typeGoodTableAdapter.Delete(id, name);
-                    new OfficePhoneController().DeleteById(id);
-                    officePhoneTableAdapter.Fill(spDataSet.OfficePhone);
+                    new WorkStatusController.DeleteById(id);
+                    workStatusTableAdapter.Fill(spDataSet.WorkStatus);
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
@@ -58,15 +67,6 @@ namespace StartPovolgie.Forms
                     MessageBox.Show("Ошибка работы с базой данных!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(dgvOfficePhone.CurrentRow.Cells[0].Value);
-            string s = (string)dgvOfficePhone.CurrentRow.Cells[1].Value;
-            var editOfficePhoneForm = new AddOfficePhoneForm(id, s);
-            editOfficePhoneForm.Closing += AddTypeOfDevicesForm_Closing;
-            editOfficePhoneForm.ShowDialog();
         }
     }
 }

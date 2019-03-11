@@ -31,10 +31,8 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoService = new System.Windows.Forms.GroupBox();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.tbDesc = new System.Windows.Forms.TextBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.lblDesc = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -54,16 +52,14 @@
             // gbInfoService
             // 
             this.gbInfoService.Controls.Add(this.cbType);
-            this.gbInfoService.Controls.Add(this.tbDesc);
             this.gbInfoService.Controls.Add(this.tbPrice);
             this.gbInfoService.Controls.Add(this.tbName);
-            this.gbInfoService.Controls.Add(this.lblDesc);
             this.gbInfoService.Controls.Add(this.lblType);
             this.gbInfoService.Controls.Add(this.lblPrice);
             this.gbInfoService.Controls.Add(this.lblName);
             this.gbInfoService.Location = new System.Drawing.Point(31, 45);
             this.gbInfoService.Name = "gbInfoService";
-            this.gbInfoService.Size = new System.Drawing.Size(254, 181);
+            this.gbInfoService.Size = new System.Drawing.Size(254, 141);
             this.gbInfoService.TabIndex = 1;
             this.gbInfoService.TabStop = false;
             this.gbInfoService.Text = "Информация об услуге";
@@ -75,13 +71,6 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 21);
             this.cbType.TabIndex = 12;
-            // 
-            // tbDesc
-            // 
-            this.tbDesc.Location = new System.Drawing.Point(95, 141);
-            this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(121, 20);
-            this.tbDesc.TabIndex = 9;
             // 
             // tbPrice
             // 
@@ -96,15 +85,6 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(121, 20);
             this.tbName.TabIndex = 6;
-            // 
-            // lblDesc
-            // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(20, 141);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(57, 13);
-            this.lblDesc.TabIndex = 3;
-            this.lblDesc.Text = "Описание";
             // 
             // lblType
             // 
@@ -135,7 +115,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(209, 246);
+            this.btnAdd.Location = new System.Drawing.Point(210, 192);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -146,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 280);
+            this.ClientSize = new System.Drawing.Size(316, 223);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbInfoService);
             this.Controls.Add(this.lblAdd);
@@ -163,10 +143,8 @@
 
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.GroupBox gbInfoService;
-        private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblName;

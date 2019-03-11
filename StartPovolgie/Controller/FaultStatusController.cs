@@ -24,7 +24,7 @@ namespace StartPovolgie.Controller
 
         public void DeleteById(int id)
         {
-            new WorkStatusDAO().DeleteById(id);
+            new FaultStatusDAO().DeleteById(id);
         }
     }
 }
