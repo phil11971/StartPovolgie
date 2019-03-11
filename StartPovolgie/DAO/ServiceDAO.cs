@@ -9,25 +9,36 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.DAO
 {
-    public class SpecializationDAO
+    public class ServiceDAO
     {
-        public bool Insert(Specialization specialization)
+        public bool Insert(Service service)
         {
             try
             {
-                if (!HasSameType(specialization, false))
+                if (!HasSameType(service, false))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Insert into Specialization (name_spec) values (UPPER(LEFT(@specialization_name, 1))+ SUBSTRING (@specialization_name,2,len (@specialization_name))) ";
+                    string sql = "Insert into Service (name_service, price, id_ts) values (UPPER(LEFT(@service_name, 1))+ SUBSTRING (@service_name,2,len (@service_name)), @service_price, @service_id_ts) ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
-                        param.ParameterName = "@specialization_name";
-                        param.Value = specialization.Name;
+                        param.ParameterName = "@service_name";
+                        param.Value = service.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
                         cmd.Parameters.Add(param);
+
+                        param.ParameterName = "@service_price";
+                        param.Value = service.Price;
+                        param.SqlDbType = SqlDbType.Int;
+                        cmd.Parameters.Add(param);
+
+                        param.ParameterName = "@service_id_ts";
+                        param.Value = service.IdTS;
+                        param.SqlDbType = SqlDbType.Int;
+                        cmd.Parameters.Add(param);
+
                         cmd.ExecuteNonQuery();
                     }
                     ConnectionDB.Disconnect(sqlConnection);
@@ -42,29 +53,41 @@ namespace StartPovolgie.DAO
             }
         }
 
-        public bool Update(Specialization specialization)
+        public bool Update(Service service)
         {
             try
             {
-                if (!HasSameType(specialization, true))
+                if (!HasSameType(service, true))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Update Specialization Set name_spec=(UPPER(LEFT(@specialization_name, 1))+ SUBSTRING (@specialization_name,2,len (@specialization_name))) Where id_spec=(@specialization_id);";
+                    string sql = "Update Service Set name_service=(UPPER(LEFT(@service_name, 1))+ SUBSTRING (@service_name,2,len (@service_name))), price=@service_price, id_ts=@service_id_ts Where id_service=(@service_id);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
                         param = new SqlParameter();
-                        param.ParameterName = "@specialization_id";
-                        param.Value = specialization.Id;
+                        param.ParameterName = "@service_id";
+                        param.Value = service.IdService;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
-                        param.ParameterName = "@specialization_name";
-                        param.Value = specialization.Name;
+                        param.ParameterName = "@service_name";
+                        param.Value = service.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@service_price";
+                        param.Value = service.Price;
+                        param.SqlDbType = SqlDbType.Int;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@service_id_ts";
+                        param.Value = service.TypeService.Id;
+                        param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         cmd.ExecuteNonQuery();
@@ -81,14 +104,14 @@ namespace StartPovolgie.DAO
             }
         }
 
-        private bool HasSameType(Specialization specialization, bool isUpdate)
+        private bool HasSameType(Service service, bool isUpdate)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_spec) From Specialization Where UPPER(REPLACE(name_spec,' ',''))=UPPER(REPLACE('{0}',' ',''))", specialization.Name);
+                string sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price='{1}' AND id_ts='{2}'", service.Name, service.Price, service.TypeService.Id);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_spec) From Specialization Where UPPER(REPLACE(name_spec,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_spec!='{1}'", specialization.Name, specialization.Id);
+                    sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price='{1}' AND id_ts='{2}' AND id_service!='{3}'", service.Name, service.Price, service.TypeService.Id, service.IdService);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -114,7 +137,7 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Delete From Specialization Where id_spec= '{0}'", id);
+                string sql = string.Format("Delete From Service Where id_service= '{0}'", id);
                 SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.ExecuteNonQuery();
                 ConnectionDB.Disconnect(sqlConnection);

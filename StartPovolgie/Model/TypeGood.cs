@@ -11,14 +11,14 @@ namespace StartPovolgie.Model
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public TypeGood(int id, string name)
-        {
-            this.Id = id;
-            this.Name = name;
-        }
         public TypeGood(string name)
         {
-            this.Name = name;
+            Name = name;
+        }
+        public TypeGood(int id, string name)
+        {
+            Id = id;
+            Name = name;
         }
     }
 }

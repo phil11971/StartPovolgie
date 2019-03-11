@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    public class FaultStatusController
+    public class ServiceController
     {
-        public bool Insert(FaultStatus faultStatus)
+        public bool Insert(Service service)
         {
-            if (new FaultStatusDAO().Insert(faultStatus)) return true;
+            if (new ServiceDAO().Insert(service)) return true;
             else return false;
         }
 
-        public bool Update(FaultStatus faultStatus)
+        public bool Update(Service service)
         {
-            if (new FaultStatusDAO().Update(faultStatus)) return true;
+            if (new ServiceDAO().Update(service)) return true;
             else return false;
         }
 
         public void DeleteById(int id)
         {
-            new WorkStatusDAO().DeleteById(id);
+            new ServiceDAO().DeleteById(id);
         }
     }
 }

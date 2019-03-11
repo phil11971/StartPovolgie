@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Model
 {
-    class Specialization
+    public class Specialization
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public Specialization(string name)
+        {
+            Name = name;
+        }
+        public Specialization(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

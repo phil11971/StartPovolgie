@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Model
 {
-    class FaultStatus
+    public class FaultStatus
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public FaultStatus(string name)
+        {
+            Name = name;
+        }
+        public FaultStatus(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

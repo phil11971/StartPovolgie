@@ -8,7 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    class SpecializationController
+    public class SpecializationController
     {
+        public bool Insert(Specialization specialization)
+        {
+            if (new SpecializationDAO().Insert(specialization)) return true;
+            else return false;
+        }
+
+        public bool Update(Specialization specialization)
+        {
+            if (new SpecializationDAO().Update(specialization)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new SpecializationDAO().DeleteById(id);
+        }
     }
 }

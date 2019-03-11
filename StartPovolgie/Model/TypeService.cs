@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Model
 {
-    public class OfficePhone
+    public class TypeService
     {
         public int Id { get; set; }
-        public string Number { get; set; }
+        public string Name { get; set; }
 
-        public OfficePhone(string number)
+        public TypeService(string name)
         {
-            Number = number;
+            Name = name;
         }
-        public OfficePhone(int id, string number)
+        public TypeService(int id, string name)
         {
             Id = id;
-            Number = number;
+            Name = name;
         }
-
     }
 }

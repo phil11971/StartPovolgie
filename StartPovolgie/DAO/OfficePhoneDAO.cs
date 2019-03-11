@@ -80,15 +80,15 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
-        //TODO:доделать
+        
         private bool HasSameType(OfficePhone officePhone, bool isUpdate)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_op) From OfficePhone Where UPPER(REPLACE(name_tg,' ',''))=UPPER(REPLACE('{0}',' ',''))", officePhone.Number);
+                string sql = string.Format("Select count(id_op) From OfficePhone Where phone={0}", officePhone.Number);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_op) From OfficePhone Where UPPER(REPLACE(name_tg,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_op!='{1}'", officePhone.Number, officePhone.Id);
+                    sql = string.Format("Select count(id_op) From OfficePhone Where phone={0} AND id_op!='{1}'", officePhone.Number, officePhone.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -100,8 +100,7 @@ namespace StartPovolgie.DAO
                 dataReader.Close();
                 ConnectionDB.Disconnect(sqlConnection);
                 if (count > 0) return true;
-                else
-                    return false;
+                else return false;
             }
             catch (SqlException ex)
             {

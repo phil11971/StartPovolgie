@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.DAO
 {
-    public class SpecializationDAO
+    public class TypeServiceDAO
     {
-        public bool Insert(Specialization specialization)
+        public bool Insert(TypeService typeService)
         {
             try
             {
-                if (!HasSameType(specialization, false))
+                if (!HasSameType(typeService, false))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Insert into Specialization (name_spec) values (UPPER(LEFT(@specialization_name, 1))+ SUBSTRING (@specialization_name,2,len (@specialization_name))) ";
+                    string sql = "Insert into TypeService (name_ts) values (UPPER(LEFT(@typeService_name, 1))+ SUBSTRING (@typeService_name,2,len (@typeService_name))) ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
-                        param.ParameterName = "@specialization_name";
-                        param.Value = specialization.Name;
+                        param.ParameterName = "@typeService_name";
+                        param.Value = typeService.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
                         cmd.Parameters.Add(param);
@@ -42,27 +42,27 @@ namespace StartPovolgie.DAO
             }
         }
 
-        public bool Update(Specialization specialization)
+        public bool Update(TypeService typeService)
         {
             try
             {
-                if (!HasSameType(specialization, true))
+                if (!HasSameType(typeService, true))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Update Specialization Set name_spec=(UPPER(LEFT(@specialization_name, 1))+ SUBSTRING (@specialization_name,2,len (@specialization_name))) Where id_spec=(@specialization_id);";
+                    string sql = "Update TypeService Set name_ts=(UPPER(LEFT(@typeService_name, 1))+ SUBSTRING (@typeService_name,2,len (@typeService_name))) Where id_ts=(@typeService_id);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
                         param = new SqlParameter();
-                        param.ParameterName = "@specialization_id";
-                        param.Value = specialization.Id;
+                        param.ParameterName = "@typeService_id";
+                        param.Value = typeService.Id;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
-                        param.ParameterName = "@specialization_name";
-                        param.Value = specialization.Name;
+                        param.ParameterName = "@typeService_name";
+                        param.Value = typeService.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
                         cmd.Parameters.Add(param);
@@ -81,14 +81,14 @@ namespace StartPovolgie.DAO
             }
         }
 
-        private bool HasSameType(Specialization specialization, bool isUpdate)
+        private bool HasSameType(TypeService typeService, bool isUpdate)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_spec) From Specialization Where UPPER(REPLACE(name_spec,' ',''))=UPPER(REPLACE('{0}',' ',''))", specialization.Name);
+                string sql = string.Format("Select count(id_ts) From TypeService Where UPPER(REPLACE(name_ts,' ',''))=UPPER(REPLACE('{0}',' ',''))", typeService.Name);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_spec) From Specialization Where UPPER(REPLACE(name_spec,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_spec!='{1}'", specialization.Name, specialization.Id);
+                    sql = string.Format("Select count(id_ts) From TypeService Where UPPER(REPLACE(name_ts,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_ts!='{1}'", typeService.Name, typeService.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -114,7 +114,7 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Delete From Specialization Where id_spec= '{0}'", id);
+                string sql = string.Format("Delete From TypeService Where id_ts= '{0}'", id);
                 SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.ExecuteNonQuery();
                 ConnectionDB.Disconnect(sqlConnection);

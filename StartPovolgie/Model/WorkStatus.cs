@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Model
 {
-    class WorkStatus
+    public class WorkStatus
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public WorkStatus(string name)
+        {
+            Name = name;
+        }
+        public WorkStatus(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

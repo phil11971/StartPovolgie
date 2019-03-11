@@ -8,7 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    class WorkStatusController
+    public class WorkStatusController
     {
+        public bool Insert(WorkStatus workStatus)
+        {
+            if (new WorkStatusDAO().Insert(workStatus)) return true;
+            else return false;
+        }
+
+        public bool Update(WorkStatus workStatus)
+        {
+            if (new WorkStatusDAO().Update(workStatus)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new WorkStatusDAO().DeleteById(id);
+        }
     }
 }

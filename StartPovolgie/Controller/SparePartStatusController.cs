@@ -8,7 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    class SparePartStatusController
+    public class SparePartStatusController
     {
+        public bool Insert(SparePartStatus sparePartStatus)
+        {
+            if (new SparePartStatusDAO().Insert(sparePartStatus)) return true;
+            else return false;
+        }
+
+        public bool Update(SparePartStatus sparePartStatus)
+        {
+            if (new SparePartStatusDAO().Update(sparePartStatus)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new SparePartStatusDAO().DeleteById(id);
+        }
     }
 }
