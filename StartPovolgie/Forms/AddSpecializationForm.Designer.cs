@@ -45,7 +45,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Добавление нового типа товара";
+            this.groupBox1.Text = "Добавление новой специализации мастера";
             // 
             // button1
             // 
@@ -73,14 +73,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Название";
             // 
-            // AddTypeGoodForm
+            // AddSpecializationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(226, 121);
+            this.ClientSize = new System.Drawing.Size(258, 121);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddTypeGoodForm";
-            this.Text = "Добавление типа товара";
+            this.Name = "AddSpecializationForm";
+            this.Text = "Добавление специализации мастера";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -42,5 +42,25 @@ namespace StartPovolgie.Forms
         {
             new ServiceForm().ShowDialog();
         }
+
+        private void специализацииМастеровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SpecializationForm().ShowDialog();
+        }
+
+        private void состояниеРаботыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new WorkStatusForm().ShowDialog();
+        }
+
+        private void состояниеНеисправностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FaultStatusForm().ShowDialog();
+        }
+
+        private void статусЗапчастиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SparePartStatusForm().ShowDialog();
+        }
     }
 }

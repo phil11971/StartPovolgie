@@ -56,7 +56,7 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            Specialization specialization = new Specialization(textBox1.Text.Trim());
+                            Specialization specialization = new Specialization(id, textBox1.Text.Trim());
                             if (!specializationController.Update(specialization))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);

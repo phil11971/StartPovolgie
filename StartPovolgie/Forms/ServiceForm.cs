@@ -1,8 +1,10 @@
 ﻿using StartPovolgie.Controller;
+using StartPovolgie.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -74,24 +76,84 @@ namespace StartPovolgie.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (!tbName.Text.Equals(""))
-                serviceBindingSource.Filter = String.Format("name_service = '{0}'", tbName.Text.ToString());
-            else if(!cbType.Text.Equals(""))
-                typeGoodBindingSource.Filter = String.Format("name_tg = '{0}'", cbType.Text.ToString());
-            else if(!(tbName.Text.Equals("") && cbType.Text.Equals("")))
+            //todo сделать нормально через процедуры итд https://metanit.com/sharp/adonet/2.11.php
+            if (!tbName.Text.Equals("") && !cbType.Text.Equals(""))
             {
-                serviceBindingSource.Filter = String.Format("name_service = '{0}'", tbName.Text.ToString());
-                typeGoodBindingSource.Filter = String.Format("name_tg = '{0}'", cbType.Text.ToString());
-            }
+                string sql = "Select s.id_service, s.name_service, s.price, s.id_tg From Service s Join TypeGood t On s.id_tg = t.id_tg Where t.name_tg = @cbType and s.name_service = @tbName";
 
+                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                {
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@cbType";
+                    param.Value = cbType.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
+                    param = new SqlParameter();
+                    param.ParameterName = "@tbName";
+                    param.Value = tbName.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    spDataSet.Service.Clear();
+                    dataAdapter.Fill(spDataSet.Service);
+
+                }
+
+                dgvService.DataSource = spDataSet.Service;
+            }
+            else if (!tbName.Text.Equals("")) {
+                string sql = "Select * From Service Where name_service=@tbName";
+
+                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                {
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@tbName";
+                    param.Value = tbName.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    spDataSet.Service.Clear();
+                    dataAdapter.Fill(spDataSet.Service);
+
+                }
+                
+                dgvService.DataSource = spDataSet.Service;
+            }
+            else if (!cbType.Text.Equals("")) {
+                string sql = "Select s.id_service, s.name_service, s.price, s.id_tg From Service s Join TypeGood t On s.id_tg = t.id_tg Where t.name_tg = @cbType";
+
+                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                {
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@cbType";
+                    param.Value = cbType.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    spDataSet.Service.Clear();
+                    dataAdapter.Fill(spDataSet.Service);
+
+                }
+
+                dgvService.DataSource = spDataSet.Service;
+            }
         }
 
         private void btnPullOut_Click(object sender, EventArgs e)
         {
-            tbName.Text = "";
-            cbType.Text = "";
-            serviceBindingSource.Filter = null;
-            typeGoodBindingSource.Filter = null;
+            spDataSet.Service.Clear();
+            serviceTableAdapter.Fill(spDataSet.Service);
         }
     }
 }

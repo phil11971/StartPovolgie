@@ -88,7 +88,7 @@ namespace StartPovolgie.DAO
                 SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_sps) From SparePartStatus Where UPPER(REPLACE(name_sps,' ',''))=UPPER(REPLACE('{0}',' ',''))", sparePartStatus.Name);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_sps) From SparePartStatus Where UPPER(REPLACE(name_sps,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_ws!='{1}'", sparePartStatus.Name, sparePartStatus.Id);
+                    sql = string.Format("Select count(id_sps) From SparePartStatus Where UPPER(REPLACE(name_sps,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_sps!='{1}'", sparePartStatus.Name, sparePartStatus.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

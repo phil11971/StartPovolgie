@@ -59,6 +59,9 @@
             this.lblEmp = new System.Windows.Forms.LinkLabel();
             this.pbEmployee = new System.Windows.Forms.PictureBox();
             this.pbStartPovolgie = new System.Windows.Forms.PictureBox();
+            this.состояниеРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.состояниеНеисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.статусЗапчастиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartPovolgie)).BeginInit();
@@ -88,7 +91,10 @@
             this.товарыToolStripMenuItem,
             this.типыТоваровToolStripMenuItem,
             this.специализацииМастеровToolStripMenuItem,
-            this.офисныеТелефоныToolStripMenuItem});
+            this.офисныеТелефоныToolStripMenuItem,
+            this.состояниеРаботыToolStripMenuItem,
+            this.состояниеНеисправностиToolStripMenuItem,
+            this.статусЗапчастиToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -112,7 +118,7 @@
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
             // 
             // клиентыToolStripMenuItem
@@ -167,6 +173,7 @@
             this.специализацииМастеровToolStripMenuItem.Name = "специализацииМастеровToolStripMenuItem";
             this.специализацииМастеровToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.специализацииМастеровToolStripMenuItem.Text = "Специализации мастеров";
+            this.специализацииМастеровToolStripMenuItem.Click += new System.EventHandler(this.специализацииМастеровToolStripMenuItem_Click);
             // 
             // офисныеТелефоныToolStripMenuItem
             // 
@@ -304,6 +311,27 @@
             this.pbStartPovolgie.TabIndex = 11;
             this.pbStartPovolgie.TabStop = false;
             // 
+            // состояниеРаботыToolStripMenuItem
+            // 
+            this.состояниеРаботыToolStripMenuItem.Name = "состояниеРаботыToolStripMenuItem";
+            this.состояниеРаботыToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.состояниеРаботыToolStripMenuItem.Text = "Состояние работы";
+            this.состояниеРаботыToolStripMenuItem.Click += new System.EventHandler(this.состояниеРаботыToolStripMenuItem_Click);
+            // 
+            // состояниеНеисправностиToolStripMenuItem
+            // 
+            this.состояниеНеисправностиToolStripMenuItem.Name = "состояниеНеисправностиToolStripMenuItem";
+            this.состояниеНеисправностиToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.состояниеНеисправностиToolStripMenuItem.Text = "Состояние неисправности";
+            this.состояниеНеисправностиToolStripMenuItem.Click += new System.EventHandler(this.состояниеНеисправностиToolStripMenuItem_Click);
+            // 
+            // статусЗапчастиToolStripMenuItem
+            // 
+            this.статусЗапчастиToolStripMenuItem.Name = "статусЗапчастиToolStripMenuItem";
+            this.статусЗапчастиToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.статусЗапчастиToolStripMenuItem.Text = "Статус запчасти";
+            this.статусЗапчастиToolStripMenuItem.Click += new System.EventHandler(this.статусЗапчастиToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,5 +389,8 @@
         private System.Windows.Forms.ToolStripMenuItem мастерыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem администраторыToolStripMenuItem;
         private System.Windows.Forms.LinkLabel lblEmp;
+        private System.Windows.Forms.ToolStripMenuItem состояниеРаботыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem состояниеНеисправностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem статусЗапчастиToolStripMenuItem;
     }
 }
