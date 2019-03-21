@@ -86,5 +86,26 @@ namespace StartPovolgie.Forms
                 }
             }
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!( Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar) ))
+            {
+                e.Handled = true;
+            }
+            else if (!(e.KeyChar >= 1040 && e.KeyChar <= 1103 || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar) )) // 1040...1071 А ~ Я 1072...1103 а ~ я
+            {
+                String myCurrentLanguage = InputLanguage.CurrentInputLanguage.LayoutName;
+                ChangeKeyboardLayout(System.Globalization.CultureInfo.GetCultureInfo("ru-RU"));
+                e.Handled = true;
+            }
+        }
+
+        private void ChangeKeyboardLayout(System.Globalization.CultureInfo CultureInfo)
+        {
+            InputLanguage c = InputLanguage.FromCulture(CultureInfo);
+            InputLanguage.CurrentInputLanguage = c;
+        }
+
     }
 }

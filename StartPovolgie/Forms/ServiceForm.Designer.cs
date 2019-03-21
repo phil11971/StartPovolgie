@@ -42,13 +42,13 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvService = new System.Windows.Forms.DataGridView();
-            this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.serviceTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceTableAdapter();
-            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.idserviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameserviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.serviceTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceTableAdapter();
+            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
@@ -89,6 +89,7 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 21);
             this.cbType.TabIndex = 4;
+            this.cbType.ValueMember = "id_tg";
             // 
             // typeGoodBindingSource
             // 
@@ -192,19 +193,6 @@
             this.dgvService.Size = new System.Drawing.Size(545, 148);
             this.dgvService.TabIndex = 9;
             // 
-            // serviceBindingSource
-            // 
-            this.serviceBindingSource.DataMember = "Service";
-            this.serviceBindingSource.DataSource = this.spDataSet;
-            // 
-            // serviceTableAdapter
-            // 
-            this.serviceTableAdapter.ClearBeforeFill = true;
-            // 
-            // typeGoodTableAdapter
-            // 
-            this.typeGoodTableAdapter.ClearBeforeFill = true;
-            // 
             // idserviceDataGridViewTextBoxColumn
             // 
             this.idserviceDataGridViewTextBoxColumn.DataPropertyName = "id_service";
@@ -238,6 +226,19 @@
             this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
+            // 
+            // serviceBindingSource
+            // 
+            this.serviceBindingSource.DataMember = "Service";
+            this.serviceBindingSource.DataSource = this.spDataSet;
+            // 
+            // serviceTableAdapter
+            // 
+            this.serviceTableAdapter.ClearBeforeFill = true;
+            // 
+            // typeGoodTableAdapter
+            // 
+            this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
             // ServiceForm
             // 

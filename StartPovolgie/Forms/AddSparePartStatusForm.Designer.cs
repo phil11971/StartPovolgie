@@ -45,7 +45,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Добавление нового типа товара";
+            this.groupBox1.Text = "Добавление нового статуса запчасти";
             // 
             // button1
             // 
@@ -63,6 +63,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 
@@ -80,7 +81,7 @@
             this.ClientSize = new System.Drawing.Size(226, 121);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddTypeGoodForm";
-            this.Text = "Добавление типа товара";
+            this.Text = "Добавление статуса запчасти";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -102,14 +103,14 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 100);
+            this.groupBox1.Size = new System.Drawing.Size(215, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление нового статуса запчасти";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 61);
+            this.button1.Location = new System.Drawing.Point(119, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -121,8 +122,9 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(94, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 

@@ -21,7 +21,7 @@ namespace StartPovolgie.Forms
         public AddOfficePhoneForm()
         {
             InitializeComponent();
-            this.ActiveControl = textBox1;
+            this.ActiveControl = maskedTextBox1;
             officePhoneController = new OfficePhoneController();
         }
 
@@ -30,13 +30,13 @@ namespace StartPovolgie.Forms
             //todo подправить везде update и MessageBox'ы при удалении итд
             InitializeComponent(numberOfficePhone);
             this.id = id;
-            this.ActiveControl = textBox1;
+            this.ActiveControl = maskedTextBox1;
             officePhoneController = new OfficePhoneController();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Trim().Equals(""))
+            if (maskedTextBox1.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -46,7 +46,7 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        OfficePhone officePhone = new OfficePhone(textBox1.Text.Trim());
+                        OfficePhone officePhone = new OfficePhone(maskedTextBox1.Text.Trim());
                         if (!officePhoneController.Insert(officePhone))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,7 +58,7 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            OfficePhone officePhone = new OfficePhone(id, textBox1.Text.Trim());
+                            OfficePhone officePhone = new OfficePhone(id, maskedTextBox1.Text.Trim());
                             if (!officePhoneController.Update(officePhone))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,5 +88,6 @@ namespace StartPovolgie.Forms
                 }
             }
         }
+
     }
 }

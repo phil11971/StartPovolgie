@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StartPovolgie.Controller;
+using StartPovolgie.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,81 @@ namespace StartPovolgie.Forms
 {
     public partial class AddGoodForm : Form
     {
+
+        private int id;
+        GoodController goodController;
+
         public AddGoodForm()
         {
             InitializeComponent();
+            this.ActiveControl = tbName;
+            goodController = new GoodController();
+            typeGoodTableAdapter.Fill(spDataSet.TypeGood);
+        }
+
+        public AddGoodForm(int id, string name, string type)
+        {
+            InitializeComponent(name, type);
+            this.id = id;
+            this.ActiveControl = tbName;
+            goodController = new GoodController();
+            typeGoodTableAdapter.Fill(spDataSet.TypeGood);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (tbName.Text.Trim().Equals("") || cbType.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    if (id == 0)
+                    {
+                        TypeGood typeGood = new TypeGood(Convert.ToInt32(cbType.SelectedValue.ToString()), cbType.Text.Trim());
+                        Good good = new Good(tbName.Text.Trim(), typeGood);
+                        if (!goodController.Insert(good))
+                        {
+                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                            this.Close();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Good good = new Good(id, tbName.Text.Trim(), new TypeGood(Convert.ToInt32(cbType.SelectedValue.ToString()), cbType.Text.Trim()));
+                            if (!goodController.Update(good))
+                            {
+                                MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                                this.Close();
+
+                        }
+                        catch (System.Data.SqlClient.SqlException)
+                        {
+                            MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Ошибка работы с базой данных!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ошибка работы с базой данных!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -9,25 +9,32 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.DAO
 {
-    public class OfficePhoneDAO
+    public class GoodDAO
     {
-        public bool Insert(OfficePhone officePhone)
+        public bool Insert(Good good)
         {
             try
             {
-                if (!HasSameType(officePhone, false))
+                if (!HasSameType(good, false))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Insert into OfficePhone (phone) values (@officePhone_number)";
+                    string sql = "Insert into Good (name_g, id_tg) values (UPPER(LEFT(@good_name, 1))+ SUBSTRING (@good_name,2,len (@good_name)), @good_id_tg) ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
-                        param.ParameterName = "@officePhone_number";
-                        param.Value = officePhone.Number;
+                        param.ParameterName = "@good_name";
+                        param.Value = good.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
                         cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@good_id_tg";
+                        param.Value = good.TypeGood.Id;
+                        param.SqlDbType = SqlDbType.Int;
+                        cmd.Parameters.Add(param);
+
                         cmd.ExecuteNonQuery();
                     }
                     ConnectionDB.Disconnect(sqlConnection);
@@ -42,29 +49,35 @@ namespace StartPovolgie.DAO
             }
         }
 
-        public bool Update(OfficePhone officePhone)
+        public bool Update(Good good)
         {
             try
             {
-                if (!HasSameType(officePhone, true))
+                if (!HasSameType(good, true))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Update OfficePhone Set phone=(@officePhone_number) Where id_op=(@officePhone_id);";
+                    string sql = "Update Good Set name_g=(UPPER(LEFT(@good_name, 1))+ SUBSTRING (@good_name,2,len (@good_name))), id_tg=@good_id_tg Where id_g=(@good_id);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
                         param = new SqlParameter();
-                        param.ParameterName = "@officePhone_id";
-                        param.Value = officePhone.Id;
+                        param.ParameterName = "@good_id";
+                        param.Value = good.IdGood;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
-                        param.ParameterName = "@officePhone_number";
-                        param.Value = officePhone.Number;
+                        param.ParameterName = "@good_name";
+                        param.Value = good.Name;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@good_id_tg";
+                        param.Value = good.TypeGood.Id;
+                        param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         cmd.ExecuteNonQuery();
@@ -80,15 +93,15 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
-        
-        private bool HasSameType(OfficePhone officePhone, bool isUpdate)
+
+        private bool HasSameType(Good good, bool isUpdate)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_op) From OfficePhone Where phone='{0}'", officePhone.Number);
+                string sql = string.Format("Select count(id_g) From Good Where UPPER(REPLACE(name_g,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_tg='{1}'", good.Name, good.TypeGood.Id);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_op) From OfficePhone Where phone='{0}' AND id_op!='{1}'", officePhone.Number, officePhone.Id);
+                    sql = string.Format("Select count(id_g) From Good Where UPPER(REPLACE(name_g,' ',''))=UPPER(REPLACE('{0}',' ','')) AND id_tg='{1}' AND id_g!='{2}'", good.Name, good.TypeGood.Id, good.IdGood);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -100,7 +113,8 @@ namespace StartPovolgie.DAO
                 dataReader.Close();
                 ConnectionDB.Disconnect(sqlConnection);
                 if (count > 0) return true;
-                else return false;
+                else
+                    return false;
             }
             catch (SqlException ex)
             {
@@ -113,7 +127,7 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Delete From OfficePhone Where id_op= '{0}'", id);
+                string sql = string.Format("Delete From Good Where id_g= '{0}'", id);
                 SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.ExecuteNonQuery();
                 ConnectionDB.Disconnect(sqlConnection);
@@ -123,6 +137,5 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
-
     }
 }

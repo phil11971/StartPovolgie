@@ -42,6 +42,7 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -59,7 +60,7 @@
     <Compile Include="Controller\AdministratorController.cs" />
     <Compile Include="Controller\ChiefController.cs" />
     <Compile Include="Controller\ClientController.cs" />
-    <Compile Include="Controller\ClientGoodController.cs" />
+    <Compile Include="Controller\GoodController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\EntityController.cs" />
     <Compile Include="Controller\FaultController.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="DAO\AdministratorDAO.cs" />
     <Compile Include="DAO\ChiefDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
-    <Compile Include="DAO\ClientGoodDAO.cs" />
+    <Compile Include="DAO\GoodDAO.cs" />
     <Compile Include="DAO\ConnectionDB.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\EntityDAO.cs" />
@@ -322,7 +323,7 @@
     <Compile Include="Model\Chief.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\ClientGood.cs" />
+    <Compile Include="Model\Good.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Fault.cs" />

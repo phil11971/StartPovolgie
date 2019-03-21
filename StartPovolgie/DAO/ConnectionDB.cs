@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,9 +16,8 @@ namespace StartPovolgie.DAO
             SqlConnection sqlConnection = null;
             try
             {
-                string connectionString = @"Data Source=VLAD;Initial Catalog=StartPovolgie;Integrated Security=True";
-                sqlConnection = new SqlConnection();
-                sqlConnection.ConnectionString = connectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["CrosswordDBConnectionString"].ConnectionString;
+                sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
             }
             catch (Exception ex)

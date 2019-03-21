@@ -44,7 +44,7 @@ namespace StartPovolgie.Forms
             int id = Convert.ToInt32(dgvService.CurrentRow.Cells[0].Value);
             string name = (string)dgvService.CurrentRow.Cells[1].Value;
             int price = Convert.ToInt32(dgvService.CurrentRow.Cells[2].Value);
-            string type = (string)dgvService.CurrentRow.Cells[3].Value;
+            string type = dgvService.CurrentRow.Cells[3].Value.ToString();
             var editTypeGoodForm = new AddServiceForm(id, name, price, type);
             editTypeGoodForm.Closing += AddTypeOfDevicesForm_Closing;
             editTypeGoodForm.ShowDialog();

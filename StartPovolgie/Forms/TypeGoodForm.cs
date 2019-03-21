@@ -27,6 +27,7 @@ namespace StartPovolgie.Forms
         {
             var addTypeGoodForm = new AddTypeGoodForm();
             addTypeGoodForm.Closing += AddTypeOfDevicesForm_Closing;
+            addTypeGoodForm.Closing += btnCancel_Click;
             addTypeGoodForm.ShowDialog();
         }
 
@@ -83,6 +84,26 @@ namespace StartPovolgie.Forms
             //    Console.WriteLine((typeGoodBindingSource.Current as DataRowView).Row[1]);
             //    typeGoodBindingSource.MoveNext();
             //}
+        }
+
+        private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+            else if (!(e.KeyChar >= 1040 && e.KeyChar <= 1103 || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar))) // 1040...1071 А ~ Я 1072...1103 а ~ я
+            {
+                String myCurrentLanguage = InputLanguage.CurrentInputLanguage.LayoutName;
+                ChangeKeyboardLayout(System.Globalization.CultureInfo.GetCultureInfo("ru-RU"));
+                e.Handled = true;
+            }
+        }
+
+        private void ChangeKeyboardLayout(System.Globalization.CultureInfo CultureInfo)
+        {
+            InputLanguage c = InputLanguage.FromCulture(CultureInfo);
+            InputLanguage.CurrentInputLanguage = c;
         }
     }
 }

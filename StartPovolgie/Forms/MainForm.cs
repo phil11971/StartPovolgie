@@ -62,5 +62,10 @@ namespace StartPovolgie.Forms
         {
             new SparePartStatusForm().ShowDialog();
         }
+
+        private void товарыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GoodForm().ShowDialog();
+        }
     }
 }
