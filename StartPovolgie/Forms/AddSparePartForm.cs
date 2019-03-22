@@ -12,31 +12,32 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class AddServiceForm : Form
+    public partial class AddSparePartForm : Form
     {
-        private int id;
-        ServiceController serviceController;
 
-        public AddServiceForm()
+        private int id;
+        SparePartController sparePartController;
+
+        public AddSparePartForm()
         {
             InitializeComponent();
             this.ActiveControl = tbName;
-            serviceController = new ServiceController();
-            typeGoodTableAdapter.Fill(spDataSet.TypeGood);
+            sparePartController = new SparePartController();
+            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
         }
 
-        public AddServiceForm(int id, string name, int price, string type)
+        public AddSparePartForm(int id, string name, string desc, int cnt, int price, string status)
         {
-            InitializeComponent(name, price, type);
+            InitializeComponent(name, desc, cnt, price, status);
             this.id = id;
             this.ActiveControl = tbName;
-            serviceController = new ServiceController();
-            typeGoodTableAdapter.Fill(spDataSet.TypeGood);
+            sparePartController = new SparePartController();
+            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim().Equals("") || tbPrice.Text.Trim().Equals("") || cbType.Text.Trim().Equals(""))
+            if (tbName.Text.Trim().Equals("") || tbPrice.Text.Trim().Equals("") || cbStatus.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -46,9 +47,9 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        TypeGood typeGood = new TypeGood(Convert.ToInt32(cbType.SelectedValue.ToString()), cbType.Text.Trim());
-                        Service service = new Service(tbName.Text.Trim(), Convert.ToInt32(tbPrice.Text.Trim()), typeGood);
-                        if (!serviceController.Insert(service))
+                        SparePartStatus sparePartStatus = new SparePartStatus(Convert.ToInt32(cbStatus.SelectedValue.ToString()), cbStatus.Text.Trim());
+                        SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()), sparePartStatus);
+                        if (!sparePartController.Insert(sparePart))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -59,8 +60,8 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            Service service = new Service(id, tbName.Text.Trim(), Convert.ToInt32(tbPrice.Text.Trim()), new TypeGood(Convert.ToInt32(cbType.SelectedValue.ToString()), cbType.Text.Trim()));
-                            if (!serviceController.Update(service))
+                            SparePart sparePart = new SparePart(id, tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()), new SparePartStatus(Convert.ToInt32(cbStatus.SelectedValue.ToString()), cbStatus.Text.Trim()));
+                            if (!sparePartController.Update(sparePart))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -87,6 +88,14 @@ namespace StartPovolgie.Forms
                 {
                     MessageBox.Show("Ошибка работы с базой данных!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void tbCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
             }
         }
 

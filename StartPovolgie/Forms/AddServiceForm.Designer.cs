@@ -98,6 +98,7 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(121, 20);
             this.tbPrice.TabIndex = 7;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
             // 
             // tbName
             // 
@@ -237,6 +238,7 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(121, 20);
             this.tbPrice.TabIndex = 7;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
             // 
             // tbName
             // 

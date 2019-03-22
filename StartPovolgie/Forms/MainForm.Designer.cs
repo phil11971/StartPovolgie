@@ -111,15 +111,16 @@
             // работыУслугиToolStripMenuItem
             // 
             this.работыУслугиToolStripMenuItem.Name = "работыУслугиToolStripMenuItem";
-            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.работыУслугиToolStripMenuItem.Text = "Работы/Услуги";
             this.работыУслугиToolStripMenuItem.Click += new System.EventHandler(this.работыУслугиToolStripMenuItem_Click);
             // 
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
+            this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.запчастиToolStripMenuItem_Click);
             // 
             // клиентыToolStripMenuItem
             // 
@@ -140,19 +141,19 @@
             // начальникToolStripMenuItem
             // 
             this.начальникToolStripMenuItem.Name = "начальникToolStripMenuItem";
-            this.начальникToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.начальникToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.начальникToolStripMenuItem.Text = "Начальник";
             // 
             // мастерыToolStripMenuItem
             // 
             this.мастерыToolStripMenuItem.Name = "мастерыToolStripMenuItem";
-            this.мастерыToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.мастерыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.мастерыToolStripMenuItem.Text = "Мастеры";
             // 
             // администраторыToolStripMenuItem
             // 
             this.администраторыToolStripMenuItem.Name = "администраторыToolStripMenuItem";
-            this.администраторыToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.администраторыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.администраторыToolStripMenuItem.Text = "Администраторы";
             // 
             // товарыToolStripMenuItem

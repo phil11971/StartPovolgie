@@ -16,7 +16,7 @@ namespace StartPovolgie.DAO
             SqlConnection sqlConnection = null;
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["CrosswordDBConnectionString"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["StartPovolgieDBConnectionString"].ConnectionString;
                 sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
             }

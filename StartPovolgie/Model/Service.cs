@@ -24,12 +24,9 @@ namespace StartPovolgie.Model
             TypeGood = typeGood;
         }
 
-        public Service(int idService, string name, int price, TypeGood typeGood)
+        public Service(int idService, string name, int price, TypeGood typeGood) : this(name, price, typeGood)
         {
             IdService = idService;
-            Name = name;
-            Price = price;
-            TypeGood = typeGood;
         }
     }
 }
