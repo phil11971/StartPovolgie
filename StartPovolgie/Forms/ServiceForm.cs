@@ -76,7 +76,6 @@ namespace StartPovolgie.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            //todo сделать нормально через процедуры итд https://metanit.com/sharp/adonet/2.11.php
             if (!tbName.Text.Equals("") && !cbType.Text.Equals(""))
             {
                 string sql = "Select s.id_service, s.name_service, s.price, s.id_tg From Service s Join TypeGood t On s.id_tg = t.id_tg Where t.name_tg = @cbType and s.name_service = @tbName";

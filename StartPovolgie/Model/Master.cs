@@ -11,7 +11,10 @@ namespace StartPovolgie.Model
         public int IdChief { get; set; }
         public Dictionary<int, string> Spec { get; set; }
 
-        public Master(int id, string login, string pass, string lastName, string firstName, string patronymic, string phone, string address, int idChief, Dictionary<int, string> spec) : base(id, login, pass, lastName, firstName, patronymic, phone, address) {
+        public Master(int id, string login, string pass, 
+                      string lastName, string firstName, string patronymic, 
+                      string phone, string address, int idChief, Dictionary<int, string> spec) 
+            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Мастер", true) {
             IdChief = idChief;
             Spec = spec;
         }

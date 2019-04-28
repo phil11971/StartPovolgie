@@ -35,7 +35,6 @@
             this.запчастиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.начальникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.мастерыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.администраторыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.товарыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,6 +97,7 @@
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
+            this.справочникиToolStripMenuItem.Click += new System.EventHandler(this.справочникиToolStripMenuItem_Click);
             // 
             // прайслистыToolStripMenuItem
             // 
@@ -111,14 +111,14 @@
             // работыУслугиToolStripMenuItem
             // 
             this.работыУслугиToolStripMenuItem.Name = "работыУслугиToolStripMenuItem";
-            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.работыУслугиToolStripMenuItem.Text = "Работы/Услуги";
             this.работыУслугиToolStripMenuItem.Click += new System.EventHandler(this.работыУслугиToolStripMenuItem_Click);
             // 
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
             this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.запчастиToolStripMenuItem_Click);
             // 
@@ -131,30 +131,25 @@
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начальникToolStripMenuItem,
             this.мастерыToolStripMenuItem,
             this.администраторыToolStripMenuItem});
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
             this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
             // 
-            // начальникToolStripMenuItem
-            // 
-            this.начальникToolStripMenuItem.Name = "начальникToolStripMenuItem";
-            this.начальникToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.начальникToolStripMenuItem.Text = "Начальник";
-            // 
             // мастерыToolStripMenuItem
             // 
             this.мастерыToolStripMenuItem.Name = "мастерыToolStripMenuItem";
             this.мастерыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.мастерыToolStripMenuItem.Text = "Мастеры";
+            this.мастерыToolStripMenuItem.Text = "Мастер";
+            this.мастерыToolStripMenuItem.Click += new System.EventHandler(this.мастерыToolStripMenuItem_Click);
             // 
             // администраторыToolStripMenuItem
             // 
             this.администраторыToolStripMenuItem.Name = "администраторыToolStripMenuItem";
             this.администраторыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.администраторыToolStripMenuItem.Text = "Администраторы";
+            this.администраторыToolStripMenuItem.Text = "Администратор";
+            this.администраторыToolStripMenuItem.Click += new System.EventHandler(this.администраторыToolStripMenuItem_Click);
             // 
             // товарыToolStripMenuItem
             // 
@@ -387,7 +382,6 @@
         private System.Windows.Forms.ToolStripMenuItem реестрЗаявокНаРемонтToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem реестрЗаказнарядовToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem реестрToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem начальникToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem мастерыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem администраторыToolStripMenuItem;
         private System.Windows.Forms.LinkLabel lblEmp;

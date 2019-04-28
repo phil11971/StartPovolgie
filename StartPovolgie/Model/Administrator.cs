@@ -8,6 +8,15 @@ namespace StartPovolgie.Model
 {
     public class Administrator : Employee
     {
-        public Administrator(int id, string login, string pass, string lastName, string firstName, string patronymic, string phone, string address) : base(id, login, pass, lastName, firstName, patronymic, phone, address) {}
+        public Administrator(string login, string pass, 
+                             string lastName, string firstName, string patronymic, 
+                             string phone, string address) 
+            : base(login, pass, lastName, firstName, patronymic, phone, address, "Администратор", true) {}
+
+        public Administrator(int id, string login, string pass,
+                             string lastName, string firstName, string patronymic,
+                             string phone, string address)
+            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Администратор", true) { }
+
     }
 }

@@ -72,5 +72,21 @@ namespace StartPovolgie.Forms
         {
             new SparePartForm().ShowDialog();
         }
+
+        private void справочникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void администраторыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new EmployeeForm(Emp.Id).ShowDialog();
+            //new AddEmployeeForm("Администратор").ShowDialog();
+        }
+
+        private void мастерыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MasterForm().ShowDialog();
+        }
     }
 }

@@ -14,5 +14,22 @@ namespace StartPovolgie.Controller
         {
             return new EmployeeDAO().GetEmployeeByAuthorization(login, password);
         }
+
+        public bool Insert(Employee employee)
+        {
+            if (new EmployeeDAO().Insert(employee)) return true;
+            else return false;
+        }
+
+        public bool Update(Employee employee)
+        {
+            if (new EmployeeDAO().Update(employee)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new EmployeeDAO().DeleteById(id);
+        }
     }
 }

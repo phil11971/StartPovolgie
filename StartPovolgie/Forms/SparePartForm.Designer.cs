@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbSearch = new System.Windows.Forms.GroupBox();
+            this.lblType = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.sparePartStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnPullOut = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -38,24 +42,19 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvSpareParts = new System.Windows.Forms.DataGridView();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.lblType = new System.Windows.Forms.Label();
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.sparePartStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartStatusTableAdapter();
-            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
-            this.sparePartStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
             this.gbSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +72,36 @@
             this.gbSearch.TabIndex = 0;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Поиск";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(11, 54);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(41, 13);
+            this.lblType.TabIndex = 6;
+            this.lblType.Text = "Статус";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.DataSource = this.sparePartStatusBindingSource;
+            this.cbStatus.DisplayMember = "name_sps";
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(100, 51);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(121, 21);
+            this.cbStatus.TabIndex = 5;
+            this.cbStatus.ValueMember = "id_sps";
+            // 
+            // sparePartStatusBindingSource
+            // 
+            this.sparePartStatusBindingSource.DataMember = "SparePartStatus";
+            this.sparePartStatusBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnPullOut
             // 
@@ -159,61 +188,6 @@
             this.dgvSpareParts.Size = new System.Drawing.Size(564, 150);
             this.dgvSpareParts.TabIndex = 9;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(12, 299);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(240, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Только запчасти, которые есть в наличии";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.DataSource = this.sparePartStatusBindingSource;
-            this.cbStatus.DisplayMember = "name_sps";
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(100, 51);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cbStatus.TabIndex = 5;
-            this.cbStatus.ValueMember = "id_sps";
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(11, 54);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(41, 13);
-            this.lblType.TabIndex = 6;
-            this.lblType.Text = "Статус";
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sparePartStatusTableAdapter
-            // 
-            this.sparePartStatusTableAdapter.ClearBeforeFill = true;
-            // 
-            // sparePartTableAdapter
-            // 
-            this.sparePartTableAdapter.ClearBeforeFill = true;
-            // 
-            // sparePartStatusBindingSource
-            // 
-            this.sparePartStatusBindingSource.DataMember = "SparePartStatus";
-            this.sparePartStatusBindingSource.DataSource = this.spDataSet;
-            // 
-            // sparePartBindingSource
-            // 
-            this.sparePartBindingSource.DataMember = "SparePart";
-            this.sparePartBindingSource.DataSource = this.spDataSet;
-            // 
             // idspDataGridViewTextBoxColumn
             // 
             this.idspDataGridViewTextBoxColumn.DataPropertyName = "id_sp";
@@ -257,6 +231,27 @@
             this.idspsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idspsDataGridViewTextBoxColumn.ValueMember = "id_sps";
             // 
+            // sparePartBindingSource
+            // 
+            this.sparePartBindingSource.DataMember = "SparePart";
+            this.sparePartBindingSource.DataSource = this.spDataSet;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(12, 299);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(240, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Только запчасти, которые есть в наличии";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // sparePartTableAdapter
+            // 
+            this.sparePartTableAdapter.ClearBeforeFill = true;
+            // 
             // SparePartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,9 +268,9 @@
             this.Load += new System.EventHandler(this.SparePartForm_Load);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,7 +300,6 @@
         private System.Windows.Forms.BindingSource sparePartStatusBindingSource;
         private SPDataSet spDataSet;
         private System.Windows.Forms.BindingSource sparePartBindingSource;
-        private SPDataSetTableAdapters.SparePartStatusTableAdapter sparePartStatusTableAdapter;
         private SPDataSetTableAdapters.SparePartTableAdapter sparePartTableAdapter;
     }
 }

@@ -30,6 +30,8 @@
         {
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoEmp = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbPatronymic = new System.Windows.Forms.TextBox();
@@ -61,6 +63,8 @@
             // 
             // gbInfoEmp
             // 
+            this.gbInfoEmp.Controls.Add(this.label1);
+            this.gbInfoEmp.Controls.Add(this.tbAddress);
             this.gbInfoEmp.Controls.Add(this.cbStatus);
             this.gbInfoEmp.Controls.Add(this.tbPhone);
             this.gbInfoEmp.Controls.Add(this.tbPatronymic);
@@ -73,18 +77,41 @@
             this.gbInfoEmp.Controls.Add(this.lblLastName);
             this.gbInfoEmp.Location = new System.Drawing.Point(31, 45);
             this.gbInfoEmp.Name = "gbInfoEmp";
-            this.gbInfoEmp.Size = new System.Drawing.Size(254, 205);
+            this.gbInfoEmp.Size = new System.Drawing.Size(254, 228);
             this.gbInfoEmp.TabIndex = 1;
             this.gbInfoEmp.TabStop = false;
             this.gbInfoEmp.Text = "Общая информация о сотруднике";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Адрес";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(95, 202);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(121, 20);
+            this.tbAddress.TabIndex = 14;
+            // 
             // cbStatus
             // 
+            this.cbStatus.DisplayMember = "Работает";
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Работает",
+            "Не работает"});
             this.cbStatus.Location = new System.Drawing.Point(95, 173);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
             this.cbStatus.TabIndex = 13;
+            this.cbStatus.Tag = "Работает";
+            this.cbStatus.ValueMember = "Работает";
             // 
             // tbPhone
             // 
@@ -165,7 +192,7 @@
             this.gbInfoEmpEntry.Controls.Add(this.tbLogin);
             this.gbInfoEmpEntry.Controls.Add(this.lblPass);
             this.gbInfoEmpEntry.Controls.Add(this.lblLogin);
-            this.gbInfoEmpEntry.Location = new System.Drawing.Point(31, 266);
+            this.gbInfoEmpEntry.Location = new System.Drawing.Point(31, 279);
             this.gbInfoEmpEntry.Name = "gbInfoEmpEntry";
             this.gbInfoEmpEntry.Size = new System.Drawing.Size(254, 99);
             this.gbInfoEmpEntry.TabIndex = 2;
@@ -206,18 +233,19 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(209, 372);
+            this.btnAdd.Location = new System.Drawing.Point(210, 384);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 401);
+            this.ClientSize = new System.Drawing.Size(318, 410);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
@@ -253,5 +281,7 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbAddress;
     }
 }

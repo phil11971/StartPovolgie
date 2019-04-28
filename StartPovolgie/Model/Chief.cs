@@ -8,6 +8,9 @@ namespace StartPovolgie.Model
 {
     public class Chief : Employee
     {
-        public Chief(int id, string login, string pass, string lastName, string firstName, string patronymic, string phone, string address) : base(id, login, pass, lastName, firstName, patronymic, phone, address) { }
+        public Chief(int id, string login, string pass, 
+                     string lastName, string firstName, string patronymic, 
+                     string phone, string address) 
+            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Начальник", true) { }
     }
 }
