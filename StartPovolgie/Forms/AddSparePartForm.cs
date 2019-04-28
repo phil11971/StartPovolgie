@@ -23,7 +23,6 @@ namespace StartPovolgie.Forms
             InitializeComponent();
             this.ActiveControl = tbName;
             sparePartController = new SparePartController();
-            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
         }
 
         public AddSparePartForm(int id, string name, string desc, int cnt, int price, string status)
@@ -32,12 +31,11 @@ namespace StartPovolgie.Forms
             this.id = id;
             this.ActiveControl = tbName;
             sparePartController = new SparePartController();
-            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim().Equals("") || tbPrice.Text.Trim().Equals("") || cbStatus.Text.Trim().Equals(""))
+            if (tbName.Text.Trim().Equals("") || tbPrice.Text.Trim().Equals("") )
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -47,26 +45,29 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        SparePartStatus sparePartStatus = new SparePartStatus(Convert.ToInt32(cbStatus.SelectedValue.ToString()), cbStatus.Text.Trim());
-                        SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()), sparePartStatus);
+                        //todo
+                        /*SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()));
                         if (!sparePartController.Insert(sparePart))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
-                            this.Close();
+                            this.Close();*/
                     }
                     else
                     {
                         try
                         {
-                            SparePart sparePart = new SparePart(id, tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()), new SparePartStatus(Convert.ToInt32(cbStatus.SelectedValue.ToString()), cbStatus.Text.Trim()));
+                            //todo
+                            /*
+                            SparePart sparePart = new SparePart(id, tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()));
                             if (!sparePartController.Update(sparePart))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
+                                */
 
                         }
                         catch (System.Data.SqlClient.SqlException)

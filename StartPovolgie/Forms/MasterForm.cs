@@ -16,5 +16,11 @@ namespace StartPovolgie.Forms
         {
             InitializeComponent();
         }
+
+        private void MasterForm_Load(object sender, EventArgs e)
+        {
+            employeeTableAdapter.Fill(spDataSet.Employee);
+            masterSpecializationTableAdapter.FillBy(spDataSet.MasterSpecialization);
+        }
     }
 }

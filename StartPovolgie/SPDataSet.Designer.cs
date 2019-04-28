@@ -4091,6 +4091,8 @@ namespace StartPovolgie {
             
             private global::System.Data.DataColumn columnchar_spec;
             
+            private global::System.Data.DataColumn columnname_spec;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public MasterSpecializationDataTable() {
@@ -4150,6 +4152,14 @@ namespace StartPovolgie {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn name_specColumn {
+                get {
+                    return this.columnname_spec;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4185,12 +4195,13 @@ namespace StartPovolgie {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MasterSpecializationRow AddMasterSpecializationRow(MasterRow parentMasterRowByFK__MasterSpe__id_ma__56D3D912, SpecializationRow parentSpecializationRowByFK__MasterSpe__id_sp__57C7FD4B, string char_spec) {
+            public MasterSpecializationRow AddMasterSpecializationRow(MasterRow parentMasterRowByFK__MasterSpe__id_ma__56D3D912, SpecializationRow parentSpecializationRowByFK__MasterSpe__id_sp__57C7FD4B, string char_spec, string name_spec) {
                 MasterSpecializationRow rowMasterSpecializationRow = ((MasterSpecializationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        char_spec};
+                        char_spec,
+                        name_spec};
                 if ((parentMasterRowByFK__MasterSpe__id_ma__56D3D912 != null)) {
                     columnValuesArray[0] = parentMasterRowByFK__MasterSpe__id_ma__56D3D912[0];
                 }
@@ -4230,6 +4241,7 @@ namespace StartPovolgie {
                 this.columnid_master = base.Columns["id_master"];
                 this.columnid_spec = base.Columns["id_spec"];
                 this.columnchar_spec = base.Columns["char_spec"];
+                this.columnname_spec = base.Columns["name_spec"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4241,6 +4253,8 @@ namespace StartPovolgie {
                 base.Columns.Add(this.columnid_spec);
                 this.columnchar_spec = new global::System.Data.DataColumn("char_spec", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchar_spec);
+                this.columnname_spec = new global::System.Data.DataColumn("name_spec", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_spec);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_master,
                                 this.columnid_spec}, true));
@@ -4248,6 +4262,8 @@ namespace StartPovolgie {
                 this.columnid_spec.AllowDBNull = false;
                 this.columnchar_spec.AllowDBNull = false;
                 this.columnchar_spec.MaxLength = 200;
+                this.columnname_spec.AllowDBNull = false;
+                this.columnname_spec.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7202,6 +7218,17 @@ namespace StartPovolgie {
                 }
                 set {
                     this[this.tableMasterSpecialization.char_specColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string name_spec {
+                get {
+                    return ((string)(this[this.tableMasterSpecialization.name_specColumn]));
+                }
+                set {
+                    this[this.tableMasterSpecialization.name_specColumn] = value;
                 }
             }
             
@@ -12013,6 +12040,7 @@ SELECT id_individ, lname, fname, patronymic FROM Individual WHERE (id_individ = 
             tableMapping.ColumnMappings.Add("id_master", "id_master");
             tableMapping.ColumnMappings.Add("id_spec", "id_spec");
             tableMapping.ColumnMappings.Add("char_spec", "char_spec");
+            tableMapping.ColumnMappings.Add("name_spec", "name_spec");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -12055,11 +12083,19 @@ SELECT id_master, id_spec, char_spec FROM MasterSpecialization WHERE (id_master 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_master, id_spec, char_spec FROM dbo.MasterSpecialization";
+            this._commandCollection[0].CommandText = "SELECT        ms.id_master, ms.id_spec, ms.char_spec, s.name_spec\r\nFROM          " +
+                "  MasterSpecialization AS ms INNER JOIN\r\n                         Specialization" +
+                " AS s ON ms.id_spec = s.id_spec";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ms.id_master, ms.id_spec, ms.char_spec, s.name_spec\r\nFROM          " +
+                "  MasterSpecialization AS ms INNER JOIN\r\n                         Specialization" +
+                " AS s ON s.id_spec = ms.id_spec";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12081,6 +12117,30 @@ SELECT id_master, id_spec, char_spec FROM MasterSpecialization WHERE (id_master 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SPDataSet.MasterSpecializationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            SPDataSet.MasterSpecializationDataTable dataTable = new SPDataSet.MasterSpecializationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(SPDataSet.MasterSpecializationDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual SPDataSet.MasterSpecializationDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             SPDataSet.MasterSpecializationDataTable dataTable = new SPDataSet.MasterSpecializationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

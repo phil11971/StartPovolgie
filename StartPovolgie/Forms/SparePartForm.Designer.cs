@@ -32,7 +32,6 @@
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.lblType = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.sparePartStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnPullOut = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
@@ -47,12 +46,10 @@
             this.descspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idspsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
             this.gbSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartBindingSource)).BeginInit();
@@ -84,19 +81,12 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.DataSource = this.sparePartStatusBindingSource;
-            this.cbStatus.DisplayMember = "name_sps";
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(100, 51);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
             this.cbStatus.TabIndex = 5;
             this.cbStatus.ValueMember = "id_sps";
-            // 
-            // sparePartStatusBindingSource
-            // 
-            this.sparePartStatusBindingSource.DataMember = "SparePartStatus";
-            this.sparePartStatusBindingSource.DataSource = this.spDataSet;
             // 
             // spDataSet
             // 
@@ -178,8 +168,7 @@
             this.namespDataGridViewTextBoxColumn,
             this.descspDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.idspsDataGridViewTextBoxColumn});
+            this.priceDataGridViewTextBoxColumn});
             this.dgvSpareParts.DataSource = this.sparePartBindingSource;
             this.dgvSpareParts.EnableHeadersVisualStyles = false;
             this.dgvSpareParts.Location = new System.Drawing.Point(12, 142);
@@ -220,17 +209,6 @@
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
-            // idspsDataGridViewTextBoxColumn
-            // 
-            this.idspsDataGridViewTextBoxColumn.DataPropertyName = "id_sps";
-            this.idspsDataGridViewTextBoxColumn.DataSource = this.sparePartStatusBindingSource;
-            this.idspsDataGridViewTextBoxColumn.DisplayMember = "name_sps";
-            this.idspsDataGridViewTextBoxColumn.HeaderText = "Статус";
-            this.idspsDataGridViewTextBoxColumn.Name = "idspsDataGridViewTextBoxColumn";
-            this.idspsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idspsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idspsDataGridViewTextBoxColumn.ValueMember = "id_sps";
-            // 
             // sparePartBindingSource
             // 
             this.sparePartBindingSource.DataMember = "SparePart";
@@ -268,7 +246,6 @@
             this.Load += new System.EventHandler(this.SparePartForm_Load);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSpareParts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sparePartBindingSource)).EndInit();
@@ -296,8 +273,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn idspsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource sparePartStatusBindingSource;
         private SPDataSet spDataSet;
         private System.Windows.Forms.BindingSource sparePartBindingSource;
         private SPDataSetTableAdapters.SparePartTableAdapter sparePartTableAdapter;

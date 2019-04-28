@@ -145,12 +145,6 @@
     <Compile Include="Forms\AddSpecializationForm.Designer.cs">
       <DependentUpon>AddSpecializationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddSparePartStatusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddSparePartStatusForm.Designer.cs">
-      <DependentUpon>AddSparePartStatusForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddFaultStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,23 +271,11 @@
     <Compile Include="Forms\SpecializationForm.Designer.cs">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SparePartStatusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SparePartStatusForm.Designer.cs">
-      <DependentUpon>SparePartStatusForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FaultStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FaultStatusForm.Designer.cs">
       <DependentUpon>FaultStatusForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\WorkStatusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\WorkStatusForm.Designer.cs">
-      <DependentUpon>WorkStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TypeGoodForm.cs">
       <SubType>Form</SubType>
@@ -349,6 +331,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SPDataSet.cs">
+      <DependentUpon>SPDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SPDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -374,9 +359,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSpecializationForm.resx">
       <DependentUpon>AddSpecializationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddSparePartStatusForm.resx">
-      <DependentUpon>AddSparePartStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddFaultStatusForm.resx">
       <DependentUpon>AddFaultStatusForm.cs</DependentUpon>
@@ -441,14 +423,8 @@
     <EmbeddedResource Include="Forms\SpecializationForm.resx">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SparePartStatusForm.resx">
-      <DependentUpon>SparePartStatusForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FaultStatusForm.resx">
       <DependentUpon>FaultStatusForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WorkStatusForm.resx">
-      <DependentUpon>WorkStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeGoodForm.resx">
       <DependentUpon>TypeGoodForm.cs</DependentUpon>

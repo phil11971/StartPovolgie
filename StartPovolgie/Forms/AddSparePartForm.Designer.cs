@@ -32,7 +32,6 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoSpare = new System.Windows.Forms.GroupBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -41,13 +40,7 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.sparePartStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartStatusTableAdapter();
-            this.sparePartStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbInfoSpare.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdd
@@ -61,9 +54,7 @@
             // 
             // gbInfoSpare
             // 
-            this.gbInfoSpare.Controls.Add(this.cbStatus);
             this.gbInfoSpare.Controls.Add(this.tbDesc);
-            this.gbInfoSpare.Controls.Add(this.lblStatus);
             this.gbInfoSpare.Controls.Add(this.tbCount);
             this.gbInfoSpare.Controls.Add(this.tbPrice);
             this.gbInfoSpare.Controls.Add(this.tbName);
@@ -84,15 +75,6 @@
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(121, 20);
             this.tbDesc.TabIndex = 15;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(20, 136);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(41, 13);
-            this.lblStatus.TabIndex = 13;
-            this.lblStatus.Text = "Статус";
             // 
             // tbCount
             // 
@@ -161,31 +143,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // cbStatus
-            // 
-            this.cbStatus.DataSource = this.sparePartStatusBindingSource;
-            this.cbStatus.DisplayMember = "name_sps";
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(95, 137);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cbStatus.TabIndex = 16;
-            this.cbStatus.ValueMember = "id_sps";
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sparePartStatusTableAdapter
-            // 
-            this.sparePartStatusTableAdapter.ClearBeforeFill = true;
-            // 
-            // sparePartStatusBindingSource
-            // 
-            this.sparePartStatusBindingSource.DataMember = "SparePartStatus";
-            this.sparePartStatusBindingSource.DataSource = this.spDataSet;
-            // 
             // AddSparePartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,8 +155,6 @@
             this.Text = "Добавление новой запчасти";
             this.gbInfoSpare.ResumeLayout(false);
             this.gbInfoSpare.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,11 +166,9 @@
         /// </summary>
         private void InitializeComponent(string name, string desc, int cnt, int price, string status)
         {
-            this.components = new System.ComponentModel.Container();
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoSpare = new System.Windows.Forms.GroupBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -224,13 +177,7 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.sparePartStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartStatusTableAdapter();
-            this.sparePartStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbInfoSpare.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdd
@@ -244,9 +191,7 @@
             // 
             // gbInfoSpare
             // 
-            this.gbInfoSpare.Controls.Add(this.cbStatus);
             this.gbInfoSpare.Controls.Add(this.tbDesc);
-            this.gbInfoSpare.Controls.Add(this.lblStatus);
             this.gbInfoSpare.Controls.Add(this.tbCount);
             this.gbInfoSpare.Controls.Add(this.tbPrice);
             this.gbInfoSpare.Controls.Add(this.tbName);
@@ -267,15 +212,6 @@
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(121, 20);
             this.tbDesc.TabIndex = 15;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(20, 136);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(41, 13);
-            this.lblStatus.TabIndex = 13;
-            this.lblStatus.Text = "Статус";
             // 
             // tbCount
             // 
@@ -344,31 +280,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // cbStatus
-            // 
-            this.cbStatus.DataSource = this.sparePartStatusBindingSource;
-            this.cbStatus.DisplayMember = "name_sps";
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(95, 137);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cbStatus.TabIndex = 16;
-            this.cbStatus.ValueMember = "id_sps";
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sparePartStatusTableAdapter
-            // 
-            this.sparePartStatusTableAdapter.ClearBeforeFill = true;
-            // 
-            // sparePartStatusBindingSource
-            // 
-            this.sparePartStatusBindingSource.DataMember = "SparePartStatus";
-            this.sparePartStatusBindingSource.DataSource = this.spDataSet;
-            // 
             // AddSparePartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,8 +292,6 @@
             this.Text = "Добавление новой запчасти";
             this.gbInfoSpare.ResumeLayout(false);
             this.gbInfoSpare.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sparePartStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,10 +310,5 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbDesc;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private SPDataSet spDataSet;
-        private SPDataSetTableAdapters.SparePartStatusTableAdapter sparePartStatusTableAdapter;
-        private System.Windows.Forms.BindingSource sparePartStatusBindingSource;
     }
 }

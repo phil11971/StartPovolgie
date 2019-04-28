@@ -22,7 +22,6 @@ namespace StartPovolgie.Forms
 
         private void SparePartForm_Load(object sender, EventArgs e)
         {
-            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
             sparePartTableAdapter.Fill(spDataSet.SparePart);
         }
 
@@ -35,7 +34,6 @@ namespace StartPovolgie.Forms
 
         private void AddTypeOfDevicesForm_Closing(object sender, CancelEventArgs e)
         {
-            sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
             sparePartTableAdapter.Fill(spDataSet.SparePart);
         }
 
@@ -62,7 +60,6 @@ namespace StartPovolgie.Forms
                 {
                     //typeGoodTableAdapter.Delete(id, name);
                     new SparePartController().DeleteById(id);
-                    sparePartStatusTableAdapter.Fill(spDataSet.SparePartStatus);
                     sparePartTableAdapter.Fill(spDataSet.SparePart);
                 }
                 catch (System.Data.SqlClient.SqlException)
