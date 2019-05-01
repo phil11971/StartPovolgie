@@ -14,13 +14,11 @@ namespace StartPovolgie.Forms
 {
     public partial class AddEmployeeForm : Form
     {
-        private string job;
         EmployeeController employeeController;
 
-        public AddEmployeeForm(string job)
+        public AddEmployeeForm()
         {
             InitializeComponent();
-            this.job = job;
             employeeController = new EmployeeController();
             cbStatus.SelectedItem = "Работает";
         }

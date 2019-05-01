@@ -45,13 +45,7 @@ namespace StartPovolgie.DAO
                         while (dataReader.Read())
                             spec.Add(Convert.ToInt32(dataReader[0]), dataReader[1].ToString());
 
-                        sql = string.Format("Select id_c From Master Where id_m = Lower('{0}')", id_emp);
-
-                        cmd = sqlConnection.CreateCommand();
-                        cmd.CommandText = sql;
-                        int idChief = (int)cmd.ExecuteScalar();
-
-                        emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, idChief, spec);
+                        emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, spec);
                     }
                     else
                         emp = new Chief(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString());

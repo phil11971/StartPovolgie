@@ -29,7 +29,7 @@ namespace StartPovolgie.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addEmployeeForm = new AddEmployeeForm("Администратор");
+            var addEmployeeForm = new AddEmployeeForm();
             addEmployeeForm.Closing += AddEmployeeForm_Closing;
             addEmployeeForm.ShowDialog();
         }
@@ -42,7 +42,7 @@ namespace StartPovolgie.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             //todo: сделать edit
-            var editEmployeeForm = new AddEmployeeForm("Администратор");
+            var editEmployeeForm = new AddEmployeeForm();
             editEmployeeForm.Closing += AddEmployeeForm_Closing;
             editEmployeeForm.ShowDialog();
         }

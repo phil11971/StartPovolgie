@@ -28,7 +28,7 @@ namespace StartPovolgie
                     Application.Run(new MainForm(authForm.Emp));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Произошла ошибка в работе системы!", "Ошибка в работе", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

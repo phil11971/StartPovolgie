@@ -193,6 +193,7 @@
             // 
             this.cbType.DataSource = this.typeGoodBindingSource;
             this.cbType.DisplayMember = "name_tg";
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(95, 69);
             this.cbType.Name = "cbType";

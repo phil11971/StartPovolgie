@@ -1,4 +1,6 @@
-﻿namespace StartPovolgie.Forms
+﻿using System;
+
+namespace StartPovolgie.Forms
 {
     partial class MasterForm
     {
@@ -52,7 +54,7 @@
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMasterSpec = new System.Windows.Forms.DataGridView();
             this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
             this.masterSpecializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.MasterSpecializationTableAdapter();
             this.masterSpecializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -65,7 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbInfoEmp.SuspendLayout();
             this.gbInfoEmpEntry.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasterSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterSpecializationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +79,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Добавить ";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -86,6 +89,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Изменить";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 
@@ -95,6 +99,7 @@
             this.btnDel.TabIndex = 2;
             this.btnDel.Text = "Удалить";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // lblEmployees
             // 
@@ -108,6 +113,7 @@
             // dgvEmployees
             // 
             this.dgvEmployees.AutoGenerateColumns = false;
+            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idempDataGridViewTextBoxColumn,
@@ -119,8 +125,11 @@
             this.dgvEmployees.Location = new System.Drawing.Point(12, 142);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersVisible = false;
+            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.Size = new System.Drawing.Size(303, 132);
             this.dgvEmployees.TabIndex = 4;
+            this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
+            this.dgvEmployees.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_RowEnter);
             // 
             // idempDataGridViewTextBoxColumn
             // 
@@ -272,23 +281,25 @@
             this.lblLogin.TabIndex = 3;
             this.lblLogin.Text = "Логин";
             // 
-            // dataGridView1
+            // dgvMasterSpec
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMasterSpec.AutoGenerateColumns = false;
+            this.dgvMasterSpec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMasterSpec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMasterSpec.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idmasterDataGridViewTextBoxColumn,
             this.idspecDataGridViewTextBoxColumn,
             this.namespecDataGridViewTextBoxColumn,
             this.charspecDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.masterSpecializationBindingSource;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(321, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(388, 132);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.Tag = "";
+            this.dgvMasterSpec.DataSource = this.masterSpecializationBindingSource;
+            this.dgvMasterSpec.EnableHeadersVisualStyles = false;
+            this.dgvMasterSpec.Location = new System.Drawing.Point(321, 142);
+            this.dgvMasterSpec.Name = "dgvMasterSpec";
+            this.dgvMasterSpec.RowHeadersVisible = false;
+            this.dgvMasterSpec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMasterSpec.Size = new System.Drawing.Size(388, 132);
+            this.dgvMasterSpec.TabIndex = 7;
+            this.dgvMasterSpec.Tag = "";
             // 
             // employeeTableAdapter
             // 
@@ -302,7 +313,7 @@
             // 
             this.masterSpecializationBindingSource.DataMember = "MasterSpecialization";
             this.masterSpecializationBindingSource.DataSource = this.spDataSet;
-            this.masterSpecializationBindingSource.Filter = "id_master=\'1\'";
+            this.masterSpecializationBindingSource.CurrentChanged += new System.EventHandler(this.masterSpecializationBindingSource_CurrentChanged);
             // 
             // idmasterDataGridViewTextBoxColumn
             // 
@@ -335,7 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 294);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvMasterSpec);
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
             this.Controls.Add(this.dgvEmployees);
@@ -353,7 +364,7 @@
             this.gbInfoEmp.PerformLayout();
             this.gbInfoEmpEntry.ResumeLayout(false);
             this.gbInfoEmpEntry.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasterSpec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterSpecializationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -377,7 +388,7 @@
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.TextBox tbLogin;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMasterSpec;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox tbAddress;
         private SPDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;

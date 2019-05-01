@@ -105,7 +105,8 @@
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Работает",
-            "Не работает"});
+            "Не работает",
+            "В отпуске"});
             this.cbStatus.Location = new System.Drawing.Point(95, 173);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
