@@ -262,9 +262,8 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnPullOut;
         private System.Windows.Forms.DataGridView dgvClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idindividDataGridViewTextBoxColumn;
-        private SPDataSet spDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
+        private SPDataSet spDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn patronymicDataGridViewTextBoxColumn;

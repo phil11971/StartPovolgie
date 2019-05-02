@@ -194,6 +194,7 @@
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Name = "новаяЗаявкаНаРемонтToolStripMenuItem";
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт";
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Click += new System.EventHandler(this.новаяЗаявкаНаРемонтToolStripMenuItem_Click);
             // 
             // новаяЗаявкаНаЗапчастиToolStripMenuItem
             // 

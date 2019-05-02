@@ -22,6 +22,14 @@ namespace StartPovolgie.Forms
 
         }
 
-        
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            new AddClientForm().ShowDialog();
+        }
+
+        private void btnAddGood_Click(object sender, EventArgs e)
+        {
+            new AddGoodForm().ShowDialog();
+        }
     }
 }

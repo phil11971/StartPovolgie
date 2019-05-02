@@ -83,5 +83,10 @@ namespace StartPovolgie.Forms
         {
             new ClientForm().ShowDialog();
         }
+
+        private void новаяЗаявкаНаРемонтToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AcceptForRepairForm().ShowDialog();
+        }
     }
 }

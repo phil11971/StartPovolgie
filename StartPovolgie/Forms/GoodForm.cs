@@ -41,9 +41,9 @@ namespace StartPovolgie.Forms
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dgvGoods.CurrentRow.Cells[0].Value);
-            string name = (string)dgvGoods.CurrentRow.Cells[1].Value;
-            string type = dgvGoods.CurrentRow.Cells[2].Value.ToString();
+            int id = Convert.ToInt32(dgvGood.CurrentRow.Cells[0].Value);
+            string name = (string)dgvGood.CurrentRow.Cells[1].Value;
+            string type = dgvGood.CurrentRow.Cells[2].Value.ToString();
             var editGoodForm = new AddGoodForm(id, name, type);
             editGoodForm.Closing += AddTypeOfDevicesForm_Closing;
             editGoodForm.ShowDialog();
@@ -53,7 +53,7 @@ namespace StartPovolgie.Forms
         {
             if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(dgvGoods.CurrentRow.Cells[0].Value);
+                int id = Convert.ToInt32(dgvGood.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
                 try
                 {
@@ -102,7 +102,7 @@ namespace StartPovolgie.Forms
 
                 }
 
-                dgvGoods.DataSource = spDataSet.Good;
+                dgvGood.DataSource = spDataSet.Good;
             }
             else if (!tbName.Text.Equals(""))
             {
@@ -124,7 +124,7 @@ namespace StartPovolgie.Forms
 
                 }
 
-                dgvGoods.DataSource = spDataSet.Good;
+                dgvGood.DataSource = spDataSet.Good;
             }
             else if (!cbType.Text.Equals(""))
             {
@@ -146,7 +146,7 @@ namespace StartPovolgie.Forms
 
                 }
 
-                dgvGoods.DataSource = spDataSet.Good;
+                dgvGood.DataSource = spDataSet.Good;
             }
         }
 

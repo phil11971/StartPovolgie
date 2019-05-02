@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,48 +41,58 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dgvGoods = new System.Windows.Forms.DataGridView();
-            this.dgvtbcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddGood = new System.Windows.Forms.Button();
+            this.dgvGood = new System.Windows.Forms.DataGridView();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbFind = new System.Windows.Forms.GroupBox();
             this.lblType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcbcStateFault = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvFault = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dgvIndividual = new System.Windows.Forms.DataGridView();
-            this.dgvtbcLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcPatronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcAdr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
+            this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patronymicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.mtbSearch = new System.Windows.Forms.MaskedTextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddClient = new System.Windows.Forms.Button();
+            this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
+            this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
+            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
+            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoods)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
+            this.gbFind.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIndividual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -151,15 +162,14 @@
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.dgvGoods);
+            this.tabPage1.Controls.Add(this.btnAddGood);
+            this.tabPage1.Controls.Add(this.dgvGood);
             this.tabPage1.Controls.Add(this.richTextBox3);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.richTextBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.gbFind);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dgvFault);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -201,57 +211,34 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Наименование";
             // 
-            // button6
+            // btnAddGood
             // 
-            this.button6.Location = new System.Drawing.Point(9, 6);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 23);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Добавить товар";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAddGood.Location = new System.Drawing.Point(9, 6);
+            this.btnAddGood.Name = "btnAddGood";
+            this.btnAddGood.Size = new System.Drawing.Size(100, 23);
+            this.btnAddGood.TabIndex = 12;
+            this.btnAddGood.Text = "Добавить товар";
+            this.btnAddGood.UseVisualStyleBackColor = true;
+            this.btnAddGood.Click += new System.EventHandler(this.btnAddGood_Click);
             // 
-            // button5
+            // dgvGood
             // 
-            this.button5.Location = new System.Drawing.Point(591, 316);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Сохранить";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // dgvGoods
-            // 
-            this.dgvGoods.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvGoods.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvGoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGoods.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvtbcName,
-            this.dgvtbcType,
-            this.dgvtbcStatus});
-            this.dgvGoods.EnableHeadersVisualStyles = false;
-            this.dgvGoods.Location = new System.Drawing.Point(6, 181);
-            this.dgvGoods.Name = "dgvGoods";
-            this.dgvGoods.RowHeadersVisible = false;
-            this.dgvGoods.Size = new System.Drawing.Size(309, 129);
-            this.dgvGoods.TabIndex = 10;
-            // 
-            // dgvtbcName
-            // 
-            this.dgvtbcName.HeaderText = "Наименование";
-            this.dgvtbcName.Name = "dgvtbcName";
-            this.dgvtbcName.ReadOnly = true;
-            // 
-            // dgvtbcType
-            // 
-            this.dgvtbcType.HeaderText = "Тип товара";
-            this.dgvtbcType.Name = "dgvtbcType";
-            this.dgvtbcType.ReadOnly = true;
-            // 
-            // dgvtbcStatus
-            // 
-            this.dgvtbcStatus.HeaderText = "Статус";
-            this.dgvtbcStatus.Name = "dgvtbcStatus";
-            this.dgvtbcStatus.ReadOnly = true;
+            this.dgvGood.AutoGenerateColumns = false;
+            this.dgvGood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvGood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idgDataGridViewTextBoxColumn,
+            this.namegDataGridViewTextBoxColumn,
+            this.idtgDataGridViewTextBoxColumn});
+            this.dgvGood.DataSource = this.goodBindingSource;
+            this.dgvGood.EnableHeadersVisualStyles = false;
+            this.dgvGood.Location = new System.Drawing.Point(6, 181);
+            this.dgvGood.Name = "dgvGood";
+            this.dgvGood.RowHeadersVisible = false;
+            this.dgvGood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGood.Size = new System.Drawing.Size(309, 129);
+            this.dgvGood.TabIndex = 10;
             // 
             // richTextBox3
             // 
@@ -278,19 +265,19 @@
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "";
             // 
-            // groupBox1
+            // gbFind
             // 
-            this.groupBox1.Controls.Add(this.lblType);
-            this.groupBox1.Controls.Add(this.cbType);
-            this.groupBox1.Controls.Add(this.btnFind);
-            this.groupBox1.Controls.Add(this.tbName);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Location = new System.Drawing.Point(6, 35);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 140);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Поиск";
+            this.gbFind.Controls.Add(this.lblType);
+            this.gbFind.Controls.Add(this.cbType);
+            this.gbFind.Controls.Add(this.btnFind);
+            this.gbFind.Controls.Add(this.tbName);
+            this.gbFind.Controls.Add(this.lblName);
+            this.gbFind.Location = new System.Drawing.Point(6, 35);
+            this.gbFind.Name = "gbFind";
+            this.gbFind.Size = new System.Drawing.Size(309, 140);
+            this.gbFind.TabIndex = 7;
+            this.gbFind.TabStop = false;
+            this.gbFind.Text = "Поиск";
             // 
             // lblType
             // 
@@ -343,43 +330,27 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Комплектация";
             // 
-            // dataGridView1
+            // dgvFault
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFault.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFault.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvFault.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFault.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvtbcNameFault,
-            this.dgvtbcDescFault,
-            this.dgvcbcStateFault});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(327, 181);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(339, 129);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // dgvtbcNameFault
-            // 
-            this.dgvtbcNameFault.HeaderText = "Название неисправности";
-            this.dgvtbcNameFault.Name = "dgvtbcNameFault";
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
-            // 
-            // dgvcbcStateFault
-            // 
-            this.dgvcbcStateFault.HeaderText = "Состояние";
-            this.dgvcbcStateFault.Name = "dgvcbcStateFault";
+            this.dgvtbcDescFault});
+            this.dgvFault.EnableHeadersVisualStyles = false;
+            this.dgvFault.Location = new System.Drawing.Point(327, 181);
+            this.dgvFault.Name = "dgvFault";
+            this.dgvFault.RowHeadersVisible = false;
+            this.dgvFault.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFault.Size = new System.Drawing.Size(339, 129);
+            this.dgvFault.TabIndex = 4;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.dgvIndividual);
+            this.tabPage2.Controls.Add(this.dgvClient);
             this.tabPage2.Controls.Add(this.gbSearch);
-            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.btnAddClient);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -388,71 +359,82 @@
             this.tabPage2.Text = "Информация о клиенте";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // dgvClient
             // 
-            this.button4.Location = new System.Drawing.Point(592, 315);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Сохранить";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dgvClient.AutoGenerateColumns = false;
+            this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idclientDataGridViewTextBoxColumn,
+            this.lnameDataGridViewTextBoxColumn,
+            this.fnameDataGridViewTextBoxColumn,
+            this.patronymicDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.mailDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn});
+            this.dgvClient.DataSource = this.clientBindingSource;
+            this.dgvClient.EnableHeadersVisualStyles = false;
+            this.dgvClient.Location = new System.Drawing.Point(7, 141);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.RowHeadersVisible = false;
+            this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClient.Size = new System.Drawing.Size(660, 168);
+            this.dgvClient.TabIndex = 7;
             // 
-            // dgvIndividual
+            // idclientDataGridViewTextBoxColumn
             // 
-            this.dgvIndividual.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvIndividual.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvIndividual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIndividual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvtbcLastName,
-            this.dgvtbcFirstName,
-            this.dgvtbcPatronymic,
-            this.dgvtbcPhone,
-            this.dgvtbcAdr});
-            this.dgvIndividual.EnableHeadersVisualStyles = false;
-            this.dgvIndividual.Location = new System.Drawing.Point(7, 141);
-            this.dgvIndividual.Name = "dgvIndividual";
-            this.dgvIndividual.RowHeadersVisible = false;
-            this.dgvIndividual.Size = new System.Drawing.Size(660, 168);
-            this.dgvIndividual.TabIndex = 7;
+            this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
+            this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
+            this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
+            this.idclientDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idclientDataGridViewTextBoxColumn.Visible = false;
             // 
-            // dgvtbcLastName
+            // lnameDataGridViewTextBoxColumn
             // 
-            this.dgvtbcLastName.HeaderText = "Фамилия";
-            this.dgvtbcLastName.Name = "dgvtbcLastName";
-            this.dgvtbcLastName.ReadOnly = true;
+            this.lnameDataGridViewTextBoxColumn.DataPropertyName = "lname";
+            this.lnameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            this.lnameDataGridViewTextBoxColumn.Name = "lnameDataGridViewTextBoxColumn";
             // 
-            // dgvtbcFirstName
+            // fnameDataGridViewTextBoxColumn
             // 
-            this.dgvtbcFirstName.HeaderText = "Имя";
-            this.dgvtbcFirstName.Name = "dgvtbcFirstName";
-            this.dgvtbcFirstName.ReadOnly = true;
+            this.fnameDataGridViewTextBoxColumn.DataPropertyName = "fname";
+            this.fnameDataGridViewTextBoxColumn.HeaderText = "Имя";
+            this.fnameDataGridViewTextBoxColumn.Name = "fnameDataGridViewTextBoxColumn";
             // 
-            // dgvtbcPatronymic
+            // patronymicDataGridViewTextBoxColumn
             // 
-            this.dgvtbcPatronymic.HeaderText = "Отчество";
-            this.dgvtbcPatronymic.Name = "dgvtbcPatronymic";
-            this.dgvtbcPatronymic.ReadOnly = true;
+            this.patronymicDataGridViewTextBoxColumn.DataPropertyName = "patronymic";
+            this.patronymicDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            this.patronymicDataGridViewTextBoxColumn.Name = "patronymicDataGridViewTextBoxColumn";
             // 
-            // dgvtbcPhone
+            // phoneDataGridViewTextBoxColumn
             // 
-            this.dgvtbcPhone.HeaderText = "Телефон";
-            this.dgvtbcPhone.Name = "dgvtbcPhone";
-            this.dgvtbcPhone.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             // 
-            // dgvtbcAdr
+            // mailDataGridViewTextBoxColumn
             // 
-            this.dgvtbcAdr.HeaderText = "Адрес";
-            this.dgvtbcAdr.Name = "dgvtbcAdr";
-            this.dgvtbcAdr.ReadOnly = true;
+            this.mailDataGridViewTextBoxColumn.DataPropertyName = "mail";
+            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
             // 
-            // btnSearch
+            // addressDataGridViewTextBoxColumn
             // 
-            this.btnSearch.Location = new System.Drawing.Point(204, 53);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Найти";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gbSearch
             // 
@@ -484,6 +466,15 @@
             this.radioButton2.Text = "По телефону";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(204, 53);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Найти";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -496,14 +487,72 @@
             this.radioButton1.Text = "По фамилии";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAddClient
             // 
-            this.button3.Location = new System.Drawing.Point(7, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 22);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Добавить клиента";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddClient.Location = new System.Drawing.Point(7, 7);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(112, 22);
+            this.btnAddClient.TabIndex = 0;
+            this.btnAddClient.Text = "Добавить клиента";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
+            // 
+            // goodTableAdapter
+            // 
+            this.goodTableAdapter.ClearBeforeFill = true;
+            // 
+            // typeGoodTableAdapter
+            // 
+            this.typeGoodTableAdapter.ClearBeforeFill = true;
+            // 
+            // goodBindingSource
+            // 
+            this.goodBindingSource.DataMember = "Good";
+            this.goodBindingSource.DataSource = this.spDataSet;
+            // 
+            // typeGoodBindingSource
+            // 
+            this.typeGoodBindingSource.DataMember = "TypeGood";
+            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            // 
+            // idgDataGridViewTextBoxColumn
+            // 
+            this.idgDataGridViewTextBoxColumn.DataPropertyName = "id_g";
+            this.idgDataGridViewTextBoxColumn.HeaderText = "id_g";
+            this.idgDataGridViewTextBoxColumn.Name = "idgDataGridViewTextBoxColumn";
+            this.idgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idgDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // namegDataGridViewTextBoxColumn
+            // 
+            this.namegDataGridViewTextBoxColumn.DataPropertyName = "name_g";
+            this.namegDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.namegDataGridViewTextBoxColumn.Name = "namegDataGridViewTextBoxColumn";
+            // 
+            // idtgDataGridViewTextBoxColumn
+            // 
+            this.idtgDataGridViewTextBoxColumn.DataPropertyName = "id_tg";
+            this.idtgDataGridViewTextBoxColumn.DataSource = this.typeGoodBindingSource;
+            this.idtgDataGridViewTextBoxColumn.DisplayMember = "name_tg";
+            this.idtgDataGridViewTextBoxColumn.HeaderText = "Тип товара";
+            this.idtgDataGridViewTextBoxColumn.Name = "idtgDataGridViewTextBoxColumn";
+            this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
+            // 
+            // dgvtbcNameFault
+            // 
+            this.dgvtbcNameFault.HeaderText = "Название";
+            this.dgvtbcNameFault.Name = "dgvtbcNameFault";
+            // 
+            // dgvtbcDescFault
+            // 
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
             // 
             // AcceptForRepairForm
             // 
@@ -523,14 +572,18 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoods)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).EndInit();
+            this.gbFind.ResumeLayout(false);
+            this.gbFind.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIndividual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,42 +600,48 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFault;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox gbSearch;
         private System.Windows.Forms.MaskedTextBox mtbSearch;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataGridView dgvIndividual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcPatronymic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcAdr;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dgvGoods;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcStatus;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvClient;
+        private System.Windows.Forms.DataGridView dgvGood;
+        private System.Windows.Forms.GroupBox gbFind;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnAddGood;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcNameFault;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescFault;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dgvcbcStateFault;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
+        private SPDataSet spDataSet;
+        private SPDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
+        private System.Windows.Forms.BindingSource clientBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patronymicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private SPDataSetTableAdapters.GoodTableAdapter goodTableAdapter;
+        private SPDataSetTableAdapters.TypeGoodTableAdapter typeGoodTableAdapter;
+        private System.Windows.Forms.BindingSource goodBindingSource;
+        private System.Windows.Forms.BindingSource typeGoodBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idgDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namegDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idtgDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcNameFault;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescFault;
     }
 }

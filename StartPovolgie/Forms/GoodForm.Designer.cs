@@ -40,7 +40,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.dgvGoods = new System.Windows.Forms.DataGridView();
+            this.dgvGood = new System.Windows.Forms.DataGridView();
             this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -51,7 +51,7 @@
             this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,29 +156,29 @@
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // dgvGoods
+            // dgvGood
             // 
-            this.dgvGoods.AllowUserToAddRows = false;
-            this.dgvGoods.AllowUserToDeleteRows = false;
-            this.dgvGoods.AllowUserToResizeRows = false;
-            this.dgvGoods.AutoGenerateColumns = false;
-            this.dgvGoods.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvGoods.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvGoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGoods.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvGood.AllowUserToAddRows = false;
+            this.dgvGood.AllowUserToDeleteRows = false;
+            this.dgvGood.AllowUserToResizeRows = false;
+            this.dgvGood.AutoGenerateColumns = false;
+            this.dgvGood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvGood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idgDataGridViewTextBoxColumn,
             this.namegDataGridViewTextBoxColumn,
             this.idtgDataGridViewTextBoxColumn});
-            this.dgvGoods.DataSource = this.goodBindingSource;
-            this.dgvGoods.EnableHeadersVisualStyles = false;
-            this.dgvGoods.Location = new System.Drawing.Point(12, 139);
-            this.dgvGoods.MultiSelect = false;
-            this.dgvGoods.Name = "dgvGoods";
-            this.dgvGoods.ReadOnly = true;
-            this.dgvGoods.RowHeadersVisible = false;
-            this.dgvGoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGoods.Size = new System.Drawing.Size(457, 150);
-            this.dgvGoods.TabIndex = 6;
+            this.dgvGood.DataSource = this.goodBindingSource;
+            this.dgvGood.EnableHeadersVisualStyles = false;
+            this.dgvGood.Location = new System.Drawing.Point(12, 139);
+            this.dgvGood.MultiSelect = false;
+            this.dgvGood.Name = "dgvGood";
+            this.dgvGood.ReadOnly = true;
+            this.dgvGood.RowHeadersVisible = false;
+            this.dgvGood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGood.Size = new System.Drawing.Size(457, 150);
+            this.dgvGood.TabIndex = 6;
             // 
             // idgDataGridViewTextBoxColumn
             // 
@@ -236,7 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 301);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvGoods);
+            this.Controls.Add(this.dgvGood);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.gbSearch);
@@ -247,7 +247,7 @@
             this.gbSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGoods)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -262,7 +262,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.DataGridView dgvGoods;
+        private System.Windows.Forms.DataGridView dgvGood;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Button btnAdd;
