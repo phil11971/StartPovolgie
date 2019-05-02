@@ -11,14 +11,16 @@ namespace StartPovolgie.Model
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public FaultStatus(string name)
-        {
-            Name = name;
-        }
         public FaultStatus(int id, string name)
         {
             Id = id;
             Name = name;
         }
+
+        public FaultStatus(string name)
+        {
+            Name = name;
+        }
+
     }
 }

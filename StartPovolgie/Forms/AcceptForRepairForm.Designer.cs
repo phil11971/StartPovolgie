@@ -30,26 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpReceiptDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.rtbComment = new System.Windows.Forms.RichTextBox();
+            this.btnIssue = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnAddGood = new System.Windows.Forms.Button();
             this.dgvGood = new System.Windows.Forms.DataGridView();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rtbMechanicalDamage = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.rtbEquipment = new System.Windows.Forms.RichTextBox();
             this.gbFind = new System.Windows.Forms.GroupBox();
+            this.btnCancelGood = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.btnFind = new System.Windows.Forms.Button();
+            this.btnFindGood = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,35 +67,34 @@
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spDataSet = new StartPovolgie.SPDataSet();
             this.gbSearch = new System.Windows.Forms.GroupBox();
-            this.mtbSearch = new System.Windows.Forms.MaskedTextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnCancelClient = new System.Windows.Forms.Button();
+            this.mtbFind = new System.Windows.Forms.MaskedTextBox();
+            this.rbPhone = new System.Windows.Forms.RadioButton();
+            this.btnFindClient = new System.Windows.Forms.Button();
+            this.rbLastName = new System.Windows.Forms.RadioButton();
             this.btnAddClient = new System.Windows.Forms.Button();
-            this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
-            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
+            this.faultStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultStatusTableAdapter();
+            this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,12 +106,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Дата приема";
             // 
-            // dateTimePicker1
+            // dtpReceiptDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpReceiptDate.Location = new System.Drawing.Point(99, 12);
+            this.dtpReceiptDate.Name = "dtpReceiptDate";
+            this.dtpReceiptDate.Size = new System.Drawing.Size(185, 20);
+            this.dtpReceiptDate.TabIndex = 1;
             // 
             // label2
             // 
@@ -120,31 +122,32 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Комментарий";
             // 
-            // richTextBox1
+            // rtbComment
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(99, 43);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(185, 60);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.rtbComment.Location = new System.Drawing.Point(99, 43);
+            this.rtbComment.Name = "rtbComment";
+            this.rtbComment.Size = new System.Drawing.Size(185, 60);
+            this.rtbComment.TabIndex = 3;
+            this.rtbComment.Text = "";
             // 
-            // button1
+            // btnIssue
             // 
-            this.button1.Location = new System.Drawing.Point(290, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Оформить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIssue.Location = new System.Drawing.Point(290, 43);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.Size = new System.Drawing.Size(113, 23);
+            this.btnIssue.TabIndex = 4;
+            this.btnIssue.Text = "Оформить";
+            this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
-            // button2
+            // btnPrint
             // 
-            this.button2.Location = new System.Drawing.Point(290, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Печать";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(290, 80);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(113, 23);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Печать";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -158,15 +161,11 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.btnAddGood);
             this.tabPage1.Controls.Add(this.dgvGood);
-            this.tabPage1.Controls.Add(this.richTextBox3);
+            this.tabPage1.Controls.Add(this.rtbMechanicalDamage);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.richTextBox2);
+            this.tabPage1.Controls.Add(this.rtbEquipment);
             this.tabPage1.Controls.Add(this.gbFind);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.dgvFault);
@@ -177,39 +176,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Информация об устройстве";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(475, 62);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(185, 21);
-            this.comboBox2.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(324, 65);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Тип товара";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(475, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(324, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Наименование";
             // 
             // btnAddGood
             // 
@@ -223,6 +189,9 @@
             // 
             // dgvGood
             // 
+            this.dgvGood.AllowUserToAddRows = false;
+            this.dgvGood.AllowUserToDeleteRows = false;
+            this.dgvGood.AllowUserToResizeRows = false;
             this.dgvGood.AutoGenerateColumns = false;
             this.dgvGood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -234,55 +203,110 @@
             this.dgvGood.DataSource = this.goodBindingSource;
             this.dgvGood.EnableHeadersVisualStyles = false;
             this.dgvGood.Location = new System.Drawing.Point(6, 181);
+            this.dgvGood.MultiSelect = false;
             this.dgvGood.Name = "dgvGood";
+            this.dgvGood.ReadOnly = true;
             this.dgvGood.RowHeadersVisible = false;
             this.dgvGood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGood.Size = new System.Drawing.Size(309, 129);
             this.dgvGood.TabIndex = 10;
             // 
-            // richTextBox3
+            // idgDataGridViewTextBoxColumn
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(475, 133);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(185, 38);
-            this.richTextBox3.TabIndex = 10;
-            this.richTextBox3.Text = "";
+            this.idgDataGridViewTextBoxColumn.DataPropertyName = "id_g";
+            this.idgDataGridViewTextBoxColumn.HeaderText = "id_g";
+            this.idgDataGridViewTextBoxColumn.Name = "idgDataGridViewTextBoxColumn";
+            this.idgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idgDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // namegDataGridViewTextBoxColumn
+            // 
+            this.namegDataGridViewTextBoxColumn.DataPropertyName = "name_g";
+            this.namegDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.namegDataGridViewTextBoxColumn.Name = "namegDataGridViewTextBoxColumn";
+            this.namegDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idtgDataGridViewTextBoxColumn
+            // 
+            this.idtgDataGridViewTextBoxColumn.DataPropertyName = "id_tg";
+            this.idtgDataGridViewTextBoxColumn.DataSource = this.typeGoodBindingSource;
+            this.idtgDataGridViewTextBoxColumn.DisplayMember = "name_tg";
+            this.idtgDataGridViewTextBoxColumn.HeaderText = "Тип товара";
+            this.idtgDataGridViewTextBoxColumn.Name = "idtgDataGridViewTextBoxColumn";
+            this.idtgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
+            // 
+            // typeGoodBindingSource
+            // 
+            this.typeGoodBindingSource.DataMember = "TypeGood";
+            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // goodBindingSource
+            // 
+            this.goodBindingSource.DataMember = "Good";
+            this.goodBindingSource.DataSource = this.spDataSet;
+            // 
+            // rtbMechanicalDamage
+            // 
+            this.rtbMechanicalDamage.Location = new System.Drawing.Point(475, 114);
+            this.rtbMechanicalDamage.Name = "rtbMechanicalDamage";
+            this.rtbMechanicalDamage.Size = new System.Drawing.Size(185, 38);
+            this.rtbMechanicalDamage.TabIndex = 10;
+            this.rtbMechanicalDamage.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(322, 132);
+            this.label6.Location = new System.Drawing.Point(321, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(151, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Механические повреждения";
             // 
-            // richTextBox2
+            // rtbEquipment
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(475, 89);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(185, 38);
-            this.richTextBox2.TabIndex = 8;
-            this.richTextBox2.Text = "";
+            this.rtbEquipment.Location = new System.Drawing.Point(475, 70);
+            this.rtbEquipment.Name = "rtbEquipment";
+            this.rtbEquipment.Size = new System.Drawing.Size(185, 38);
+            this.rtbEquipment.TabIndex = 8;
+            this.rtbEquipment.Text = "";
             // 
             // gbFind
             // 
+            this.gbFind.Controls.Add(this.btnCancelGood);
             this.gbFind.Controls.Add(this.lblType);
             this.gbFind.Controls.Add(this.cbType);
-            this.gbFind.Controls.Add(this.btnFind);
+            this.gbFind.Controls.Add(this.btnFindGood);
             this.gbFind.Controls.Add(this.tbName);
             this.gbFind.Controls.Add(this.lblName);
             this.gbFind.Location = new System.Drawing.Point(6, 35);
             this.gbFind.Name = "gbFind";
-            this.gbFind.Size = new System.Drawing.Size(309, 140);
+            this.gbFind.Size = new System.Drawing.Size(309, 110);
             this.gbFind.TabIndex = 7;
             this.gbFind.TabStop = false;
             this.gbFind.Text = "Поиск";
             // 
+            // btnCancelGood
+            // 
+            this.btnCancelGood.Location = new System.Drawing.Point(223, 72);
+            this.btnCancelGood.Name = "btnCancelGood";
+            this.btnCancelGood.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelGood.TabIndex = 6;
+            this.btnCancelGood.Text = "Отмена";
+            this.btnCancelGood.UseVisualStyleBackColor = true;
+            this.btnCancelGood.Click += new System.EventHandler(this.btnCancelGood_Click);
+            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(6, 92);
+            this.lblType.Location = new System.Drawing.Point(6, 71);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(64, 13);
             this.lblType.TabIndex = 5;
@@ -290,20 +314,24 @@
             // 
             // cbType
             // 
+            this.cbType.DataSource = this.typeGoodBindingSource;
+            this.cbType.DisplayMember = "name_tg";
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(96, 89);
+            this.cbType.Location = new System.Drawing.Point(96, 71);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 21);
             this.cbType.TabIndex = 4;
+            this.cbType.ValueMember = "id_tg";
             // 
-            // btnFind
+            // btnFindGood
             // 
-            this.btnFind.Location = new System.Drawing.Point(223, 30);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(75, 23);
-            this.btnFind.TabIndex = 2;
-            this.btnFind.Text = "Найти";
-            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFindGood.Location = new System.Drawing.Point(223, 30);
+            this.btnFindGood.Name = "btnFindGood";
+            this.btnFindGood.Size = new System.Drawing.Size(75, 23);
+            this.btnFindGood.TabIndex = 2;
+            this.btnFindGood.Text = "Найти";
+            this.btnFindGood.UseVisualStyleBackColor = true;
+            this.btnFindGood.Click += new System.EventHandler(this.btnFindGood_Click);
             // 
             // tbName
             // 
@@ -324,7 +352,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(322, 89);
+            this.label5.Location = new System.Drawing.Point(324, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 7;
@@ -337,7 +365,8 @@
             this.dgvFault.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFault.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvtbcNameFault,
-            this.dgvtbcDescFault});
+            this.dgvtbcDescFault,
+            this.faultStatus});
             this.dgvFault.EnableHeadersVisualStyles = false;
             this.dgvFault.Location = new System.Drawing.Point(327, 181);
             this.dgvFault.Name = "dgvFault";
@@ -376,6 +405,7 @@
             this.dgvClient.DataSource = this.clientBindingSource;
             this.dgvClient.EnableHeadersVisualStyles = false;
             this.dgvClient.Location = new System.Drawing.Point(7, 141);
+            this.dgvClient.MultiSelect = false;
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.RowHeadersVisible = false;
             this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -431,17 +461,13 @@
             this.clientBindingSource.DataMember = "Client";
             this.clientBindingSource.DataSource = this.spDataSet;
             // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // gbSearch
             // 
-            this.gbSearch.Controls.Add(this.mtbSearch);
-            this.gbSearch.Controls.Add(this.radioButton2);
-            this.gbSearch.Controls.Add(this.btnSearch);
-            this.gbSearch.Controls.Add(this.radioButton1);
+            this.gbSearch.Controls.Add(this.btnCancelClient);
+            this.gbSearch.Controls.Add(this.mtbFind);
+            this.gbSearch.Controls.Add(this.rbPhone);
+            this.gbSearch.Controls.Add(this.btnFindClient);
+            this.gbSearch.Controls.Add(this.rbLastName);
             this.gbSearch.Location = new System.Drawing.Point(7, 35);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Size = new System.Drawing.Size(285, 87);
@@ -449,43 +475,54 @@
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Поиск";
             // 
-            // mtbSearch
+            // btnCancelClient
             // 
-            this.mtbSearch.Location = new System.Drawing.Point(7, 56);
-            this.mtbSearch.Name = "mtbSearch";
-            this.mtbSearch.Size = new System.Drawing.Size(181, 20);
-            this.mtbSearch.TabIndex = 2;
+            this.btnCancelClient.Location = new System.Drawing.Point(204, 53);
+            this.btnCancelClient.Name = "btnCancelClient";
+            this.btnCancelClient.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelClient.TabIndex = 8;
+            this.btnCancelClient.Text = "Отмена";
+            this.btnCancelClient.UseVisualStyleBackColor = true;
+            this.btnCancelClient.Click += new System.EventHandler(this.btnCancelClient_Click);
             // 
-            // radioButton2
+            // mtbFind
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(98, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(90, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "По телефону";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.mtbFind.Location = new System.Drawing.Point(7, 56);
+            this.mtbFind.Name = "mtbFind";
+            this.mtbFind.Size = new System.Drawing.Size(181, 20);
+            this.mtbFind.TabIndex = 2;
             // 
-            // btnSearch
+            // rbPhone
             // 
-            this.btnSearch.Location = new System.Drawing.Point(204, 53);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Найти";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.rbPhone.AutoSize = true;
+            this.rbPhone.Location = new System.Drawing.Point(98, 20);
+            this.rbPhone.Name = "rbPhone";
+            this.rbPhone.Size = new System.Drawing.Size(90, 17);
+            this.rbPhone.TabIndex = 1;
+            this.rbPhone.Text = "По телефону";
+            this.rbPhone.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // btnFindClient
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(88, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "По фамилии";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnFindClient.Location = new System.Drawing.Point(204, 17);
+            this.btnFindClient.Name = "btnFindClient";
+            this.btnFindClient.Size = new System.Drawing.Size(75, 23);
+            this.btnFindClient.TabIndex = 6;
+            this.btnFindClient.Text = "Найти";
+            this.btnFindClient.UseVisualStyleBackColor = true;
+            this.btnFindClient.Click += new System.EventHandler(this.btnFindClient_Click);
+            // 
+            // rbLastName
+            // 
+            this.rbLastName.AutoSize = true;
+            this.rbLastName.Checked = true;
+            this.rbLastName.Location = new System.Drawing.Point(7, 20);
+            this.rbLastName.Name = "rbLastName";
+            this.rbLastName.Size = new System.Drawing.Size(88, 17);
+            this.rbLastName.TabIndex = 0;
+            this.rbLastName.TabStop = true;
+            this.rbLastName.Text = "По фамилии";
+            this.rbLastName.UseVisualStyleBackColor = true;
             // 
             // btnAddClient
             // 
@@ -497,10 +534,6 @@
             this.btnAddClient.UseVisualStyleBackColor = true;
             this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
             // goodTableAdapter
             // 
             this.goodTableAdapter.ClearBeforeFill = true;
@@ -509,40 +542,18 @@
             // 
             this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
-            // goodBindingSource
+            // clientTableAdapter
             // 
-            this.goodBindingSource.DataMember = "Good";
-            this.goodBindingSource.DataSource = this.spDataSet;
+            this.clientTableAdapter.ClearBeforeFill = true;
             // 
-            // typeGoodBindingSource
+            // faultStatusTableAdapter
             // 
-            this.typeGoodBindingSource.DataMember = "TypeGood";
-            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            this.faultStatusTableAdapter.ClearBeforeFill = true;
             // 
-            // idgDataGridViewTextBoxColumn
+            // faultStatusBindingSource
             // 
-            this.idgDataGridViewTextBoxColumn.DataPropertyName = "id_g";
-            this.idgDataGridViewTextBoxColumn.HeaderText = "id_g";
-            this.idgDataGridViewTextBoxColumn.Name = "idgDataGridViewTextBoxColumn";
-            this.idgDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idgDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // namegDataGridViewTextBoxColumn
-            // 
-            this.namegDataGridViewTextBoxColumn.DataPropertyName = "name_g";
-            this.namegDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.namegDataGridViewTextBoxColumn.Name = "namegDataGridViewTextBoxColumn";
-            // 
-            // idtgDataGridViewTextBoxColumn
-            // 
-            this.idtgDataGridViewTextBoxColumn.DataPropertyName = "id_tg";
-            this.idtgDataGridViewTextBoxColumn.DataSource = this.typeGoodBindingSource;
-            this.idtgDataGridViewTextBoxColumn.DisplayMember = "name_tg";
-            this.idtgDataGridViewTextBoxColumn.HeaderText = "Тип товара";
-            this.idtgDataGridViewTextBoxColumn.Name = "idtgDataGridViewTextBoxColumn";
-            this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
+            this.faultStatusBindingSource.DataMember = "FaultStatus";
+            this.faultStatusBindingSource.DataSource = this.spDataSet;
             // 
             // dgvtbcNameFault
             // 
@@ -554,17 +565,25 @@
             this.dgvtbcDescFault.HeaderText = "Описание неисправности";
             this.dgvtbcDescFault.Name = "dgvtbcDescFault";
             // 
+            // faultStatus
+            // 
+            this.faultStatus.DataSource = this.faultStatusBindingSource;
+            this.faultStatus.DisplayMember = "name_fs";
+            this.faultStatus.HeaderText = "Состояние";
+            this.faultStatus.Name = "faultStatus";
+            this.faultStatus.ValueMember = "id_fs";
+            // 
             // AcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 484);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnIssue);
+            this.Controls.Add(this.rtbComment);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpReceiptDate);
             this.Controls.Add(this.label1);
             this.Name = "AcceptForRepairForm";
             this.Text = "Прием в ремонт";
@@ -573,17 +592,18 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
             this.gbFind.ResumeLayout(false);
             this.gbFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,11 +612,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpReceiptDate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox rtbComment;
+        private System.Windows.Forms.Button btnIssue;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -604,36 +624,23 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddClient;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnFindClient;
         private System.Windows.Forms.GroupBox gbSearch;
-        private System.Windows.Forms.MaskedTextBox mtbSearch;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.MaskedTextBox mtbFind;
+        private System.Windows.Forms.RadioButton rbPhone;
+        private System.Windows.Forms.RadioButton rbLastName;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.DataGridView dgvGood;
         private System.Windows.Forms.GroupBox gbFind;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Button btnFindGood;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAddGood;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox rtbMechanicalDamage;
+        private System.Windows.Forms.RichTextBox rtbEquipment;
         private SPDataSet spDataSet;
-        private SPDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
-        private System.Windows.Forms.BindingSource clientBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patronymicDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private SPDataSetTableAdapters.GoodTableAdapter goodTableAdapter;
         private SPDataSetTableAdapters.TypeGoodTableAdapter typeGoodTableAdapter;
         private System.Windows.Forms.BindingSource goodBindingSource;
@@ -641,7 +648,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idgDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namegDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn idtgDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patronymicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource clientBindingSource;
+        private SPDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
+        private System.Windows.Forms.Button btnCancelGood;
+        private System.Windows.Forms.Button btnCancelClient;
+        private SPDataSetTableAdapters.FaultStatusTableAdapter faultStatusTableAdapter;
+        private System.Windows.Forms.BindingSource faultStatusBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcNameFault;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescFault;
+        private System.Windows.Forms.DataGridViewComboBoxColumn faultStatus;
     }
 }

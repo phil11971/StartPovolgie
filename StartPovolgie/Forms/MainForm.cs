@@ -13,13 +13,13 @@ namespace StartPovolgie.Forms
 {
     public partial class MainForm : Form
     {
-        public Employee Emp { get; private set; }
-        public MainForm(Employee emp)
+        public Employee employee { get; private set; }
+        public MainForm(Employee employee)
         {
             InitializeComponent();
             this.ActiveControl = lblEmp;
-            Emp = emp;
-            lblEmp.Text = Emp.LastName + " " + Emp.FirstName;
+            this.employee = employee;
+            lblEmp.Text = employee.LastName + " " + employee.FirstName;
         }
 
         private void типыТоваровToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace StartPovolgie.Forms
 
         private void администраторыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new EmployeeForm(Emp.Id).ShowDialog();
+            new EmployeeForm(employee.Id).ShowDialog();
             //new AddEmployeeForm("Администратор").ShowDialog();
         }
 
@@ -86,7 +86,7 @@ namespace StartPovolgie.Forms
 
         private void новаяЗаявкаНаРемонтToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AcceptForRepairForm().ShowDialog();
+            new AcceptForRepairForm(employee).ShowDialog();
         }
     }
 }

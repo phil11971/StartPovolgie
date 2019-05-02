@@ -47,9 +47,6 @@ namespace StartPovolgie.DAO
 
                         emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, spec);
                     }
-                    else
-                        emp = new Chief(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString());
-
 
                 }
                 dataReader.Close();

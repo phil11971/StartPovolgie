@@ -8,7 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    class AcceptForRepairController
+    public class AcceptForRepairController
     {
+        public bool Insert(AcceptForRepair acceptForRepair)
+        {
+            if (new AcceptForRepairDAO().Insert(acceptForRepair)) return true;
+            else return false;
+        }
+
+        public bool Update(AcceptForRepair acceptForRepair)
+        {
+            if (new AcceptForRepairDAO().Update(acceptForRepair)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new AcceptForRepairDAO().DeleteById(id);
+        }
     }
 }

@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Controller\AcceptForRepairController.cs" />
     <Compile Include="Controller\AdministratorController.cs" />
-    <Compile Include="Controller\ChiefController.cs" />
     <Compile Include="Controller\ClientController.cs" />
     <Compile Include="Controller\GoodController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -77,8 +76,6 @@
     <Compile Include="Controller\SparePartStatusController.cs" />
     <Compile Include="Controller\SpecializationController.cs" />
     <Compile Include="Controller\TypeGoodController.cs" />
-    <Compile Include="Controller\WorkController.cs" />
-    <Compile Include="Controller\WorkStatusController.cs" />
     <Compile Include="DAO\AcceptForRepairDAO.cs" />
     <Compile Include="DAO\AdministratorDAO.cs" />
     <Compile Include="DAO\ChiefDAO.cs" />
@@ -101,8 +98,6 @@
     <Compile Include="DAO\SparePartStatusDAO.cs" />
     <Compile Include="DAO\SpecializationDAO.cs" />
     <Compile Include="DAO\TypeGoodDAO.cs" />
-    <Compile Include="DAO\WorkDAO.cs" />
-    <Compile Include="DAO\WorkStatusDAO.cs" />
     <Compile Include="Forms\AddClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,7 +273,6 @@
       <DependentUpon>ViewAcceptForRepairForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AcceptForRepair.cs" />
-    <Compile Include="Model\Chief.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Good.cs" />
@@ -298,14 +292,15 @@
     <Compile Include="Model\SparePartStatus.cs" />
     <Compile Include="Model\Specialization.cs" />
     <Compile Include="Model\TypeGood.cs" />
-    <Compile Include="Model\Work.cs" />
-    <Compile Include="Model\WorkStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SPDataSet.cs">
+      <DependentUpon>SPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SPDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

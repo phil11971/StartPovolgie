@@ -10,5 +10,6 @@ namespace StartPovolgie.Controller
 {
     class AdministratorController
     {
+
     }
 }
