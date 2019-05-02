@@ -35,7 +35,7 @@ namespace StartPovolgie.Forms
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.lblEmployees = new System.Windows.Forms.Label();
-            this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.dgvMaster = new System.Windows.Forms.DataGridView();
             this.idempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,14 +55,14 @@ namespace StartPovolgie.Forms
             this.lblPass = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.dgvMasterSpec = new System.Windows.Forms.DataGridView();
-            this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
-            this.masterSpecializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.MasterSpecializationTableAdapter();
-            this.masterSpecializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idmasterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charspecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
+            this.masterSpecializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
+            this.masterSpecializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.MasterSpecializationTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbInfoEmp.SuspendLayout();
@@ -110,26 +110,25 @@ namespace StartPovolgie.Forms
             this.lblEmployees.TabIndex = 3;
             this.lblEmployees.Text = "Мастеры";
             // 
-            // dgvEmployees
+            // dgvMaster
             // 
-            this.dgvEmployees.AutoGenerateColumns = false;
-            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMaster.AutoGenerateColumns = false;
+            this.dgvMaster.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idempDataGridViewTextBoxColumn,
             this.lnameDataGridViewTextBoxColumn,
             this.fnameDataGridViewTextBoxColumn,
             this.patronymicDataGridViewTextBoxColumn});
-            this.dgvEmployees.DataSource = this.masterBindingSource;
-            this.dgvEmployees.EnableHeadersVisualStyles = false;
-            this.dgvEmployees.Location = new System.Drawing.Point(12, 142);
-            this.dgvEmployees.Name = "dgvEmployees";
-            this.dgvEmployees.RowHeadersVisible = false;
-            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployees.Size = new System.Drawing.Size(303, 132);
-            this.dgvEmployees.TabIndex = 4;
-            this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
-            this.dgvEmployees.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_RowEnter);
+            this.dgvMaster.DataSource = this.masterBindingSource;
+            this.dgvMaster.EnableHeadersVisualStyles = false;
+            this.dgvMaster.Location = new System.Drawing.Point(12, 142);
+            this.dgvMaster.Name = "dgvMaster";
+            this.dgvMaster.RowHeadersVisible = false;
+            this.dgvMaster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaster.Size = new System.Drawing.Size(303, 132);
+            this.dgvMaster.TabIndex = 4;
+            this.dgvMaster.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
             // idempDataGridViewTextBoxColumn
             // 
@@ -301,20 +300,6 @@ namespace StartPovolgie.Forms
             this.dgvMasterSpec.TabIndex = 7;
             this.dgvMasterSpec.Tag = "";
             // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // masterSpecializationTableAdapter
-            // 
-            this.masterSpecializationTableAdapter.ClearBeforeFill = true;
-            // 
-            // masterSpecializationBindingSource
-            // 
-            this.masterSpecializationBindingSource.DataMember = "MasterSpecialization";
-            this.masterSpecializationBindingSource.DataSource = this.spDataSet;
-            this.masterSpecializationBindingSource.CurrentChanged += new System.EventHandler(this.masterSpecializationBindingSource_CurrentChanged);
-            // 
             // idmasterDataGridViewTextBoxColumn
             // 
             this.idmasterDataGridViewTextBoxColumn.DataPropertyName = "id_master";
@@ -341,6 +326,19 @@ namespace StartPovolgie.Forms
             this.charspecDataGridViewTextBoxColumn.HeaderText = "Характеристика";
             this.charspecDataGridViewTextBoxColumn.Name = "charspecDataGridViewTextBoxColumn";
             // 
+            // masterSpecializationBindingSource
+            // 
+            this.masterSpecializationBindingSource.DataMember = "MasterSpecialization";
+            this.masterSpecializationBindingSource.DataSource = this.spDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // masterSpecializationTableAdapter
+            // 
+            this.masterSpecializationTableAdapter.ClearBeforeFill = true;
+            // 
             // MasterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +347,7 @@ namespace StartPovolgie.Forms
             this.Controls.Add(this.dgvMasterSpec);
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
-            this.Controls.Add(this.dgvEmployees);
+            this.Controls.Add(this.dgvMaster);
             this.Controls.Add(this.lblEmployees);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
@@ -357,7 +355,7 @@ namespace StartPovolgie.Forms
             this.Name = "MasterForm";
             this.Text = "Мастеры";
             this.Load += new System.EventHandler(this.MasterForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.gbInfoEmp.ResumeLayout(false);
@@ -377,7 +375,7 @@ namespace StartPovolgie.Forms
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Label lblEmployees;
-        private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.DataGridView dgvMaster;
         private System.Windows.Forms.GroupBox gbInfoEmp;
         private System.Windows.Forms.GroupBox gbInfoEmpEntry;
         private System.Windows.Forms.Label lblStatus;

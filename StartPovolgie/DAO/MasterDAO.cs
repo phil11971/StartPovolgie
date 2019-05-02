@@ -197,7 +197,6 @@ namespace StartPovolgie.DAO
             }
         }
 
-        //todo
         public void DeleteById(int id)
         {
             try

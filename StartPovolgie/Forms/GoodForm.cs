@@ -26,7 +26,7 @@ namespace StartPovolgie.Forms
             goodTableAdapter.Fill(spDataSet.Good);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             var addGoodForm = new AddGoodForm();
             addGoodForm.Closing += AddTypeOfDevicesForm_Closing;

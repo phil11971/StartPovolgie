@@ -8,7 +8,23 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Controller
 {
-    class ClientController
+    public class ClientController
     {
+        public bool Insert(Client clinet)
+        {
+            if (new ClientDAO().Insert(clinet)) return true;
+            else return false;
+        }
+
+        public bool Update(Client clinet)
+        {
+            if (new ClientDAO().Update(clinet)) return true;
+            else return false;
+        }
+
+        public void DeleteById(int id)
+        {
+            new ClientDAO().DeleteById(id);
+        }
     }
 }

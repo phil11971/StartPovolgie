@@ -44,17 +44,14 @@
             this.состояниеНеисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяЗаявкаНаРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяЗаявкаНаЗапчастиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.реестрЗаявокНаРемонтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.реестрЗаказнарядовToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.реестрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.lblEmp = new System.Windows.Forms.LinkLabel();
             this.pbEmployee = new System.Windows.Forms.PictureBox();
@@ -107,14 +104,14 @@
             // работыУслугиToolStripMenuItem
             // 
             this.работыУслугиToolStripMenuItem.Name = "работыУслугиToolStripMenuItem";
-            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.работыУслугиToolStripMenuItem.Text = "Работы/Услуги";
             this.работыУслугиToolStripMenuItem.Click += new System.EventHandler(this.работыУслугиToolStripMenuItem_Click);
             // 
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
             this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.запчастиToolStripMenuItem_Click);
             // 
@@ -123,6 +120,7 @@
             this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
             this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
+            this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
             // сотрудникиToolStripMenuItem
             // 
@@ -186,7 +184,6 @@
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.новаяЗаявкаНаРемонтToolStripMenuItem,
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem,
             this.новаяЗаявкаНаЗапчастиToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -195,26 +192,19 @@
             // новаяЗаявкаНаРемонтToolStripMenuItem
             // 
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Name = "новаяЗаявкаНаРемонтToolStripMenuItem";
-            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт для ФЛ";
-            // 
-            // оформитьДоговорЗаказнарядаToolStripMenuItem
-            // 
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem.Name = "оформитьДоговорЗаказнарядаToolStripMenuItem";
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.оформитьДоговорЗаказнарядаToolStripMenuItem.Text = "Договор заказ-наряда для ЮЛ";
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт";
             // 
             // новаяЗаявкаНаЗапчастиToolStripMenuItem
             // 
             this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Name = "новаяЗаявкаНаЗапчастиToolStripMenuItem";
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Text = "Заявка на запчасти";
             // 
             // запросыToolStripMenuItem
             // 
             this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.реестрЗаявокНаРемонтToolStripMenuItem1,
-            this.реестрЗаказнарядовToolStripMenuItem1,
             this.реестрToolStripMenuItem});
             this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
             this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -225,12 +215,6 @@
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Name = "реестрЗаявокНаРемонтToolStripMenuItem1";
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Text = "Реестр приемов в ремонт";
-            // 
-            // реестрЗаказнарядовToolStripMenuItem1
-            // 
-            this.реестрЗаказнарядовToolStripMenuItem1.Name = "реестрЗаказнарядовToolStripMenuItem1";
-            this.реестрЗаказнарядовToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
-            this.реестрЗаказнарядовToolStripMenuItem1.Text = "Реестр заказ-нарядов";
             // 
             // реестрToolStripMenuItem
             // 
@@ -265,15 +249,6 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Реестр заявок на ремонт";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(499, 101);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Реестр заказ-нарядов";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -320,7 +295,6 @@
             this.Controls.Add(this.pbEmployee);
             this.Controls.Add(this.pbStartPovolgie);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
@@ -350,19 +324,16 @@
         private System.Windows.Forms.ToolStripMenuItem товарыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыТоваровToolStripMenuItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pbStartPovolgie;
         private System.Windows.Forms.PictureBox pbEmployee;
         private System.Windows.Forms.ToolStripMenuItem новаяЗаявкаНаРемонтToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оформитьДоговорЗаказнарядаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem новаяЗаявкаНаЗапчастиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem специализацииМастеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem офисныеТелефоныToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem запросыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem реестрЗаявокНаРемонтToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem реестрЗаказнарядовToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem реестрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem мастерыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem администраторыToolStripMenuItem;

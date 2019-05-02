@@ -378,7 +378,6 @@
             // 
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.dgvIndividual);
-            this.tabPage2.Controls.Add(this.btnSearch);
             this.tabPage2.Controls.Add(this.gbSearch);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -448,7 +447,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(213, 112);
+            this.btnSearch.Location = new System.Drawing.Point(204, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 6;
@@ -459,10 +458,11 @@
             // 
             this.gbSearch.Controls.Add(this.mtbSearch);
             this.gbSearch.Controls.Add(this.radioButton2);
+            this.gbSearch.Controls.Add(this.btnSearch);
             this.gbSearch.Controls.Add(this.radioButton1);
             this.gbSearch.Location = new System.Drawing.Point(7, 35);
             this.gbSearch.Name = "gbSearch";
-            this.gbSearch.Size = new System.Drawing.Size(200, 100);
+            this.gbSearch.Size = new System.Drawing.Size(285, 87);
             this.gbSearch.TabIndex = 5;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Поиск";

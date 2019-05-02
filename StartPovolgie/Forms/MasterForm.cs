@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StartPovolgie.Controller;
+using StartPovolgie.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +22,8 @@ namespace StartPovolgie.Forms
         private void MasterForm_Load(object sender, EventArgs e)
         {
             employeeTableAdapter.Fill(spDataSet.Employee);
-            masterSpecializationTableAdapter.FillBy(spDataSet.MasterSpecialization);
-            this.masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvEmployees.Rows[0].Cells[0].Value);
+            masterSpecializationTableAdapter.Fill(spDataSet.MasterSpecialization);
+            this.masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvMaster.Rows[0].Cells[0].Value);
 
         }
 
@@ -45,24 +47,32 @@ namespace StartPovolgie.Forms
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void masterSpecializationBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvEmployees_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dgvMaster.CurrentRow.Cells[0].Value);
+                //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
+                try
+                {
+                    //typeGoodTableAdapter.Delete(id, name);
+                    new MasterController().DeleteById(id);
+                    employeeTableAdapter.Fill(spDataSet.Employee);
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ошибка работы с базой данных!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvEmployees.SelectedRows.Count == 1)
+        {//todo check
+            if (dgvMaster.SelectedRows.Count == 1)
             {
-                masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvEmployees.SelectedRows[0].Cells[0].Value);
+                masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvMaster.CurrentRow.Cells[0].Value);
             }
         }
     }

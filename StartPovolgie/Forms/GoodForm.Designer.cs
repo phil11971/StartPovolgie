@@ -41,13 +41,13 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvGoods = new System.Windows.Forms.DataGridView();
-            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
-            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idtgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
+            this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
@@ -180,29 +180,6 @@
             this.dgvGoods.Size = new System.Drawing.Size(457, 150);
             this.dgvGoods.TabIndex = 6;
             // 
-            // goodBindingSource
-            // 
-            this.goodBindingSource.DataMember = "Good";
-            this.goodBindingSource.DataSource = this.spDataSet;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // goodTableAdapter
-            // 
-            this.goodTableAdapter.ClearBeforeFill = true;
-            // 
-            // typeGoodTableAdapter
-            // 
-            this.typeGoodTableAdapter.ClearBeforeFill = true;
-            // 
             // idgDataGridViewTextBoxColumn
             // 
             this.idgDataGridViewTextBoxColumn.DataPropertyName = "id_g";
@@ -225,16 +202,40 @@
             this.idtgDataGridViewTextBoxColumn.DisplayMember = "name_tg";
             this.idtgDataGridViewTextBoxColumn.HeaderText = "Тип товара";
             this.idtgDataGridViewTextBoxColumn.Name = "idtgDataGridViewTextBoxColumn";
+            this.idtgDataGridViewTextBoxColumn.ReadOnly = true;
             this.idtgDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.idtgDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.idtgDataGridViewTextBoxColumn.ValueMember = "id_tg";
+            // 
+            // goodBindingSource
+            // 
+            this.goodBindingSource.DataMember = "Good";
+            this.goodBindingSource.DataSource = this.spDataSet;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 110);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // goodTableAdapter
+            // 
+            this.goodTableAdapter.ClearBeforeFill = true;
+            // 
+            // typeGoodTableAdapter
+            // 
+            this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
             // GoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 301);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvGoods);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDel);
@@ -264,7 +265,7 @@
         private System.Windows.Forms.DataGridView dgvGoods;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.BindingSource goodBindingSource;
         private SPDataSet spDataSet;
         private SPDataSetTableAdapters.GoodTableAdapter goodTableAdapter;

@@ -78,5 +78,10 @@ namespace StartPovolgie.Forms
         {
             new MasterForm().ShowDialog();
         }
+
+        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClientForm().ShowDialog();
+        }
     }
 }
