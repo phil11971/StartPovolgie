@@ -216,6 +216,7 @@
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Name = "реестрЗаявокНаРемонтToolStripMenuItem1";
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Text = "Реестр приемов в ремонт";
+            this.реестрЗаявокНаРемонтToolStripMenuItem1.Click += new System.EventHandler(this.реестрЗаявокНаРемонтToolStripMenuItem1_Click);
             // 
             // реестрToolStripMenuItem
             // 

@@ -28,44 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbFilter = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.rbStatus = new System.Windows.Forms.RadioButton();
-            this.rbDateOfAcceptance = new System.Windows.Forms.RadioButton();
+            this.rbReceiptDate = new System.Windows.Forms.RadioButton();
             this.dtPickerPo = new System.Windows.Forms.DateTimePicker();
             this.lblPo = new System.Windows.Forms.Label();
             this.lblS = new System.Windows.Forms.Label();
             this.dtPickerS = new System.Windows.Forms.DateTimePicker();
             this.gbFind = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
-            this.rbtnName = new System.Windows.Forms.RadioButton();
-            this.rbtnPhone = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dgvtbcNumberAccept = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcGood = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcAcceptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcDeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rbLastName = new System.Windows.Forms.RadioButton();
+            this.rbPhone = new System.Windows.Forms.RadioButton();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnDetail = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.dgvAccept = new System.Windows.Forms.DataGridView();
+            this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiptdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuedateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adminFullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientFullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registryAcceptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // gbFilter
             // 
-            this.gbFilter.Controls.Add(this.button1);
+            this.gbFilter.Controls.Add(this.btnCancel);
             this.gbFilter.Controls.Add(this.cmbStatus);
             this.gbFilter.Controls.Add(this.rbStatus);
-            this.gbFilter.Controls.Add(this.rbDateOfAcceptance);
+            this.gbFilter.Controls.Add(this.rbReceiptDate);
             this.gbFilter.Controls.Add(this.dtPickerPo);
             this.gbFilter.Controls.Add(this.lblPo);
             this.gbFilter.Controls.Add(this.lblS);
@@ -78,14 +84,14 @@
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Фильтрация списка";
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(226, 106);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Снять фильтр";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(226, 106);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(156, 23);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "Снять фильтр";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // cmbStatus
             // 
@@ -115,20 +121,20 @@
             this.rbStatus.Text = "по статусу";
             this.rbStatus.UseVisualStyleBackColor = true;
             // 
-            // rbDateOfAcceptance
+            // rbReceiptDate
             // 
-            this.rbDateOfAcceptance.AutoSize = true;
-            this.rbDateOfAcceptance.Checked = true;
-            this.rbDateOfAcceptance.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbDateOfAcceptance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rbDateOfAcceptance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rbDateOfAcceptance.Location = new System.Drawing.Point(11, 19);
-            this.rbDateOfAcceptance.Name = "rbDateOfAcceptance";
-            this.rbDateOfAcceptance.Size = new System.Drawing.Size(119, 21);
-            this.rbDateOfAcceptance.TabIndex = 16;
-            this.rbDateOfAcceptance.TabStop = true;
-            this.rbDateOfAcceptance.Text = "по дате приема";
-            this.rbDateOfAcceptance.UseVisualStyleBackColor = true;
+            this.rbReceiptDate.AutoSize = true;
+            this.rbReceiptDate.Checked = true;
+            this.rbReceiptDate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbReceiptDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rbReceiptDate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rbReceiptDate.Location = new System.Drawing.Point(11, 19);
+            this.rbReceiptDate.Name = "rbReceiptDate";
+            this.rbReceiptDate.Size = new System.Drawing.Size(119, 21);
+            this.rbReceiptDate.TabIndex = 16;
+            this.rbReceiptDate.TabStop = true;
+            this.rbReceiptDate.Text = "по дате приема";
+            this.rbReceiptDate.UseVisualStyleBackColor = true;
             // 
             // dtPickerPo
             // 
@@ -180,10 +186,10 @@
             // 
             // gbFind
             // 
-            this.gbFind.Controls.Add(this.button2);
+            this.gbFind.Controls.Add(this.btnFind);
             this.gbFind.Controls.Add(this.mtbPhone);
-            this.gbFind.Controls.Add(this.rbtnName);
-            this.gbFind.Controls.Add(this.rbtnPhone);
+            this.gbFind.Controls.Add(this.rbLastName);
+            this.gbFind.Controls.Add(this.rbPhone);
             this.gbFind.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gbFind.Location = new System.Drawing.Point(414, 12);
             this.gbFind.Name = "gbFind";
@@ -192,14 +198,14 @@
             this.gbFind.TabStop = false;
             this.gbFind.Text = "Поиск";
             // 
-            // button2
+            // btnFind
             // 
-            this.button2.Location = new System.Drawing.Point(255, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Найти";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnFind.Location = new System.Drawing.Point(255, 107);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(113, 23);
+            this.btnFind.TabIndex = 20;
+            this.btnFind.Text = "Найти";
+            this.btnFind.UseVisualStyleBackColor = true;
             // 
             // mtbPhone
             // 
@@ -211,154 +217,181 @@
             this.mtbPhone.Size = new System.Drawing.Size(226, 27);
             this.mtbPhone.TabIndex = 25;
             // 
-            // rbtnName
+            // rbLastName
             // 
-            this.rbtnName.AutoSize = true;
-            this.rbtnName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbtnName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.rbtnName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rbtnName.Location = new System.Drawing.Point(9, 59);
-            this.rbtnName.Name = "rbtnName";
-            this.rbtnName.Size = new System.Drawing.Size(104, 20);
-            this.rbtnName.TabIndex = 21;
-            this.rbtnName.TabStop = true;
-            this.rbtnName.Text = "по фамилии";
-            this.rbtnName.UseVisualStyleBackColor = true;
+            this.rbLastName.AutoSize = true;
+            this.rbLastName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.rbLastName.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rbLastName.Location = new System.Drawing.Point(9, 59);
+            this.rbLastName.Name = "rbLastName";
+            this.rbLastName.Size = new System.Drawing.Size(104, 20);
+            this.rbLastName.TabIndex = 21;
+            this.rbLastName.TabStop = true;
+            this.rbLastName.Text = "по фамилии";
+            this.rbLastName.UseVisualStyleBackColor = true;
             // 
-            // rbtnPhone
+            // rbPhone
             // 
-            this.rbtnPhone.AutoSize = true;
-            this.rbtnPhone.Checked = true;
-            this.rbtnPhone.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbtnPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.rbtnPhone.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rbtnPhone.Location = new System.Drawing.Point(9, 33);
-            this.rbtnPhone.Name = "rbtnPhone";
-            this.rbtnPhone.Size = new System.Drawing.Size(162, 20);
-            this.rbtnPhone.TabIndex = 20;
-            this.rbtnPhone.TabStop = true;
-            this.rbtnPhone.Text = "по номеру телефона";
-            this.rbtnPhone.UseVisualStyleBackColor = true;
+            this.rbPhone.AutoSize = true;
+            this.rbPhone.Checked = true;
+            this.rbPhone.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.rbPhone.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rbPhone.Location = new System.Drawing.Point(9, 33);
+            this.rbPhone.Name = "rbPhone";
+            this.rbPhone.Size = new System.Drawing.Size(162, 20);
+            this.rbPhone.TabIndex = 20;
+            this.rbPhone.TabStop = true;
+            this.rbPhone.Text = "по номеру телефона";
+            this.rbPhone.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAccept
             // 
-            this.button3.Location = new System.Drawing.Point(12, 167);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 34);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Прием в ремонт";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAccept.Location = new System.Drawing.Point(12, 167);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(113, 34);
+            this.btnAccept.TabIndex = 18;
+            this.btnAccept.Text = "Прием в ремонт";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // button4
+            // btnDetail
             // 
-            this.button4.Location = new System.Drawing.Point(131, 167);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 34);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Просмотр приема в ремонт";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDetail.Location = new System.Drawing.Point(131, 167);
+            this.btnDetail.Name = "btnDetail";
+            this.btnDetail.Size = new System.Drawing.Size(113, 34);
+            this.btnDetail.TabIndex = 19;
+            this.btnDetail.Text = "Просмотр приема в ремонт";
+            this.btnDetail.UseVisualStyleBackColor = true;
+            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
-            // button5
+            // btnDel
             // 
-            this.button5.Location = new System.Drawing.Point(250, 167);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 34);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Удалить прием в ремонт";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDel.Location = new System.Drawing.Point(250, 167);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(113, 34);
+            this.btnDel.TabIndex = 20;
+            this.btnDel.Text = "Удалить прием в ремонт";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // dataGridView1
+            // dgvAccept
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvtbcNumberAccept,
-            this.dgvtbcGood,
-            this.dgvtbcClient,
-            this.dgvtbcPhone,
-            this.dgvtbcAddress,
-            this.dgvtbcAcceptDate,
-            this.dgvtbcDeliveryDate,
-            this.dgvtbcStatus,
-            this.dgvtbcAdmin});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 231);
-            this.dataGridView1.TabIndex = 21;
+            this.dgvAccept.AutoGenerateColumns = false;
+            this.dgvAccept.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAccept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccept.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idacceptDataGridViewTextBoxColumn,
+            this.receiptdateDataGridViewTextBoxColumn,
+            this.issuedateDataGridViewTextBoxColumn,
+            this.adminFullNameDataGridViewTextBoxColumn,
+            this.namegDataGridViewTextBoxColumn,
+            this.clientFullNameDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.mailDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn});
+            this.dgvAccept.DataSource = this.registryAcceptBindingSource;
+            this.dgvAccept.EnableHeadersVisualStyles = false;
+            this.dgvAccept.Location = new System.Drawing.Point(12, 207);
+            this.dgvAccept.Name = "dgvAccept";
+            this.dgvAccept.RowHeadersVisible = false;
+            this.dgvAccept.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAccept.Size = new System.Drawing.Size(803, 231);
+            this.dgvAccept.TabIndex = 21;
             // 
-            // dgvtbcNumberAccept
+            // idacceptDataGridViewTextBoxColumn
             // 
-            this.dgvtbcNumberAccept.HeaderText = "Номер заявки";
-            this.dgvtbcNumberAccept.Name = "dgvtbcNumberAccept";
-            this.dgvtbcNumberAccept.ReadOnly = true;
+            this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
+            this.idacceptDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
             // 
-            // dgvtbcGood
+            // receiptdateDataGridViewTextBoxColumn
             // 
-            this.dgvtbcGood.HeaderText = "Товар";
-            this.dgvtbcGood.Name = "dgvtbcGood";
-            this.dgvtbcGood.ReadOnly = true;
+            this.receiptdateDataGridViewTextBoxColumn.DataPropertyName = "receipt_date";
+            this.receiptdateDataGridViewTextBoxColumn.HeaderText = "Дата приёма";
+            this.receiptdateDataGridViewTextBoxColumn.Name = "receiptdateDataGridViewTextBoxColumn";
             // 
-            // dgvtbcClient
+            // issuedateDataGridViewTextBoxColumn
             // 
-            this.dgvtbcClient.HeaderText = "Физическое лицо";
-            this.dgvtbcClient.Name = "dgvtbcClient";
-            this.dgvtbcClient.ReadOnly = true;
+            this.issuedateDataGridViewTextBoxColumn.DataPropertyName = "issue_date";
+            this.issuedateDataGridViewTextBoxColumn.HeaderText = "Дата выдачи";
+            this.issuedateDataGridViewTextBoxColumn.Name = "issuedateDataGridViewTextBoxColumn";
             // 
-            // dgvtbcPhone
+            // adminFullNameDataGridViewTextBoxColumn
             // 
-            this.dgvtbcPhone.HeaderText = "Телефон";
-            this.dgvtbcPhone.Name = "dgvtbcPhone";
-            this.dgvtbcPhone.ReadOnly = true;
+            this.adminFullNameDataGridViewTextBoxColumn.DataPropertyName = "adminFullName";
+            this.adminFullNameDataGridViewTextBoxColumn.HeaderText = "Администратор";
+            this.adminFullNameDataGridViewTextBoxColumn.Name = "adminFullNameDataGridViewTextBoxColumn";
+            this.adminFullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dgvtbcAddress
+            // namegDataGridViewTextBoxColumn
             // 
-            this.dgvtbcAddress.HeaderText = "Адрес";
-            this.dgvtbcAddress.Name = "dgvtbcAddress";
-            this.dgvtbcAddress.ReadOnly = true;
+            this.namegDataGridViewTextBoxColumn.DataPropertyName = "name_g";
+            this.namegDataGridViewTextBoxColumn.HeaderText = "Товар";
+            this.namegDataGridViewTextBoxColumn.Name = "namegDataGridViewTextBoxColumn";
             // 
-            // dgvtbcAcceptDate
+            // clientFullNameDataGridViewTextBoxColumn
             // 
-            this.dgvtbcAcceptDate.HeaderText = "Дата приема";
-            this.dgvtbcAcceptDate.Name = "dgvtbcAcceptDate";
-            this.dgvtbcAcceptDate.ReadOnly = true;
+            this.clientFullNameDataGridViewTextBoxColumn.DataPropertyName = "clientFullName";
+            this.clientFullNameDataGridViewTextBoxColumn.HeaderText = "Клиент";
+            this.clientFullNameDataGridViewTextBoxColumn.Name = "clientFullNameDataGridViewTextBoxColumn";
+            this.clientFullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dgvtbcDeliveryDate
+            // phoneDataGridViewTextBoxColumn
             // 
-            this.dgvtbcDeliveryDate.HeaderText = "Дата выдачи";
-            this.dgvtbcDeliveryDate.Name = "dgvtbcDeliveryDate";
-            this.dgvtbcDeliveryDate.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             // 
-            // dgvtbcStatus
+            // mailDataGridViewTextBoxColumn
             // 
-            this.dgvtbcStatus.HeaderText = "Статус";
-            this.dgvtbcStatus.Name = "dgvtbcStatus";
-            this.dgvtbcStatus.ReadOnly = true;
+            this.mailDataGridViewTextBoxColumn.DataPropertyName = "mail";
+            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
             // 
-            // dgvtbcAdmin
+            // addressDataGridViewTextBoxColumn
             // 
-            this.dgvtbcAdmin.HeaderText = "Администратор";
-            this.dgvtbcAdmin.Name = "dgvtbcAdmin";
-            this.dgvtbcAdmin.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // registryAcceptBindingSource
+            // 
+            this.registryAcceptBindingSource.DataMember = "RegistryAccept";
+            this.registryAcceptBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registryAcceptTableAdapter
+            // 
+            this.registryAcceptTableAdapter.ClearBeforeFill = true;
             // 
             // RegistryAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.dgvAccept);
+            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnDetail);
+            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.gbFind);
             this.Controls.Add(this.gbFilter);
             this.Name = "RegistryAcceptForRepairForm";
             this.Text = "Реестр приемов в ремонт";
+            this.Load += new System.EventHandler(this.RegistryAcceptForRepairForm_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.gbFind.ResumeLayout(false);
             this.gbFind.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registryAcceptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,29 +401,32 @@
         private System.Windows.Forms.GroupBox gbFilter;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.RadioButton rbStatus;
-        private System.Windows.Forms.RadioButton rbDateOfAcceptance;
+        private System.Windows.Forms.RadioButton rbReceiptDate;
         private System.Windows.Forms.DateTimePicker dtPickerPo;
         private System.Windows.Forms.Label lblPo;
         private System.Windows.Forms.Label lblS;
         private System.Windows.Forms.DateTimePicker dtPickerS;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox gbFind;
         private System.Windows.Forms.MaskedTextBox mtbPhone;
-        private System.Windows.Forms.RadioButton rbtnName;
-        private System.Windows.Forms.RadioButton rbtnPhone;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcNumberAccept;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcGood;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcAcceptDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDeliveryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcAdmin;
+        private System.Windows.Forms.RadioButton rbLastName;
+        private System.Windows.Forms.RadioButton rbPhone;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnDetail;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.DataGridView dgvAccept;
+        private SPDataSet spDataSet;
+        private SPDataSetTableAdapters.RegistryAcceptTableAdapter registryAcceptTableAdapter;
+        private System.Windows.Forms.BindingSource registryAcceptBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receiptdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issuedateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adminFullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namegDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientFullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
     }
 }

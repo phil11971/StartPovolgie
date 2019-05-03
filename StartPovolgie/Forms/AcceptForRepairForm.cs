@@ -179,5 +179,11 @@ namespace StartPovolgie.Forms
                 }
             }
         }
+
+        //todo
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

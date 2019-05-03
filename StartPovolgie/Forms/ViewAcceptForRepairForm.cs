@@ -1,4 +1,7 @@
-﻿using System;
+﻿using StartPovolgie.Controller;
+using StartPovolgie.Model;
+using StartPovolgie.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,12 @@ namespace StartPovolgie.Forms
 {
     public partial class ViewAcceptForRepairForm : Form
     {
-        public ViewAcceptForRepairForm()
+        AcceptForRepair acceptForRepair;
+
+        public ViewAcceptForRepairForm(AcceptForRepair accept)
         {
             InitializeComponent();
+            acceptForRepair = accept;
         }
 
         private void ViewAcceptForRepairForm_Load(object sender, EventArgs e)

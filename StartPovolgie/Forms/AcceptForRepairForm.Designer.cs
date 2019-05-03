@@ -148,6 +148,7 @@
             this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "Печать";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // tabControl1
             // 

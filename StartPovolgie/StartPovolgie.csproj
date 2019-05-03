@@ -170,12 +170,6 @@
     <Compile Include="Forms\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FaultsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FaultsForm.Designer.cs">
-      <DependentUpon>FaultsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MasterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,12 +224,6 @@
     <Compile Include="Forms\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RequestForSparesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RequestForSparesForm.Designer.cs">
-      <DependentUpon>RequestForSparesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SparePartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,15 +265,12 @@
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Good.cs" />
     <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Fault.cs" />
     <Compile Include="Model\FaultSparePart.cs" />
     <Compile Include="Model\FaultStatus.cs" />
-    <Compile Include="Model\Individual.cs" />
     <Compile Include="Model\Master.cs" />
     <Compile Include="Model\MasterSpecialization.cs" />
     <Compile Include="Model\OfficePhone.cs" />
-    <Compile Include="Model\OrderOutfit.cs" />
     <Compile Include="Model\ReturnFromRepair.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\SparePart.cs" />
@@ -343,9 +328,6 @@
     <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FaultsForm.resx">
-      <DependentUpon>FaultsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MasterForm.resx">
       <DependentUpon>MasterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,9 +354,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RequestForSparesForm.resx">
-      <DependentUpon>RequestForSparesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SparePartForm.resx">
       <DependentUpon>SparePartForm.cs</DependentUpon>
