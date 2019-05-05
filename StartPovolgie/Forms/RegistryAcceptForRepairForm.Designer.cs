@@ -47,18 +47,21 @@
             this.btnDetail = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvAccept = new System.Windows.Forms.DataGridView();
+            this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
             this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receiptdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idadminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminFullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namegDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientFullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
@@ -96,7 +99,6 @@
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
@@ -286,8 +288,11 @@
             this.idacceptDataGridViewTextBoxColumn,
             this.receiptdateDataGridViewTextBoxColumn,
             this.issuedateDataGridViewTextBoxColumn,
+            this.idadminDataGridViewTextBoxColumn,
             this.adminFullNameDataGridViewTextBoxColumn,
+            this.idgDataGridViewTextBoxColumn,
             this.namegDataGridViewTextBoxColumn,
+            this.idclientDataGridViewTextBoxColumn,
             this.clientFullNameDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.mailDataGridViewTextBoxColumn,
@@ -301,10 +306,24 @@
             this.dgvAccept.Size = new System.Drawing.Size(803, 231);
             this.dgvAccept.TabIndex = 21;
             // 
+            // registryAcceptBindingSource
+            // 
+            this.registryAcceptBindingSource.DataMember = "RegistryAccept";
+            this.registryAcceptBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registryAcceptTableAdapter
+            // 
+            this.registryAcceptTableAdapter.ClearBeforeFill = true;
+            // 
             // idacceptDataGridViewTextBoxColumn
             // 
             this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.idacceptDataGridViewTextBoxColumn.HeaderText = "Номер заявки";
             this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
             // 
             // receiptdateDataGridViewTextBoxColumn
@@ -318,6 +337,14 @@
             this.issuedateDataGridViewTextBoxColumn.DataPropertyName = "issue_date";
             this.issuedateDataGridViewTextBoxColumn.HeaderText = "Дата выдачи";
             this.issuedateDataGridViewTextBoxColumn.Name = "issuedateDataGridViewTextBoxColumn";
+            this.issuedateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idadminDataGridViewTextBoxColumn
+            // 
+            this.idadminDataGridViewTextBoxColumn.DataPropertyName = "id_admin";
+            this.idadminDataGridViewTextBoxColumn.HeaderText = "id_admin";
+            this.idadminDataGridViewTextBoxColumn.Name = "idadminDataGridViewTextBoxColumn";
+            this.idadminDataGridViewTextBoxColumn.Visible = false;
             // 
             // adminFullNameDataGridViewTextBoxColumn
             // 
@@ -326,11 +353,25 @@
             this.adminFullNameDataGridViewTextBoxColumn.Name = "adminFullNameDataGridViewTextBoxColumn";
             this.adminFullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // idgDataGridViewTextBoxColumn
+            // 
+            this.idgDataGridViewTextBoxColumn.DataPropertyName = "id_g";
+            this.idgDataGridViewTextBoxColumn.HeaderText = "id_g";
+            this.idgDataGridViewTextBoxColumn.Name = "idgDataGridViewTextBoxColumn";
+            this.idgDataGridViewTextBoxColumn.Visible = false;
+            // 
             // namegDataGridViewTextBoxColumn
             // 
             this.namegDataGridViewTextBoxColumn.DataPropertyName = "name_g";
             this.namegDataGridViewTextBoxColumn.HeaderText = "Товар";
             this.namegDataGridViewTextBoxColumn.Name = "namegDataGridViewTextBoxColumn";
+            // 
+            // idclientDataGridViewTextBoxColumn
+            // 
+            this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
+            this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
+            this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
+            this.idclientDataGridViewTextBoxColumn.Visible = false;
             // 
             // clientFullNameDataGridViewTextBoxColumn
             // 
@@ -356,20 +397,6 @@
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
             this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // registryAcceptBindingSource
-            // 
-            this.registryAcceptBindingSource.DataMember = "RegistryAccept";
-            this.registryAcceptBindingSource.DataSource = this.spDataSet;
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registryAcceptTableAdapter
-            // 
-            this.registryAcceptTableAdapter.ClearBeforeFill = true;
             // 
             // RegistryAcceptForRepairForm
             // 
@@ -422,8 +449,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn receiptdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuedateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idadminDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adminFullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idgDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namegDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientFullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;

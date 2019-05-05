@@ -44,7 +44,8 @@ namespace StartPovolgie.Forms
         //todo
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            //AcceptForRepair acceptForRepair = new AcceptForRepair();
+            AcceptForRepair acceptForRepair = new AcceptForRepair((int)dgvAccept.CurrentRow.Cells[0].Value,
+                (int)dgvAccept.CurrentRow.Cells[5].Value, (int)dgvAccept.CurrentRow.Cells[3].Value, (int)dgvAccept.CurrentRow.Cells[7].Value);
             new ViewAcceptForRepairForm(acceptForRepair).ShowDialog();
         }
 

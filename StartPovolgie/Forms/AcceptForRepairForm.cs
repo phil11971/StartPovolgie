@@ -180,7 +180,7 @@ namespace StartPovolgie.Forms
             }
         }
 
-        //todo
+        //todo print
         private void btnPrint_Click(object sender, EventArgs e)
         {
             

@@ -17,14 +17,30 @@ namespace StartPovolgie.Forms
     {
         AcceptForRepair acceptForRepair;
 
-        public ViewAcceptForRepairForm(AcceptForRepair accept)
+        public ViewAcceptForRepairForm(AcceptForRepair acceptForRepair)
         {
             InitializeComponent();
-            acceptForRepair = accept;
+            this.acceptForRepair = acceptForRepair;
         }
 
         private void ViewAcceptForRepairForm_Load(object sender, EventArgs e)
         {
+            acceptForRepairTableAdapter.Fill(spDataSet.AcceptForRepair);
+            clientTableAdapter.Fill(spDataSet.Client);
+            typeGoodTableAdapter.Fill(spDataSet.TypeGood);
+            goodTableAdapter.Fill(spDataSet.Good);
+            faultTableAdapter.Fill(spDataSet.Fault);
+            faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
+            employeeTableAdapter.Fill(spDataSet.Employee);
+
+            acceptForRepairBindingSource.Filter = String.Format("id_accept=\'{0}\'", acceptForRepair.Id);
+            employeeBindingSource.Filter = String.Format("id_emp=\'{0}\'", acceptForRepair.IdAdmin);
+            clientBindingSource.Filter = String.Format("id_client=\'{0}\'", acceptForRepair.IdClient);
+            goodBindingSource.Filter = String.Format("id_g=\'{0}\'", acceptForRepair.IdGood);
+
+            DataRowView dataRowView = (DataRowView)goodBindingSource.Current;
+
+            typeGoodBindingSource.Filter = String.Format("id_tg=\'{0}\'", (int)dataRowView.Row.ItemArray[0]);
 
         }
 
@@ -34,6 +50,11 @@ namespace StartPovolgie.Forms
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void rtbComment_TextChanged(object sender, EventArgs e)
         {
 
         }

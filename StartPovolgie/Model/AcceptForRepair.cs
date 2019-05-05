@@ -42,5 +42,13 @@ namespace StartPovolgie.Model
             IdClient = idClient;
             Faults = faults;
         }
+
+        public AcceptForRepair(int id, int idGood, int idAdmin, int idClient)
+        {
+            Id = id;
+            IdGood = idGood;
+            IdAdmin = idAdmin;
+            IdClient = idClient;
+        }
     }
 }
