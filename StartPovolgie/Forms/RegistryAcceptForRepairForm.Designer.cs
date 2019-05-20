@@ -323,7 +323,7 @@
             // idacceptDataGridViewTextBoxColumn
             // 
             this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.HeaderText = "Номер заявки";
+            this.idacceptDataGridViewTextBoxColumn.HeaderText = "Номер приёма";
             this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
             // 
             // receiptdateDataGridViewTextBoxColumn

@@ -35,7 +35,7 @@ namespace StartPovolgie.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim().Equals("") || tbPrice.Text.Trim().Equals("") )
+            if (tbName.Text.Trim().Equals("") || nudPrice.Text.Trim().Equals("") )
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -46,13 +46,13 @@ namespace StartPovolgie.Forms
                     if (id == 0)
                     {
                         //todo
-                        /*SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()));
+                        SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(nudCnt.Text.Trim()), Convert.ToSingle(nudPrice.Text.Trim()));
                         if (!sparePartController.Insert(sparePart))
                         {
                             MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
-                            this.Close();*/
+                            this.Close();
                     }
                     else
                     {

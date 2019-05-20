@@ -157,17 +157,24 @@ namespace StartPovolgie.Forms
                     {
                         faults.AddLast( new Fault(dgvFault.Rows[i].Cells[0].Value.ToString(), dgvFault.Rows[i].Cells[1].Value.ToString(), (int)dgvFault.Rows[i].Cells[2].Value) );
                     }
-                    AcceptForRepair acceptForRepair = new AcceptForRepair(
-                        rtbEquipment.Text.Trim(), rtbMechanicalDamage.Text.Trim(), 
-                        dtpReceiptDate.Value.Date, rtbComment.Text.Trim(), 
-                        (int)dgvGood.CurrentRow.Cells[0].Value, employee.Id, (int)dgvClient.CurrentRow.Cells[0].Value,
-                        faults);
-                    if (!acceptForRepairController.Insert(acceptForRepair))
+                    if (dgvClient.CurrentRow == null)
                     {
-                        MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Введите данные о клиенте", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        this.Close();
+                    {
+                        AcceptForRepair acceptForRepair = new AcceptForRepair(
+                            rtbEquipment.Text.Trim(), rtbMechanicalDamage.Text.Trim(),
+                            dtpReceiptDate.Value.Date, rtbComment.Text.Trim(),
+                            (int)dgvGood.CurrentRow.Cells[0].Value, employee.Id, (int)dgvClient.CurrentRow.Cells[0].Value,
+                            faults);
+                        if (!acceptForRepairController.Insert(acceptForRepair))
+                        {
+                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                            this.Close();
+                    }
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {

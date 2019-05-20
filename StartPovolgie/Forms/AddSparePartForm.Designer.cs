@@ -32,15 +32,17 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoSpare = new System.Windows.Forms.GroupBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
-            this.tbCount = new System.Windows.Forms.TextBox();
-            this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.nudCnt = new System.Windows.Forms.NumericUpDown();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.gbInfoSpare.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdd
@@ -55,8 +57,8 @@
             // gbInfoSpare
             // 
             this.gbInfoSpare.Controls.Add(this.tbDesc);
-            this.gbInfoSpare.Controls.Add(this.tbCount);
-            this.gbInfoSpare.Controls.Add(this.tbPrice);
+            this.gbInfoSpare.Controls.Add(this.nudCnt);
+            this.gbInfoSpare.Controls.Add(this.nudPrice);
             this.gbInfoSpare.Controls.Add(this.tbName);
             this.gbInfoSpare.Controls.Add(this.lblCount);
             this.gbInfoSpare.Controls.Add(this.lblDesc);
@@ -76,26 +78,37 @@
             this.tbDesc.Size = new System.Drawing.Size(121, 20);
             this.tbDesc.TabIndex = 15;
             // 
-            // tbCount
-            // 
-            this.tbCount.Location = new System.Drawing.Point(95, 84);
-            this.tbCount.Name = "tbCount";
-            this.tbCount.Size = new System.Drawing.Size(121, 20);
-            this.tbCount.TabIndex = 9;
-            // 
-            // tbPrice
-            // 
-            this.tbPrice.Location = new System.Drawing.Point(95, 110);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(121, 20);
-            this.tbPrice.TabIndex = 7;
-            // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(95, 32);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(121, 20);
             this.tbName.TabIndex = 6;
+            // 
+            // nudCnt
+            // 
+            this.nudCnt.Location = new System.Drawing.Point(95, 93);
+            this.nudCnt.Name = "nudCnt";
+            this.nudCnt.Size = new System.Drawing.Size(120, 20);
+            this.nudCnt.TabIndex = 16;
+            // 
+            // nudPrice
+            // 
+            this.nudPrice.DecimalPlaces = 1;
+            this.nudPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudPrice.Location = new System.Drawing.Point(95, 119);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(120, 20);
+            this.nudPrice.TabIndex = 17;
             // 
             // lblCount
             // 
@@ -155,6 +168,8 @@
             this.Text = "Добавление новой запчасти";
             this.gbInfoSpare.ResumeLayout(false);
             this.gbInfoSpare.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,8 +184,8 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoSpare = new System.Windows.Forms.GroupBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
-            this.tbCount = new System.Windows.Forms.TextBox();
-            this.tbPrice = new System.Windows.Forms.TextBox();
+            this.nudCnt = new System.Windows.Forms.NumericUpDown();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
@@ -178,6 +193,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gbInfoSpare.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdd
@@ -192,8 +209,8 @@
             // gbInfoSpare
             // 
             this.gbInfoSpare.Controls.Add(this.tbDesc);
-            this.gbInfoSpare.Controls.Add(this.tbCount);
-            this.gbInfoSpare.Controls.Add(this.tbPrice);
+            this.gbInfoSpare.Controls.Add(this.nudCnt);
+            this.gbInfoSpare.Controls.Add(this.nudPrice);
             this.gbInfoSpare.Controls.Add(this.tbName);
             this.gbInfoSpare.Controls.Add(this.lblCount);
             this.gbInfoSpare.Controls.Add(this.lblDesc);
@@ -213,19 +230,30 @@
             this.tbDesc.Size = new System.Drawing.Size(121, 20);
             this.tbDesc.TabIndex = 15;
             // 
-            // tbCount
+            // nudCnt
             // 
-            this.tbCount.Location = new System.Drawing.Point(95, 84);
-            this.tbCount.Name = "tbCount";
-            this.tbCount.Size = new System.Drawing.Size(121, 20);
-            this.tbCount.TabIndex = 9;
+            this.nudCnt.Location = new System.Drawing.Point(95, 93);
+            this.nudCnt.Name = "nudCnt";
+            this.nudCnt.Size = new System.Drawing.Size(120, 20);
+            this.nudCnt.TabIndex = 16;
             // 
-            // tbPrice
+            // nudPrice
             // 
-            this.tbPrice.Location = new System.Drawing.Point(95, 110);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(121, 20);
-            this.tbPrice.TabIndex = 7;
+            this.nudPrice.DecimalPlaces = 1;
+            this.nudPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudPrice.Location = new System.Drawing.Point(95, 119);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(120, 20);
+            this.nudPrice.TabIndex = 17;
             // 
             // tbName
             // 
@@ -292,6 +320,8 @@
             this.Text = "Добавление новой запчасти";
             this.gbInfoSpare.ResumeLayout(false);
             this.gbInfoSpare.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,8 +331,6 @@
 
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.GroupBox gbInfoSpare;
-        private System.Windows.Forms.TextBox tbCount;
-        private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.Label lblDesc;
@@ -310,5 +338,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbDesc;
+        private System.Windows.Forms.NumericUpDown nudCnt;
+        private System.Windows.Forms.NumericUpDown nudPrice;
     }
 }

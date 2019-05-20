@@ -241,7 +241,7 @@ namespace StartPovolgie.Forms
             this.gbInfoEmpEntry.Controls.Add(this.lblLogin);
             this.gbInfoEmpEntry.Location = new System.Drawing.Point(509, 12);
             this.gbInfoEmpEntry.Name = "gbInfoEmpEntry";
-            this.gbInfoEmpEntry.Size = new System.Drawing.Size(200, 110);
+            this.gbInfoEmpEntry.Size = new System.Drawing.Size(200, 124);
             this.gbInfoEmpEntry.TabIndex = 6;
             this.gbInfoEmpEntry.TabStop = false;
             this.gbInfoEmpEntry.Text = "Информация для входа в систему";
@@ -249,7 +249,7 @@ namespace StartPovolgie.Forms
             // tbPass
             // 
             this.tbPass.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.masterBindingSource, "pass", true));
-            this.tbPass.Location = new System.Drawing.Point(80, 70);
+            this.tbPass.Location = new System.Drawing.Point(73, 77);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(100, 20);
             this.tbPass.TabIndex = 7;
@@ -257,7 +257,7 @@ namespace StartPovolgie.Forms
             // tbLogin
             // 
             this.tbLogin.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.masterBindingSource, "login", true));
-            this.tbLogin.Location = new System.Drawing.Point(80, 39);
+            this.tbLogin.Location = new System.Drawing.Point(73, 46);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(100, 20);
             this.tbLogin.TabIndex = 6;
@@ -265,7 +265,7 @@ namespace StartPovolgie.Forms
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(25, 73);
+            this.lblPass.Location = new System.Drawing.Point(18, 80);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(45, 13);
             this.lblPass.TabIndex = 4;
@@ -274,7 +274,7 @@ namespace StartPovolgie.Forms
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(25, 42);
+            this.lblLogin.Location = new System.Drawing.Point(18, 49);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(38, 13);
             this.lblLogin.TabIndex = 3;

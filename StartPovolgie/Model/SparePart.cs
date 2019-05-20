@@ -12,23 +12,21 @@ namespace StartPovolgie.Model
         public string Name { get; set; }
         public string Desc { get; set; }
         public int Cnt { get; set; }
-        public int Price { get; set; }
-        public SparePartStatus SparePartStatus { get; set; }
+        public float Price { get; set; }
 
         public SparePart(string name)
         {
             Name = name;
         }
 
-        public SparePart(string name, string desc, int cnt, int price, SparePartStatus sparePartStatus) : this(name)
+        public SparePart(string name, string desc, int cnt, float price) : this(name)
         {
             Desc = desc;
             Cnt = cnt;
             Price = price;
-            SparePartStatus = sparePartStatus;
         }
 
-        public SparePart(int idSparePart, string name, string desc, int cnt, int price, SparePartStatus sparePartStatus) : this(name, desc, cnt, price, sparePartStatus)
+        public SparePart(int idSparePart, string name, string desc, int cnt, float price) : this(name, desc, cnt, price)
         {
             IdSparePart = idSparePart;
         }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace StartPovolgie.DAO
                 if (!HasSameType(sparePart, false))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Insert into SparePart (name_sp, desc_sp, quantity, price, id_sps) values (UPPER(LEFT(@sparePart_name, 1))+ SUBSTRING (@sparePart_name,2,len (@sparePart_name)), @sparePart_desc, @sparePart_quantity, @sparePart_price, @sparePart_id_sps) ";
+                    string sql = "Insert into SparePart (name_sp, desc_sp, quantity, price) values (UPPER(LEFT(@sparePart_name, 1))+ SUBSTRING (@sparePart_name,2,len (@sparePart_name)), @sparePart_desc, @sparePart_quantity, @sparePart_price) ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
@@ -38,20 +39,14 @@ namespace StartPovolgie.DAO
 
                         param = new SqlParameter();
                         param.ParameterName = "@sparePart_quantity";
-                        param.Value = sparePart.Price;
+                        param.Value = sparePart.Cnt;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
                         param.ParameterName = "@sparePart_price";
                         param.Value = sparePart.Price;
-                        param.SqlDbType = SqlDbType.Int;
-                        cmd.Parameters.Add(param);
-
-                        param = new SqlParameter();
-                        param.ParameterName = "@sparePart_id_sps";
-                        param.Value = sparePart.SparePartStatus.Id;
-                        param.SqlDbType = SqlDbType.Int;
+                        param.SqlDbType = SqlDbType.Float;
                         cmd.Parameters.Add(param);
 
                         cmd.ExecuteNonQuery();
@@ -75,7 +70,7 @@ namespace StartPovolgie.DAO
                 if (!HasSameType(sparePart, true))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Update SparePart Set name_sp=(UPPER(LEFT(@sparePart_name, 1))+ SUBSTRING (@sparePart_name,2,len (@sparePart_name))), desc_sp=@sparePart_desc, quantity=@sparePart_quantity, price=@sparePart_price, id_sps=@sparePart_id_sps Where id_sp=(@sparePart_id_sp);";
+                    string sql = "Update SparePart Set name_sp=(UPPER(LEFT(@sparePart_name, 1))+ SUBSTRING (@sparePart_name,2,len (@sparePart_name))), desc_sp=@sparePart_desc, quantity=@sparePart_quantity, price=@sparePart_price Where id_sp=(@sparePart_id_sp);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
@@ -102,20 +97,14 @@ namespace StartPovolgie.DAO
 
                         param = new SqlParameter();
                         param.ParameterName = "@sparePart_quantity";
-                        param.Value = sparePart.Price;
+                        param.Value = sparePart.Cnt;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
                         param.ParameterName = "@service_price";
                         param.Value = sparePart.Price;
-                        param.SqlDbType = SqlDbType.Int;
-                        cmd.Parameters.Add(param);
-
-                        param = new SqlParameter();
-                        param.ParameterName = "@sparePart_id_sps";
-                        param.Value = sparePart.SparePartStatus.Id;
-                        param.SqlDbType = SqlDbType.Int;
+                        param.SqlDbType = SqlDbType.Float;
                         cmd.Parameters.Add(param);
 
                         cmd.ExecuteNonQuery();
@@ -137,9 +126,9 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_sp) From SparePart Where UPPER(REPLACE(name_sp,' ',''))=UPPER(REPLACE('{0}',' ','')) AND desc_sp='{1}' AND quantity='{2}' AND price='{3}' AND id_sps='{4}'", sparePart.Name, sparePart.Desc, sparePart.Cnt, sparePart.Price, sparePart.SparePartStatus.Id);
+                string sql = string.Format("Select count(id_sp) From SparePart Where UPPER(REPLACE(name_sp,' ',''))=UPPER(REPLACE('{0}',' ','')) AND desc_sp='{1}' AND quantity={2} AND price={3}", sparePart.Name, sparePart.Desc, sparePart.Cnt, sparePart.Price.ToString("F01", new CultureInfo("en-us")));
                 if (isUpdate)
-                    sql = string.Format("Select count(id_sp) From SparePart Where UPPER(REPLACE(name_sp,' ',''))=UPPER(REPLACE('{0}',' ','')) AND desc_sp='{1}' AND quantity='{2}' AND price='{3}' AND id_sps='{4}' AND id_sp!='{5}'", sparePart.Name, sparePart.Desc, sparePart.Cnt, sparePart.Price, sparePart.SparePartStatus.Id, sparePart.IdSparePart);
+                    sql = string.Format("Select count(id_sp) From SparePart Where UPPER(REPLACE(name_sp,' ',''))=UPPER(REPLACE('{0}',' ','')) AND desc_sp='{1}' AND quantity={2} AND price={3} AND id_sp!='{4}'", sparePart.Name, sparePart.Desc, sparePart.Cnt, sparePart.Price.ToString("F01", new CultureInfo("en-us")), sparePart.IdSparePart);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

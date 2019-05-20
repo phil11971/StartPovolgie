@@ -13,16 +13,15 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
-    public partial class SparePartForm : Form
+    public partial class SparePartsForFaultForm : Form
     {
-        public SparePartForm()
+        public SparePartsForFaultForm()
         {
             InitializeComponent();
         }
 
-        private void SparePartForm_Load(object sender, EventArgs e)
+        private void SparePartsForFaultForm_Load(object sender, EventArgs e)
         {
-            cbStatus.SelectedItem = "В наличии";
             sparePartTableAdapter.Fill(spDataSet.SparePart);
         }
 
@@ -76,17 +75,19 @@ namespace StartPovolgie.Forms
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (!tbName.Text.Equals(""))
+            if (!tbName.Text.Equals("") && !cbStatus.Text.Equals(""))
             {
-                string sql;
-                if (cbStatus.Text.Equals("В наличии"))
-                    sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price From SparePart sp Where sp.quantity > 0 and sp.name_sp = @tbName";
-                else
-                    sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price From SparePart sp Where sp.quantity = 0 and sp.name_sp = @tbName";
+                string sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price, sp.id_sps From SparePart sp Join SparePartStatus sps On sp.id_sps = sps.id_sps Where sps.name_sps = @cbStatus and sp.name_sp = @tbName";
 
                 using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
                 {
                     SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@cbStatus";
+                    param.Value = cbStatus.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
                     param = new SqlParameter();
                     param.ParameterName = "@tbName";
                     param.Value = tbName.Text;
@@ -101,7 +102,7 @@ namespace StartPovolgie.Forms
 
                 }
 
-                dgvSparePart.DataSource = spDataSet.SparePart;
+                dgvSparePart.DataSource = spDataSet.Service;
             }
             else if (!tbName.Text.Equals(""))
             {
@@ -123,22 +124,26 @@ namespace StartPovolgie.Forms
 
                 }
 
-                dgvSparePart.DataSource = spDataSet.SparePart;
+                dgvSparePart.DataSource = spDataSet.Service;
             }
             else if (!cbStatus.Text.Equals(""))
             {
-                string sql;
-                if (cbStatus.Text.Equals("В наличии"))
-                    sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price From SparePart sp Where sp.quantity > 0";
-                else
-                    sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price From SparePart sp Where sp.quantity = 0";
+                string sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price, sp.id_sps From SparePart sp Join SparePartStatus sps On sp.id_sps = sps.id_sps Where sps.name_sps = @cbType";
 
                 using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
                 {
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@cbType";
+                    param.Value = cbStatus.Text;
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Size = 100;
+                    cmd.Parameters.Add(param);
+
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                     SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
                     spDataSet.SparePart.Clear();
                     dataAdapter.Fill(spDataSet.SparePart);
+
                 }
 
                 dgvSparePart.DataSource = spDataSet.SparePart;

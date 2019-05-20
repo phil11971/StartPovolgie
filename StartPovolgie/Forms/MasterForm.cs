@@ -23,7 +23,8 @@ namespace StartPovolgie.Forms
         {
             employeeTableAdapter.Fill(spDataSet.Employee);
             masterSpecializationTableAdapter.Fill(spDataSet.MasterSpecialization);
-            this.masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvMaster.Rows[0].Cells[0].Value);
+            //todo
+            masterSpecializationBindingSource.Filter = String.Format("id_master=\'{0}\'", dgvMaster.Rows[0].Cells[0].Value);
 
         }
 

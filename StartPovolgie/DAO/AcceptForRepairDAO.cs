@@ -15,114 +15,109 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                if (!HasSameType(acceptForRepair, false))
+
+                using (SqlConnection connection = ConnectionDB.Connect())
                 {
-                        using (SqlConnection connection = ConnectionDB.Connect())
-                        {
-                            SqlTransaction transaction = connection.BeginTransaction();
-                            string sqlExpression = "sp_InsertClientGoodAndAcceptForRepair";
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    string sqlExpression = "sp_InsertClientGoodAndAcceptForRepair";
 
-                            SqlCommand command = new SqlCommand(sqlExpression, connection, transaction);
-                            command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand command = new SqlCommand(sqlExpression, connection, transaction);
+                    command.CommandType = CommandType.StoredProcedure;
 
-                            SqlParameter idClientParam = new SqlParameter
-                            {
-                                ParameterName = "@id_client",
-                                Value = acceptForRepair.IdClient
-                            };
-                            command.Parameters.Add(idClientParam);
+                    SqlParameter idClientParam = new SqlParameter
+                    {
+                        ParameterName = "@id_client",
+                        Value = acceptForRepair.IdClient
+                    };
+                    command.Parameters.Add(idClientParam);
 
-                            SqlParameter idGoodParam = new SqlParameter
-                            {
-                                ParameterName = "@id_g",
-                                Value = acceptForRepair.IdGood
-                            };
-                            command.Parameters.Add(idGoodParam);
+                    SqlParameter idGoodParam = new SqlParameter
+                    {
+                        ParameterName = "@id_g",
+                        Value = acceptForRepair.IdGood
+                    };
+                    command.Parameters.Add(idGoodParam);
 
-                            SqlParameter idAdminParam = new SqlParameter
-                            {
-                                ParameterName = "@id_admin",
-                                Value = acceptForRepair.IdAdmin
-                            };
-                            command.Parameters.Add(idAdminParam);
+                    SqlParameter idAdminParam = new SqlParameter
+                    {
+                        ParameterName = "@id_admin",
+                        Value = acceptForRepair.IdAdmin
+                    };
+                    command.Parameters.Add(idAdminParam);
 
-                            SqlParameter equipmentParam = new SqlParameter
-                            {
-                                ParameterName = "@equipment",
-                                Value = acceptForRepair.Equipment
-                            };
-                            command.Parameters.Add(equipmentParam);
+                    SqlParameter equipmentParam = new SqlParameter
+                    {
+                        ParameterName = "@equipment",
+                        Value = acceptForRepair.Equipment
+                    };
+                    command.Parameters.Add(equipmentParam);
 
-                            SqlParameter mechanicalDamageParam = new SqlParameter
-                            {
-                                ParameterName = "@mechanical_damage",
-                                Value = acceptForRepair.MechanicalDamage
-                            };
-                            command.Parameters.Add(mechanicalDamageParam);
+                    SqlParameter mechanicalDamageParam = new SqlParameter
+                    {
+                        ParameterName = "@mechanical_damage",
+                        Value = acceptForRepair.MechanicalDamage
+                    };
+                    command.Parameters.Add(mechanicalDamageParam);
 
-                            SqlParameter receiptDateParam = new SqlParameter
-                            {
-                                ParameterName = "@receipt_date",
-                                Value = acceptForRepair.ReceiptDate
-                            };
-                            command.Parameters.Add(receiptDateParam);
+                    SqlParameter receiptDateParam = new SqlParameter
+                    {
+                        ParameterName = "@receipt_date",
+                        Value = acceptForRepair.ReceiptDate
+                    };
+                    command.Parameters.Add(receiptDateParam);
 
-                            SqlParameter commentParam = new SqlParameter
-                            {
-                                ParameterName = "@additionally",
-                                Value = acceptForRepair.Сomment
-                            };
-                            command.Parameters.Add(commentParam);
+                    SqlParameter commentParam = new SqlParameter
+                    {
+                        ParameterName = "@additionally",
+                        Value = acceptForRepair.Сomment
+                    };
+                    command.Parameters.Add(commentParam);
 
-                            SqlParameter idAcceptParam = new SqlParameter
-                            {
-                                ParameterName = "@idAccept",
-                                SqlDbType = SqlDbType.Int
-                            };
-                            idAcceptParam.Direction = ParameterDirection.Output;
-                            command.Parameters.Add(idAcceptParam);
+                    SqlParameter idAcceptParam = new SqlParameter
+                    {
+                        ParameterName = "@idAccept",
+                        SqlDbType = SqlDbType.Int
+                    };
+                    idAcceptParam.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(idAcceptParam);
 
-                            int idAccept = (int)command.ExecuteScalar();
+                    int idAccept = (int)command.ExecuteScalar();
 
-                            DataTable table = new DataTable();
+                    DataTable table = new DataTable();
 
-                            table.Columns.Add("name_fault", typeof(string));
-                            table.Columns.Add("desc_fault", typeof(string));
-                            table.Columns.Add("id_accept", typeof(int));
-                            table.Columns.Add("id_fs", typeof(int));
+                    table.Columns.Add("name_fault", typeof(string));
+                    table.Columns.Add("desc_fault", typeof(string));
+                    table.Columns.Add("id_accept", typeof(int));
+                    table.Columns.Add("id_fs", typeof(int));
 
 
-                            foreach (var fault in acceptForRepair.Faults)
-                            {
-                                table.Rows.Add(fault.Name, fault.Desc, idAccept, fault.IdFaultStatus);
-                            }
+                    foreach (var fault in acceptForRepair.Faults)
+                    {
+                        table.Rows.Add(fault.Name, fault.Desc, idAccept, fault.IdFaultStatus);
+                    }
 
-                            sqlExpression = "sp_InsertFaults";
-                            command = new SqlCommand(sqlExpression, connection, transaction);
-                            command.CommandType = CommandType.StoredProcedure;
+                    sqlExpression = "sp_InsertFaults";
+                    command = new SqlCommand(sqlExpression, connection, transaction);
+                    command.CommandType = CommandType.StoredProcedure;
 
-                            SqlParameter tmpTableParam = new SqlParameter
-                            {
-                                ParameterName = "@tmpTable",
-                                SqlDbType = SqlDbType.Structured,
-                                TypeName = "FaultTableType",
-                                Value = table,
-                            };
-                            command.Parameters.Add(tmpTableParam);
+                    SqlParameter tmpTableParam = new SqlParameter
+                    {
+                        ParameterName = "@tmpTable",
+                        SqlDbType = SqlDbType.Structured,
+                        TypeName = "FaultTableType",
+                        Value = table,
+                    };
+                    command.Parameters.Add(tmpTableParam);
 
-                            command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-                            transaction.Commit();
-                        }
-                        return true;
-
+                    transaction.Commit();
                 }
-                else
-                    return false;
+                return true;
             }
             catch (SqlException ex)
             {
-                throw ex;
+                return false;
             }
         }
 
@@ -131,7 +126,7 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                if (!HasSameType(acceptForRepair, true))
+                if (!HasSameType(acceptForRepair))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
                     string sql = "Update Employee Set name_fs=(UPPER(LEFT(@faultStatus_name, 1))+ SUBSTRING (@faultStatus_name,2,len (@faultStatus_name))) Where id_fs=(@faultStatus_id);";
@@ -166,14 +161,13 @@ namespace StartPovolgie.DAO
             }
         }
 
-        private bool HasSameType(AcceptForRepair acceptForRepair, bool isUpdate)
+        private bool HasSameType(AcceptForRepair acceptForRepair)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_accept) From AcceptForRepair Where equipment='{0}' and mechanical_damage='{1}' and receipt_date='{2}' and additionally='{3}' and id_client='{4}' and id_g='{5}' and id_admin='{6}'", acceptForRepair.Equipment, acceptForRepair.MechanicalDamage, acceptForRepair.ReceiptDate, acceptForRepair.Сomment, acceptForRepair.IdClient, acceptForRepair.IdGood, acceptForRepair.IdAdmin);
-                if (isUpdate)
-                    sql = string.Format("Select count(id_accept) From AcceptForRepair Where Where equipment='{0}' and mechanical_damage='{1}' and receipt_date='{2}' and additionally='{3}' and id_client='{4}' and id_g='{5}' and id_admin='{6}' AND id_accept!='{7}'", acceptForRepair.Equipment, acceptForRepair.MechanicalDamage, acceptForRepair.ReceiptDate, acceptForRepair.Сomment, acceptForRepair.IdClient, acceptForRepair.IdGood, acceptForRepair.IdAdmin, acceptForRepair.Id);
+                //TODO
+                string sql = string.Format("Select count(id_accept) From AcceptForRepair Where Where equipment='{0}' and mechanical_damage='{1}' and receipt_date='{2}' and additionally='{3}' and id_client='{4}' and id_g='{5}' and id_admin='{6}' AND id_accept!='{7}'", acceptForRepair.Equipment, acceptForRepair.MechanicalDamage, acceptForRepair.ReceiptDate, acceptForRepair.Сomment, acceptForRepair.IdClient, acceptForRepair.IdGood, acceptForRepair.IdAdmin, acceptForRepair.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

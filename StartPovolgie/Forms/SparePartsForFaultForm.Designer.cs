@@ -1,6 +1,6 @@
 ﻿namespace StartPovolgie.Forms
 {
-    partial class SparePartForm
+    partial class SparePartsForFaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,8 +38,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,17 +78,14 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.DisplayMember = "В наличии";
+            this.cbStatus.DisplayMember = "id_sps";
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "В наличии",
-            "Нет в наличии"});
             this.cbStatus.Location = new System.Drawing.Point(100, 51);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);
             this.cbStatus.TabIndex = 5;
-            this.cbStatus.ValueMember = "В наличии";
+            this.cbStatus.ValueMember = "id_sps";
             // 
             // btnPullOut
             // 
@@ -135,33 +130,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 97);
+            this.btnAdd.Location = new System.Drawing.Point(501, 253);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(93, 97);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "Изменить";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDel
-            // 
-            this.btnDel.Location = new System.Drawing.Point(174, 97);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
-            this.btnDel.TabIndex = 8;
-            this.btnDel.Text = "Удалить";
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // dgvSparePart
             // 
@@ -177,7 +152,7 @@
             this.priceDataGridViewTextBoxColumn});
             this.dgvSparePart.DataSource = this.sparePartBindingSource;
             this.dgvSparePart.EnableHeadersVisualStyles = false;
-            this.dgvSparePart.Location = new System.Drawing.Point(12, 142);
+            this.dgvSparePart.Location = new System.Drawing.Point(12, 97);
             this.dgvSparePart.Name = "dgvSparePart";
             this.dgvSparePart.RowHeadersVisible = false;
             this.dgvSparePart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -225,19 +200,17 @@
             // 
             this.sparePartTableAdapter.ClearBeforeFill = true;
             // 
-            // SparePartForm
+            // SparePartsForFaultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 330);
+            this.ClientSize = new System.Drawing.Size(588, 281);
             this.Controls.Add(this.dgvSparePart);
-            this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbSearch);
-            this.Name = "SparePartForm";
+            this.Name = "SparePartsForFaultForm";
             this.Text = "Запчасти";
-            this.Load += new System.EventHandler(this.SparePartForm_Load);
+            this.Load += new System.EventHandler(this.SparePartsForFaultForm_Load);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
@@ -255,8 +228,6 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.DataGridView dgvSparePart;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label lblType;

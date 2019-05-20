@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbIdAccept = new System.Windows.Forms.TextBox();
-            this.acceptForRepairBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spDataSet = new StartPovolgie.SPDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.rtbEquipment = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,24 +60,8 @@
             this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvFault = new System.Windows.Forms.DataGridView();
-            this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namefaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costeliminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmasterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idfsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelSparePartForCurrFault = new System.Windows.Forms.Button();
-            this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
-            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -89,6 +71,28 @@
             this.gbExecRes = new System.Windows.Forms.GroupBox();
             this.rbNotDone = new System.Windows.Forms.RadioButton();
             this.rbDone = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbAdminFirstName = new System.Windows.Forms.TextBox();
+            this.tbAdminLastName = new System.Windows.Forms.TextBox();
+            this.tbClientLastName = new System.Windows.Forms.TextBox();
+            this.tbClientFirstName = new System.Windows.Forms.TextBox();
+            this.tbClientPatr = new System.Windows.Forms.TextBox();
+            this.tbTypeGood = new System.Windows.Forms.TextBox();
+            this.btnCalc = new System.Windows.Forms.Button();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namefaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costeliminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmasterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idfsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.acceptForRepairBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.acceptForRepairTableAdapter = new StartPovolgie.SPDataSetTableAdapters.AcceptForRepairTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
@@ -96,18 +100,15 @@
             this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.faultTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultTableAdapter();
             this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbAdminFirstName = new System.Windows.Forms.TextBox();
-            this.tbAdminLastName = new System.Windows.Forms.TextBox();
-            this.tbClientLastName = new System.Windows.Forms.TextBox();
-            this.tbClientFirstName = new System.Windows.Forms.TextBox();
-            this.tbClientPatr = new System.Windows.Forms.TextBox();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
-            this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbTypeGood = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            this.idfaultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cntallDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cntonfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricespwithqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
             this.gbPrint.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -116,14 +117,16 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).BeginInit();
+            this.gbExecRes.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
-            this.gbExecRes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -140,18 +143,9 @@
             this.tbIdAccept.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "id_accept", true));
             this.tbIdAccept.Location = new System.Drawing.Point(169, 9);
             this.tbIdAccept.Name = "tbIdAccept";
+            this.tbIdAccept.ReadOnly = true;
             this.tbIdAccept.Size = new System.Drawing.Size(135, 20);
             this.tbIdAccept.TabIndex = 1;
-            // 
-            // acceptForRepairBindingSource
-            // 
-            this.acceptForRepairBindingSource.DataMember = "AcceptForRepair";
-            this.acceptForRepairBindingSource.DataSource = this.spDataSet;
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -167,6 +161,7 @@
             this.rtbEquipment.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "equipment", true));
             this.rtbEquipment.Location = new System.Drawing.Point(169, 43);
             this.rtbEquipment.Name = "rtbEquipment";
+            this.rtbEquipment.ReadOnly = true;
             this.rtbEquipment.Size = new System.Drawing.Size(135, 41);
             this.rtbEquipment.TabIndex = 3;
             this.rtbEquipment.Text = "";
@@ -185,6 +180,7 @@
             this.rtbMechanicalDamage.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "mechanical_damage", true));
             this.rtbMechanicalDamage.Location = new System.Drawing.Point(169, 98);
             this.rtbMechanicalDamage.Name = "rtbMechanicalDamage";
+            this.rtbMechanicalDamage.ReadOnly = true;
             this.rtbMechanicalDamage.Size = new System.Drawing.Size(135, 41);
             this.rtbMechanicalDamage.TabIndex = 5;
             this.rtbMechanicalDamage.Text = "";
@@ -201,6 +197,7 @@
             // dtpReceiptDate
             // 
             this.dtpReceiptDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "receipt_date", true));
+            this.dtpReceiptDate.Enabled = false;
             this.dtpReceiptDate.Location = new System.Drawing.Point(169, 145);
             this.dtpReceiptDate.Name = "dtpReceiptDate";
             this.dtpReceiptDate.Size = new System.Drawing.Size(135, 20);
@@ -324,6 +321,7 @@
             this.tbGood.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goodBindingSource, "name_g", true));
             this.tbGood.Location = new System.Drawing.Point(98, 66);
             this.tbGood.Name = "tbGood";
+            this.tbGood.ReadOnly = true;
             this.tbGood.Size = new System.Drawing.Size(251, 20);
             this.tbGood.TabIndex = 2;
             // 
@@ -395,6 +393,7 @@
             this.tbAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "address", true));
             this.tbAddress.Location = new System.Drawing.Point(82, 145);
             this.tbAddress.Name = "tbAddress";
+            this.tbAddress.ReadOnly = true;
             this.tbAddress.Size = new System.Drawing.Size(378, 20);
             this.tbAddress.TabIndex = 3;
             // 
@@ -403,6 +402,7 @@
             this.tbMail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "mail", true));
             this.tbMail.Location = new System.Drawing.Point(82, 108);
             this.tbMail.Name = "tbMail";
+            this.tbMail.ReadOnly = true;
             this.tbMail.Size = new System.Drawing.Size(378, 20);
             this.tbMail.TabIndex = 2;
             // 
@@ -411,6 +411,7 @@
             this.mtbPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "phone", true));
             this.mtbPhone.Location = new System.Drawing.Point(82, 72);
             this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.ReadOnly = true;
             this.mtbPhone.Size = new System.Drawing.Size(378, 20);
             this.mtbPhone.TabIndex = 1;
             // 
@@ -430,15 +431,19 @@
             // 
             // dgvSparePart
             // 
+            this.dgvSparePart.AutoGenerateColumns = false;
             this.dgvSparePart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSparePart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSparePart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSparePart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dgvtbcCount,
-            this.dataGridViewTextBoxColumn6});
+            this.idfaultDataGridViewTextBoxColumn1,
+            this.idspDataGridViewTextBoxColumn,
+            this.namespDataGridViewTextBoxColumn,
+            this.cntallDataGridViewTextBoxColumn,
+            this.pricespDataGridViewTextBoxColumn,
+            this.cntonfaultDataGridViewTextBoxColumn,
+            this.pricespwithqDataGridViewTextBoxColumn});
+            this.dgvSparePart.DataSource = this.faultSparePartBindingSource;
             this.dgvSparePart.EnableHeadersVisualStyles = false;
             this.dgvSparePart.Location = new System.Drawing.Point(351, 33);
             this.dgvSparePart.Name = "dgvSparePart";
@@ -447,36 +452,6 @@
             this.dgvSparePart.Size = new System.Drawing.Size(503, 171);
             this.dgvSparePart.TabIndex = 15;
             this.dgvSparePart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Наименование";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Цена";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dgvtbcCount
-            // 
-            this.dgvtbcCount.HeaderText = "Количество";
-            this.dgvtbcCount.Name = "dgvtbcCount";
-            this.dgvtbcCount.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Статус";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dgvFault
             // 
@@ -501,58 +476,7 @@
             this.dgvFault.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFault.Size = new System.Drawing.Size(339, 171);
             this.dgvFault.TabIndex = 14;
-            // 
-            // idfaultDataGridViewTextBoxColumn
-            // 
-            this.idfaultDataGridViewTextBoxColumn.DataPropertyName = "id_fault";
-            this.idfaultDataGridViewTextBoxColumn.HeaderText = "id_fault";
-            this.idfaultDataGridViewTextBoxColumn.Name = "idfaultDataGridViewTextBoxColumn";
-            this.idfaultDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idfaultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // namefaultDataGridViewTextBoxColumn
-            // 
-            this.namefaultDataGridViewTextBoxColumn.DataPropertyName = "name_fault";
-            this.namefaultDataGridViewTextBoxColumn.HeaderText = "Название неисправности";
-            this.namefaultDataGridViewTextBoxColumn.Name = "namefaultDataGridViewTextBoxColumn";
-            // 
-            // descfaultDataGridViewTextBoxColumn
-            // 
-            this.descfaultDataGridViewTextBoxColumn.DataPropertyName = "desc_fault";
-            this.descfaultDataGridViewTextBoxColumn.HeaderText = "Описание неисправности";
-            this.descfaultDataGridViewTextBoxColumn.Name = "descfaultDataGridViewTextBoxColumn";
-            // 
-            // costeliminationDataGridViewTextBoxColumn
-            // 
-            this.costeliminationDataGridViewTextBoxColumn.DataPropertyName = "cost_elimination";
-            this.costeliminationDataGridViewTextBoxColumn.HeaderText = "Стоимость устранения";
-            this.costeliminationDataGridViewTextBoxColumn.Name = "costeliminationDataGridViewTextBoxColumn";
-            // 
-            // idacceptDataGridViewTextBoxColumn
-            // 
-            this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.HeaderText = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
-            this.idacceptDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idmasterDataGridViewTextBoxColumn
-            // 
-            this.idmasterDataGridViewTextBoxColumn.DataPropertyName = "id_master";
-            this.idmasterDataGridViewTextBoxColumn.HeaderText = "id_master";
-            this.idmasterDataGridViewTextBoxColumn.Name = "idmasterDataGridViewTextBoxColumn";
-            this.idmasterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idfsDataGridViewTextBoxColumn
-            // 
-            this.idfsDataGridViewTextBoxColumn.DataPropertyName = "id_fs";
-            this.idfsDataGridViewTextBoxColumn.HeaderText = "id_fs";
-            this.idfsDataGridViewTextBoxColumn.Name = "idfsDataGridViewTextBoxColumn";
-            this.idfsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // faultBindingSource
-            // 
-            this.faultBindingSource.DataMember = "Fault";
-            this.faultBindingSource.DataSource = this.spDataSet;
+            this.dgvFault.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFault_CellClick);
             // 
             // btnDelSparePartForCurrFault
             // 
@@ -562,25 +486,6 @@
             this.btnDelSparePartForCurrFault.TabIndex = 13;
             this.btnDelSparePartForCurrFault.Text = "Удалить запчасть для текущей неисправности";
             this.btnDelSparePartForCurrFault.UseVisualStyleBackColor = true;
-            // 
-            // btnAddSparePartForCurrFault
-            // 
-            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(6, 6);
-            this.btnAddSparePartForCurrFault.Name = "btnAddSparePartForCurrFault";
-            this.btnAddSparePartForCurrFault.Size = new System.Drawing.Size(278, 23);
-            this.btnAddSparePartForCurrFault.TabIndex = 12;
-            this.btnAddSparePartForCurrFault.Text = "Добавить запчасть для текущей неисправности";
-            this.btnAddSparePartForCurrFault.UseVisualStyleBackColor = true;
-            // 
-            // goodBindingSource
-            // 
-            this.goodBindingSource.DataMember = "Good";
-            this.goodBindingSource.DataSource = this.spDataSet;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataMember = "Client";
-            this.clientBindingSource.DataSource = this.spDataSet;
             // 
             // label11
             // 
@@ -656,6 +561,7 @@
             // rbDone
             // 
             this.rbDone.AutoSize = true;
+            this.rbDone.Checked = true;
             this.rbDone.Location = new System.Drawing.Point(7, 20);
             this.rbDone.Name = "rbDone";
             this.rbDone.Size = new System.Drawing.Size(76, 17);
@@ -663,6 +569,162 @@
             this.rbDone.TabStop = true;
             this.rbDone.Text = "Выполнен";
             this.rbDone.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbAdminFirstName);
+            this.groupBox2.Controls.Add(this.tbAdminLastName);
+            this.groupBox2.Location = new System.Drawing.Point(356, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(114, 75);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Администратор";
+            // 
+            // tbAdminFirstName
+            // 
+            this.tbAdminFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "fname", true));
+            this.tbAdminFirstName.Location = new System.Drawing.Point(6, 47);
+            this.tbAdminFirstName.Name = "tbAdminFirstName";
+            this.tbAdminFirstName.ReadOnly = true;
+            this.tbAdminFirstName.Size = new System.Drawing.Size(100, 20);
+            this.tbAdminFirstName.TabIndex = 1;
+            // 
+            // tbAdminLastName
+            // 
+            this.tbAdminLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "lname", true));
+            this.tbAdminLastName.Location = new System.Drawing.Point(6, 20);
+            this.tbAdminLastName.Name = "tbAdminLastName";
+            this.tbAdminLastName.ReadOnly = true;
+            this.tbAdminLastName.Size = new System.Drawing.Size(100, 20);
+            this.tbAdminLastName.TabIndex = 0;
+            // 
+            // tbClientLastName
+            // 
+            this.tbClientLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "lname", true));
+            this.tbClientLastName.Location = new System.Drawing.Point(82, 29);
+            this.tbClientLastName.Name = "tbClientLastName";
+            this.tbClientLastName.ReadOnly = true;
+            this.tbClientLastName.Size = new System.Drawing.Size(100, 20);
+            this.tbClientLastName.TabIndex = 8;
+            // 
+            // tbClientFirstName
+            // 
+            this.tbClientFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "fname", true));
+            this.tbClientFirstName.Location = new System.Drawing.Point(222, 29);
+            this.tbClientFirstName.Name = "tbClientFirstName";
+            this.tbClientFirstName.ReadOnly = true;
+            this.tbClientFirstName.Size = new System.Drawing.Size(100, 20);
+            this.tbClientFirstName.TabIndex = 9;
+            // 
+            // tbClientPatr
+            // 
+            this.tbClientPatr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "patronymic", true));
+            this.tbClientPatr.Location = new System.Drawing.Point(360, 29);
+            this.tbClientPatr.Name = "tbClientPatr";
+            this.tbClientPatr.ReadOnly = true;
+            this.tbClientPatr.Size = new System.Drawing.Size(100, 20);
+            this.tbClientPatr.TabIndex = 10;
+            // 
+            // tbTypeGood
+            // 
+            this.tbTypeGood.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeGoodBindingSource, "name_tg", true));
+            this.tbTypeGood.Location = new System.Drawing.Point(98, 113);
+            this.tbTypeGood.Name = "tbTypeGood";
+            this.tbTypeGood.ReadOnly = true;
+            this.tbTypeGood.Size = new System.Drawing.Size(251, 20);
+            this.tbTypeGood.TabIndex = 3;
+            // 
+            // btnCalc
+            // 
+            this.btnCalc.Location = new System.Drawing.Point(639, 235);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalc.TabIndex = 25;
+            this.btnCalc.Text = "Рассчитать";
+            this.btnCalc.UseVisualStyleBackColor = true;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // typeGoodBindingSource
+            // 
+            this.typeGoodBindingSource.DataMember = "TypeGood";
+            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            // 
+            // goodBindingSource
+            // 
+            this.goodBindingSource.DataMember = "Good";
+            this.goodBindingSource.DataSource = this.spDataSet;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.spDataSet;
+            // 
+            // idfaultDataGridViewTextBoxColumn
+            // 
+            this.idfaultDataGridViewTextBoxColumn.DataPropertyName = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn.HeaderText = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn.Name = "idfaultDataGridViewTextBoxColumn";
+            this.idfaultDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idfaultDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // namefaultDataGridViewTextBoxColumn
+            // 
+            this.namefaultDataGridViewTextBoxColumn.DataPropertyName = "name_fault";
+            this.namefaultDataGridViewTextBoxColumn.HeaderText = "Название неисправности";
+            this.namefaultDataGridViewTextBoxColumn.Name = "namefaultDataGridViewTextBoxColumn";
+            // 
+            // descfaultDataGridViewTextBoxColumn
+            // 
+            this.descfaultDataGridViewTextBoxColumn.DataPropertyName = "desc_fault";
+            this.descfaultDataGridViewTextBoxColumn.HeaderText = "Описание неисправности";
+            this.descfaultDataGridViewTextBoxColumn.Name = "descfaultDataGridViewTextBoxColumn";
+            // 
+            // costeliminationDataGridViewTextBoxColumn
+            // 
+            this.costeliminationDataGridViewTextBoxColumn.DataPropertyName = "cost_elimination";
+            this.costeliminationDataGridViewTextBoxColumn.HeaderText = "Стоимость устранения";
+            this.costeliminationDataGridViewTextBoxColumn.Name = "costeliminationDataGridViewTextBoxColumn";
+            // 
+            // idacceptDataGridViewTextBoxColumn
+            // 
+            this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
+            this.idacceptDataGridViewTextBoxColumn.HeaderText = "id_accept";
+            this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
+            this.idacceptDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idmasterDataGridViewTextBoxColumn
+            // 
+            this.idmasterDataGridViewTextBoxColumn.DataPropertyName = "id_master";
+            this.idmasterDataGridViewTextBoxColumn.HeaderText = "id_master";
+            this.idmasterDataGridViewTextBoxColumn.Name = "idmasterDataGridViewTextBoxColumn";
+            this.idmasterDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idfsDataGridViewTextBoxColumn
+            // 
+            this.idfsDataGridViewTextBoxColumn.DataPropertyName = "id_fs";
+            this.idfsDataGridViewTextBoxColumn.HeaderText = "id_fs";
+            this.idfsDataGridViewTextBoxColumn.Name = "idfsDataGridViewTextBoxColumn";
+            this.idfsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // faultBindingSource
+            // 
+            this.faultBindingSource.DataMember = "Fault";
+            this.faultBindingSource.DataSource = this.spDataSet;
+            // 
+            // acceptForRepairBindingSource
+            // 
+            this.acceptForRepairBindingSource.DataMember = "AcceptForRepair";
+            this.acceptForRepairBindingSource.DataSource = this.spDataSet;
             // 
             // acceptForRepairTableAdapter
             // 
@@ -693,85 +755,70 @@
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.spDataSet;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tbAdminFirstName);
-            this.groupBox2.Controls.Add(this.tbAdminLastName);
-            this.groupBox2.Location = new System.Drawing.Point(356, 9);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(114, 75);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Администратор";
-            // 
-            // tbAdminFirstName
-            // 
-            this.tbAdminFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "fname", true));
-            this.tbAdminFirstName.Location = new System.Drawing.Point(6, 47);
-            this.tbAdminFirstName.Name = "tbAdminFirstName";
-            this.tbAdminFirstName.Size = new System.Drawing.Size(100, 20);
-            this.tbAdminFirstName.TabIndex = 1;
-            // 
-            // tbAdminLastName
-            // 
-            this.tbAdminLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "lname", true));
-            this.tbAdminLastName.Location = new System.Drawing.Point(6, 20);
-            this.tbAdminLastName.Name = "tbAdminLastName";
-            this.tbAdminLastName.Size = new System.Drawing.Size(100, 20);
-            this.tbAdminLastName.TabIndex = 0;
-            // 
-            // tbClientLastName
-            // 
-            this.tbClientLastName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "lname", true));
-            this.tbClientLastName.Location = new System.Drawing.Point(82, 29);
-            this.tbClientLastName.Name = "tbClientLastName";
-            this.tbClientLastName.Size = new System.Drawing.Size(100, 20);
-            this.tbClientLastName.TabIndex = 8;
-            // 
-            // tbClientFirstName
-            // 
-            this.tbClientFirstName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "fname", true));
-            this.tbClientFirstName.Location = new System.Drawing.Point(222, 29);
-            this.tbClientFirstName.Name = "tbClientFirstName";
-            this.tbClientFirstName.Size = new System.Drawing.Size(100, 20);
-            this.tbClientFirstName.TabIndex = 9;
-            // 
-            // tbClientPatr
-            // 
-            this.tbClientPatr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "patronymic", true));
-            this.tbClientPatr.Location = new System.Drawing.Point(360, 29);
-            this.tbClientPatr.Name = "tbClientPatr";
-            this.tbClientPatr.Size = new System.Drawing.Size(100, 20);
-            this.tbClientPatr.TabIndex = 10;
-            // 
             // typeGoodTableAdapter
             // 
             this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
-            // typeGoodBindingSource
+            // idfaultDataGridViewTextBoxColumn1
             // 
-            this.typeGoodBindingSource.DataMember = "TypeGood";
-            this.typeGoodBindingSource.DataSource = this.spDataSet;
+            this.idfaultDataGridViewTextBoxColumn1.DataPropertyName = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn1.HeaderText = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn1.Name = "idfaultDataGridViewTextBoxColumn1";
+            this.idfaultDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // tbTypeGood
+            // idspDataGridViewTextBoxColumn
             // 
-            this.tbTypeGood.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeGoodBindingSource, "name_tg", true));
-            this.tbTypeGood.Location = new System.Drawing.Point(98, 113);
-            this.tbTypeGood.Name = "tbTypeGood";
-            this.tbTypeGood.ReadOnly = true;
-            this.tbTypeGood.Size = new System.Drawing.Size(251, 20);
-            this.tbTypeGood.TabIndex = 3;
+            this.idspDataGridViewTextBoxColumn.DataPropertyName = "id_sp";
+            this.idspDataGridViewTextBoxColumn.HeaderText = "id_sp";
+            this.idspDataGridViewTextBoxColumn.Name = "idspDataGridViewTextBoxColumn";
+            this.idspDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // namespDataGridViewTextBoxColumn
+            // 
+            this.namespDataGridViewTextBoxColumn.DataPropertyName = "name_sp";
+            this.namespDataGridViewTextBoxColumn.HeaderText = "Наименование запчасти";
+            this.namespDataGridViewTextBoxColumn.Name = "namespDataGridViewTextBoxColumn";
+            // 
+            // cntallDataGridViewTextBoxColumn
+            // 
+            this.cntallDataGridViewTextBoxColumn.DataPropertyName = "cntall";
+            this.cntallDataGridViewTextBoxColumn.HeaderText = "Количество на складе";
+            this.cntallDataGridViewTextBoxColumn.Name = "cntallDataGridViewTextBoxColumn";
+            // 
+            // pricespDataGridViewTextBoxColumn
+            // 
+            this.pricespDataGridViewTextBoxColumn.DataPropertyName = "pricesp";
+            this.pricespDataGridViewTextBoxColumn.HeaderText = "Цена ЗП";
+            this.pricespDataGridViewTextBoxColumn.Name = "pricespDataGridViewTextBoxColumn";
+            // 
+            // cntonfaultDataGridViewTextBoxColumn
+            // 
+            this.cntonfaultDataGridViewTextBoxColumn.DataPropertyName = "cntonfault";
+            this.cntonfaultDataGridViewTextBoxColumn.HeaderText = "Количество на неиспр";
+            this.cntonfaultDataGridViewTextBoxColumn.Name = "cntonfaultDataGridViewTextBoxColumn";
+            // 
+            // pricespwithqDataGridViewTextBoxColumn
+            // 
+            this.pricespwithqDataGridViewTextBoxColumn.DataPropertyName = "pricespwithq";
+            this.pricespwithqDataGridViewTextBoxColumn.HeaderText = "Цена ЗП с учетом кол-ва на неиспр";
+            this.pricespwithqDataGridViewTextBoxColumn.Name = "pricespwithqDataGridViewTextBoxColumn";
+            // 
+            // btnAddSparePartForCurrFault
+            // 
+            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(6, 6);
+            this.btnAddSparePartForCurrFault.Name = "btnAddSparePartForCurrFault";
+            this.btnAddSparePartForCurrFault.Size = new System.Drawing.Size(278, 23);
+            this.btnAddSparePartForCurrFault.TabIndex = 12;
+            this.btnAddSparePartForCurrFault.Text = "Добавить запчасть для текущей неисправности";
+            this.btnAddSparePartForCurrFault.UseVisualStyleBackColor = true;
+            this.btnAddSparePartForCurrFault.Click += new System.EventHandler(this.btnAddSparePartForCurrFault_Click);
             // 
             // ViewAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 516);
+            this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbExecRes);
             this.Controls.Add(this.tbAmountSpareParts);
@@ -797,8 +844,6 @@
             this.Name = "ViewAcceptForRepairForm";
             this.Text = "Просмотр приема в ремонт";
             this.Load += new System.EventHandler(this.ViewAcceptForRepairForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.gbPrint.ResumeLayout(false);
             this.gbPrint.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -810,16 +855,18 @@
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.gbExecRes.ResumeLayout(false);
             this.gbExecRes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,14 +894,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnDelSparePartForCurrFault;
-        private System.Windows.Forms.Button btnAddSparePartForCurrFault;
         private System.Windows.Forms.DataGridView dgvFault;
         private System.Windows.Forms.DataGridView dgvSparePart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label12;
@@ -904,5 +945,14 @@
         private SPDataSetTableAdapters.TypeGoodTableAdapter typeGoodTableAdapter;
         private System.Windows.Forms.BindingSource typeGoodBindingSource;
         private System.Windows.Forms.TextBox tbTypeGood;
+        private System.Windows.Forms.Button btnCalc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idspDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cntallDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cntonfaultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricespwithqDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnAddSparePartForCurrFault;
     }
 }
