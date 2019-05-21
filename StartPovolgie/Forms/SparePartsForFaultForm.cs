@@ -1,5 +1,6 @@
 ﻿using StartPovolgie.DAO;
 using StartPovolgie.Controller;
+using StartPovolgie.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,17 @@ using System.Windows.Forms;
 
 namespace StartPovolgie.Forms
 {
+
     public partial class SparePartsForFaultForm : Form
     {
-        public SparePartsForFaultForm()
+        private int idFault;
+        FaultSparePartController faultSparePartController;
+
+        public SparePartsForFaultForm(int idFault)
         {
             InitializeComponent();
+            faultSparePartController = new FaultSparePartController();
+            this.idFault = idFault;
         }
 
         private void SparePartsForFaultForm_Load(object sender, EventArgs e)
@@ -27,9 +34,19 @@ namespace StartPovolgie.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addSparePartForm = new AddSparePartForm();
-            addSparePartForm.Closing += AddTypeOfDevicesForm_Closing;
-            addSparePartForm.ShowDialog();
+            //todo
+            List<SparePart> spareParts = new List<SparePart>();
+            for (int i = 0; i < dgvSparePart.SelectedRows.Count; i++)
+            {
+                spareParts.Add( new SparePart((int)dgvSparePart.SelectedRows[i].Cells[0].Value, Int32.Parse(dgvSparePart.SelectedRows[i].Cells[5].Value.ToString()), float.Parse(dgvSparePart.SelectedRows[i].Cells[6].Value.ToString())) );
+            }
+            FaultSparePart faultSparePart = new FaultSparePart(idFault, spareParts);
+            if (!faultSparePartController.Insert(faultSparePart))
+            {
+                MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                this.Close();
         }
 
         private void AddTypeOfDevicesForm_Closing(object sender, CancelEventArgs e)
@@ -37,74 +54,9 @@ namespace StartPovolgie.Forms
             sparePartTableAdapter.Fill(spDataSet.SparePart);
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[0].Value);
-            string name = (string)dgvSparePart.CurrentRow.Cells[1].Value;
-            string desc = (string)dgvSparePart.CurrentRow.Cells[2].Value;
-            int cnt = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[3].Value);
-            int price = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[4].Value);
-            string status = dgvSparePart.CurrentRow.Cells[5].Value.ToString();
-            var editSparePartForm = new AddSparePartForm(id, name, desc, cnt, price, status);
-            editSparePartForm.Closing += AddTypeOfDevicesForm_Closing;
-            editSparePartForm.ShowDialog();
-        }
-
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                int id = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[0].Value);
-                //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
-                try
-                {
-                    //typeGoodTableAdapter.Delete(id, name);
-                    new SparePartController().DeleteById(id);
-                    sparePartTableAdapter.Fill(spDataSet.SparePart);
-                }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ошибка работы с базой данных!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (!tbName.Text.Equals("") && !cbStatus.Text.Equals(""))
-            {
-                string sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price, sp.id_sps From SparePart sp Join SparePartStatus sps On sp.id_sps = sps.id_sps Where sps.name_sps = @cbStatus and sp.name_sp = @tbName";
-
-                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
-                {
-                    SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@cbStatus";
-                    param.Value = cbStatus.Text;
-                    param.SqlDbType = SqlDbType.VarChar;
-                    param.Size = 100;
-                    cmd.Parameters.Add(param);
-
-                    param = new SqlParameter();
-                    param.ParameterName = "@tbName";
-                    param.Value = tbName.Text;
-                    param.SqlDbType = SqlDbType.VarChar;
-                    param.Size = 100;
-                    cmd.Parameters.Add(param);
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                    spDataSet.SparePart.Clear();
-                    dataAdapter.Fill(spDataSet.SparePart);
-
-                }
-
-                dgvSparePart.DataSource = spDataSet.Service;
-            }
-            else if (!tbName.Text.Equals(""))
+            if (!tbName.Text.Equals(""))
             {
                 string sql = "Select * From SparePart Where name_sp=@tbName";
 
@@ -121,29 +73,6 @@ namespace StartPovolgie.Forms
                     SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
                     spDataSet.SparePart.Clear();
                     dataAdapter.Fill(spDataSet.SparePart);
-
-                }
-
-                dgvSparePart.DataSource = spDataSet.Service;
-            }
-            else if (!cbStatus.Text.Equals(""))
-            {
-                string sql = "Select sp.id_sp, sp.name_sp, sp.desc_sp, sp.quantity, sp.price, sp.id_sps From SparePart sp Join SparePartStatus sps On sp.id_sps = sps.id_sps Where sps.name_sps = @cbType";
-
-                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
-                {
-                    SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@cbType";
-                    param.Value = cbStatus.Text;
-                    param.SqlDbType = SqlDbType.VarChar;
-                    param.Size = 100;
-                    cmd.Parameters.Add(param);
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                    spDataSet.SparePart.Clear();
-                    dataAdapter.Fill(spDataSet.SparePart);
-
                 }
 
                 dgvSparePart.DataSource = spDataSet.SparePart;
@@ -155,5 +84,24 @@ namespace StartPovolgie.Forms
             spDataSet.SparePart.Clear();
             sparePartTableAdapter.Fill(spDataSet.SparePart);
         }
+
+        private void dgvSparePart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5 && !dgvSparePart.Rows[e.RowIndex].Cells[5].Value.Equals(""))
+            {
+                if (Int32.Parse(dgvSparePart.Rows[e.RowIndex].Cells[5].Value.ToString()) <= (int)dgvSparePart.Rows[e.RowIndex].Cells[3].Value)
+                {
+                    float priceunit = Convert.ToSingle(dgvSparePart.Rows[e.RowIndex].Cells[4].Value);
+                    int cntreal = Int32.Parse(dgvSparePart.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    dgvSparePart.Rows[e.RowIndex].Cells[6].Value = priceunit * cntreal;
+                }
+                else
+                {
+                    dgvSparePart.Rows[e.RowIndex].Cells[5].Value = "";
+                    MessageBox.Show("Нет такого кол-ва ЗП на складе");
+                }
+            }
+        }
     }
+
 }

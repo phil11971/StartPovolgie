@@ -79,11 +79,13 @@
             this.tbClientPatr = new System.Windows.Forms.TextBox();
             this.tbTypeGood = new System.Windows.Forms.TextBox();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.goodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namefaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,18 +99,16 @@
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
             this.faultSparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultSparePartTableAdapter();
-            this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.faultTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultTableAdapter();
             this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.idfaultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cntallDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pricespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cntonfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pricespwithqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
+            this.qonfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pwithqspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qonstoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.punitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbPrint.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -124,9 +124,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -257,6 +257,7 @@
             // rbAccept
             // 
             this.rbAccept.AutoSize = true;
+            this.rbAccept.Checked = true;
             this.rbAccept.Location = new System.Drawing.Point(7, 20);
             this.rbAccept.Name = "rbAccept";
             this.rbAccept.Size = new System.Drawing.Size(108, 17);
@@ -439,10 +440,10 @@
             this.idfaultDataGridViewTextBoxColumn1,
             this.idspDataGridViewTextBoxColumn,
             this.namespDataGridViewTextBoxColumn,
-            this.cntallDataGridViewTextBoxColumn,
-            this.pricespDataGridViewTextBoxColumn,
-            this.cntonfaultDataGridViewTextBoxColumn,
-            this.pricespwithqDataGridViewTextBoxColumn});
+            this.qonfDataGridViewTextBoxColumn,
+            this.pwithqspDataGridViewTextBoxColumn,
+            this.qonstoreDataGridViewTextBoxColumn,
+            this.punitDataGridViewTextBoxColumn});
             this.dgvSparePart.DataSource = this.faultSparePartBindingSource;
             this.dgvSparePart.EnableHeadersVisualStyles = false;
             this.dgvSparePart.Location = new System.Drawing.Point(351, 33);
@@ -486,6 +487,7 @@
             this.btnDelSparePartForCurrFault.TabIndex = 13;
             this.btnDelSparePartForCurrFault.Text = "Удалить запчасть для текущей неисправности";
             this.btnDelSparePartForCurrFault.UseVisualStyleBackColor = true;
+            this.btnDelSparePartForCurrFault.Click += new System.EventHandler(this.btnDelSparePartForCurrFault_Click);
             // 
             // label11
             // 
@@ -644,6 +646,16 @@
             this.btnCalc.Text = "Рассчитать";
             this.btnCalc.UseVisualStyleBackColor = true;
             // 
+            // btnAddSparePartForCurrFault
+            // 
+            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(6, 6);
+            this.btnAddSparePartForCurrFault.Name = "btnAddSparePartForCurrFault";
+            this.btnAddSparePartForCurrFault.Size = new System.Drawing.Size(278, 23);
+            this.btnAddSparePartForCurrFault.TabIndex = 12;
+            this.btnAddSparePartForCurrFault.Text = "Добавить запчасть для текущей неисправности";
+            this.btnAddSparePartForCurrFault.UseVisualStyleBackColor = true;
+            this.btnAddSparePartForCurrFault.Click += new System.EventHandler(this.btnAddSparePartForCurrFault_Click);
+            // 
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataMember = "Employee";
@@ -668,6 +680,11 @@
             // 
             this.clientBindingSource.DataMember = "Client";
             this.clientBindingSource.DataSource = this.spDataSet;
+            // 
+            // faultSparePartBindingSource
+            // 
+            this.faultSparePartBindingSource.DataMember = "FaultSparePart";
+            this.faultSparePartBindingSource.DataSource = this.spDataSet;
             // 
             // idfaultDataGridViewTextBoxColumn
             // 
@@ -742,11 +759,6 @@
             // 
             this.faultSparePartTableAdapter.ClearBeforeFill = true;
             // 
-            // faultSparePartBindingSource
-            // 
-            this.faultSparePartBindingSource.DataMember = "FaultSparePart";
-            this.faultSparePartBindingSource.DataSource = this.spDataSet;
-            // 
             // faultTableAdapter
             // 
             this.faultTableAdapter.ClearBeforeFill = true;
@@ -776,42 +788,32 @@
             // namespDataGridViewTextBoxColumn
             // 
             this.namespDataGridViewTextBoxColumn.DataPropertyName = "name_sp";
-            this.namespDataGridViewTextBoxColumn.HeaderText = "Наименование запчасти";
+            this.namespDataGridViewTextBoxColumn.HeaderText = "Наименование ЗП";
             this.namespDataGridViewTextBoxColumn.Name = "namespDataGridViewTextBoxColumn";
             // 
-            // cntallDataGridViewTextBoxColumn
+            // qonfDataGridViewTextBoxColumn
             // 
-            this.cntallDataGridViewTextBoxColumn.DataPropertyName = "cntall";
-            this.cntallDataGridViewTextBoxColumn.HeaderText = "Количество на складе";
-            this.cntallDataGridViewTextBoxColumn.Name = "cntallDataGridViewTextBoxColumn";
+            this.qonfDataGridViewTextBoxColumn.DataPropertyName = "qonf";
+            this.qonfDataGridViewTextBoxColumn.HeaderText = "Кол-во на неиспр";
+            this.qonfDataGridViewTextBoxColumn.Name = "qonfDataGridViewTextBoxColumn";
             // 
-            // pricespDataGridViewTextBoxColumn
+            // pwithqspDataGridViewTextBoxColumn
             // 
-            this.pricespDataGridViewTextBoxColumn.DataPropertyName = "pricesp";
-            this.pricespDataGridViewTextBoxColumn.HeaderText = "Цена ЗП";
-            this.pricespDataGridViewTextBoxColumn.Name = "pricespDataGridViewTextBoxColumn";
+            this.pwithqspDataGridViewTextBoxColumn.DataPropertyName = "pwithqsp";
+            this.pwithqspDataGridViewTextBoxColumn.HeaderText = "Цена ЗП на неиспр";
+            this.pwithqspDataGridViewTextBoxColumn.Name = "pwithqspDataGridViewTextBoxColumn";
             // 
-            // cntonfaultDataGridViewTextBoxColumn
+            // qonstoreDataGridViewTextBoxColumn
             // 
-            this.cntonfaultDataGridViewTextBoxColumn.DataPropertyName = "cntonfault";
-            this.cntonfaultDataGridViewTextBoxColumn.HeaderText = "Количество на неиспр";
-            this.cntonfaultDataGridViewTextBoxColumn.Name = "cntonfaultDataGridViewTextBoxColumn";
+            this.qonstoreDataGridViewTextBoxColumn.DataPropertyName = "qonstore";
+            this.qonstoreDataGridViewTextBoxColumn.HeaderText = "Кол-во на складе";
+            this.qonstoreDataGridViewTextBoxColumn.Name = "qonstoreDataGridViewTextBoxColumn";
             // 
-            // pricespwithqDataGridViewTextBoxColumn
+            // punitDataGridViewTextBoxColumn
             // 
-            this.pricespwithqDataGridViewTextBoxColumn.DataPropertyName = "pricespwithq";
-            this.pricespwithqDataGridViewTextBoxColumn.HeaderText = "Цена ЗП с учетом кол-ва на неиспр";
-            this.pricespwithqDataGridViewTextBoxColumn.Name = "pricespwithqDataGridViewTextBoxColumn";
-            // 
-            // btnAddSparePartForCurrFault
-            // 
-            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(6, 6);
-            this.btnAddSparePartForCurrFault.Name = "btnAddSparePartForCurrFault";
-            this.btnAddSparePartForCurrFault.Size = new System.Drawing.Size(278, 23);
-            this.btnAddSparePartForCurrFault.TabIndex = 12;
-            this.btnAddSparePartForCurrFault.Text = "Добавить запчасть для текущей неисправности";
-            this.btnAddSparePartForCurrFault.UseVisualStyleBackColor = true;
-            this.btnAddSparePartForCurrFault.Click += new System.EventHandler(this.btnAddSparePartForCurrFault_Click);
+            this.punitDataGridViewTextBoxColumn.DataPropertyName = "punit";
+            this.punitDataGridViewTextBoxColumn.HeaderText = "Цена ЗП за ед.";
+            this.punitDataGridViewTextBoxColumn.Name = "punitDataGridViewTextBoxColumn";
             // 
             // ViewAcceptForRepairForm
             // 
@@ -864,9 +866,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -946,13 +948,13 @@
         private System.Windows.Forms.BindingSource typeGoodBindingSource;
         private System.Windows.Forms.TextBox tbTypeGood;
         private System.Windows.Forms.Button btnCalc;
+        private System.Windows.Forms.Button btnAddSparePartForCurrFault;
         private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cntallDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pricespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cntonfaultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pricespwithqDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnAddSparePartForCurrFault;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qonfDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pwithqspDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qonstoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn punitDataGridViewTextBoxColumn;
     }
 }

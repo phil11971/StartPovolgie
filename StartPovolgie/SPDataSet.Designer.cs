@@ -6071,9 +6071,15 @@ namespace StartPovolgie {
             
             private global::System.Data.DataColumn columnid_sp;
             
-            private global::System.Data.DataColumn columnquantity;
+            private global::System.Data.DataColumn columnqonf;
             
-            private global::System.Data.DataColumn columnprice;
+            private global::System.Data.DataColumn columnpwithqsp;
+            
+            private global::System.Data.DataColumn columnname_sp;
+            
+            private global::System.Data.DataColumn columnqonstore;
+            
+            private global::System.Data.DataColumn columnpunit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -6126,17 +6132,41 @@ namespace StartPovolgie {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn quantityColumn {
+            public global::System.Data.DataColumn qonfColumn {
                 get {
-                    return this.columnquantity;
+                    return this.columnqonf;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn priceColumn {
+            public global::System.Data.DataColumn pwithqspColumn {
                 get {
-                    return this.columnprice;
+                    return this.columnpwithqsp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn name_spColumn {
+                get {
+                    return this.columnname_sp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn qonstoreColumn {
+                get {
+                    return this.columnqonstore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn punitColumn {
+                get {
+                    return this.columnpunit;
                 }
             }
             
@@ -6177,13 +6207,16 @@ namespace StartPovolgie {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FaultSparePartRow AddFaultSparePartRow(FaultRow parentFaultRowByFK__FaultSpar__id_fa__23DE44F1, SparePartRow parentSparePartRowByFK__FaultSpar__id_sp__24D2692A, int quantity, decimal price) {
+            public FaultSparePartRow AddFaultSparePartRow(FaultRow parentFaultRowByFK__FaultSpar__id_fa__23DE44F1, SparePartRow parentSparePartRowByFK__FaultSpar__id_sp__24D2692A, int qonf, decimal pwithqsp, string name_sp, int qonstore, decimal punit) {
                 FaultSparePartRow rowFaultSparePartRow = ((FaultSparePartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        quantity,
-                        price};
+                        qonf,
+                        pwithqsp,
+                        name_sp,
+                        qonstore,
+                        punit};
                 if ((parentFaultRowByFK__FaultSpar__id_fa__23DE44F1 != null)) {
                     columnValuesArray[0] = parentFaultRowByFK__FaultSpar__id_fa__23DE44F1[0];
                 }
@@ -6222,8 +6255,11 @@ namespace StartPovolgie {
             internal void InitVars() {
                 this.columnid_fault = base.Columns["id_fault"];
                 this.columnid_sp = base.Columns["id_sp"];
-                this.columnquantity = base.Columns["quantity"];
-                this.columnprice = base.Columns["price"];
+                this.columnqonf = base.Columns["qonf"];
+                this.columnpwithqsp = base.Columns["pwithqsp"];
+                this.columnname_sp = base.Columns["name_sp"];
+                this.columnqonstore = base.Columns["qonstore"];
+                this.columnpunit = base.Columns["punit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6233,17 +6269,27 @@ namespace StartPovolgie {
                 base.Columns.Add(this.columnid_fault);
                 this.columnid_sp = new global::System.Data.DataColumn("id_sp", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_sp);
-                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquantity);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprice);
+                this.columnqonf = new global::System.Data.DataColumn("qonf", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnqonf);
+                this.columnpwithqsp = new global::System.Data.DataColumn("pwithqsp", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpwithqsp);
+                this.columnname_sp = new global::System.Data.DataColumn("name_sp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_sp);
+                this.columnqonstore = new global::System.Data.DataColumn("qonstore", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnqonstore);
+                this.columnpunit = new global::System.Data.DataColumn("punit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpunit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_fault,
                                 this.columnid_sp}, true));
                 this.columnid_fault.AllowDBNull = false;
                 this.columnid_sp.AllowDBNull = false;
-                this.columnquantity.AllowDBNull = false;
-                this.columnprice.AllowDBNull = false;
+                this.columnqonf.AllowDBNull = false;
+                this.columnpwithqsp.AllowDBNull = false;
+                this.columnname_sp.AllowDBNull = false;
+                this.columnname_sp.MaxLength = 25;
+                this.columnqonstore.AllowDBNull = false;
+                this.columnpunit.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8298,23 +8344,56 @@ namespace StartPovolgie {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int quantity {
+            public int qonf {
                 get {
-                    return ((int)(this[this.tableFaultSparePart.quantityColumn]));
+                    return ((int)(this[this.tableFaultSparePart.qonfColumn]));
                 }
                 set {
-                    this[this.tableFaultSparePart.quantityColumn] = value;
+                    this[this.tableFaultSparePart.qonfColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal price {
+            public decimal pwithqsp {
                 get {
-                    return ((decimal)(this[this.tableFaultSparePart.priceColumn]));
+                    return ((decimal)(this[this.tableFaultSparePart.pwithqspColumn]));
                 }
                 set {
-                    this[this.tableFaultSparePart.priceColumn] = value;
+                    this[this.tableFaultSparePart.pwithqspColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string name_sp {
+                get {
+                    return ((string)(this[this.tableFaultSparePart.name_spColumn]));
+                }
+                set {
+                    this[this.tableFaultSparePart.name_spColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int qonstore {
+                get {
+                    return ((int)(this[this.tableFaultSparePart.qonstoreColumn]));
+                }
+                set {
+                    this[this.tableFaultSparePart.qonstoreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal punit {
+                get {
+                    return ((decimal)(this[this.tableFaultSparePart.punitColumn]));
+                }
+                set {
+                    this[this.tableFaultSparePart.punitColumn] = value;
                 }
             }
             
@@ -14807,8 +14886,11 @@ SELECT id_fault, name_fault, desc_fault, cost_elimination, id_accept, id_master,
             tableMapping.DataSetTable = "FaultSparePart";
             tableMapping.ColumnMappings.Add("id_fault", "id_fault");
             tableMapping.ColumnMappings.Add("id_sp", "id_sp");
-            tableMapping.ColumnMappings.Add("quantity", "quantity");
-            tableMapping.ColumnMappings.Add("price", "price");
+            tableMapping.ColumnMappings.Add("qonf", "qonf");
+            tableMapping.ColumnMappings.Add("pwithqsp", "pwithqsp");
+            tableMapping.ColumnMappings.Add("name_sp", "name_sp");
+            tableMapping.ColumnMappings.Add("qonstore", "qonstore");
+            tableMapping.ColumnMappings.Add("punit", "punit");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -14858,7 +14940,10 @@ SELECT id_fault, id_sp, quantity, price FROM FaultSparePart WHERE (id_fault = @i
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_fault, id_sp, quantity, price FROM dbo.FaultSparePart";
+            this._commandCollection[0].CommandText = "SELECT        fsp.id_fault, fsp.id_sp, fsp.quantity AS qonf, fsp.price AS pwithqs" +
+                "p, sp.name_sp, sp.quantity AS qonstore, sp.price AS punit\r\nFROM            Fault" +
+                "SparePart AS fsp INNER JOIN\r\n                         SparePart AS sp ON fsp.id_" +
+                "sp = sp.id_sp";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

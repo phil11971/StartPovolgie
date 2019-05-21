@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbSearch = new System.Windows.Forms.GroupBox();
-            this.lblType = new System.Windows.Forms.Label();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.btnPullOut = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -39,13 +37,15 @@
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
+            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
+            this.qonf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceforsponf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).BeginInit();
@@ -54,38 +54,16 @@
             // 
             // gbSearch
             // 
-            this.gbSearch.Controls.Add(this.lblType);
-            this.gbSearch.Controls.Add(this.cbStatus);
             this.gbSearch.Controls.Add(this.btnPullOut);
             this.gbSearch.Controls.Add(this.btnFind);
             this.gbSearch.Controls.Add(this.tbName);
             this.gbSearch.Controls.Add(this.lblName);
             this.gbSearch.Location = new System.Drawing.Point(12, 12);
             this.gbSearch.Name = "gbSearch";
-            this.gbSearch.Size = new System.Drawing.Size(475, 79);
+            this.gbSearch.Size = new System.Drawing.Size(475, 61);
             this.gbSearch.TabIndex = 0;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Поиск";
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(11, 54);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(41, 13);
-            this.lblType.TabIndex = 6;
-            this.lblType.Text = "Статус";
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.DisplayMember = "id_sps";
-            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(100, 51);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cbStatus.TabIndex = 5;
-            this.cbStatus.ValueMember = "id_sps";
             // 
             // btnPullOut
             // 
@@ -149,7 +127,9 @@
             this.namespDataGridViewTextBoxColumn,
             this.descspDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn});
+            this.priceDataGridViewTextBoxColumn,
+            this.qonf,
+            this.priceforsponf});
             this.dgvSparePart.DataSource = this.sparePartBindingSource;
             this.dgvSparePart.EnableHeadersVisualStyles = false;
             this.dgvSparePart.Location = new System.Drawing.Point(12, 97);
@@ -158,6 +138,17 @@
             this.dgvSparePart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSparePart.Size = new System.Drawing.Size(564, 150);
             this.dgvSparePart.TabIndex = 9;
+            this.dgvSparePart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSparePart_CellEndEdit);
+            // 
+            // sparePartBindingSource
+            // 
+            this.sparePartBindingSource.DataMember = "SparePart";
+            this.sparePartBindingSource.DataSource = this.spDataSet;
+            this.sparePartBindingSource.Filter = "quantity>0";
+            // 
+            // sparePartTableAdapter
+            // 
+            this.sparePartTableAdapter.ClearBeforeFill = true;
             // 
             // idspDataGridViewTextBoxColumn
             // 
@@ -188,17 +179,19 @@
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Цена ЗП за ед.";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
-            // sparePartBindingSource
+            // qonf
             // 
-            this.sparePartBindingSource.DataMember = "SparePart";
-            this.sparePartBindingSource.DataSource = this.spDataSet;
+            this.qonf.HeaderText = "Количество на неиспр";
+            this.qonf.Name = "qonf";
             // 
-            // sparePartTableAdapter
+            // priceforsponf
             // 
-            this.sparePartTableAdapter.ClearBeforeFill = true;
+            this.priceforsponf.HeaderText = "Цена с учетом кол-ва ЗП на неиспр";
+            this.priceforsponf.Name = "priceforsponf";
+            this.priceforsponf.ReadOnly = true;
             // 
             // SparePartsForFaultForm
             // 
@@ -229,15 +222,15 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvSparePart;
-        private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.Label lblType;
+        private SPDataSet spDataSet;
+        private System.Windows.Forms.BindingSource sparePartBindingSource;
+        private SPDataSetTableAdapters.SparePartTableAdapter sparePartTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namespDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private SPDataSet spDataSet;
-        private System.Windows.Forms.BindingSource sparePartBindingSource;
-        private SPDataSetTableAdapters.SparePartTableAdapter sparePartTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qonf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceforsponf;
     }
 }

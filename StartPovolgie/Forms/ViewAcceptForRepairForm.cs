@@ -43,7 +43,7 @@ namespace StartPovolgie.Forms
             goodBindingSource.Filter = String.Format("id_g=\'{0}\'", acceptForRepair.IdGood);
 
             faultBindingSource.Filter = String.Format("id_accept=\'{0}\'", acceptForRepair.Id);
-            faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", dgvFault.Rows[0].Cells[0].Value);
+            faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", Int32.Parse(dgvFault.Rows[0].Cells[0].Value.ToString()));
 
             idfaultDataGridViewTextBoxColumn.Visible = false;
 
@@ -74,7 +74,21 @@ namespace StartPovolgie.Forms
 
         private void btnAddSparePartForCurrFault_Click(object sender, EventArgs e)
         {
-            new SparePartsForFaultForm().ShowDialog();
+            var sparePartsForFaultForm = new SparePartsForFaultForm((int)dgvFault.CurrentRow.Cells[0].Value);
+            sparePartsForFaultForm.Closed += Apda_RecFormed;
+            sparePartsForFaultForm.ShowDialog();
+        }
+
+        private void Apda_RecFormed(object sender, EventArgs e)
+        {
+            faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
+            faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", dgvFault.CurrentRow.Cells[0].Value); ;
+        }
+
+        private void btnDelSparePartForCurrFault_Click(object sender, EventArgs e)
+        {
+            new FaultSparePartController().DeleteById( Int32.Parse(dgvFault.CurrentRow.Cells[0].Value.ToString()), Int32.Parse(dgvSparePart.CurrentRow.Cells[1].Value.ToString()));
+            faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
         }
     }
 }

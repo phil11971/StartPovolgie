@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace StartPovolgie.Model
 {
-    class FaultSparePart
+    public class FaultSparePart
     {
+        public int IdFault { get; set; }
+        public List<SparePart> SpareParts { get; set; }
+
+        public FaultSparePart(int idFault, List<SparePart> spareParts)
+        {
+            IdFault = idFault;
+            SpareParts = spareParts;
+        }
+
     }
 }
