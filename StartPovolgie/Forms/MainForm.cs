@@ -93,5 +93,15 @@ namespace StartPovolgie.Forms
         {
             new RegistryAcceptForRepairForm(employee).ShowDialog();
         }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            new AcceptForRepairForm(employee).ShowDialog();
+        }
+
+        private void btnRegistry_Click(object sender, EventArgs e)
+        {
+            new RegistryAcceptForRepairForm(employee).ShowDialog();
+        }
     }
 }

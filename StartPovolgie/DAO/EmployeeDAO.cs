@@ -178,7 +178,7 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
-
+        //todo
         private bool HasSameType(Employee employee, bool isUpdate)
         {
             try
@@ -186,7 +186,7 @@ namespace StartPovolgie.DAO
                 SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}'", employee.Login, employee.Password);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_emp) From Employee Where Where login='{0}' and pass='{1}' AND id_emp!='{2}'", employee.Login, employee.Password, employee.Id);
+                    sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}' AND id_emp!='{2}'", employee.Login, employee.Password, employee.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

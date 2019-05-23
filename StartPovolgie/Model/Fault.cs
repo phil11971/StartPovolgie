@@ -11,8 +11,16 @@ namespace StartPovolgie.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Desc { get; set; }
+        public float CostElim { get; set; }
+        public int IdAccept { get; set; }
         public int IdFaultStatus { get; set; }
         public int IdMaster { get; set; }
+
+        public Fault(int id, float costElim)
+        {
+            Id = id;
+            CostElim = costElim;
+        }
 
         public Fault(int id, string name, string desc, int idState, int idMaster)
         {

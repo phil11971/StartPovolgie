@@ -68,9 +68,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tbAmountRepair = new System.Windows.Forms.TextBox();
             this.tbAmountSpareParts = new System.Windows.Forms.TextBox();
-            this.gbExecRes = new System.Windows.Forms.GroupBox();
-            this.rbNotDone = new System.Windows.Forms.RadioButton();
-            this.rbDone = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbAdminFirstName = new System.Windows.Forms.TextBox();
             this.tbAdminLastName = new System.Windows.Forms.TextBox();
@@ -109,6 +106,9 @@
             this.pwithqspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qonstoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.punitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rtbDescJob = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnExec = new System.Windows.Forms.Button();
             this.gbPrint.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -117,7 +117,6 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
-            this.gbExecRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
@@ -538,40 +537,6 @@
             this.tbAmountSpareParts.Size = new System.Drawing.Size(135, 20);
             this.tbAmountSpareParts.TabIndex = 23;
             // 
-            // gbExecRes
-            // 
-            this.gbExecRes.Controls.Add(this.rbNotDone);
-            this.gbExecRes.Controls.Add(this.rbDone);
-            this.gbExecRes.Location = new System.Drawing.Point(516, 82);
-            this.gbExecRes.Name = "gbExecRes";
-            this.gbExecRes.Size = new System.Drawing.Size(131, 76);
-            this.gbExecRes.TabIndex = 15;
-            this.gbExecRes.TabStop = false;
-            this.gbExecRes.Text = "Результат ремонта";
-            // 
-            // rbNotDone
-            // 
-            this.rbNotDone.AutoSize = true;
-            this.rbNotDone.Location = new System.Drawing.Point(6, 43);
-            this.rbNotDone.Name = "rbNotDone";
-            this.rbNotDone.Size = new System.Drawing.Size(92, 17);
-            this.rbNotDone.TabIndex = 1;
-            this.rbNotDone.TabStop = true;
-            this.rbNotDone.Text = "Не выполнен";
-            this.rbNotDone.UseVisualStyleBackColor = true;
-            // 
-            // rbDone
-            // 
-            this.rbDone.AutoSize = true;
-            this.rbDone.Checked = true;
-            this.rbDone.Location = new System.Drawing.Point(7, 20);
-            this.rbDone.Name = "rbDone";
-            this.rbDone.Size = new System.Drawing.Size(76, 17);
-            this.rbDone.TabIndex = 0;
-            this.rbDone.TabStop = true;
-            this.rbDone.Text = "Выполнен";
-            this.rbDone.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbAdminFirstName);
@@ -645,6 +610,7 @@
             this.btnCalc.TabIndex = 25;
             this.btnCalc.Text = "Рассчитать";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // btnAddSparePartForCurrFault
             // 
@@ -815,14 +781,44 @@
             this.punitDataGridViewTextBoxColumn.HeaderText = "Цена ЗП за ед.";
             this.punitDataGridViewTextBoxColumn.Name = "punitDataGridViewTextBoxColumn";
             // 
+            // rtbDescJob
+            // 
+            this.rtbDescJob.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "additionally", true));
+            this.rtbDescJob.Location = new System.Drawing.Point(639, 6);
+            this.rtbDescJob.Name = "rtbDescJob";
+            this.rtbDescJob.Size = new System.Drawing.Size(276, 223);
+            this.rtbDescJob.TabIndex = 26;
+            this.rtbDescJob.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(544, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Описание работ";
+            // 
+            // btnExec
+            // 
+            this.btnExec.Location = new System.Drawing.Point(720, 235);
+            this.btnExec.Name = "btnExec";
+            this.btnExec.Size = new System.Drawing.Size(75, 23);
+            this.btnExec.TabIndex = 28;
+            this.btnExec.Text = "Провести";
+            this.btnExec.UseVisualStyleBackColor = true;
+            this.btnExec.Click += new System.EventHandler(this.btnExec_Click);
+            // 
             // ViewAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 516);
+            this.Controls.Add(this.btnExec);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.rtbDescJob);
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.gbExecRes);
             this.Controls.Add(this.tbAmountSpareParts);
             this.Controls.Add(this.tbAmountRepair);
             this.Controls.Add(this.label13);
@@ -857,8 +853,6 @@
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
-            this.gbExecRes.ResumeLayout(false);
-            this.gbExecRes.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
@@ -904,9 +898,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbAmountRepair;
         private System.Windows.Forms.TextBox tbAmountSpareParts;
-        private System.Windows.Forms.GroupBox gbExecRes;
-        private System.Windows.Forms.RadioButton rbNotDone;
-        private System.Windows.Forms.RadioButton rbDone;
         private SPDataSet spDataSet;
         private SPDataSetTableAdapters.AcceptForRepairTableAdapter acceptForRepairTableAdapter;
         private System.Windows.Forms.BindingSource acceptForRepairBindingSource;
@@ -956,5 +947,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pwithqspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qonstoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn punitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.RichTextBox rtbDescJob;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnExec;
     }
 }

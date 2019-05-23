@@ -144,7 +144,7 @@ namespace StartPovolgie.Forms
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            if (dgvFault.Rows.Count == 0 && (dgvFault.Rows[0].Cells[0].Value.Equals("") || dgvFault.Rows[0].Cells[1].Value.Equals("")) )
+            if (dgvFault.Rows[0].Cells[0].Value == null || dgvFault.Rows[0].Cells[1].Value == null || dgvFault.Rows[0].Cells[2].Value == null) 
             {
                 MessageBox.Show("Заполните неисправности!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

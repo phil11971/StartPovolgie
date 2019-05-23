@@ -46,6 +46,7 @@ namespace StartPovolgie.Forms
             faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", Int32.Parse(dgvFault.Rows[0].Cells[0].Value.ToString()));
 
             idfaultDataGridViewTextBoxColumn.Visible = false;
+            idfaultDataGridViewTextBoxColumn1.Visible = false;
 
         }
 
@@ -89,6 +90,52 @@ namespace StartPovolgie.Forms
         {
             new FaultSparePartController().DeleteById( Int32.Parse(dgvFault.CurrentRow.Cells[0].Value.ToString()), Int32.Parse(dgvSparePart.CurrentRow.Cells[1].Value.ToString()));
             faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvFault.Rows.Count-1; i++)
+            {
+                if (dgvFault.Rows[i].Cells[3].Value.ToString().Equals(""))
+                {
+                    MessageBox.Show("Введите ст-ть устранения неисправности");
+                    return;
+                }
+            }
+            float priceFaults = 0;//ст-ть ремонта
+            List<Fault> faults = new List<Fault>();
+            for (int i = 0; i < dgvFault.Rows.Count-1; i++)
+            {
+                priceFaults += Convert.ToSingle(dgvFault.Rows[i].Cells[3].Value.ToString());
+                faults.Add(new Fault(Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()), Convert.ToSingle(dgvFault.Rows[i].Cells[3].Value.ToString())));
+            }
+            tbAmountRepair.Text = priceFaults.ToString();
+
+            string filter = "";
+            filter += String.Format("id_fault={0}", Int32.Parse(dgvFault.Rows[0].Cells[0].Value.ToString()));
+            for (int i = 1; i < dgvFault.Rows.Count - 1; i++)
+            {
+                filter += String.Format(" OR id_fault={0}", Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()));
+            }
+            var table = faultSparePartTableAdapter.GetData();
+            DataRow[] dataRows = table.Select(filter);
+            float priceSpareParts = 0;//ст-ть ЗП
+            for (int i = 0; i < dataRows.Length; i++)
+            {
+                priceSpareParts += Convert.ToSingle(dataRows[i].ItemArray[3].ToString());
+            }
+            tbAmountSpareParts.Text = priceSpareParts.ToString();
+
+            float total = priceFaults + priceSpareParts;
+            tbTotal.Text = total.ToString();
+
+            new FaultController().Update(faults);
+        }
+
+        private void btnExec_Click(object sender, EventArgs e)
+        {
+            ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
+            new ReturnFromRepairController().Insert(returnFromRepair);
         }
     }
 }

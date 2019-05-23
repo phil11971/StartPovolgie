@@ -44,18 +44,16 @@
             this.состояниеНеисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяЗаявкаНаРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.реестрЗаявокНаРемонтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.реестрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnRegistry = new System.Windows.Forms.Button();
             this.lblEmp = new System.Windows.Forms.LinkLabel();
             this.pbEmployee = new System.Windows.Forms.PictureBox();
             this.pbStartPovolgie = new System.Windows.Forms.PictureBox();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartPovolgie)).BeginInit();
@@ -183,8 +181,7 @@
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новаяЗаявкаНаРемонтToolStripMenuItem,
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem});
+            this.новаяЗаявкаНаРемонтToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -192,21 +189,14 @@
             // новаяЗаявкаНаРемонтToolStripMenuItem
             // 
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Name = "новаяЗаявкаНаРемонтToolStripMenuItem";
-            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт";
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Click += new System.EventHandler(this.новаяЗаявкаНаРемонтToolStripMenuItem_Click);
-            // 
-            // новаяЗаявкаНаЗапчастиToolStripMenuItem
-            // 
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Name = "новаяЗаявкаНаЗапчастиToolStripMenuItem";
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.новаяЗаявкаНаЗапчастиToolStripMenuItem.Text = "Заявка на запчасти";
             // 
             // запросыToolStripMenuItem
             // 
             this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.реестрЗаявокНаРемонтToolStripMenuItem1,
-            this.реестрToolStripMenuItem});
+            this.реестрЗаявокНаРемонтToolStripMenuItem1});
             this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
             this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.запросыToolStripMenuItem.Text = "Запросы";
@@ -214,15 +204,9 @@
             // реестрЗаявокНаРемонтToolStripMenuItem1
             // 
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Name = "реестрЗаявокНаРемонтToolStripMenuItem1";
-            this.реестрЗаявокНаРемонтToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
+            this.реестрЗаявокНаРемонтToolStripMenuItem1.Size = new System.Drawing.Size(216, 22);
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Text = "Реестр приемов в ремонт";
             this.реестрЗаявокНаРемонтToolStripMenuItem1.Click += new System.EventHandler(this.реестрЗаявокНаРемонтToolStripMenuItem1_Click);
-            // 
-            // реестрToolStripMenuItem
-            // 
-            this.реестрToolStripMenuItem.Name = "реестрToolStripMenuItem";
-            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.реестрToolStripMenuItem.Text = "Реестр заявок на запчасти";
             // 
             // отчётыToolStripMenuItem
             // 
@@ -243,23 +227,15 @@
             this.сменитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
             // 
-            // button2
+            // btnRegistry
             // 
-            this.button2.Location = new System.Drawing.Point(499, 94);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Реестр заявок на ремонт";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(499, 137);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(200, 23);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Реестр заявок на запчасти";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnRegistry.Location = new System.Drawing.Point(499, 134);
+            this.btnRegistry.Name = "btnRegistry";
+            this.btnRegistry.Size = new System.Drawing.Size(200, 23);
+            this.btnRegistry.TabIndex = 2;
+            this.btnRegistry.Text = "Реестр приемов в ремонт";
+            this.btnRegistry.UseVisualStyleBackColor = true;
+            this.btnRegistry.Click += new System.EventHandler(this.btnRegistry_Click);
             // 
             // lblEmp
             // 
@@ -288,16 +264,26 @@
             this.pbStartPovolgie.TabIndex = 11;
             this.pbStartPovolgie.TabStop = false;
             // 
+            // btnAccept
+            // 
+            this.btnAccept.Location = new System.Drawing.Point(499, 89);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(200, 23);
+            this.btnAccept.TabIndex = 12;
+            this.btnAccept.Text = "Прием в ремонт";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 272);
+            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.lblEmp);
             this.Controls.Add(this.pbEmployee);
             this.Controls.Add(this.pbStartPovolgie);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnRegistry);
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
             this.Name = "MainForm";
@@ -325,21 +311,19 @@
         private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem товарыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типыТоваровToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnRegistry;
         private System.Windows.Forms.PictureBox pbStartPovolgie;
         private System.Windows.Forms.PictureBox pbEmployee;
         private System.Windows.Forms.ToolStripMenuItem новаяЗаявкаНаРемонтToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem новаяЗаявкаНаЗапчастиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem специализацииМастеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem офисныеТелефоныToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem запросыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem реестрЗаявокНаРемонтToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem реестрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem мастерыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem администраторыToolStripMenuItem;
         private System.Windows.Forms.LinkLabel lblEmp;
         private System.Windows.Forms.ToolStripMenuItem состояниеНеисправностиToolStripMenuItem;
+        private System.Windows.Forms.Button btnAccept;
     }
 }

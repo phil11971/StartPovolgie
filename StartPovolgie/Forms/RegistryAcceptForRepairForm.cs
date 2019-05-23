@@ -52,7 +52,8 @@ namespace StartPovolgie.Forms
         //todo
         private void btnDel_Click(object sender, EventArgs e)
         {
-
+            new AcceptForRepairController().DeleteById((int)dgvAccept.CurrentRow.Cells[0].Value);
+            registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
         }
     }
 }
