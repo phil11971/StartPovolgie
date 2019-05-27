@@ -30,6 +30,7 @@
         {
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoEmp = new System.Windows.Forms.GroupBox();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.lblPass = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbInfoEmp.SuspendLayout();
             this.gbInfoEmpEntry.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,14 @@
             this.gbInfoEmp.TabIndex = 1;
             this.gbInfoEmp.TabStop = false;
             this.gbInfoEmp.Text = "Общая информация о сотруднике";
+            // 
+            // mtbPhone
+            // 
+            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
+            this.mtbPhone.TabIndex = 16;
             // 
             // label1
             // 
@@ -235,14 +243,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // mtbPhone
-            // 
-            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
-            this.mtbPhone.Mask = "8(000)000-00-00";
-            this.mtbPhone.Name = "mtbPhone";
-            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
-            this.mtbPhone.TabIndex = 16;
-            // 
             // AddAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +252,8 @@
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddAdminForm";
             this.Text = "Добавление нового администратора";
             this.gbInfoEmp.ResumeLayout(false);

@@ -135,6 +135,8 @@
             this.Controls.Add(this.dgvTypeGood);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FaultStatusForm";
             this.Text = "Состояние неисправности";
             this.Load += new System.EventHandler(this.FaultStatusForm_Load);

@@ -55,13 +55,13 @@ namespace StartPovolgie.Forms
             this.lblPass = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.dgvMasterSpec = new System.Windows.Forms.DataGridView();
-            this.masterSpecializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
-            this.masterSpecializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.MasterSpecializationTableAdapter();
             this.idmasterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charspecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.masterSpecializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new StartPovolgie.SPDataSetTableAdapters.EmployeeTableAdapter();
+            this.masterSpecializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.MasterSpecializationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
@@ -300,19 +300,6 @@ namespace StartPovolgie.Forms
             this.dgvMasterSpec.TabIndex = 7;
             this.dgvMasterSpec.Tag = "";
             // 
-            // masterSpecializationBindingSource
-            // 
-            this.masterSpecializationBindingSource.DataMember = "MasterSpecialization";
-            this.masterSpecializationBindingSource.DataSource = this.spDataSet;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // masterSpecializationTableAdapter
-            // 
-            this.masterSpecializationTableAdapter.ClearBeforeFill = true;
-            // 
             // idmasterDataGridViewTextBoxColumn
             // 
             this.idmasterDataGridViewTextBoxColumn.DataPropertyName = "id_master";
@@ -339,6 +326,19 @@ namespace StartPovolgie.Forms
             this.charspecDataGridViewTextBoxColumn.HeaderText = "Характеристика";
             this.charspecDataGridViewTextBoxColumn.Name = "charspecDataGridViewTextBoxColumn";
             // 
+            // masterSpecializationBindingSource
+            // 
+            this.masterSpecializationBindingSource.DataMember = "MasterSpecialization";
+            this.masterSpecializationBindingSource.DataSource = this.spDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // masterSpecializationTableAdapter
+            // 
+            this.masterSpecializationTableAdapter.ClearBeforeFill = true;
+            // 
             // MasterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,6 +352,8 @@ namespace StartPovolgie.Forms
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MasterForm";
             this.Text = "Мастеры";
             this.Load += new System.EventHandler(this.MasterForm_Load);

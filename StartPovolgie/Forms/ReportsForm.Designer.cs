@@ -222,6 +222,8 @@
             this.Controls.Add(this.radioButton7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ReportsForm";
             this.Text = "Отчеты";
             this.Load += new System.EventHandler(this.ReportsForm_Load);

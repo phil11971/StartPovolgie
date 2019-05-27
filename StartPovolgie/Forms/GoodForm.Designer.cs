@@ -241,6 +241,8 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.gbSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "GoodForm";
             this.Text = "Товары";
             this.Load += new System.EventHandler(this.GoodForm_Load);

@@ -35,32 +35,32 @@
             this.gbSpec.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbSpec
             // 
             this.gbSpec.Controls.Add(this.btnAdd);
             this.gbSpec.Controls.Add(this.tbSpec);
             this.gbSpec.Controls.Add(this.label2);
             this.gbSpec.Location = new System.Drawing.Point(12, 12);
-            this.gbSpec.Name = "groupBox1";
-            this.gbSpec.Size = new System.Drawing.Size(200, 100);
+            this.gbSpec.Name = "gbSpec";
+            this.gbSpec.Size = new System.Drawing.Size(234, 100);
             this.gbSpec.TabIndex = 1;
             this.gbSpec.TabStop = false;
             this.gbSpec.Text = "Добавление новой специализации мастера";
             // 
-            // button1
+            // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(119, 62);
-            this.btnAdd.Name = "button1";
+            this.btnAdd.Location = new System.Drawing.Point(144, 61);
+            this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox1
+            // tbSpec
             // 
-            this.tbSpec.Location = new System.Drawing.Point(94, 26);
-            this.tbSpec.Name = "textBox1";
+            this.tbSpec.Location = new System.Drawing.Point(119, 26);
+            this.tbSpec.Name = "tbSpec";
             this.tbSpec.Size = new System.Drawing.Size(100, 20);
             this.tbSpec.TabIndex = 1;
             this.tbSpec.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSpec_KeyPress);
@@ -68,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 26);
+            this.label2.Location = new System.Drawing.Point(56, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 0;
@@ -80,6 +80,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 121);
             this.Controls.Add(this.gbSpec);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddSpecializationForm";
             this.Text = "Добавление специализации мастера";
             this.gbSpec.ResumeLayout(false);

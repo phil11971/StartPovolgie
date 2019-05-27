@@ -37,8 +37,6 @@
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
-            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,8 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qonf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceforsponf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sparePartTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SparePartTableAdapter();
             this.gbSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSparePart)).BeginInit();
@@ -140,16 +140,6 @@
             this.dgvSparePart.TabIndex = 9;
             this.dgvSparePart.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSparePart_CellEndEdit);
             // 
-            // sparePartBindingSource
-            // 
-            this.sparePartBindingSource.DataMember = "SparePart";
-            this.sparePartBindingSource.DataSource = this.spDataSet;
-            this.sparePartBindingSource.Filter = "quantity>0";
-            // 
-            // sparePartTableAdapter
-            // 
-            this.sparePartTableAdapter.ClearBeforeFill = true;
-            // 
             // idspDataGridViewTextBoxColumn
             // 
             this.idspDataGridViewTextBoxColumn.DataPropertyName = "id_sp";
@@ -193,6 +183,16 @@
             this.priceforsponf.Name = "priceforsponf";
             this.priceforsponf.ReadOnly = true;
             // 
+            // sparePartBindingSource
+            // 
+            this.sparePartBindingSource.DataMember = "SparePart";
+            this.sparePartBindingSource.DataSource = this.spDataSet;
+            this.sparePartBindingSource.Filter = "quantity>0";
+            // 
+            // sparePartTableAdapter
+            // 
+            this.sparePartTableAdapter.ClearBeforeFill = true;
+            // 
             // SparePartsForFaultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +201,8 @@
             this.Controls.Add(this.dgvSparePart);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SparePartsForFaultForm";
             this.Text = "Запчасти";
             this.Load += new System.EventHandler(this.SparePartsForFaultForm_Load);

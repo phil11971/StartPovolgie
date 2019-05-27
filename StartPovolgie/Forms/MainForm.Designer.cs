@@ -284,7 +284,9 @@
             this.Controls.Add(this.pbStartPovolgie);
             this.Controls.Add(this.btnRegistry);
             this.Controls.Add(this.menuMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuMain;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Серивисный центр \"Старт Поволжье\"";
             this.menuMain.ResumeLayout(false);

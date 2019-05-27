@@ -47,9 +47,6 @@
             this.btnDetail = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvAccept = new System.Windows.Forms.DataGridView();
-            this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
             this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receiptdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +59,9 @@
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
@@ -306,20 +306,6 @@
             this.dgvAccept.Size = new System.Drawing.Size(803, 231);
             this.dgvAccept.TabIndex = 21;
             // 
-            // registryAcceptBindingSource
-            // 
-            this.registryAcceptBindingSource.DataMember = "RegistryAccept";
-            this.registryAcceptBindingSource.DataSource = this.spDataSet;
-            // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registryAcceptTableAdapter
-            // 
-            this.registryAcceptTableAdapter.ClearBeforeFill = true;
-            // 
             // idacceptDataGridViewTextBoxColumn
             // 
             this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
@@ -398,6 +384,20 @@
             this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             // 
+            // registryAcceptBindingSource
+            // 
+            this.registryAcceptBindingSource.DataMember = "RegistryAccept";
+            this.registryAcceptBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registryAcceptTableAdapter
+            // 
+            this.registryAcceptTableAdapter.ClearBeforeFill = true;
+            // 
             // RegistryAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +409,8 @@
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.gbFind);
             this.Controls.Add(this.gbFilter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "RegistryAcceptForRepairForm";
             this.Text = "Реестр приемов в ремонт";
             this.Load += new System.EventHandler(this.RegistryAcceptForRepairForm_Load);

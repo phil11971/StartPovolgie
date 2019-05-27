@@ -35,32 +35,32 @@
             this.gbTypeGood.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbTypeGood
             // 
             this.gbTypeGood.Controls.Add(this.btnAdd);
             this.gbTypeGood.Controls.Add(this.tbTypeGood);
             this.gbTypeGood.Controls.Add(this.label2);
             this.gbTypeGood.Location = new System.Drawing.Point(12, 12);
-            this.gbTypeGood.Name = "groupBox1";
+            this.gbTypeGood.Name = "gbTypeGood";
             this.gbTypeGood.Size = new System.Drawing.Size(200, 100);
             this.gbTypeGood.TabIndex = 1;
             this.gbTypeGood.TabStop = false;
             this.gbTypeGood.Text = "Добавление нового типа товара";
             // 
-            // button1
+            // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(119, 62);
-            this.btnAdd.Name = "button1";
+            this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox1
+            // tbTypeGood
             // 
             this.tbTypeGood.Location = new System.Drawing.Point(94, 26);
-            this.tbTypeGood.Name = "textBox1";
+            this.tbTypeGood.Name = "tbTypeGood";
             this.tbTypeGood.Size = new System.Drawing.Size(100, 20);
             this.tbTypeGood.TabIndex = 1;
             this.tbTypeGood.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTypeGood_KeyPress);
@@ -80,6 +80,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(226, 121);
             this.Controls.Add(this.gbTypeGood);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddTypeGoodForm";
             this.Text = "Добавление типа товара";
             this.gbTypeGood.ResumeLayout(false);

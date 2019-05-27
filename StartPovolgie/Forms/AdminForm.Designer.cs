@@ -282,6 +282,8 @@
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AdminForm";
             this.Text = "Администраторы";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);

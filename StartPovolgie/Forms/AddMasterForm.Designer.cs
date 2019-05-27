@@ -305,6 +305,8 @@
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddMasterForm";
             this.Text = "Добавление нового мастера";
             this.gbInfoEmp.ResumeLayout(false);

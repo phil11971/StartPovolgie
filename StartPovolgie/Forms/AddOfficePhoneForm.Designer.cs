@@ -29,28 +29,36 @@
         private void InitializeComponent()
         {
             this.gbPhone = new System.Windows.Forms.GroupBox();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbPhone.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbPhone
             // 
             this.gbPhone.Controls.Add(this.mtbPhone);
             this.gbPhone.Controls.Add(this.btnAdd);
             this.gbPhone.Controls.Add(this.label2);
             this.gbPhone.Location = new System.Drawing.Point(12, 12);
-            this.gbPhone.Name = "groupBox1";
+            this.gbPhone.Name = "gbPhone";
             this.gbPhone.Size = new System.Drawing.Size(200, 100);
             this.gbPhone.TabIndex = 2;
             this.gbPhone.TabStop = false;
             this.gbPhone.Text = "Добавление нового телефона";
             // 
-            // button1
+            // mtbPhone
+            // 
+            this.mtbPhone.Location = new System.Drawing.Point(53, 23);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(100, 20);
+            this.mtbPhone.TabIndex = 3;
+            // 
+            // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(119, 62);
-            this.btnAdd.Name = "button1";
+            this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Добавить";
@@ -66,20 +74,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Номер";
             // 
-            // maskedTextBox1
-            // 
-            this.mtbPhone.Location = new System.Drawing.Point(53, 23);
-            this.mtbPhone.Mask = "8(000)000-00-00";
-            this.mtbPhone.Name = "maskedTextBox1";
-            this.mtbPhone.Size = new System.Drawing.Size(100, 20);
-            this.mtbPhone.TabIndex = 3;
-            // 
             // AddOfficePhoneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(222, 120);
             this.Controls.Add(this.gbPhone);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddOfficePhoneForm";
             this.Text = "Добавление телефона";
             this.gbPhone.ResumeLayout(false);

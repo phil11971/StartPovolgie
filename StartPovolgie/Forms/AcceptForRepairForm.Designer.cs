@@ -57,6 +57,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvFault = new System.Windows.Forms.DataGridView();
+            this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,10 +82,6 @@
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.faultStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultStatusTableAdapter();
-            this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
@@ -90,11 +90,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.gbSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -376,6 +376,29 @@
             this.dgvFault.Size = new System.Drawing.Size(339, 129);
             this.dgvFault.TabIndex = 4;
             // 
+            // dgvtbcNameFault
+            // 
+            this.dgvtbcNameFault.HeaderText = "Название";
+            this.dgvtbcNameFault.Name = "dgvtbcNameFault";
+            // 
+            // dgvtbcDescFault
+            // 
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
+            // 
+            // faultStatus
+            // 
+            this.faultStatus.DataSource = this.faultStatusBindingSource;
+            this.faultStatus.DisplayMember = "name_fs";
+            this.faultStatus.HeaderText = "Состояние";
+            this.faultStatus.Name = "faultStatus";
+            this.faultStatus.ValueMember = "id_fs";
+            // 
+            // faultStatusBindingSource
+            // 
+            this.faultStatusBindingSource.DataMember = "FaultStatus";
+            this.faultStatusBindingSource.DataSource = this.spDataSet;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvClient);
@@ -551,29 +574,6 @@
             // 
             this.faultStatusTableAdapter.ClearBeforeFill = true;
             // 
-            // faultStatusBindingSource
-            // 
-            this.faultStatusBindingSource.DataMember = "FaultStatus";
-            this.faultStatusBindingSource.DataSource = this.spDataSet;
-            // 
-            // dgvtbcNameFault
-            // 
-            this.dgvtbcNameFault.HeaderText = "Название";
-            this.dgvtbcNameFault.Name = "dgvtbcNameFault";
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
-            // 
-            // faultStatus
-            // 
-            this.faultStatus.DataSource = this.faultStatusBindingSource;
-            this.faultStatus.DisplayMember = "name_fs";
-            this.faultStatus.HeaderText = "Состояние";
-            this.faultStatus.Name = "faultStatus";
-            this.faultStatus.ValueMember = "id_fs";
-            // 
             // AcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +586,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpReceiptDate);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AcceptForRepairForm";
             this.Text = "Прием в ремонт";
             this.Load += new System.EventHandler(this.AcceptForRepairForm_Load);
@@ -599,12 +601,12 @@
             this.gbFind.ResumeLayout(false);
             this.gbFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

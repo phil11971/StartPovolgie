@@ -251,6 +251,8 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ServiceForm";
             this.Text = "Услуги";
             this.Load += new System.EventHandler(this.ServiceForm_Load);

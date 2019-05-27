@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gbInfoService = new System.Windows.Forms.GroupBox();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
@@ -40,11 +41,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblAdd = new System.Windows.Forms.Label();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
-            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.gbInfoService.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -71,6 +71,24 @@
             this.gbInfoService.TabIndex = 4;
             this.gbInfoService.TabStop = false;
             this.gbInfoService.Text = "Информация об услуге";
+            // 
+            // nudPrice
+            // 
+            this.nudPrice.DecimalPlaces = 1;
+            this.nudPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudPrice.Location = new System.Drawing.Point(95, 68);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(120, 20);
+            this.nudPrice.TabIndex = 18;
             // 
             // cbType
             // 
@@ -140,24 +158,6 @@
             // 
             this.typeGoodTableAdapter.ClearBeforeFill = true;
             // 
-            // nudPrice
-            // 
-            this.nudPrice.DecimalPlaces = 1;
-            this.nudPrice.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nudPrice.Location = new System.Drawing.Point(95, 68);
-            this.nudPrice.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.nudPrice.Name = "nudPrice";
-            this.nudPrice.Size = new System.Drawing.Size(120, 20);
-            this.nudPrice.TabIndex = 18;
-            // 
             // AddServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,13 +166,15 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbInfoService);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddServiceForm";
             this.Text = "Добавление услуги";
             this.gbInfoService.ResumeLayout(false);
             this.gbInfoService.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

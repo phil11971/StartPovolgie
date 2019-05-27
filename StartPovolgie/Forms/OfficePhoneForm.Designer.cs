@@ -132,6 +132,8 @@
             this.Controls.Add(this.dgvOfficePhone);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "OfficePhoneForm";
             this.Text = "Офисные номера телефонов";
             this.Load += new System.EventHandler(this.OfficePhoneForm_Load);

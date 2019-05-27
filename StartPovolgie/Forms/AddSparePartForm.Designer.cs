@@ -163,6 +163,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbInfoSpare);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddSparePartForm";
             this.Text = "Добавление новой запчасти";
             this.gbInfoSpare.ResumeLayout(false);

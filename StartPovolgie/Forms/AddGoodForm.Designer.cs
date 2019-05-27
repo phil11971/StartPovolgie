@@ -135,6 +135,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbGood);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddGoodForm";
             this.Text = "Добавление нового товара";
             this.gbGood.ResumeLayout(false);

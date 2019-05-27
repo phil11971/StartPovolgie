@@ -135,6 +135,8 @@
             this.Controls.Add(this.dgvSpecialization);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "SpecializationForm";
             this.Text = "Специализации мастеров";
             this.Load += new System.EventHandler(this.SpecializationForm_Load);

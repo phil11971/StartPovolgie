@@ -30,6 +30,7 @@
         {
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoEmp = new System.Windows.Forms.GroupBox();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.tbMail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbInfoEmp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,14 @@
             this.gbInfoEmp.TabIndex = 1;
             this.gbInfoEmp.TabStop = false;
             this.gbInfoEmp.Text = "Общая информация о клиенте";
+            // 
+            // mtbPhone
+            // 
+            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
+            this.mtbPhone.TabIndex = 17;
             // 
             // tbMail
             // 
@@ -175,14 +183,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // mtbPhone
-            // 
-            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
-            this.mtbPhone.Mask = "8(000)000-00-00";
-            this.mtbPhone.Name = "mtbPhone";
-            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
-            this.mtbPhone.TabIndex = 17;
-            // 
             // AddClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +191,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbInfoEmp);
             this.Controls.Add(this.lblAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddClientForm";
             this.Text = "Добавление нового клиента";
             this.gbInfoEmp.ResumeLayout(false);
