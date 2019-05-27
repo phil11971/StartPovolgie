@@ -20,21 +20,25 @@ namespace StartPovolgie.Forms
         public AddTypeGoodForm()
         {
             InitializeComponent();
-            this.ActiveControl = textBox1;
+            this.ActiveControl = tbTypeGood;
             typeGoodController = new TypeGoodController();
         }
 
         public AddTypeGoodForm(int id, string nameTypeGood)
         {
-            InitializeComponent(nameTypeGood);
+            InitializeComponent();
+            this.Text = "Изменение типа товара";
+            gbTypeGood.Text = "Изменение типа товара";
+            tbTypeGood.Text = nameTypeGood;
+            btnAdd.Text = "Изменить";
             this.id = id;
-            this.ActiveControl = textBox1;
+            this.ActiveControl = tbTypeGood;
             typeGoodController = new TypeGoodController();
         }
         
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Trim().Equals(""))
+            if (tbTypeGood.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -44,10 +48,10 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        TypeGood newTypeGood = new TypeGood(textBox1.Text.Trim());
+                        TypeGood newTypeGood = new TypeGood(tbTypeGood.Text.Trim());
                         if (!typeGoodController.Insert(newTypeGood))
                         {
-                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно добавить новый тип товара!\nТип с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                             this.Close();
@@ -56,7 +60,7 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            TypeGood newTypeGood = new TypeGood(id, textBox1.Text.Trim());
+                            TypeGood newTypeGood = new TypeGood(id, tbTypeGood.Text.Trim());
                             if (!typeGoodController.Update(newTypeGood))
                             {
                                 MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,7 +82,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить новый тип товара!\nТип товара с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
@@ -87,7 +91,7 @@ namespace StartPovolgie.Forms
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbTypeGood_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar)))
             {

@@ -27,7 +27,6 @@ namespace StartPovolgie.Forms
         {
             var addTypeGoodForm = new AddTypeGoodForm();
             addTypeGoodForm.Closing += AddTypeOfDevicesForm_Closing;
-            addTypeGoodForm.Closing += btnCancel_Click;
             addTypeGoodForm.ShowDialog();
         }
 
@@ -47,7 +46,7 @@ namespace StartPovolgie.Forms
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите удалить выбранный тип товара?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvTypeGood.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
@@ -59,7 +58,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно удалить выбранный тип товара! Имеются товары данного типа.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
@@ -68,42 +67,5 @@ namespace StartPovolgie.Forms
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            tbFilter.Text = "";
-            typeGoodBindingSource.Filter = null;
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            typeGoodBindingSource.Filter = String.Format("name_tg = '{0}'", tbFilter.Text.ToString());
-            //typeGoodBindingSource.MoveFirst();
-            //for (int i = 0; i < typeGoodBindingSource.Count; i++)
-            //{
-            //    //Это то что Вам нужно, Виктория
-            //    Console.WriteLine((typeGoodBindingSource.Current as DataRowView).Row[1]);
-            //    typeGoodBindingSource.MoveNext();
-            //}
-        }
-
-        private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar)))
-            {
-                e.Handled = true;
-            }
-            else if (!(e.KeyChar >= 1040 && e.KeyChar <= 1103 || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar))) // 1040...1071 А ~ Я 1072...1103 а ~ я
-            {
-                String myCurrentLanguage = InputLanguage.CurrentInputLanguage.LayoutName;
-                ChangeKeyboardLayout(System.Globalization.CultureInfo.GetCultureInfo("ru-RU"));
-                e.Handled = true;
-            }
-        }
-
-        private void ChangeKeyboardLayout(System.Globalization.CultureInfo CultureInfo)
-        {
-            InputLanguage c = InputLanguage.FromCulture(CultureInfo);
-            InputLanguage.CurrentInputLanguage = c;
-        }
     }
 }
