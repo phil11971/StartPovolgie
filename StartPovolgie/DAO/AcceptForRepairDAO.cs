@@ -11,7 +11,7 @@ namespace StartPovolgie.DAO
 {
     public class AcceptForRepairDAO
     {
-        public bool Insert(AcceptForRepair acceptForRepair)
+        public bool Insert(AcceptForRepair acceptForRepair, out int idAccept)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace StartPovolgie.DAO
                     idAcceptParam.Direction = ParameterDirection.Output;
                     command.Parameters.Add(idAcceptParam);
 
-                    int idAccept = (int)command.ExecuteScalar();
+                    idAccept = (int)command.ExecuteScalar();
 
                     DataTable table = new DataTable();
 
@@ -117,6 +117,7 @@ namespace StartPovolgie.DAO
             }
             catch (SqlException ex)
             {
+                idAccept = 0;
                 return false;
             }
         }

@@ -10,9 +10,9 @@ namespace StartPovolgie.Controller
 {
     public class AcceptForRepairController
     {
-        public bool Insert(AcceptForRepair acceptForRepair)
+        public bool Insert(AcceptForRepair acceptForRepair, out int idAccept)
         {
-            if (new AcceptForRepairDAO().Insert(acceptForRepair)) return true;
+            if (new AcceptForRepairDAO().Insert(acceptForRepair, out idAccept)) return true;
             else return false;
         }
 

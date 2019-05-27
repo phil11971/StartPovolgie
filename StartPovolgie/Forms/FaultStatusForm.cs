@@ -49,16 +49,14 @@ namespace StartPovolgie.Forms
             if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvTypeGood.CurrentRow.Cells[0].Value);
-                //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
                 try
                 {
-                    //typeGoodTableAdapter.Delete(id, name);
                     new FaultStatusController().DeleteById(id);
                     faultStatusTableAdapter.Fill(spDataSet.FaultStatus);
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно удалить выбранный статус неисправности! Имеются неисправности с выбранным статусом.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
