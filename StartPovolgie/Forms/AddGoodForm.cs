@@ -116,5 +116,6 @@ namespace StartPovolgie.Forms
             InputLanguage c = InputLanguage.FromCulture(CultureInfo);
             InputLanguage.CurrentInputLanguage = c;
         }
+
     }
 }
