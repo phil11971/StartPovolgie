@@ -102,7 +102,7 @@ namespace StartPovolgie.DAO
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
-                        param.ParameterName = "@service_price";
+                        param.ParameterName = "@sparePart_price";
                         param.Value = sparePart.Price;
                         param.SqlDbType = SqlDbType.Float;
                         cmd.Parameters.Add(param);

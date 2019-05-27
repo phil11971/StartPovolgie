@@ -63,11 +63,6 @@ namespace StartPovolgie.Forms
             new SparePartForm().ShowDialog();
         }
 
-        private void справочникиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void администраторыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AdminForm(employee.Id).ShowDialog();

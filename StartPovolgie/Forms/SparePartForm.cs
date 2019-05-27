@@ -43,17 +43,17 @@ namespace StartPovolgie.Forms
             int id = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[0].Value);
             string name = (string)dgvSparePart.CurrentRow.Cells[1].Value;
             string desc = (string)dgvSparePart.CurrentRow.Cells[2].Value;
-            int cnt = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[3].Value);
-            int price = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[4].Value);
-            string status = dgvSparePart.CurrentRow.Cells[5].Value.ToString();
-            var editSparePartForm = new AddSparePartForm(id, name, desc, cnt, price, status);
+            string cnt = dgvSparePart.CurrentRow.Cells[3].Value.ToString();
+            string price = dgvSparePart.CurrentRow.Cells[4].Value.ToString();
+
+            var editSparePartForm = new AddSparePartForm(id, name, desc, cnt, price);
             editSparePartForm.Closing += AddTypeOfDevicesForm_Closing;
             editSparePartForm.ShowDialog();
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите удалить выбранную запчасть?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvSparePart.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
@@ -65,7 +65,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно удалить выбранную запчасть!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {

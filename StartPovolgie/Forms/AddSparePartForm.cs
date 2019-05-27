@@ -25,9 +25,15 @@ namespace StartPovolgie.Forms
             sparePartController = new SparePartController();
         }
 
-        public AddSparePartForm(int id, string name, string desc, int cnt, int price, string status)
+        public AddSparePartForm(int id, string name, string desc, string cnt, string price)
         {
-            InitializeComponent(name, desc, cnt, price, status);
+            InitializeComponent();
+            lblAdd.Text = "Изменение информации о запчасти";
+            tbName.Text = name;
+            tbDesc.Text = desc;
+            nudCnt.Text = cnt;
+            nudPrice.Text = price;
+            btnAdd.Text = "Изменить";
             this.id = id;
             this.ActiveControl = tbName;
             sparePartController = new SparePartController();
@@ -45,11 +51,10 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        //todo
                         SparePart sparePart = new SparePart(tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(nudCnt.Text.Trim()), Convert.ToSingle(nudPrice.Text.Trim()));
                         if (!sparePartController.Insert(sparePart))
                         {
-                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно добавить новую запчасть!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                             this.Close();
@@ -58,21 +63,18 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            //todo
-                            /*
-                            SparePart sparePart = new SparePart(id, tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(tbCount.Text.Trim()), Convert.ToInt32(tbPrice.Text.Trim()));
+                            SparePart sparePart = new SparePart(id, tbName.Text.Trim(), tbDesc.Text.Trim(), Convert.ToInt32(nudCnt.Text.Trim()), Convert.ToSingle(nudPrice.Text.Trim()));
                             if (!sparePartController.Update(sparePart))
                             {
-                                MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Невозможно изменить информацию о запчасти!", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
-                                */
 
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {
-                            MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно изменить информацию о запчасти", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         catch (Exception)
                         {
@@ -83,7 +85,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить запчасть!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
@@ -92,20 +94,5 @@ namespace StartPovolgie.Forms
             }
         }
 
-        private void tbCount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void tbPrice_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
-        }
     }
 }
