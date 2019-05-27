@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblAdd = new System.Windows.Forms.Label();
-            this.gbInfoService = new System.Windows.Forms.GroupBox();
+            this.gbGood = new System.Windows.Forms.GroupBox();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gbInfoService.SuspendLayout();
+            this.gbGood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -55,16 +55,16 @@
             // 
             // gbInfoService
             // 
-            this.gbInfoService.Controls.Add(this.cbType);
-            this.gbInfoService.Controls.Add(this.tbName);
-            this.gbInfoService.Controls.Add(this.lblType);
-            this.gbInfoService.Controls.Add(this.lblName);
-            this.gbInfoService.Location = new System.Drawing.Point(31, 45);
-            this.gbInfoService.Name = "gbInfoService";
-            this.gbInfoService.Size = new System.Drawing.Size(254, 108);
-            this.gbInfoService.TabIndex = 1;
-            this.gbInfoService.TabStop = false;
-            this.gbInfoService.Text = "Информация о товаре";
+            this.gbGood.Controls.Add(this.cbType);
+            this.gbGood.Controls.Add(this.tbName);
+            this.gbGood.Controls.Add(this.lblType);
+            this.gbGood.Controls.Add(this.lblName);
+            this.gbGood.Location = new System.Drawing.Point(31, 45);
+            this.gbGood.Name = "gbInfoService";
+            this.gbGood.Size = new System.Drawing.Size(254, 108);
+            this.gbGood.TabIndex = 1;
+            this.gbGood.TabStop = false;
+            this.gbGood.Text = "Информация о товаре";
             // 
             // cbType
             // 
@@ -132,12 +132,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 192);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.gbInfoService);
+            this.Controls.Add(this.gbGood);
             this.Controls.Add(this.lblAdd);
             this.Name = "AddGoodForm";
             this.Text = "Добавление нового товара";
-            this.gbInfoService.ResumeLayout(false);
-            this.gbInfoService.PerformLayout();
+            this.gbGood.ResumeLayout(false);
+            this.gbGood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -153,7 +153,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblAdd = new System.Windows.Forms.Label();
-            this.gbInfoService = new System.Windows.Forms.GroupBox();
+            this.gbGood = new System.Windows.Forms.GroupBox();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.typeGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
@@ -162,7 +162,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
-            this.gbInfoService.SuspendLayout();
+            this.gbGood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.SuspendLayout();
@@ -176,24 +176,23 @@
             this.lblAdd.TabIndex = 0;
             this.lblAdd.Text = "Добавление нового товара";
             // 
-            // gbInfoService
+            // gbGood
             // 
-            this.gbInfoService.Controls.Add(this.cbType);
-            this.gbInfoService.Controls.Add(this.tbName);
-            this.gbInfoService.Controls.Add(this.lblType);
-            this.gbInfoService.Controls.Add(this.lblName);
-            this.gbInfoService.Location = new System.Drawing.Point(31, 45);
-            this.gbInfoService.Name = "gbInfoService";
-            this.gbInfoService.Size = new System.Drawing.Size(254, 108);
-            this.gbInfoService.TabIndex = 1;
-            this.gbInfoService.TabStop = false;
-            this.gbInfoService.Text = "Информация о товаре";
+            this.gbGood.Controls.Add(this.cbType);
+            this.gbGood.Controls.Add(this.tbName);
+            this.gbGood.Controls.Add(this.lblType);
+            this.gbGood.Controls.Add(this.lblName);
+            this.gbGood.Location = new System.Drawing.Point(31, 45);
+            this.gbGood.Name = "gbGood";
+            this.gbGood.Size = new System.Drawing.Size(254, 108);
+            this.gbGood.TabIndex = 1;
+            this.gbGood.TabStop = false;
+            this.gbGood.Text = "Информация о товаре";
             // 
             // cbType
             // 
             this.cbType.DataSource = this.typeGoodBindingSource;
             this.cbType.DisplayMember = "name_tg";
-            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(95, 69);
             this.cbType.Name = "cbType";
@@ -217,6 +216,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(121, 20);
             this.tbName.TabIndex = 6;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // lblType
             // 
@@ -256,12 +256,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 192);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.gbInfoService);
+            this.Controls.Add(this.gbGood);
             this.Controls.Add(this.lblAdd);
             this.Name = "AddGoodForm";
             this.Text = "Добавление нового товара";
-            this.gbInfoService.ResumeLayout(false);
-            this.gbInfoService.PerformLayout();
+            this.gbGood.ResumeLayout(false);
+            this.gbGood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.typeGoodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -272,7 +272,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblAdd;
-        private System.Windows.Forms.GroupBox gbInfoService;
+        private System.Windows.Forms.GroupBox gbGood;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblName;

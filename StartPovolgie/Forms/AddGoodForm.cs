@@ -28,7 +28,13 @@ namespace StartPovolgie.Forms
 
         public AddGoodForm(int id, string name, string type)
         {
-            InitializeComponent(name, type);
+            InitializeComponent();
+            this.Text = "Изменение товара";
+            lblAdd.Text = "Изменение товара";
+            gbGood.Text = "Информация о товаре";
+            tbName.Text = name;
+            cbType.Text = type;
+            btnAdd.Text = "Изменить";
             this.id = id;
             this.ActiveControl = tbName;
             goodController = new GoodController();
@@ -51,7 +57,7 @@ namespace StartPovolgie.Forms
                         Good good = new Good(tbName.Text.Trim(), typeGood);
                         if (!goodController.Insert(good))
                         {
-                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно добавить новый товар!\nТовар с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                             this.Close();
@@ -63,7 +69,7 @@ namespace StartPovolgie.Forms
                             Good good = new Good(id, tbName.Text.Trim(), new TypeGood(Convert.ToInt32(cbType.SelectedValue.ToString()), cbType.Text.Trim()));
                             if (!goodController.Update(good))
                             {
-                                MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Невозможно изменить товар!\nТовара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
@@ -71,7 +77,7 @@ namespace StartPovolgie.Forms
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {
-                            MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно изменить товар!\nТовар с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         catch (Exception)
                         {
@@ -82,13 +88,33 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить новый товар!\nТовар с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Ошибка работы с базой данных!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+            else if (!(e.KeyChar >= 1040 && e.KeyChar <= 1103 || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar))) // 1040...1071 А ~ Я 1072...1103 а ~ я
+            {
+                String myCurrentLanguage = InputLanguage.CurrentInputLanguage.LayoutName;
+                ChangeKeyboardLayout(System.Globalization.CultureInfo.GetCultureInfo("ru-RU"));
+                e.Handled = true;
+            }
+        }
+
+        private void ChangeKeyboardLayout(System.Globalization.CultureInfo CultureInfo)
+        {
+            InputLanguage c = InputLanguage.FromCulture(CultureInfo);
+            InputLanguage.CurrentInputLanguage = c;
         }
     }
 }
