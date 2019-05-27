@@ -20,21 +20,25 @@ namespace StartPovolgie.Forms
         public AddSpecializationForm()
         {
             InitializeComponent();
-            this.ActiveControl = textBox1;
+            this.ActiveControl = tbSpec;
             specializationController = new SpecializationController();
         }
 
-        public AddSpecializationForm(int id, string nameTypeGood)
+        public AddSpecializationForm(int id, string spec)
         {
-            InitializeComponent(nameTypeGood);
+            InitializeComponent();
+            this.Text = "Изменение специализации";
+            gbSpec.Text = "Изменение специализации";
+            tbSpec.Text = spec;
+            btnAdd.Text = "Изменить";
             this.id = id;
-            this.ActiveControl = textBox1;
+            this.ActiveControl = tbSpec;
             specializationController = new SpecializationController();
         }
         
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Trim().Equals(""))
+            if (tbSpec.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Заполните пустые поля!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -44,10 +48,10 @@ namespace StartPovolgie.Forms
                 {
                     if (id == 0)
                     {
-                        Specialization specialization = new Specialization(textBox1.Text.Trim());
+                        Specialization specialization = new Specialization(tbSpec.Text.Trim());
                         if (!specializationController.Insert(specialization))
                         {
-                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно добавить новую специализацию!\nСпециализация с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                             this.Close();
@@ -56,10 +60,10 @@ namespace StartPovolgie.Forms
                     {
                         try
                         {
-                            Specialization specialization = new Specialization(id, textBox1.Text.Trim());
+                            Specialization specialization = new Specialization(id, tbSpec.Text.Trim());
                             if (!specializationController.Update(specialization))
                             {
-                                MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Невозможно изменить специализацию!\nСпециализация с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 this.Close();
@@ -67,7 +71,7 @@ namespace StartPovolgie.Forms
                         }
                         catch (System.Data.SqlClient.SqlException)
                         {
-                            MessageBox.Show("Невозможно изменить тип товара!\nТип товара с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно изменить специализацию!\nСпециализация с таким именем уже существует.", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         catch (Exception)
                         {
@@ -78,7 +82,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить новую специализацию!\nСпециализация с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
@@ -87,7 +91,7 @@ namespace StartPovolgie.Forms
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbSpec_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || Char.IsSeparator(e.KeyChar)))
             {

@@ -31,6 +31,7 @@ namespace StartPovolgie.Forms
             gbFaultStatus.Text = "Изменение состояния неисправности";
             tbFaultStatus.Text = faultStatusName;
             btnAdd.Text = "Изменить";
+            this.id = id;
             this.ActiveControl = tbFaultStatus;
             faultStatusController = new FaultStatusController();
         }
