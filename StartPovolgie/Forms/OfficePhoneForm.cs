@@ -37,7 +37,7 @@ namespace StartPovolgie.Forms
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите удалить выбранный телефон?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvOfficePhone.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
@@ -49,7 +49,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно удалить выбранный телефон!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
