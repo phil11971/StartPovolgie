@@ -126,7 +126,6 @@ namespace StartPovolgie.DAO
                         }
                         return true;
                     }
-                    //todo: другие ребзи: начальник и мастер
                     return false;
 
                 }
@@ -139,28 +138,76 @@ namespace StartPovolgie.DAO
             }
         }
 
-        //todo
         public bool Update(Employee employee)
         {
             try
             {
-                if (!HasSameType(employee, true))
+                if (HasSameType(employee, true))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
-                    string sql = "Update Employee Set name_fs=(UPPER(LEFT(@faultStatus_name, 1))+ SUBSTRING (@faultStatus_name,2,len (@faultStatus_name))) Where id_fs=(@faultStatus_id);";
+                    string sql = "Update Employee Set login=@login, pass=@pass, lname=@lname, fname=@fname, patronymic=@patronymic, phone=@phone, address=@address, status=@status Where id_emp=(@id_emp);";
 
                     using (SqlCommand cmd = new SqlCommand(sql, sqlConnection))
                     {
                         SqlParameter param = new SqlParameter();
                         param = new SqlParameter();
-                        param.ParameterName = "@faultStatus_id";
+                        param.ParameterName = "@id_emp";
                         param.Value = employee.Id;
                         param.SqlDbType = SqlDbType.Int;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
-                        param.ParameterName = "@faultStatus_name";
-                        //param.Value = employee.Name;
+                        param.ParameterName = "@login";
+                        param.Value = employee.Login;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@pass";
+                        param.Value = employee.Password;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@lname";
+                        param.Value = employee.LastName;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@fname";
+                        param.Value = employee.FirstName;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@patronymic";
+                        param.Value = employee.Patronymic;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@phone";
+                        param.Value = employee.Phone;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@address";
+                        param.Value = employee.Address;
+                        param.SqlDbType = SqlDbType.VarChar;
+                        param.Size = 100;
+                        cmd.Parameters.Add(param);
+
+                        param = new SqlParameter();
+                        param.ParameterName = "@status";
+                        param.Value = employee.Status;
                         param.SqlDbType = SqlDbType.VarChar;
                         param.Size = 100;
                         cmd.Parameters.Add(param);
@@ -178,7 +225,7 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
-        //todo
+
         private bool HasSameType(Employee employee, bool isUpdate)
         {
             try
@@ -186,7 +233,7 @@ namespace StartPovolgie.DAO
                 SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}'", employee.Login, employee.Password);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}' AND id_emp!='{2}'", employee.Login, employee.Password, employee.Id);
+                    sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}' AND id_emp='{2}'", employee.Login, employee.Password, employee.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

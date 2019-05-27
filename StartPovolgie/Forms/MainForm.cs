@@ -70,8 +70,7 @@ namespace StartPovolgie.Forms
 
         private void администраторыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new EmployeeForm(employee.Id).ShowDialog();
-            //new AddEmployeeForm("Администратор").ShowDialog();
+            new AdminForm(employee.Id).ShowDialog();
         }
 
         private void мастерыToolStripMenuItem_Click(object sender, EventArgs e)

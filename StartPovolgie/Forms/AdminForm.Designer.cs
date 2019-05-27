@@ -1,6 +1,6 @@
 ﻿namespace StartPovolgie.Forms
 {
-    partial class EmployeeForm
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.lblEmployees = new System.Windows.Forms.Label();
-            this.dgvEmployee = new System.Windows.Forms.DataGridView();
+            this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.idempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.tbStatus = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbInfoEmpEntry.SuspendLayout();
@@ -95,26 +95,26 @@
             this.lblEmployees.AutoSize = true;
             this.lblEmployees.Location = new System.Drawing.Point(12, 82);
             this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(66, 13);
+            this.lblEmployees.Size = new System.Drawing.Size(94, 13);
             this.lblEmployees.TabIndex = 3;
-            this.lblEmployees.Text = "Сотрудники";
+            this.lblEmployees.Text = "Администраторы";
             // 
-            // dgvEmployee
+            // dgvAdmin
             // 
-            this.dgvEmployee.AutoGenerateColumns = false;
-            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAdmin.AutoGenerateColumns = false;
+            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idempDataGridViewTextBoxColumn,
             this.lnameDataGridViewTextBoxColumn,
             this.fnameDataGridViewTextBoxColumn,
             this.patronymicDataGridViewTextBoxColumn});
-            this.dgvEmployee.DataSource = this.adminBindingSource;
-            this.dgvEmployee.EnableHeadersVisualStyles = false;
-            this.dgvEmployee.Location = new System.Drawing.Point(12, 113);
-            this.dgvEmployee.Name = "dgvEmployee";
-            this.dgvEmployee.RowHeadersVisible = false;
-            this.dgvEmployee.Size = new System.Drawing.Size(303, 150);
-            this.dgvEmployee.TabIndex = 4;
+            this.dgvAdmin.DataSource = this.adminBindingSource;
+            this.dgvAdmin.EnableHeadersVisualStyles = false;
+            this.dgvAdmin.Location = new System.Drawing.Point(12, 113);
+            this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.RowHeadersVisible = false;
+            this.dgvAdmin.Size = new System.Drawing.Size(303, 150);
+            this.dgvAdmin.TabIndex = 4;
             // 
             // idempDataGridViewTextBoxColumn
             // 
@@ -243,7 +243,7 @@
             this.gbInfoEmp.Size = new System.Drawing.Size(182, 223);
             this.gbInfoEmp.TabIndex = 5;
             this.gbInfoEmp.TabStop = false;
-            this.gbInfoEmp.Text = "Общая информация о сотруднике";
+            this.gbInfoEmp.Text = "Общая информация об администраторе";
             // 
             // tbStatus
             // 
@@ -270,22 +270,22 @@
             this.tbAddress.Size = new System.Drawing.Size(100, 20);
             this.tbAddress.TabIndex = 6;
             // 
-            // EmployeeForm
+            // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 286);
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
-            this.Controls.Add(this.dgvEmployee);
+            this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.lblEmployees);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Name = "EmployeeForm";
-            this.Text = "Сотрудники";
+            this.Name = "AdminForm";
+            this.Text = "Администраторы";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.gbInfoEmpEntry.ResumeLayout(false);
@@ -303,7 +303,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Label lblEmployees;
-        private System.Windows.Forms.DataGridView dgvEmployee;
+        private System.Windows.Forms.DataGridView dgvAdmin;
         private SPDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private SPDataSet spDataSet;
         private System.Windows.Forms.BindingSource adminBindingSource;

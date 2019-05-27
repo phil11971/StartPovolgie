@@ -1,6 +1,6 @@
 ﻿namespace StartPovolgie.Forms
 {
-    partial class AddEmployeeForm
+    partial class AddAdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbPatronymic = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.lblPass = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbInfoEmp.SuspendLayout();
             this.gbInfoEmpEntry.SuspendLayout();
             this.SuspendLayout();
@@ -57,16 +57,16 @@
             this.lblAdd.AutoSize = true;
             this.lblAdd.Location = new System.Drawing.Point(28, 13);
             this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(169, 13);
+            this.lblAdd.Size = new System.Drawing.Size(195, 13);
             this.lblAdd.TabIndex = 0;
-            this.lblAdd.Text = "Добавление нового сотрудника";
+            this.lblAdd.Text = "Добавление нового администратора";
             // 
             // gbInfoEmp
             // 
+            this.gbInfoEmp.Controls.Add(this.mtbPhone);
             this.gbInfoEmp.Controls.Add(this.label1);
             this.gbInfoEmp.Controls.Add(this.tbAddress);
             this.gbInfoEmp.Controls.Add(this.cbStatus);
-            this.gbInfoEmp.Controls.Add(this.tbPhone);
             this.gbInfoEmp.Controls.Add(this.tbPatronymic);
             this.gbInfoEmp.Controls.Add(this.tbFirstName);
             this.gbInfoEmp.Controls.Add(this.tbLastName);
@@ -113,13 +113,6 @@
             this.cbStatus.TabIndex = 13;
             this.cbStatus.Tag = "Работает";
             this.cbStatus.ValueMember = "Работает";
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.Location = new System.Drawing.Point(95, 134);
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(121, 20);
-            this.tbPhone.TabIndex = 9;
             // 
             // tbPatronymic
             // 
@@ -242,7 +235,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // AddEmployeeForm
+            // mtbPhone
+            // 
+            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
+            this.mtbPhone.TabIndex = 16;
+            // 
+            // AddAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,8 +252,8 @@
             this.Controls.Add(this.gbInfoEmpEntry);
             this.Controls.Add(this.gbInfoEmp);
             this.Controls.Add(this.lblAdd);
-            this.Name = "AddEmployeeForm";
-            this.Text = "Добавление нового сотрудника";
+            this.Name = "AddAdminForm";
+            this.Text = "Добавление нового администратора";
             this.gbInfoEmp.ResumeLayout(false);
             this.gbInfoEmp.PerformLayout();
             this.gbInfoEmpEntry.ResumeLayout(false);
@@ -267,7 +268,6 @@
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.GroupBox gbInfoEmp;
         private System.Windows.Forms.GroupBox gbInfoEmpEntry;
-        private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbPatronymic;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
@@ -284,5 +284,6 @@
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.MaskedTextBox mtbPhone;
     }
 }

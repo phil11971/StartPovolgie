@@ -129,11 +129,11 @@
     <Compile Include="Forms\AddSparePartForm.Designer.cs">
       <DependentUpon>AddSparePartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddEmployeeForm.cs">
+    <Compile Include="Forms\AddAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddEmployeeForm.Designer.cs">
-      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    <Compile Include="Forms\AddAdminForm.Designer.cs">
+      <DependentUpon>AddAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddSpecializationForm.cs">
       <SubType>Form</SubType>
@@ -171,11 +171,11 @@
     <Compile Include="Forms\MasterForm.Designer.cs">
       <DependentUpon>MasterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployeeForm.cs">
+    <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeForm.Designer.cs">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    <Compile Include="Forms\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\GoodForm.cs">
       <SubType>Form</SubType>
@@ -309,8 +309,8 @@
     <EmbeddedResource Include="Forms\AddSparePartForm.resx">
       <DependentUpon>AddSparePartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddEmployeeForm.resx">
-      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddAdminForm.resx">
+      <DependentUpon>AddAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSpecializationForm.resx">
       <DependentUpon>AddSpecializationForm.cs</DependentUpon>
@@ -330,8 +330,8 @@
     <EmbeddedResource Include="Forms\MasterForm.resx">
       <DependentUpon>MasterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeForm.resx">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GoodForm.resx">
       <DependentUpon>GoodForm.cs</DependentUpon>
