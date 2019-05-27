@@ -10,7 +10,7 @@ namespace StartPovolgie.Model
     {
         public int IdService { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
+        public float Price { get; set; }
         public TypeGood TypeGood { get; set; }
 
         public Service(string name)
@@ -18,13 +18,13 @@ namespace StartPovolgie.Model
             Name = name;
         }
 
-        public Service(string name, int price, TypeGood typeGood) : this(name)
+        public Service(string name, float price, TypeGood typeGood) : this(name)
         {
             Price = price;
             TypeGood = typeGood;
         }
 
-        public Service(int idService, string name, int price, TypeGood typeGood) : this(name, price, typeGood)
+        public Service(int idService, string name, float price, TypeGood typeGood) : this(name, price, typeGood)
         {
             IdService = idService;
         }

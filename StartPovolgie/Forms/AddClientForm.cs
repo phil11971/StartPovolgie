@@ -26,8 +26,9 @@ namespace StartPovolgie.Forms
 
         public AddClientForm(int id, string lname, string fname, string patr, string phone, string mail, string adr)
         {
-            InitializeComponent(); this.Text = "Изменение информации об администраторе";
-            lblAdd.Text = "Изменение информации об администраторе";
+            InitializeComponent();
+            this.Text = "Изменение информации о клиенте";
+            lblAdd.Text = "Изменение информации о клиенте";
             tbLastName.Text = lname;
             tbFirstName.Text = fname;
             tbPatronymic.Text = patr;

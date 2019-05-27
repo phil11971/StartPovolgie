@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace StartPovolgie.DAO
                         param = new SqlParameter();
                         param.ParameterName = "@service_price";
                         param.Value = service.Price;
-                        param.SqlDbType = SqlDbType.Int;
+                        param.SqlDbType = SqlDbType.Float;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
@@ -83,7 +84,7 @@ namespace StartPovolgie.DAO
                         param = new SqlParameter();
                         param.ParameterName = "@service_price";
                         param.Value = service.Price;
-                        param.SqlDbType = SqlDbType.Int;
+                        param.SqlDbType = SqlDbType.Float;
                         cmd.Parameters.Add(param);
 
                         param = new SqlParameter();
@@ -111,9 +112,9 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price='{1}' AND id_tg='{2}'", service.Name, service.Price, service.TypeGood.Id);
+                string sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price={1} AND id_tg='{2}'", service.Name, service.Price.ToString("F01", new CultureInfo("en-us")), service.TypeGood.Id);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price='{1}' AND id_tg='{2}' AND id_service!='{3}'", service.Name, service.Price, service.TypeGood.Id, service.IdService);
+                    sql = string.Format("Select count(id_service) From Service Where UPPER(REPLACE(name_service,' ',''))=UPPER(REPLACE('{0}',' ','')) AND price={1} AND id_tg='{2}' AND id_service!='{3}'", service.Name, service.Price.ToString("F01", new CultureInfo("en-us")), service.TypeGood.Id, service.IdService);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -139,7 +140,7 @@ namespace StartPovolgie.DAO
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Delete From Service Where id_service= '{0}'", id);
+                string sql = string.Format("Delete From Service Where id_service='{0}'", id);
                 SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.ExecuteNonQuery();
                 ConnectionDB.Disconnect(sqlConnection);

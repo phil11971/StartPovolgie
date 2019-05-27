@@ -265,7 +265,7 @@
             // lblCount
             // 
             this.lblCount.AutoSize = true;
-            this.lblCount.Location = new System.Drawing.Point(20, 84);
+            this.lblCount.Location = new System.Drawing.Point(20, 93);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(66, 13);
             this.lblCount.TabIndex = 3;
@@ -283,7 +283,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(20, 110);
+            this.lblPrice.Location = new System.Drawing.Point(20, 119);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(33, 13);
             this.lblPrice.TabIndex = 1;

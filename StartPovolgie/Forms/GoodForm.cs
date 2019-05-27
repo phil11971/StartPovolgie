@@ -44,6 +44,7 @@ namespace StartPovolgie.Forms
             int id = Convert.ToInt32(dgvGood.CurrentRow.Cells[0].Value);
             string name = (string)dgvGood.CurrentRow.Cells[1].Value;
             string type = dgvGood.CurrentRow.Cells[2].Value.ToString();
+
             var editGoodForm = new AddGoodForm(id, name, type);
             editGoodForm.Closing += AddTypeOfDevicesForm_Closing;
             editGoodForm.ShowDialog();
