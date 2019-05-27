@@ -30,9 +30,9 @@
         {
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoEmp = new System.Windows.Forms.GroupBox();
+            this.tbMail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbPatronymic = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tbMail = new System.Windows.Forms.TextBox();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbInfoEmp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,10 +57,10 @@
             // 
             // gbInfoEmp
             // 
+            this.gbInfoEmp.Controls.Add(this.mtbPhone);
             this.gbInfoEmp.Controls.Add(this.tbMail);
             this.gbInfoEmp.Controls.Add(this.label1);
             this.gbInfoEmp.Controls.Add(this.tbAddress);
-            this.gbInfoEmp.Controls.Add(this.tbPhone);
             this.gbInfoEmp.Controls.Add(this.tbPatronymic);
             this.gbInfoEmp.Controls.Add(this.tbFirstName);
             this.gbInfoEmp.Controls.Add(this.tbLastName);
@@ -75,6 +75,13 @@
             this.gbInfoEmp.TabIndex = 1;
             this.gbInfoEmp.TabStop = false;
             this.gbInfoEmp.Text = "Общая информация о клиенте";
+            // 
+            // tbMail
+            // 
+            this.tbMail.Location = new System.Drawing.Point(95, 166);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(121, 20);
+            this.tbMail.TabIndex = 16;
             // 
             // label1
             // 
@@ -91,13 +98,6 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(121, 20);
             this.tbAddress.TabIndex = 14;
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.Location = new System.Drawing.Point(95, 134);
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(121, 20);
-            this.tbPhone.TabIndex = 9;
             // 
             // tbPatronymic
             // 
@@ -175,12 +175,13 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // tbMail
+            // mtbPhone
             // 
-            this.tbMail.Location = new System.Drawing.Point(95, 166);
-            this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(121, 20);
-            this.tbMail.TabIndex = 16;
+            this.mtbPhone.Location = new System.Drawing.Point(95, 134);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
+            this.mtbPhone.TabIndex = 17;
             // 
             // AddClientForm
             // 
@@ -203,7 +204,6 @@
 
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.GroupBox gbInfoEmp;
-        private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbPatronymic;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
@@ -216,5 +216,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbMail;
+        private System.Windows.Forms.MaskedTextBox mtbPhone;
     }
 }

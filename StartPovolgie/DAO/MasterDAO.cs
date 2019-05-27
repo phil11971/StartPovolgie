@@ -116,7 +116,6 @@ namespace StartPovolgie.DAO
                         }
                         return true;
                     }
-                    //todo: другие ребзи: начальник и мастер
                     return false;
                 }
                 else

@@ -105,6 +105,7 @@
             this.rbPhone.TabIndex = 1;
             this.rbPhone.Text = "По телефону";
             this.rbPhone.UseVisualStyleBackColor = true;
+            this.rbPhone.CheckedChanged += new System.EventHandler(this.rbPhone_CheckedChanged);
             // 
             // rbLastName
             // 
@@ -117,6 +118,7 @@
             this.rbLastName.TabStop = true;
             this.rbLastName.Text = "По фамилии";
             this.rbLastName.UseVisualStyleBackColor = true;
+            this.rbLastName.CheckedChanged += new System.EventHandler(this.rbLastName_CheckedChanged);
             // 
             // btnAdd
             // 

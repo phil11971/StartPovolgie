@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.lblAdd = new System.Windows.Forms.Label();
             this.gbInfoEmp = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbPatronymic = new System.Windows.Forms.TextBox();
@@ -48,18 +50,16 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMasterSpecialization = new System.Windows.Forms.DataGridView();
-            this.spDataSet = new StartPovolgie.SPDataSet();
-            this.specializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SpecializationTableAdapter();
-            this.specializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvcbcNameSpec = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.specializationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spDataSet = new StartPovolgie.SPDataSet();
             this.dgvtbcDescSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.specializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SpecializationTableAdapter();
             this.gbInfoEmp.SuspendLayout();
             this.gbInfoEmpEntry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterSpecialization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specializationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdd
@@ -87,10 +87,26 @@
             this.gbInfoEmp.Controls.Add(this.lblLastName);
             this.gbInfoEmp.Location = new System.Drawing.Point(31, 45);
             this.gbInfoEmp.Name = "gbInfoEmp";
-            this.gbInfoEmp.Size = new System.Drawing.Size(254, 205);
+            this.gbInfoEmp.Size = new System.Drawing.Size(254, 215);
             this.gbInfoEmp.TabIndex = 1;
             this.gbInfoEmp.TabStop = false;
             this.gbInfoEmp.Text = "Общая информация о мастере";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Адрес";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(95, 185);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(121, 20);
+            this.tbAddress.TabIndex = 16;
             // 
             // cbStatus
             // 
@@ -110,7 +126,7 @@
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(95, 134);
+            this.tbPhone.Location = new System.Drawing.Point(95, 132);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(121, 20);
             this.tbPhone.TabIndex = 9;
@@ -148,7 +164,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(20, 141);
+            this.lblPhone.Location = new System.Drawing.Point(20, 135);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(52, 13);
             this.lblPhone.TabIndex = 3;
@@ -238,6 +254,8 @@
             // 
             // dgvMasterSpecialization
             // 
+            this.dgvMasterSpecialization.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMasterSpecialization.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMasterSpecialization.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMasterSpecialization.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvcbcNameSpec,
@@ -250,20 +268,6 @@
             this.dgvMasterSpecialization.Size = new System.Drawing.Size(320, 316);
             this.dgvMasterSpecialization.TabIndex = 4;
             // 
-            // spDataSet
-            // 
-            this.spDataSet.DataSetName = "SPDataSet";
-            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // specializationTableAdapter
-            // 
-            this.specializationTableAdapter.ClearBeforeFill = true;
-            // 
-            // specializationBindingSource
-            // 
-            this.specializationBindingSource.DataMember = "Specialization";
-            this.specializationBindingSource.DataSource = this.spDataSet;
-            // 
             // dgvcbcNameSpec
             // 
             this.dgvcbcNameSpec.DataSource = this.specializationBindingSource;
@@ -272,26 +276,24 @@
             this.dgvcbcNameSpec.Name = "dgvcbcNameSpec";
             this.dgvcbcNameSpec.ValueMember = "id_spec";
             // 
+            // specializationBindingSource
+            // 
+            this.specializationBindingSource.DataMember = "Specialization";
+            this.specializationBindingSource.DataSource = this.spDataSet;
+            // 
+            // spDataSet
+            // 
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dgvtbcDescSpec
             // 
             this.dgvtbcDescSpec.HeaderText = "Характеристика";
             this.dgvtbcDescSpec.Name = "dgvtbcDescSpec";
             // 
-            // label1
+            // specializationTableAdapter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Адрес";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(95, 185);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(121, 20);
-            this.tbAddress.TabIndex = 16;
+            this.specializationTableAdapter.ClearBeforeFill = true;
             // 
             // AddMasterForm
             // 
@@ -310,8 +312,8 @@
             this.gbInfoEmpEntry.ResumeLayout(false);
             this.gbInfoEmpEntry.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterSpecialization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specializationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

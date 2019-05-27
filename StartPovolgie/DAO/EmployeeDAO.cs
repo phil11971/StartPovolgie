@@ -14,7 +14,6 @@ namespace StartPovolgie.DAO
     {
         public Employee GetEmployeeByAuthorization(string login, string pass)
         {
-            //todo: status  boolean
             Employee emp = null;
             try
             {

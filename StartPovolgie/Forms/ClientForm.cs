@@ -39,14 +39,22 @@ namespace StartPovolgie.Forms
         //todo edit
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var addClientForm = new AddClientForm();
+            int id = Convert.ToInt32(dgvClient.CurrentRow.Cells[0].Value);
+            string lname = (string)dgvClient.CurrentRow.Cells[1].Value;
+            string fname = (string)dgvClient.CurrentRow.Cells[2].Value;
+            string patr = (string)dgvClient.CurrentRow.Cells[3].Value;
+            string phone = (string)dgvClient.CurrentRow.Cells[4].Value;
+            string mail = (string)dgvClient.CurrentRow.Cells[5].Value;
+            string adr = (string)dgvClient.CurrentRow.Cells[6].Value;
+
+            var addClientForm = new AddClientForm(id, lname, fname, patr, phone, mail, adr);
             addClientForm.Closing += AddTypeOfDevicesForm_Closing;
             addClientForm.ShowDialog();
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить выбранный вид устройств?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите удалить выбранного клиента?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvClient.CurrentRow.Cells[0].Value);
                 //string name = dgvTypeGood.CurrentRow.Cells[1].Value.ToString();
@@ -57,7 +65,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно удалить выбранный вид устройств! Имеются устройства данного вида.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно удалить выбранного клиента!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {
@@ -69,14 +77,30 @@ namespace StartPovolgie.Forms
         private void btnFind_Click(object sender, EventArgs e)
         {//todo maskedtb
             if (rbLastName.Checked)
+            {
                 clientBindingSource.Filter = String.Format("lname=\'{0}\'", mtbFind.Text.Trim());
+            }
             else
+            {
                 clientBindingSource.Filter = String.Format("phone=\'{0}\'", mtbFind.Text.Trim());
+            }
         }
 
         private void btnPullOut_Click(object sender, EventArgs e)
         {
             clientBindingSource.Filter = "";
+        }
+
+        private void rbPhone_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbFind.Mask = "8(000)000-00-00";
+            mtbFind.Text = "";
+        }
+
+        private void rbLastName_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbFind.Mask = "";
+            mtbFind.Text = "";
         }
     }
 }
