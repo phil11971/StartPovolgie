@@ -22,6 +22,12 @@ namespace StartPovolgie.Controller
             else return false;
         }
 
+        public bool UpdateQuantity(List<SparePart> spareParts)
+        {
+            if (new SparePartDAO().UpdateQuantity(spareParts)) return true;
+            else return false;
+        }
+
         public void DeleteById(int id)
         {
             new SparePartDAO().DeleteById(id);

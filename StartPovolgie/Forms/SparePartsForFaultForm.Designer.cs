@@ -118,6 +118,9 @@
             // 
             // dgvSparePart
             // 
+            this.dgvSparePart.AllowUserToAddRows = false;
+            this.dgvSparePart.AllowUserToDeleteRows = false;
+            this.dgvSparePart.AllowUserToResizeRows = false;
             this.dgvSparePart.AutoGenerateColumns = false;
             this.dgvSparePart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSparePart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;

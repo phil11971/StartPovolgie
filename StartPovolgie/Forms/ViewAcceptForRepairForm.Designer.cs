@@ -71,6 +71,11 @@
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
             this.idfaultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvFault = new System.Windows.Forms.DataGridView();
             this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +90,7 @@
             this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
+            this.returnFromRepairBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbAmountRepair = new System.Windows.Forms.TextBox();
@@ -104,6 +110,7 @@
             this.rtbDescJob = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnExec = new System.Windows.Forms.Button();
+            this.returnFromRepairTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ReturnFromRepairTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbPrint.SuspendLayout();
@@ -119,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnFromRepairBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -221,6 +229,7 @@
             this.rtbComment.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.acceptForRepairBindingSource, "additionally", true));
             this.rtbComment.Location = new System.Drawing.Point(169, 218);
             this.rtbComment.Name = "rtbComment";
+            this.rtbComment.ReadOnly = true;
             this.rtbComment.Size = new System.Drawing.Size(135, 41);
             this.rtbComment.TabIndex = 9;
             this.rtbComment.Text = "";
@@ -493,10 +502,16 @@
             this.dgvSparePart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSparePart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idfaultDataGridViewTextBoxColumn1,
-            this.idspDataGridViewTextBoxColumn});
+            this.idspDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.dgvSparePart.DataSource = this.faultSparePartBindingSource;
             this.dgvSparePart.EnableHeadersVisualStyles = false;
             this.dgvSparePart.Location = new System.Drawing.Point(351, 33);
+            this.dgvSparePart.MultiSelect = false;
             this.dgvSparePart.Name = "dgvSparePart";
             this.dgvSparePart.RowHeadersVisible = false;
             this.dgvSparePart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -516,6 +531,36 @@
             this.idspDataGridViewTextBoxColumn.HeaderText = "id_sp";
             this.idspDataGridViewTextBoxColumn.Name = "idspDataGridViewTextBoxColumn";
             this.idspDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "name_sp";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Название ЗП";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "qonf";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Кол-во на неиспр.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "pwithqsp";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Цена ЗП с учетом кол-ва";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "qonstore";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Кол-во на складе";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "punit";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Цена ЗП за ед.";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // faultSparePartBindingSource
             // 
@@ -630,10 +675,17 @@
             // 
             // tbTotal
             // 
+            this.tbTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnFromRepairBindingSource, "total", true));
             this.tbTotal.Location = new System.Drawing.Point(476, 239);
             this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(135, 20);
             this.tbTotal.TabIndex = 19;
+            // 
+            // returnFromRepairBindingSource
+            // 
+            this.returnFromRepairBindingSource.DataMember = "ReturnFromRepair";
+            this.returnFromRepairBindingSource.DataSource = this.spDataSet;
             // 
             // label12
             // 
@@ -655,8 +707,10 @@
             // 
             // tbAmountRepair
             // 
+            this.tbAmountRepair.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnFromRepairBindingSource, "amount_repair", true));
             this.tbAmountRepair.Location = new System.Drawing.Point(476, 184);
             this.tbAmountRepair.Name = "tbAmountRepair";
+            this.tbAmountRepair.ReadOnly = true;
             this.tbAmountRepair.Size = new System.Drawing.Size(135, 20);
             this.tbAmountRepair.TabIndex = 22;
             // 
@@ -664,6 +718,7 @@
             // 
             this.tbAmountSpareParts.Location = new System.Drawing.Point(476, 211);
             this.tbAmountSpareParts.Name = "tbAmountSpareParts";
+            this.tbAmountSpareParts.ReadOnly = true;
             this.tbAmountSpareParts.Size = new System.Drawing.Size(135, 20);
             this.tbAmountSpareParts.TabIndex = 23;
             // 
@@ -767,6 +822,10 @@
             this.btnExec.UseVisualStyleBackColor = true;
             this.btnExec.Click += new System.EventHandler(this.btnExec_Click);
             // 
+            // returnFromRepairTableAdapter
+            // 
+            this.returnFromRepairTableAdapter.ClearBeforeFill = true;
+            // 
             // ViewAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,6 +879,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.faultSparePartBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnFromRepairBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
@@ -900,8 +960,6 @@
         private System.Windows.Forms.TextBox tbTypeGood;
         private System.Windows.Forms.Button btnCalc;
         private System.Windows.Forms.Button btnAddSparePartForCurrFault;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idspDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namespDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qonfDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pwithqspDataGridViewTextBoxColumn;
@@ -910,5 +968,16 @@
         private System.Windows.Forms.RichTextBox rtbDescJob;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnExec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idspDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private SPDataSetTableAdapters.ReturnFromRepairTableAdapter returnFromRepairTableAdapter;
+        private System.Windows.Forms.BindingSource returnFromRepairBindingSource;
     }
 }

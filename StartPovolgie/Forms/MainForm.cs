@@ -85,7 +85,7 @@ namespace StartPovolgie.Forms
 
         private void реестрЗаявокНаРемонтToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new RegistryAcceptForRepairForm(employee).ShowDialog();
+            new RegistryAcceptForRepairForm().ShowDialog();
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -94,6 +94,11 @@ namespace StartPovolgie.Forms
         }
 
         private void btnRegistry_Click(object sender, EventArgs e)
+        {
+            new RegistryAcceptForRepairForm(employee).ShowDialog();
+        }
+
+        private void реестрПриемовВРемонтToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new RegistryAcceptForRepairForm(employee).ShowDialog();
         }

@@ -36,6 +36,7 @@ namespace StartPovolgie.Forms
             goodTableAdapter.Fill(spDataSet.Good);
             faultTableAdapter.Fill(spDataSet.Fault);
             faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
+            returnFromRepairTableAdapter.Fill(spDataSet.ReturnFromRepair);
 
             acceptForRepairBindingSource.Filter = String.Format("id_accept=\'{0}\'", acceptForRepair.Id);
             employeeBindingSource.Filter = String.Format("id_emp=\'{0}\'", acceptForRepair.IdAdmin);
@@ -52,6 +53,10 @@ namespace StartPovolgie.Forms
             idfaultDataGridViewTextBoxColumn.Visible = false;
             idfaultDataGridViewTextBoxColumn1.Visible = false;
 
+            if (!tbTotal.Text.Equals(""))
+            {
+                tbAmountSpareParts.Text = (Convert.ToSingle(tbTotal.Text.ToString()) - Convert.ToSingle(tbAmountRepair.Text.ToString())).ToString();
+            }
         }
 
         private void dgvFault_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,8 +128,15 @@ namespace StartPovolgie.Forms
 
         private void btnExec_Click(object sender, EventArgs e)
         {
-            ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
-            new ReturnFromRepairController().Insert(returnFromRepair);
+            if (!tbAmountRepair.Text.Equals("") && !tbTotal.Text.Equals(""))
+            {
+                ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
+                new ReturnFromRepairController().Insert(returnFromRepair);
+            }
+            else
+            {
+                MessageBox.Show("Сначала рассчитайте стоимость ремонта");
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

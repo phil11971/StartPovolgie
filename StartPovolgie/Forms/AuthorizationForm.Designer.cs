@@ -60,6 +60,7 @@
             this.tbPass.Size = new System.Drawing.Size(129, 20);
             this.tbPass.TabIndex = 2;
             this.tbPass.Text = "phil";
+            this.tbPass.UseSystemPasswordChar = true;
             // 
             // btnEntry
             // 

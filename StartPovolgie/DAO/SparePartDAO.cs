@@ -121,6 +121,46 @@ namespace StartPovolgie.DAO
             }
         }
 
+        public bool UpdateQuantity(List<SparePart> spareParts)
+        {
+            try
+            {
+                using (SqlConnection connection = ConnectionDB.Connect())
+                {
+                    DataTable table = new DataTable();
+
+                    table.Columns.Add("id_sp", typeof(int));
+                    table.Columns.Add("quantity", typeof(int));
+
+                    foreach (var sp in spareParts)
+                    {
+                        table.Rows.Add(sp.IdSparePart, sp.Cnt);
+                    }
+
+                    string sqlExpression = "sp_UpdateSparePart";
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tmpTableParam = new SqlParameter
+                    {
+                        ParameterName = "@tmpTable",
+                        SqlDbType = SqlDbType.Structured,
+                        TypeName = "SparePartUpdateTableType",
+                        Value = table,
+                    };
+                    command.Parameters.Add(tmpTableParam);
+
+                    command.ExecuteNonQuery();
+
+                }
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         private bool HasSameType(SparePart sparePart, bool isUpdate)
         {
             try

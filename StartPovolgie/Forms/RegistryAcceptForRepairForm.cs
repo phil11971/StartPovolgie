@@ -24,6 +24,14 @@ namespace StartPovolgie.Forms
             this.employee = employee;
         }
 
+        public RegistryAcceptForRepairForm()
+        {
+            InitializeComponent();
+            btnAccept.Visible = false;
+            btnDetail.Visible = false;
+            btnDel.Visible = false;
+        }
+
         private void RegistryAcceptForRepairForm_Load(object sender, EventArgs e)
         {
             registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
@@ -54,6 +62,34 @@ namespace StartPovolgie.Forms
         {
             new AcceptForRepairController().DeleteById((int)dgvAccept.CurrentRow.Cells[0].Value);
             registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
+        }
+
+        private void rbLastName_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbFind.Mask = "";
+            mtbFind.Text = "";
+        }
+
+        private void rbPhone_CheckedChanged(object sender, EventArgs e)
+        {
+            mtbFind.Mask = "8(000)000-00-00";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (rbLastName.Checked)
+            {
+                registryAcceptBindingSource.Filter = String.Format("clientFullName LIKE \'{0}%\'", mtbFind.Text.Trim());
+            }
+            else
+            {
+                registryAcceptBindingSource.Filter = String.Format("phone=\'{0}\'", mtbFind.Text.Trim());
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            registryAcceptBindingSource.Filter = "";
         }
     }
 }

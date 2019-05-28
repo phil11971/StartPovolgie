@@ -42,12 +42,26 @@ namespace StartPovolgie.Forms
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
-            new AddClientForm().ShowDialog();
+            var addClientForm = new AddClientForm();
+            addClientForm.Closing += AddClientForm_Closing;
+            addClientForm.ShowDialog();
+        }
+
+        private void AddClientForm_Closing(object sender, CancelEventArgs e)
+        {
+            clientTableAdapter.Fill(spDataSet.Client);
         }
 
         private void btnAddGood_Click(object sender, EventArgs e)
         {
-            new AddGoodForm().ShowDialog();
+            var addGoodForm = new AddGoodForm();
+            addGoodForm.Closing += AddGoodForm_Closing;
+            addGoodForm.ShowDialog();
+        }
+
+        private void AddGoodForm_Closing(object sender, CancelEventArgs e)
+        {
+            goodTableAdapter.Fill(spDataSet.Good);
         }
 
         private void btnFindGood_Click(object sender, EventArgs e)

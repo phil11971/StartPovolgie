@@ -54,6 +54,7 @@
             this.pbEmployee = new System.Windows.Forms.PictureBox();
             this.pbStartPovolgie = new System.Windows.Forms.PictureBox();
             this.btnAccept = new System.Windows.Forms.Button();
+            this.реестрПриемовВРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartPovolgie)).BeginInit();
@@ -77,11 +78,11 @@
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типыТоваровToolStripMenuItem,
             this.прайслистыToolStripMenuItem,
             this.клиентыToolStripMenuItem,
             this.сотрудникиToolStripMenuItem,
             this.товарыToolStripMenuItem,
-            this.типыТоваровToolStripMenuItem,
             this.специализацииМастеровToolStripMenuItem,
             this.офисныеТелефоныToolStripMenuItem,
             this.состояниеНеисправностиToolStripMenuItem});
@@ -101,14 +102,14 @@
             // работыУслугиToolStripMenuItem
             // 
             this.работыУслугиToolStripMenuItem.Name = "работыУслугиToolStripMenuItem";
-            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.работыУслугиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.работыУслугиToolStripMenuItem.Text = "Работы/Услуги";
             this.работыУслугиToolStripMenuItem.Click += new System.EventHandler(this.работыУслугиToolStripMenuItem_Click);
             // 
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
             this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.запчастиToolStripMenuItem_Click);
             // 
@@ -180,7 +181,8 @@
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новаяЗаявкаНаРемонтToolStripMenuItem});
+            this.новаяЗаявкаНаРемонтToolStripMenuItem,
+            this.реестрПриемовВРемонтToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -188,7 +190,7 @@
             // новаяЗаявкаНаРемонтToolStripMenuItem
             // 
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Name = "новаяЗаявкаНаРемонтToolStripMenuItem";
-            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.новаяЗаявкаНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Text = "Прием в ремонт";
             this.новаяЗаявкаНаРемонтToolStripMenuItem.Click += new System.EventHandler(this.новаяЗаявкаНаРемонтToolStripMenuItem_Click);
             // 
@@ -273,6 +275,13 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // реестрПриемовВРемонтToolStripMenuItem
+            // 
+            this.реестрПриемовВРемонтToolStripMenuItem.Name = "реестрПриемовВРемонтToolStripMenuItem";
+            this.реестрПриемовВРемонтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.реестрПриемовВРемонтToolStripMenuItem.Text = "Ремонт товаров";
+            this.реестрПриемовВРемонтToolStripMenuItem.Click += new System.EventHandler(this.реестрПриемовВРемонтToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,5 +335,6 @@
         private System.Windows.Forms.LinkLabel lblEmp;
         private System.Windows.Forms.ToolStripMenuItem состояниеНеисправностиToolStripMenuItem;
         private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.ToolStripMenuItem реестрПриемовВРемонтToolStripMenuItem;
     }
 }

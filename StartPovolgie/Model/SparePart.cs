@@ -45,5 +45,11 @@ namespace StartPovolgie.Model
             Cnt = cnt;
             Price = price;
         }
+
+        public SparePart(int idSparePart, int cnt)
+        {
+            IdSparePart = idSparePart;
+            Cnt = cnt;
+        }
     }
 }

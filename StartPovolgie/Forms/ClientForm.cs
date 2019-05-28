@@ -36,7 +36,6 @@ namespace StartPovolgie.Forms
             clientTableAdapter.Fill(spDataSet.Client);
         }
 
-        //todo edit
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dgvClient.CurrentRow.Cells[0].Value);
@@ -75,7 +74,7 @@ namespace StartPovolgie.Forms
         }
 
         private void btnFind_Click(object sender, EventArgs e)
-        {//todo maskedtb
+        {
             if (rbLastName.Checked)
             {
                 clientBindingSource.Filter = String.Format("lname=\'{0}\'", mtbFind.Text.Trim());

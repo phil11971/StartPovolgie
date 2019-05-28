@@ -19,11 +19,13 @@ namespace StartPovolgie.Forms
     {
         private int idFault;
         FaultSparePartController faultSparePartController;
+        SparePartController sparePartController;
 
         public SparePartsForFaultForm(int idFault)
         {
             InitializeComponent();
             faultSparePartController = new FaultSparePartController();
+            sparePartController = new SparePartController();
             this.idFault = idFault;
         }
 
@@ -43,7 +45,16 @@ namespace StartPovolgie.Forms
             FaultSparePart faultSparePart = new FaultSparePart(idFault, spareParts);
             if (!faultSparePartController.Insert(faultSparePart))
             {
-                MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Невозможно добавить запчасти к неисправности!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            spareParts = new List<SparePart>();
+            for (int i = 0; i < dgvSparePart.SelectedRows.Count; i++)
+            {
+                spareParts.Add(new SparePart((int)dgvSparePart.SelectedRows[i].Cells[0].Value, Int32.Parse(dgvSparePart.SelectedRows[i].Cells[3].Value.ToString())-Int32.Parse(dgvSparePart.SelectedRows[i].Cells[5].Value.ToString())));
+            }
+            if (!sparePartController.UpdateQuantity(spareParts))
+            {
+                MessageBox.Show("Невозможно обновить кол-во запчастей на складе!", "Ошибка изменения", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 this.Close();
