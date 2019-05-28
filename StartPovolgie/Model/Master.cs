@@ -12,15 +12,15 @@ namespace StartPovolgie.Model
 
         public Master(int id, string login, string pass, 
                       string lastName, string firstName, string patronymic, 
-                      string phone, string address, Dictionary<int, string> spec) 
-            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Мастер", true) {
+                      string phone, string address, string status, Dictionary<int, string> spec) 
+            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Мастер", status) {
             Spec = spec;
         }
 
         public Master(string login, string pass,
                       string lastName, string firstName, string patronymic,
-                      string phone, string address, Dictionary<int, string> spec)
-            : base(login, pass, lastName, firstName, patronymic, phone, address, "Мастер", true)
+                      string phone, string address, string status, Dictionary<int, string> spec)
+            : base(login, pass, lastName, firstName, patronymic, phone, address, "Мастер", status)
         {
             Spec = spec;
         }

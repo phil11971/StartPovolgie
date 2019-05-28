@@ -91,5 +91,25 @@ namespace StartPovolgie.Forms
         {
             registryAcceptBindingSource.Filter = "";
         }
+
+        private void rbReceiptDate_CheckedChanged(object sender, EventArgs e)
+        {
+            /*if (rbReceiptDate.Checked)
+            {
+                string[] date = dtpS.Text.Split('-');
+                string dateS = date[1] + "-" + date[0] + "-" + date[2];
+                date = dtpPo.Text.Split('-');
+                string datePo = date[1] + "-" + date[0] + "-" + date[2];
+                string filter = String.Format("receipt_date >= '{0}' AND receipt_date<='{1}'", dateS, datePo);
+                var table = registryAcceptTableAdapter.GetData();
+                DataRow[] dataRows = table.Select(filter);
+                dgvAccept.DataSource = dataRows;
+            }*/
+        }
+
+        private void rbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

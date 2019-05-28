@@ -95,10 +95,36 @@ namespace StartPovolgie.Forms
 
         private void btnRegistry_Click(object sender, EventArgs e)
         {
-            new RegistryAcceptForRepairForm(employee).ShowDialog();
+            new RegistryAcceptForRepairForm().ShowDialog();
         }
 
         private void реестрПриемовВРемонтToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RegistryAcceptForRepairForm(employee).ShowDialog();
+        }
+
+        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.StartPosition = FormStartPosition.CenterParent;
+            if (authForm.ShowDialog() == DialogResult.OK)
+            {
+                this.Visible = true;
+                this.employee = authForm.Emp;
+                lblEmp.Text = employee.LastName + " " + employee.FirstName;
+                if (employee.Job.Equals("Инженер"))
+                {
+                    сотрудникиToolStripMenuItem.Enabled = false;
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void btnRepair_Click(object sender, EventArgs e)
         {
             new RegistryAcceptForRepairForm(employee).ShowDialog();
         }

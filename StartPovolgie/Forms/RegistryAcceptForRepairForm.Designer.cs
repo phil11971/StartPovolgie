@@ -38,6 +38,7 @@
             this.dtpS = new System.Windows.Forms.DateTimePicker();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.gbFind = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.mtbFind = new System.Windows.Forms.MaskedTextBox();
             this.rbLastName = new System.Windows.Forms.RadioButton();
             this.rbPhone = new System.Windows.Forms.RadioButton();
@@ -61,7 +62,6 @@
             this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
@@ -96,6 +96,7 @@
             this.rbStatus.TabStop = true;
             this.rbStatus.Text = "по статусу";
             this.rbStatus.UseVisualStyleBackColor = true;
+            this.rbStatus.CheckedChanged += new System.EventHandler(this.rbStatus_CheckedChanged);
             // 
             // rbReceiptDate
             // 
@@ -108,6 +109,7 @@
             this.rbReceiptDate.TabStop = true;
             this.rbReceiptDate.Text = "по дате приема";
             this.rbReceiptDate.UseVisualStyleBackColor = true;
+            this.rbReceiptDate.CheckedChanged += new System.EventHandler(this.rbReceiptDate_CheckedChanged);
             // 
             // label2
             // 
@@ -131,6 +133,7 @@
             // 
             this.dtpPo.Checked = false;
             this.dtpPo.CustomFormat = "dd-MM-yyyy";
+            this.dtpPo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpPo.Location = new System.Drawing.Point(29, 92);
             this.dtpPo.MinDate = new System.DateTime(2015, 12, 24, 0, 0, 0, 0);
             this.dtpPo.Name = "dtpPo";
@@ -141,6 +144,7 @@
             // 
             this.dtpS.Checked = false;
             this.dtpS.CustomFormat = "dd-MM-yyyy";
+            this.dtpS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpS.Location = new System.Drawing.Point(29, 46);
             this.dtpS.MinDate = new System.DateTime(2015, 12, 24, 0, 0, 0, 0);
             this.dtpS.Name = "dtpS";
@@ -175,6 +179,16 @@
             this.gbFind.TabIndex = 17;
             this.gbFind.TabStop = false;
             this.gbFind.Text = "Поиск";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(238, 106);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(118, 23);
+            this.btnCancel.TabIndex = 27;
+            this.btnCancel.Text = "Снять фильтр";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // mtbFind
             // 
@@ -367,16 +381,6 @@
             // registryAcceptTableAdapter
             // 
             this.registryAcceptTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(238, 106);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(118, 23);
-            this.btnCancel.TabIndex = 27;
-            this.btnCancel.Text = "Снять фильтр";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // RegistryAcceptForRepairForm
             // 

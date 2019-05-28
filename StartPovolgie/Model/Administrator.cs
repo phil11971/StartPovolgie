@@ -10,13 +10,13 @@ namespace StartPovolgie.Model
     {
         public Administrator(string login, string pass, 
                              string lastName, string firstName, string patronymic, 
-                             string phone, string address) 
-            : base(login, pass, lastName, firstName, patronymic, phone, address, "Администратор", true) {}
+                             string phone, string address, string status) 
+            : base(login, pass, lastName, firstName, patronymic, phone, address, "Администратор", status) {}
 
         public Administrator(int id, string login, string pass,
                              string lastName, string firstName, string patronymic,
-                             string phone, string address)
-            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Администратор", true) { }
+                             string phone, string address, string status)
+            : base(id, login, pass, lastName, firstName, patronymic, phone, address, "Администратор", status) { }
 
     }
 }

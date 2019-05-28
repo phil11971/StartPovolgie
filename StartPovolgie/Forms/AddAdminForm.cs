@@ -59,7 +59,7 @@ namespace StartPovolgie.Forms
                     if (id == 0)
                     {
                         Administrator admin = new Administrator(tbLogin.Text.Trim(), tbPass.Text.Trim(),
-                            tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), mtbPhone.Text.Trim(), tbAddress.Text.Trim());
+                            tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), mtbPhone.Text.Trim(), tbAddress.Text.Trim(), cbStatus.Text.Trim());
                         if (!employeeController.Insert(admin))
                         {
                             MessageBox.Show("Невозможно добавить нового администратора!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,7 +72,7 @@ namespace StartPovolgie.Forms
                         try
                         {
                             Administrator admin = new Administrator(id, tbLogin.Text.Trim(), tbPass.Text.Trim(),
-                            tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), mtbPhone.Text.Trim(), tbAddress.Text.Trim());
+                            tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), mtbPhone.Text.Trim(), tbAddress.Text.Trim(), cbStatus.Text.Trim());
 
                             if (!employeeController.Update(admin))
                             {

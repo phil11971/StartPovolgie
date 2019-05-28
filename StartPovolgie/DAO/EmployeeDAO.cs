@@ -26,7 +26,7 @@ namespace StartPovolgie.DAO
                 while (dataReader.Read())
                 {
                     if (dataReader[6].ToString().Equals("Администратор"))
-                        emp = new Administrator(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString());
+                        emp = new Administrator(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString(), dataReader[6].ToString());
                     else if (dataReader[6].ToString().Equals("Мастер")) {
                         int id_emp = Convert.ToInt32(dataReader[0]);
                         string lname = dataReader[1].ToString();
@@ -34,6 +34,7 @@ namespace StartPovolgie.DAO
                         string patronymic = dataReader[3].ToString();
                         string phone = dataReader[4].ToString();
                         string address = dataReader[5].ToString();
+                        string status = dataReader[6].ToString();
 
                         sql = string.Format("Select id_s, char_spec From Master_Specialization Where id_m = Lower('{0}')", id_emp);
 
@@ -44,7 +45,7 @@ namespace StartPovolgie.DAO
                         while (dataReader.Read())
                             spec.Add(Convert.ToInt32(dataReader[0]), dataReader[1].ToString());
 
-                        emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, spec);
+                        emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, status, spec);
                     }
 
                 }
@@ -232,7 +233,7 @@ namespace StartPovolgie.DAO
                 SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}'", employee.Login, employee.Password);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}' AND id_emp='{2}'", employee.Login, employee.Password, employee.Id);
+                    sql = string.Format("Select count(id_emp) From Employee Where id_emp='{2}'", employee.Login, employee.Password, employee.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

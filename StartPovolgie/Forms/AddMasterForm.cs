@@ -50,7 +50,7 @@ namespace StartPovolgie.Forms
                         return;
                     }
                     Master master = new Master(tbLogin.Text.Trim(), tbPass.Text.Trim(),
-                        tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), tbPhone.Text.Trim(), tbAddress.Text.Trim(),
+                        tbLastName.Text.Trim(), tbFirstName.Text.Trim(), tbPatronymic.Text.Trim(), tbPhone.Text.Trim(), tbAddress.Text.Trim(), cbStatus.Text.Trim(),
                         masterSpecDict);
                     if (!masterController.Insert(master))
                     {

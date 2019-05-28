@@ -55,6 +55,7 @@
             this.pbStartPovolgie = new System.Windows.Forms.PictureBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.реестрПриемовВРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRepair = new System.Windows.Forms.Button();
             this.menuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStartPovolgie)).BeginInit();
@@ -227,10 +228,11 @@
             this.сменитьПользователяToolStripMenuItem.Name = "сменитьПользователяToolStripMenuItem";
             this.сменитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
+            this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
             // 
             // btnRegistry
             // 
-            this.btnRegistry.Location = new System.Drawing.Point(499, 134);
+            this.btnRegistry.Location = new System.Drawing.Point(499, 163);
             this.btnRegistry.Name = "btnRegistry";
             this.btnRegistry.Size = new System.Drawing.Size(200, 23);
             this.btnRegistry.TabIndex = 2;
@@ -267,7 +269,7 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(499, 89);
+            this.btnAccept.Location = new System.Drawing.Point(499, 72);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(200, 23);
             this.btnAccept.TabIndex = 12;
@@ -282,11 +284,22 @@
             this.реестрПриемовВРемонтToolStripMenuItem.Text = "Ремонт товаров";
             this.реестрПриемовВРемонтToolStripMenuItem.Click += new System.EventHandler(this.реестрПриемовВРемонтToolStripMenuItem_Click);
             // 
+            // btnRepair
+            // 
+            this.btnRepair.Location = new System.Drawing.Point(499, 117);
+            this.btnRepair.Name = "btnRepair";
+            this.btnRepair.Size = new System.Drawing.Size(200, 23);
+            this.btnRepair.TabIndex = 13;
+            this.btnRepair.Text = "Ремонт товаров";
+            this.btnRepair.UseVisualStyleBackColor = true;
+            this.btnRepair.Click += new System.EventHandler(this.btnRepair_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 272);
+            this.Controls.Add(this.btnRepair);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.lblEmp);
             this.Controls.Add(this.pbEmployee);
@@ -336,5 +349,6 @@
         private System.Windows.Forms.ToolStripMenuItem состояниеНеисправностиToolStripMenuItem;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.ToolStripMenuItem реестрПриемовВРемонтToolStripMenuItem;
+        private System.Windows.Forms.Button btnRepair;
     }
 }

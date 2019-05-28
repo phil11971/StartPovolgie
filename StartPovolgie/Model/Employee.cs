@@ -17,11 +17,11 @@ namespace StartPovolgie.Model
         public string Job { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
         public Employee(int id, string login, string pass, 
                         string lastName, string firstName, string patronymic, 
-                        string phone, string address, string job, bool status)
+                        string phone, string address, string job, string status)
         {
             Id = id;
             Login = login;
@@ -37,7 +37,7 @@ namespace StartPovolgie.Model
 
         public Employee(string login, string pass,
                         string lastName, string firstName, string patronymic,
-                        string phone, string address, string job, bool status)
+                        string phone, string address, string job, string status)
         {
             Login = login;
             Password = pass;
