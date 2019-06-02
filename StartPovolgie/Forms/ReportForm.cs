@@ -14,14 +14,52 @@ namespace StartPovolgie.Forms
 {
     public partial class ReportForm : Form
     {
-        public ReportForm()
+
+        private string type;
+        private DateTime dateS;
+        private DateTime datePo;
+
+        public ReportForm(string type, DateTime dateS, DateTime datePo)
         {
             InitializeComponent();
+            this.type = type;
+            this.dateS = dateS;
+            this.datePo = datePo;
+            this.Text = "Отчет " + type;
         }
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
-            ReportDataSource reportDataSource = new ReportDataSource();
+
+            switch (type)
+            {
+                case "\'Объем выполненных работ\'":
+                    {
+
+                        
+                        ReportDataSource reportDataSource = new ReportDataSource();
+                        reportDataSource.Name = "DataSetServiceCost";
+                        reportDataSource.Value = serviceCostBindingSource;//serviceCenterDBDataSet.ServiceCosts;
+                        reportViewer1.LocalReport.DataSources.Clear();
+                        reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+                        reportViewer1.LocalReport.ReportEmbeddedResource = "StartPovolgie.Reports.ServiceCost.rdlc";
+
+                        ReportParameterInfoCollection parms = reportViewer1.LocalReport.GetParameters();
+                        foreach (ReportParameterInfo parm in parms)
+                        {
+                            SetReportParameters(parm.Name);
+                        }
+
+                        reportViewer1.LocalReport.Refresh();
+                        this.reportViewer1.RefreshReport();
+                        this.serviceCostTableAdapter.Fill(this.spDataSet.ServiceCost, dateS.ToShortDateString(), datePo.ToShortDateString());
+
+                        break;
+                    }
+                
+            }
+
+            /*ReportDataSource reportDataSource = new ReportDataSource();
             reportDataSource.Name = "DataSet1";
             reportDataSource.Value = bindingSource1;
             reportViewer1.LocalReport.DataSources.Add(reportDataSource);
@@ -29,7 +67,30 @@ namespace StartPovolgie.Forms
 
             reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
-            typeGoodTableAdapter1.Fill(spDataSet1.TypeGood);
+            typeGoodTableAdapter1.Fill(spDataSet.TypeGood);*/
+        }
+
+        private void SetReportParameters(String parameterName)
+        {
+            //string dateS=dtpDateS.Value.Date+"."+dtpDateS.Value.Month + "."+dtpDateS.Value.Year;
+            //string datePo = dtpDatePo.Value.Date + "." + dtpDatePo.Value.Month + "." + dtpDatePo.Value.Year;
+            try
+            {
+                if (parameterName.ToLower().Equals("dates"))
+                {
+                    ReportParameter startTimeParameter = new ReportParameter(parameterName, dateS.ToShortDateString());
+                    this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { startTimeParameter });
+                }
+                else if (parameterName.ToLower().Equals("datepo"))
+                {
+                    ReportParameter endTimeParameter = new ReportParameter(parameterName, datePo.ToShortDateString());
+                    this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { endTimeParameter });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

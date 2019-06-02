@@ -160,5 +160,28 @@ namespace StartPovolgie.DAO
                 throw ex;
             }
         }
+
+        public bool HasServiceInPeriod(DateTime dateS, DateTime datePo)
+        {
+            try
+            {
+                SqlConnection sqlConnection = ConnectionDB.Connect();
+                string strDateS = dateS.Year + "-" + dateS.Month + "-" + dateS.Day;
+                string strDatePo = datePo.Year + "-" + datePo.Month + "-" + datePo.Day;
+                string sql = string.Format("SELECT count(id_return) From ReturnFromRepair rfr Where rfr.issue_date BETWEEN '{0}' AND '{1}'", strDateS, strDatePo);
+                SqlCommand cmd = sqlConnection.CreateCommand();
+                cmd.CommandText = sql;
+                int count = -1;
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+                ConnectionDB.Disconnect(sqlConnection);
+                if (count > 0) return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -30,35 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.spDataSet1 = new StartPovolgie.SPDataSet();
-            this.typeGoodTableAdapter1 = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.spDataSet = new StartPovolgie.SPDataSet();
+            this.serviceCostTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceCostTableAdapter();
+            this.serviceCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceCostBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "StartPovolgie.Reports.Report1.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "StartPovolgie.Reports.ServiceCost.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(800, 300);
             this.reportViewer1.TabIndex = 0;
             // 
-            // spDataSet1
+            // spDataSet
             // 
-            this.spDataSet1.DataSetName = "SPDataSet";
-            this.spDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.spDataSet.DataSetName = "SPDataSet";
+            this.spDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // typeGoodTableAdapter1
+            // serviceCostTableAdapter
             // 
-            this.typeGoodTableAdapter1.ClearBeforeFill = true;
+            this.serviceCostTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingSource1
+            // serviceCostBindingSource
             // 
-            this.bindingSource1.DataMember = "TypeGood";
-            this.bindingSource1.DataSource = this.spDataSet1;
+            this.serviceCostBindingSource.DataMember = "ServiceCost";
+            this.serviceCostBindingSource.DataSource = this.spDataSet;
             // 
             // ReportForm
             // 
@@ -71,8 +71,8 @@
             this.Name = "ReportForm";
             this.Text = "Отчет Типы товаров";
             this.Load += new System.EventHandler(this.ReportForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.spDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceCostBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -80,8 +80,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private SPDataSet spDataSet1;
-        private SPDataSetTableAdapters.TypeGoodTableAdapter typeGoodTableAdapter1;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private SPDataSet spDataSet;
+        private SPDataSetTableAdapters.ServiceCostTableAdapter serviceCostTableAdapter;
+        private System.Windows.Forms.BindingSource serviceCostBindingSource;
     }
 }

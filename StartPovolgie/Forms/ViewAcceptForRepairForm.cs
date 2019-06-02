@@ -368,7 +368,7 @@ namespace StartPovolgie.Forms
                 var font12Bold = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD);
                 var font9italic = new iTextSharp.text.Font(baseFont, 9, iTextSharp.text.Font.ITALIC);
 
-                Paragraph actNumP = new Paragraph("Акт об оказании услуг №  " + acceptForRepair.Id, font14Bold);
+                Paragraph actNumP = new Paragraph("Возврат из ремонта №  " + acceptForRepair.Id, font14Bold);
                 actNumP.Alignment = Element.ALIGN_CENTER;
                 doc.Add(actNumP);
 

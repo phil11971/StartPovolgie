@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StartPovolgie.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace StartPovolgie.Forms
         public ReportsForm()
         {
             InitializeComponent();
+
+            dtpS.MaxDate = DateTime.Now.Date;
+            dtpPo.MaxDate = DateTime.Now.Date;
+            dtpPo.Value = DateTime.Now.Date;
+            dtpS.Value = DateTime.Now.Date;
+
+            if (dtpPo.Value < dtpS.Value)
+            {
+                btnForm.Enabled = false;
+            }
+            else
+            {
+                btnForm.Enabled = true;
+            }
         }
 
         private void ReportsForm_Load(object sender, EventArgs e)
@@ -22,10 +37,22 @@ namespace StartPovolgie.Forms
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnForm_Click(object sender, EventArgs e)
         {
-            ReportForm rf = new ReportForm();
-            rf.Show();
+            if (rbServiceCost.Checked)
+            {
+                if (new ReturnFromRepairController().HasServiceInPeriod(dtpS.Value, dtpPo.Value))
+                {
+                    new ReportForm("\'Объем выполненных работ\'", dtpS.Value, dtpPo.Value).ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("За выбранный период услуги не оказывались!", "Формирование отчета", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnForm.Enabled = true;
+                }
+            }
+            //ReportForm rf = new ReportForm();
+            //rf.Show();
         }
     }
 }

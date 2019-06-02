@@ -26,5 +26,13 @@ namespace StartPovolgie.Controller
         {
             new ReturnFromRepairDAO().DeleteById(id);
         }
+
+        public bool HasServiceInPeriod(DateTime dateS, DateTime datePo)
+        {
+            if (new ReturnFromRepairDAO().HasServiceInPeriod(dateS, datePo))
+                return true;
+            else
+                return false;
+        }
     }
 }
