@@ -145,7 +145,14 @@ namespace StartPovolgie.Forms
                 PrintAcceptForRepair();
             }
             else {
-                PrintReturnFromRepair();
+                var table = returnFromRepairTableAdapter.GetData();
+                string filter = "";
+                filter += String.Format("id_return={0}", Int32.Parse(tbIdAccept.Text.ToString()));
+                DataRow[] dataRows = table.Select(filter);
+                if (dataRows.Length == 1)
+                    PrintReturnFromRepair();
+                else
+                    MessageBox.Show("Сначала нажмите кнопку 'Провести'");
             }
         }
 
@@ -456,7 +463,7 @@ namespace StartPovolgie.Forms
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
 
-                if (dgvSparePart.Rows.Count != 0)
+                if (dgvSparePart.Rows.Count != 1)
                 {
                     doc.Add(new Paragraph("\n", font12));
                     pdfTable = new PdfPTable(5);
