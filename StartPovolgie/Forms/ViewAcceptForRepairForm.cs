@@ -145,7 +145,7 @@ namespace StartPovolgie.Forms
                 PrintAcceptForRepair();
             }
             else {
-
+                PrintReturnFromRepair();
             }
         }
 
@@ -184,8 +184,8 @@ namespace StartPovolgie.Forms
                 clientInformationTable.SetWidths(widths);
 
                 //ФИО клиента
-                string clientName = tbClientLastName.Text.Trim() +
-                    tbClientFirstName.Text.Trim() +
+                string clientName = tbClientLastName.Text.Trim() + " " +
+                    tbClientFirstName.Text.Trim() + " " +
                     tbClientPatr.Text.Trim();
                 PdfPCell cell = new PdfPCell(new Paragraph("Клиент: ", font14Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
@@ -223,7 +223,6 @@ namespace StartPovolgie.Forms
                 clientInformationTable.AddCell(cell);
 
                 doc.Add(clientInformationTable);
-
 
                 Paragraph p = new Paragraph("сдал в сервисный центр следующее оборудование:", font12);
                 p.IndentationLeft = 15f;
@@ -345,5 +344,217 @@ namespace StartPovolgie.Forms
                 MessageBox.Show("Закройте ранее сформированный талон на приемку!", "Ошибка формирования талона приемки", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void PrintReturnFromRepair()
+        {
+            try
+            {
+                var doc = new Document();
+                PdfWriter pdfWr = PdfWriter.GetInstance(doc, new FileStream(Application.StartupPath + @"\ReturnFromRepair.pdf", FileMode.Create));
+                doc.Open();
+                iTextSharp.text.Font fontTable = FontFactory.GetFont("Arial", 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+                string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIAL.TTF");
+                var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                var font12 = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL);
+                var font14Bold = new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.BOLD);
+                var font12Bold = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD);
+                var font9italic = new iTextSharp.text.Font(baseFont, 9, iTextSharp.text.Font.ITALIC);
+
+                Paragraph actNumP = new Paragraph("Акт об оказании услуг №  " + acceptForRepair.Id, font14Bold);
+                actNumP.Alignment = Element.ALIGN_CENTER;
+                doc.Add(actNumP);
+
+                doc.Add(new Paragraph("\n", font12));
+
+                actNumP = new Paragraph("Дата приёма: " + dtpReceiptDate.Value.Date.ToLongDateString() + "   ", font12);
+                actNumP.Alignment = Element.ALIGN_RIGHT;
+                doc.Add(actNumP);
+
+                PdfPTable clientInformationTable = new PdfPTable(2);
+
+                clientInformationTable.TotalWidth = 500f;
+                clientInformationTable.LockedWidth = true;
+                float[] widths = new float[] { 70f, 430f };
+                clientInformationTable.SetWidths(widths);
+
+                //ФИО клиента
+                string clientName = tbClientLastName.Text.Trim() + " " +
+                    tbClientFirstName.Text.Trim() + " " +
+                    tbClientPatr.Text.Trim();
+                PdfPCell cell = new PdfPCell(new Paragraph("Клиент: ", font14Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph(clientName, font12));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+
+                //Адрес
+                cell = new PdfPCell(new Paragraph("Адрес: ", font14Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph(tbAddress.Text.Trim(), font12));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+
+                //Телефон
+                cell = new PdfPCell(new Paragraph("Телефон: ", font14Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph(mtbPhone.Text, font12));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                cell.Border = 0;
+                clientInformationTable.AddCell(cell);
+
+                doc.Add(clientInformationTable);
+
+                doc.Add(new Paragraph("\n", font12));
+
+                PdfPTable pdfTable = new PdfPTable(3);
+
+                pdfTable.TotalWidth = 500f;
+                pdfTable.LockedWidth = true;
+                widths = new float[] { 20f, 340f, 40f };
+                pdfTable.SetWidths(widths);
+
+                cell = new PdfPCell(new Paragraph("№", font12Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                pdfTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("Наименование неисправности", font12Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                pdfTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("Стоимость устранения", font12Bold));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                pdfTable.AddCell(cell);
+                int numAccept = 0;
+                for (int i = 0; i < dgvFault.RowCount - 1; i++)
+                {
+                    numAccept++;
+                    pdfTable.AddCell(new Paragraph(numAccept.ToString(), font12));
+                    pdfTable.AddCell(new Paragraph(dgvFault.Rows[i].Cells[1].Value.ToString(), font12));
+                    pdfTable.AddCell(new Paragraph(dgvFault.Rows[i].Cells[2].Value.ToString(), font12));
+                }
+                doc.Add(pdfTable);
+
+                //doc.Add(new Paragraph("\n", font12));
+                Paragraph p = new Paragraph("Итого по выполненным работам: " + tbAmountRepair.Text.Trim() + " руб. 00 коп.", font12Bold);
+                p.IndentationLeft = 15f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+
+                if (dgvSparePart.Rows.Count != 0)
+                {
+                    doc.Add(new Paragraph("\n", font12));
+                    pdfTable = new PdfPTable(5);
+
+                    pdfTable.TotalWidth = 500f;
+                    pdfTable.LockedWidth = true;
+                    widths = new float[] { 20f, 340f, 40f, 50f, 50f };
+                    pdfTable.SetWidths(widths);
+
+                    cell = new PdfPCell(new Paragraph("№", font12Bold));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                    pdfTable.AddCell(cell);
+                    cell = new PdfPCell(new Paragraph("Наименование запчасти/расх.материала", font12Bold));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                    pdfTable.AddCell(cell);
+                    cell = new PdfPCell(new Paragraph("Цена", font12Bold));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                    pdfTable.AddCell(cell);
+                    cell = new PdfPCell(new Paragraph("Кол-во", font12Bold));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                    pdfTable.AddCell(cell);
+                    cell = new PdfPCell(new Paragraph("Сумма", font12Bold));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
+                    pdfTable.AddCell(cell);
+                    numAccept = 0;
+                    for (int i = 0; i < dgvSparePart.RowCount - 1; i++)
+                    {
+                        numAccept++;
+                        pdfTable.AddCell(new Paragraph(numAccept.ToString(), font12));
+                        pdfTable.AddCell(new Paragraph(dgvSparePart.Rows[i].Cells[2].Value.ToString(), font12));
+                        pdfTable.AddCell(new Paragraph(dgvSparePart.Rows[i].Cells[6].Value.ToString(), font12));
+                        pdfTable.AddCell(new Paragraph(dgvSparePart.Rows[i].Cells[3].Value.ToString(), font12));
+                        pdfTable.AddCell(new Paragraph(dgvSparePart.Rows[i].Cells[4].Value.ToString(), font12));
+                    }
+                    doc.Add(pdfTable);
+
+                    //doc.Add(new Paragraph("\n", font12));
+                    p = new Paragraph("Итого по используемым запчастям/расх.материалам: " + tbAmountSpareParts.Text.Trim() + " руб. 00 коп.", font12Bold);
+                    p.IndentationLeft = 15f;
+                    p.Alignment = Element.ALIGN_LEFT;
+                    doc.Add(p);
+                }
+
+                doc.Add(new Paragraph("\n", font12));
+                p = new Paragraph("ИТОГО: " + tbTotal.Text.Trim() + " руб. 00 коп. ", font12Bold);
+                p.IndentationLeft = 15f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+
+                doc.Add(new Paragraph("\n", font12));
+
+                p = new Paragraph("Вышеперечисленные работы (услуги) выполнены полностью и в срок. Заказчик претензий по объему, внешнему виду, качеству и срокам выполнения работ (оказания услуг) не имеет. С условиями гарантии ознакомлен (гарантия на программное обеспечение не распространяется). Настоящий акт составлен в двух экземплярах, один из которых находится у Исполнителя, второй у Заказчика.", font9italic);
+                p.IndentationLeft = 12f;
+                p.IndentationRight = 12f;
+                p.Alignment = Element.ALIGN_JUSTIFIED;
+                doc.Add(p);
+                doc.Add(new Paragraph("\n", font12));
+
+                p = new Paragraph("Дата выдачи: " + dtpIssueDate.Value.Date.ToLongDateString(), font12);
+                p.IndentationLeft = 15f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+                doc.Add(new Paragraph("\n", font12));
+                doc.Add(new Paragraph("\n", font12));
+
+                p = new Paragraph("Исполнитель: СЦ Старт-Поволжье ______________       Заказчик: ______________________", font12);
+                p.IndentationLeft = 12f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+
+                doc.Add(new Paragraph("\n", font12));
+
+                p = new Paragraph("М.П.                                                                          М.П.", font12);
+                p.IndentationLeft = 120f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+
+
+                doc.Add(new Paragraph("\n\n\n", font12));
+
+
+                doc.Close();
+
+                Process printDoc = new Process();
+                printDoc.StartInfo.FileName = Application.StartupPath + @"\ReturnFromRepair.pdf";
+
+                printDoc.Start();
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Закройте ранее сформированный акт оказанных услуг!", "Ошибка формирования документа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
