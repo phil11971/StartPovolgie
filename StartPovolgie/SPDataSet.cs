@@ -9,3 +9,10 @@
         }
     }
 }
+
+namespace StartPovolgie.SPDataSetTableAdapters {
+    
+    
+    public partial class SparePartTableAdapter {
+    }
+}

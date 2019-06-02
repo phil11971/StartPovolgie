@@ -163,7 +163,7 @@ namespace StartPovolgie.Forms
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            if (dgvFault.Rows[0].Cells[0].Value == null || dgvFault.Rows[0].Cells[1].Value == null || dgvFault.Rows[0].Cells[2].Value == null) 
+            if (dgvFault.Rows[0].Cells[0].Value == null || dgvFault.Rows[0].Cells[1].Value == null) 
             {
                 MessageBox.Show("Заполните неисправности!", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -174,7 +174,7 @@ namespace StartPovolgie.Forms
                     LinkedList<Fault> faults = new LinkedList<Fault>();
                     for (int i = 0; i < dgvFault.RowCount - 1; i++)
                     {
-                        faults.AddLast( new Fault(dgvFault.Rows[i].Cells[0].Value.ToString(), dgvFault.Rows[i].Cells[1].Value.ToString(), (int)dgvFault.Rows[i].Cells[2].Value) );
+                        faults.AddLast( new Fault(dgvFault.Rows[i].Cells[0].Value.ToString(), (int)dgvFault.Rows[i].Cells[1].Value) );
                     }
                     if (dgvClient.CurrentRow == null)
                     {
@@ -190,14 +190,14 @@ namespace StartPovolgie.Forms
                         int idAccept;
                         if (!acceptForRepairController.Insert(acceptForRepair, out idAccept))
                         {
-                            MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Невозможно добавить новый приём в ремонт", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         acceptForRepair.Id = idAccept;
                     }
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить новый вид устройства!\nВид с таким названием уже существует.", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить новый приём в ремонт", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {

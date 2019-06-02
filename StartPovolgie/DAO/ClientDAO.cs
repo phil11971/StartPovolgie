@@ -165,7 +165,7 @@ namespace StartPovolgie.DAO
                 SqlConnection sqlConnection = ConnectionDB.Connect();
                 string sql = string.Format("Select count(id_client) From Client Where mail='{0}'", client.Mail);
                 if (isUpdate)
-                    sql = string.Format("Select count(id_client) From Client Where mail='{0}' AND id_client='{1}'", client.Mail, client.Id);
+                    sql = string.Format("Select count(id_client) From Client Where id_client='{0}'", client.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

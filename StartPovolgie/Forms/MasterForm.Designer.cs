@@ -32,7 +32,6 @@ namespace StartPovolgie.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.lblEmployees = new System.Windows.Forms.Label();
             this.dgvMaster = new System.Windows.Forms.DataGridView();
@@ -81,19 +80,9 @@ namespace StartPovolgie.Forms
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(94, 40);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Изменить";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(177, 40);
+            this.btnDel.Location = new System.Drawing.Point(94, 40);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 23);
             this.btnDel.TabIndex = 2;
@@ -350,7 +339,6 @@ namespace StartPovolgie.Forms
             this.Controls.Add(this.dgvMaster);
             this.Controls.Add(this.lblEmployees);
             this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -374,7 +362,6 @@ namespace StartPovolgie.Forms
         #endregion
 
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Label lblEmployees;
         private System.Windows.Forms.DataGridView dgvMaster;

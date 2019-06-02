@@ -85,7 +85,6 @@ namespace StartPovolgie.DAO
 
                     DataTable table = new DataTable();
 
-                    table.Columns.Add("name_fault", typeof(string));
                     table.Columns.Add("desc_fault", typeof(string));
                     table.Columns.Add("id_accept", typeof(int));
                     table.Columns.Add("id_fs", typeof(int));
@@ -93,7 +92,7 @@ namespace StartPovolgie.DAO
 
                     foreach (var fault in acceptForRepair.Faults)
                     {
-                        table.Rows.Add(fault.Name, fault.Desc, idAccept, fault.IdFaultStatus);
+                        table.Rows.Add(fault.Desc, idAccept, fault.IdFaultStatus);
                     }
 
                     sqlExpression = "sp_InsertFaults";

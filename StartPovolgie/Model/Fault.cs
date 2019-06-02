@@ -9,7 +9,6 @@ namespace StartPovolgie.Model
     public class Fault
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Desc { get; set; }
         public float CostElim { get; set; }
         public int IdAccept { get; set; }
@@ -22,26 +21,23 @@ namespace StartPovolgie.Model
             CostElim = costElim;
         }
 
-        public Fault(int id, string name, string desc, int idState, int idMaster)
+        public Fault(int id, string desc, int idState, int idMaster)
         {
             Id = id;
-            Name = name;
             Desc = desc;
             IdFaultStatus = idState;
             IdMaster = idMaster;
         }
 
-        public Fault(string name, string desc, int idState, int idMaster)
+        public Fault(string desc, int idState, int idMaster)
         {
-            Name = name;
             Desc = desc;
             IdFaultStatus = idState;
             IdMaster = idMaster;
         }
 
-        public Fault(string name, string desc, int idState)
+        public Fault(string desc, int idState)
         {
-            Name = name;
             Desc = desc;
             IdFaultStatus = idState;
         }

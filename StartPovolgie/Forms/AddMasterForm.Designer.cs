@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbPatronymic = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.dgvtbcDescSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specializationTableAdapter = new StartPovolgie.SPDataSetTableAdapters.SpecializationTableAdapter();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.gbInfoEmp.SuspendLayout();
             this.gbInfoEmpEntry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasterSpecialization)).BeginInit();
@@ -73,10 +73,10 @@
             // 
             // gbInfoEmp
             // 
+            this.gbInfoEmp.Controls.Add(this.mtbPhone);
             this.gbInfoEmp.Controls.Add(this.label1);
             this.gbInfoEmp.Controls.Add(this.tbAddress);
             this.gbInfoEmp.Controls.Add(this.cbStatus);
-            this.gbInfoEmp.Controls.Add(this.tbPhone);
             this.gbInfoEmp.Controls.Add(this.tbPatronymic);
             this.gbInfoEmp.Controls.Add(this.tbFirstName);
             this.gbInfoEmp.Controls.Add(this.tbLastName);
@@ -123,13 +123,6 @@
             this.cbStatus.TabIndex = 13;
             this.cbStatus.Tag = "Работает";
             this.cbStatus.ValueMember = "Работает";
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.Location = new System.Drawing.Point(95, 132);
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(121, 20);
-            this.tbPhone.TabIndex = 9;
             // 
             // tbPatronymic
             // 
@@ -295,6 +288,14 @@
             // 
             this.specializationTableAdapter.ClearBeforeFill = true;
             // 
+            // mtbPhone
+            // 
+            this.mtbPhone.Location = new System.Drawing.Point(95, 128);
+            this.mtbPhone.Mask = "8(000)000-00-00";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(121, 20);
+            this.mtbPhone.TabIndex = 18;
+            // 
             // AddMasterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,7 +327,6 @@
         private System.Windows.Forms.Label lblAdd;
         private System.Windows.Forms.GroupBox gbInfoEmp;
         private System.Windows.Forms.GroupBox gbInfoEmpEntry;
-        private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbPatronymic;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
@@ -349,5 +349,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescSpec;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.MaskedTextBox mtbPhone;
     }
 }

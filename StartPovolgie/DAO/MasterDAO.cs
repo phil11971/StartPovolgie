@@ -15,7 +15,7 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                if (!HasSameType(master, false))
+                if (!HasSameType(master))
                 {
                     if (master.Job.Equals("Мастер"))
                     {
@@ -128,7 +128,7 @@ namespace StartPovolgie.DAO
         }
 
         //todo
-        public bool Update(Employee employee)
+        /*public bool Update(Employee employee)
         {
             try
             {
@@ -165,16 +165,16 @@ namespace StartPovolgie.DAO
             {
                 throw ex;
             }
-        }
+        }*/
 
-        private bool HasSameType(Employee employee, bool isUpdate)
+        private bool HasSameType(Employee employee)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_emp) From Employee Where login='{0}' and pass='{1}'", employee.Login, employee.Password);
-                if (isUpdate)
-                    sql = string.Format("Select count(id_emp) From Employee Where Where login='{0}' and pass='{1}' AND id_emp!='{2}'", employee.Login, employee.Password, employee.Id);
+                string sql = string.Format("Select count(id_emp) From Employee Where id_emp='{0}'", employee.Id);
+                //if (isUpdate)
+                //    sql = string.Format("Select count(id_emp) From Employee Where Where login='{0}' and pass='{1}' AND id_emp!='{2}'", employee.Login, employee.Password, employee.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

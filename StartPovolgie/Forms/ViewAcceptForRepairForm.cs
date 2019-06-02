@@ -42,10 +42,10 @@ namespace StartPovolgie.Forms
             employeeBindingSource.Filter = String.Format("id_emp=\'{0}\'", acceptForRepair.IdAdmin);
             clientBindingSource.Filter = String.Format("id_client=\'{0}\'", acceptForRepair.IdClient);
 
-            DataRowView dataRowView = (DataRowView)goodBindingSource.Current;
-            typeGoodBindingSource.Filter = String.Format("id_tg=\'{0}\'", (int)dataRowView.Row.ItemArray[0]);
-
             goodBindingSource.Filter = String.Format("id_g=\'{0}\'", acceptForRepair.IdGood);
+
+            DataRowView dataRowView = (DataRowView)goodBindingSource.Current;
+            typeGoodBindingSource.Filter = String.Format("id_tg=\'{0}\'", (int)dataRowView.Row.ItemArray[2]);
 
             faultBindingSource.Filter = String.Format("id_accept=\'{0}\'", acceptForRepair.Id);
             faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", Int32.Parse(dgvFault.Rows[0].Cells[0].Value.ToString()));
@@ -90,7 +90,7 @@ namespace StartPovolgie.Forms
         {
             for (int i = 0; i < dgvFault.Rows.Count-1; i++)
             {
-                if (dgvFault.Rows[i].Cells[3].Value.ToString().Equals(""))
+                if (dgvFault.Rows[i].Cells[2].Value.ToString().Equals(""))
                 {
                     MessageBox.Show("Введите ст-ть устранения неисправности");
                     return;
@@ -100,8 +100,8 @@ namespace StartPovolgie.Forms
             List<Fault> faults = new List<Fault>();
             for (int i = 0; i < dgvFault.Rows.Count-1; i++)
             {
-                priceFaults += Convert.ToSingle(dgvFault.Rows[i].Cells[3].Value.ToString());
-                faults.Add(new Fault(Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()), Convert.ToSingle(dgvFault.Rows[i].Cells[3].Value.ToString())));
+                priceFaults += Convert.ToSingle(dgvFault.Rows[i].Cells[2].Value.ToString());
+                faults.Add(new Fault(Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()), Convert.ToSingle(dgvFault.Rows[i].Cells[2].Value.ToString())));
             }
             tbAmountRepair.Text = priceFaults.ToString();
 

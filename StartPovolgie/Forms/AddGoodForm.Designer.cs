@@ -93,7 +93,6 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(121, 20);
             this.tbName.TabIndex = 6;
-            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // lblType
             // 

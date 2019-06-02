@@ -79,7 +79,6 @@
             this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvFault = new System.Windows.Forms.DataGridView();
             this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namefaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costeliminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -575,7 +574,6 @@
             this.dgvFault.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFault.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idfaultDataGridViewTextBoxColumn,
-            this.namefaultDataGridViewTextBoxColumn,
             this.descfaultDataGridViewTextBoxColumn,
             this.costeliminationDataGridViewTextBoxColumn,
             this.idacceptDataGridViewTextBoxColumn,
@@ -599,12 +597,6 @@
             this.idfaultDataGridViewTextBoxColumn.Name = "idfaultDataGridViewTextBoxColumn";
             this.idfaultDataGridViewTextBoxColumn.ReadOnly = true;
             this.idfaultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // namefaultDataGridViewTextBoxColumn
-            // 
-            this.namefaultDataGridViewTextBoxColumn.DataPropertyName = "name_fault";
-            this.namefaultDataGridViewTextBoxColumn.HeaderText = "Название неисправности";
-            this.namefaultDataGridViewTextBoxColumn.Name = "namefaultDataGridViewTextBoxColumn";
             // 
             // descfaultDataGridViewTextBoxColumn
             // 
@@ -940,13 +932,6 @@
         private System.Windows.Forms.BindingSource faultSparePartBindingSource;
         private SPDataSetTableAdapters.FaultTableAdapter faultTableAdapter;
         private System.Windows.Forms.BindingSource faultBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namefaultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descfaultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costeliminationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idmasterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idfsDataGridViewTextBoxColumn;
         private SPDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -979,5 +964,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private SPDataSetTableAdapters.ReturnFromRepairTableAdapter returnFromRepairTableAdapter;
         private System.Windows.Forms.BindingSource returnFromRepairBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descfaultDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costeliminationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idmasterDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idfsDataGridViewTextBoxColumn;
     }
 }

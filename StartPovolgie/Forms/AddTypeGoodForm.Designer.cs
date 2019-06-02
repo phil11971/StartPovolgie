@@ -42,7 +42,7 @@
             this.gbTypeGood.Controls.Add(this.label2);
             this.gbTypeGood.Location = new System.Drawing.Point(12, 12);
             this.gbTypeGood.Name = "gbTypeGood";
-            this.gbTypeGood.Size = new System.Drawing.Size(200, 100);
+            this.gbTypeGood.Size = new System.Drawing.Size(221, 100);
             this.gbTypeGood.TabIndex = 1;
             this.gbTypeGood.TabStop = false;
             this.gbTypeGood.Text = "Добавление нового типа товара";
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(226, 121);
+            this.ClientSize = new System.Drawing.Size(245, 121);
             this.Controls.Add(this.gbTypeGood);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

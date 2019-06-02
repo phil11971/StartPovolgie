@@ -57,9 +57,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvFault = new System.Windows.Forms.DataGridView();
-            this.dgvtbcNameFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClient = new System.Windows.Forms.DataGridView();
@@ -82,6 +79,8 @@
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.faultStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultStatusTableAdapter();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
@@ -365,7 +364,6 @@
             this.dgvFault.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFault.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFault.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvtbcNameFault,
             this.dgvtbcDescFault,
             this.faultStatus});
             this.dgvFault.EnableHeadersVisualStyles = false;
@@ -375,24 +373,6 @@
             this.dgvFault.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFault.Size = new System.Drawing.Size(339, 129);
             this.dgvFault.TabIndex = 4;
-            // 
-            // dgvtbcNameFault
-            // 
-            this.dgvtbcNameFault.HeaderText = "Название";
-            this.dgvtbcNameFault.Name = "dgvtbcNameFault";
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
-            // 
-            // faultStatus
-            // 
-            this.faultStatus.DataSource = this.faultStatusBindingSource;
-            this.faultStatus.DisplayMember = "name_fs";
-            this.faultStatus.HeaderText = "Состояние";
-            this.faultStatus.Name = "faultStatus";
-            this.faultStatus.ValueMember = "id_fs";
             // 
             // faultStatusBindingSource
             // 
@@ -574,6 +554,19 @@
             // 
             this.faultStatusTableAdapter.ClearBeforeFill = true;
             // 
+            // dgvtbcDescFault
+            // 
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
+            // 
+            // faultStatus
+            // 
+            this.faultStatus.DataSource = this.faultStatusBindingSource;
+            this.faultStatus.DisplayMember = "name_fs";
+            this.faultStatus.HeaderText = "Состояние";
+            this.faultStatus.Name = "faultStatus";
+            this.faultStatus.ValueMember = "id_fs";
+            // 
             // AcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,7 +657,6 @@
         private System.Windows.Forms.Button btnCancelClient;
         private SPDataSetTableAdapters.FaultStatusTableAdapter faultStatusTableAdapter;
         private System.Windows.Forms.BindingSource faultStatusBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcNameFault;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescFault;
         private System.Windows.Forms.DataGridViewComboBoxColumn faultStatus;
     }

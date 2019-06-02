@@ -16,11 +16,11 @@ namespace StartPovolgie.Controller
             else return false;
         }
 
-        public bool Update(Master master)
+        /*public bool Update(Master master)
         {
             if (new MasterDAO().Update(master)) return true;
             else return false;
-        }
+        }*/
 
         public void DeleteById(int id)
         {
