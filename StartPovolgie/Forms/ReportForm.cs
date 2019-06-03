@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Microsoft.Reporting.WinForms;
 using StartPovolgie.Controller;
 using System;
 using System.Collections.Generic;
@@ -36,8 +37,15 @@ namespace StartPovolgie.Forms
                 case "\'Объем выполненных работ\'":
                     {
 
-                        
-                        ReportDataSource reportDataSource = new ReportDataSource();
+                        serviceCostTableAdapter.Fill(spDataSet.ServiceCost, dateS.ToShortDateString(), datePo.ToShortDateString());
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load(@"D:\8 семак\диплом\ВКРБ Филатова\Программа\StartPovolgie\StartPovolgie\Forms\servc.rpt");
+                        doc.SetDataSource(spDataSet);
+                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.Refresh();
+                        this.Controls.Add(crystalReportViewer1);
+                        crystalReportViewer1.Dock = DockStyle.Fill;
+                        /*ReportDataSource reportDataSource = new ReportDataSource();
                         reportDataSource.Name = "DataSetServiceCost";
                         reportDataSource.Value = serviceCostBindingSource;//serviceCenterDBDataSet.ServiceCosts;
                         reportViewer1.LocalReport.DataSources.Clear();
@@ -53,10 +61,11 @@ namespace StartPovolgie.Forms
                         reportViewer1.LocalReport.Refresh();
                         this.reportViewer1.RefreshReport();
                         this.serviceCostTableAdapter.Fill(this.spDataSet.ServiceCost, dateS.ToShortDateString(), datePo.ToShortDateString());
-
+                        */
                         break;
                     }
-                
+
+
             }
 
             /*ReportDataSource reportDataSource = new ReportDataSource();
@@ -79,12 +88,12 @@ namespace StartPovolgie.Forms
                 if (parameterName.ToLower().Equals("dates"))
                 {
                     ReportParameter startTimeParameter = new ReportParameter(parameterName, dateS.ToShortDateString());
-                    this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { startTimeParameter });
+                    //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { startTimeParameter });
                 }
                 else if (parameterName.ToLower().Equals("datepo"))
                 {
                     ReportParameter endTimeParameter = new ReportParameter(parameterName, datePo.ToShortDateString());
-                    this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { endTimeParameter });
+                    //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { endTimeParameter });
                 }
             }
             catch (Exception ex)

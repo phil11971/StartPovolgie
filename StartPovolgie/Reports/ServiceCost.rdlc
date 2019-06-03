@@ -716,8 +716,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox41</rd:DefaultName>
-              <Top>0.01736cm</Top>
-              <Left>6.78687cm</Left>
+              <Top>0.08791cm</Top>
+              <Left>7.8452cm</Left>
               <Height>1.31437cm</Height>
               <Width>3.00743cm</Width>
               <ZIndex>1</ZIndex>
@@ -914,7 +914,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Now()</Value>
+                      <Value>=Globals!ExecutionTime</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>12pt</FontSize>
@@ -972,8 +972,8 @@
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfColumns>2</NumberOfColumns>
+      <NumberOfRows>1</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>

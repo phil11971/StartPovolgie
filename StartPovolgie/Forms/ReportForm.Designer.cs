@@ -29,22 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.serviceCostTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceCostTableAdapter();
             this.serviceCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.servc1 = new StartPovolgie.Reports.servc();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceCostBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "StartPovolgie.Reports.ServiceCost.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(800, 300);
-            this.reportViewer1.TabIndex = 0;
             // 
             // spDataSet
             // 
@@ -60,12 +52,25 @@
             this.serviceCostBindingSource.DataMember = "ServiceCost";
             this.serviceCostBindingSource.DataSource = this.spDataSet;
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = "D:\\8 семак\\диплом\\ВКРБ Филатова\\Программа\\StartPovolgie\\StartPovolgie\\Forms\\servc" +
+    ".rpt";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 300);
+            this.crystalReportViewer1.TabIndex = 0;
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 300);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.crystalReportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "ReportForm";
@@ -78,10 +83,10 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private SPDataSet spDataSet;
         private SPDataSetTableAdapters.ServiceCostTableAdapter serviceCostTableAdapter;
         private System.Windows.Forms.BindingSource serviceCostBindingSource;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private Reports.servc servc1;
     }
 }
