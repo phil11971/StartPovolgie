@@ -193,6 +193,8 @@ namespace StartPovolgie.Forms
                             MessageBox.Show("Невозможно добавить новый приём в ремонт", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         acceptForRepair.Id = idAccept;
+                        btnPrint.Enabled = true;
+                        btnIssue.Enabled = false;
                     }
                 }
                 catch (System.Data.SqlClient.SqlException)
@@ -209,7 +211,14 @@ namespace StartPovolgie.Forms
         //todo print
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            PrintAcceptForRepair();
+            try
+            {
+                PrintAcceptForRepair();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Сначала оформите приём в ремонт");
+            }
         }
 
         private void PrintAcceptForRepair()
@@ -247,8 +256,8 @@ namespace StartPovolgie.Forms
                 clientInformationTable.SetWidths(widths);
 
                 //ФИО клиента
-                string clientName = dgvClient.CurrentRow.Cells[1].Value.ToString().Trim() +
-                    dgvClient.CurrentRow.Cells[2].Value.ToString().Trim() +
+                string clientName = dgvClient.CurrentRow.Cells[1].Value.ToString().Trim() + " " +
+                    dgvClient.CurrentRow.Cells[2].Value.ToString().Trim() + " " +
                     dgvClient.CurrentRow.Cells[3].Value.ToString().Trim();
                 PdfPCell cell = new PdfPCell(new Paragraph("Клиент: ", font14Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
@@ -326,26 +335,22 @@ namespace StartPovolgie.Forms
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
                 doc.Add(new Paragraph("\n", font12));
-                pdfTable = new PdfPTable(4);
+                pdfTable = new PdfPTable(3);
 
                 pdfTable.TotalWidth = 500f;
                 pdfTable.LockedWidth = true;
-                widths = new float[] { 20f, 200f, 140f, 140f };
+                widths = new float[] { 20f, 200f, 140f };
                 pdfTable.SetWidths(widths);
 
                 cell = new PdfPCell(new Paragraph("№", font12Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Наименование", font12Bold));
+                cell = new PdfPCell(new Paragraph("Наименование неисправности", font12Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Единица измерения", font12Bold));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Количество", font12Bold));
+                cell = new PdfPCell(new Paragraph("Состояние", font12Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
@@ -354,15 +359,11 @@ namespace StartPovolgie.Forms
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
                 pdfTable.AddCell(cell);
+                cell = new PdfPCell(new Paragraph("Не заряжается", font12));
+                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                pdfTable.AddCell(cell);
                 cell = new PdfPCell(new Paragraph("Диагностика", font12));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("шт.", font12));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("1", font12));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
                 pdfTable.AddCell(cell);
@@ -381,7 +382,8 @@ namespace StartPovolgie.Forms
                 doc.Add(new Paragraph("\n", font12));
                 doc.Add(new Paragraph("\n", font12));
 
-                p = new Paragraph("Исполнитель: СЦ Старт-Поволжье ______________       Заказчик: ______________________", font12);
+                string admin = String.Format("Администратор: {0}", employee.LastName + " " + employee.FirstName + " " + employee.Patronymic);
+                p = new Paragraph(admin +"       Заказчик: ______________________", font12);
                 p.IndentationLeft = 12f;
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);

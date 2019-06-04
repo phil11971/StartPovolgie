@@ -39,6 +39,7 @@ namespace StartPovolgie.Forms
             returnFromRepairTableAdapter.Fill(spDataSet.ReturnFromRepair);
 
             acceptForRepairBindingSource.Filter = String.Format("id_accept=\'{0}\'", acceptForRepair.Id);
+            returnFromRepairBindingSource.Filter = String.Format("id_return=\'{0}\'", acceptForRepair.Id);
             employeeBindingSource.Filter = String.Format("id_emp=\'{0}\'", acceptForRepair.IdAdmin);
             clientBindingSource.Filter = String.Format("id_client=\'{0}\'", acceptForRepair.IdClient);
 

@@ -45,7 +45,7 @@ namespace StartPovolgie.Forms
                         this.Dispose();
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Ошибка работы с базой данных!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

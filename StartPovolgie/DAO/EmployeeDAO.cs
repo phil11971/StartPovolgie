@@ -23,7 +23,7 @@ namespace StartPovolgie.DAO
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
+                if (dataReader.Read())
                 {
                     if (dataReader[6].ToString().Equals("Администратор"))
                         emp = new Administrator(Convert.ToInt32(dataReader[0]), login, pass, dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), dataReader[5].ToString(), dataReader[6].ToString());
@@ -36,7 +36,9 @@ namespace StartPovolgie.DAO
                         string address = dataReader[5].ToString();
                         string status = dataReader[6].ToString();
 
-                        sql = string.Format("Select id_s, char_spec From Master_Specialization Where id_m = Lower('{0}')", id_emp);
+                        dataReader.Close();
+
+                        sql = string.Format("Select id_spec, char_spec From MasterSpecialization Where id_master = Lower('{0}')", id_emp);
 
                         cmd = sqlConnection.CreateCommand();
                         cmd.CommandText = sql;
@@ -47,7 +49,6 @@ namespace StartPovolgie.DAO
 
                         emp = new Master(id_emp, login, pass, lname, fname, patronymic, phone, address, status, spec);
                     }
-
                 }
                 dataReader.Close();
                 ConnectionDB.Disconnect(sqlConnection);
@@ -224,6 +225,25 @@ namespace StartPovolgie.DAO
             {
                 throw ex;
             }
+        }
+
+        public bool SetLoginAndPasswordById(int id, string login, string password)
+        {
+            try
+            {
+                SqlConnection sqlConnection = ConnectionDB.Connect();
+                string sql = string.Format("Update Employee Set login='{0}', pass='{1}' From Employee Where id_emp={2}", login.ToLower(), password, id);
+
+                SqlCommand cmd = sqlConnection.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+                ConnectionDB.Disconnect(sqlConnection);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return true;
         }
 
         private bool HasSameType(Employee employee, bool isUpdate)

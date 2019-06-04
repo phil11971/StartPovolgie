@@ -28,6 +28,7 @@ namespace StartPovolgie.Forms
         public AddSparePartForm(int id, string name, string desc, string cnt, string price)
         {
             InitializeComponent();
+            this.Text = "Изменение информации о запчасти";
             lblAdd.Text = "Изменение информации о запчасти";
             tbName.Text = name;
             tbDesc.Text = desc;
@@ -85,7 +86,7 @@ namespace StartPovolgie.Forms
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
-                    MessageBox.Show("Невозможно добавить запчасть!", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно добавить запчасть! Запчасть с таким названием уже существует", "Ошибка добавления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception)
                 {

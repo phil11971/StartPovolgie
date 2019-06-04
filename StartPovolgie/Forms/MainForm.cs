@@ -113,9 +113,21 @@ namespace StartPovolgie.Forms
                 this.Visible = true;
                 this.employee = authForm.Emp;
                 lblEmp.Text = employee.LastName + " " + employee.FirstName;
-                if (employee.Job.Equals("Инженер"))
+                if (employee.Job.Equals("Администратор"))
                 {
+                    btnRepair.Enabled = false;
+                    реестрПриемовВРемонтToolStripMenuItem.Enabled = false;
+                    btnAccept.Enabled = true;
+                    сотрудникиToolStripMenuItem.Enabled = true;
+                    новаяЗаявкаНаРемонтToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    btnAccept.Enabled = false;
                     сотрудникиToolStripMenuItem.Enabled = false;
+                    новаяЗаявкаНаРемонтToolStripMenuItem.Enabled = false;
+                    btnRepair.Enabled = true;
+                    реестрПриемовВРемонтToolStripMenuItem.Enabled = true;
                 }
             }
             else
@@ -127,6 +139,31 @@ namespace StartPovolgie.Forms
         private void btnRepair_Click(object sender, EventArgs e)
         {
             new RegistryAcceptForRepairForm(employee).ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (employee.Job.Equals("Администратор"))
+            {
+                btnRepair.Enabled = false;
+                реестрПриемовВРемонтToolStripMenuItem.Enabled = false;
+                btnAccept.Enabled = true;
+                сотрудникиToolStripMenuItem.Enabled = true;
+                новаяЗаявкаНаРемонтToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                btnAccept.Enabled = false;
+                сотрудникиToolStripMenuItem.Enabled = false;
+                новаяЗаявкаНаРемонтToolStripMenuItem.Enabled = false;
+                btnRepair.Enabled = true;
+                реестрПриемовВРемонтToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        private void lblEmp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new InfoUserForm(employee).ShowDialog();
         }
     }
 }

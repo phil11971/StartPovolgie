@@ -54,7 +54,9 @@ namespace StartPovolgie.Forms
         {
             AcceptForRepair acceptForRepair = new AcceptForRepair((int)dgvAccept.CurrentRow.Cells[0].Value,
                 (int)dgvAccept.CurrentRow.Cells[5].Value, (int)dgvAccept.CurrentRow.Cells[3].Value, (int)dgvAccept.CurrentRow.Cells[7].Value);
-            new ViewAcceptForRepairForm(acceptForRepair).ShowDialog();
+            var viewAcceptForRepairForm = new ViewAcceptForRepairForm(acceptForRepair);
+            viewAcceptForRepairForm.Closing += AddTypeOfDevicesForm_Closing;
+            viewAcceptForRepairForm.ShowDialog();
         }
 
         //todo

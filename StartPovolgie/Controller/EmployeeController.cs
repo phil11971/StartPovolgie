@@ -31,5 +31,10 @@ namespace StartPovolgie.Controller
         {
             new EmployeeDAO().DeleteById(id);
         }
+
+        public bool SetLoginAndPasswordById(int id, string login, string password)
+        {
+            return new EmployeeDAO().SetLoginAndPasswordById(id, login, password);
+        }
     }
 }

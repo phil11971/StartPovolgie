@@ -57,6 +57,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvFault = new System.Windows.Forms.DataGridView();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClient = new System.Windows.Forms.DataGridView();
@@ -79,8 +81,6 @@
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
             this.faultStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultStatusTableAdapter();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
@@ -141,6 +141,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Enabled = false;
             this.btnPrint.Location = new System.Drawing.Point(290, 80);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(113, 23);
@@ -374,6 +375,19 @@
             this.dgvFault.Size = new System.Drawing.Size(339, 129);
             this.dgvFault.TabIndex = 4;
             // 
+            // dgvtbcDescFault
+            // 
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
+            // 
+            // faultStatus
+            // 
+            this.faultStatus.DataSource = this.faultStatusBindingSource;
+            this.faultStatus.DisplayMember = "name_fs";
+            this.faultStatus.HeaderText = "Состояние";
+            this.faultStatus.Name = "faultStatus";
+            this.faultStatus.ValueMember = "id_fs";
+            // 
             // faultStatusBindingSource
             // 
             this.faultStatusBindingSource.DataMember = "FaultStatus";
@@ -553,19 +567,6 @@
             // faultStatusTableAdapter
             // 
             this.faultStatusTableAdapter.ClearBeforeFill = true;
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
-            // 
-            // faultStatus
-            // 
-            this.faultStatus.DataSource = this.faultStatusBindingSource;
-            this.faultStatus.DisplayMember = "name_fs";
-            this.faultStatus.HeaderText = "Состояние";
-            this.faultStatus.Name = "faultStatus";
-            this.faultStatus.ValueMember = "id_fs";
             // 
             // AcceptForRepairForm
             // 
