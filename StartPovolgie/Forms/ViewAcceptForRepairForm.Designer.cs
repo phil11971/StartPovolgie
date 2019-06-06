@@ -806,6 +806,7 @@
             // 
             // btnExec
             // 
+            this.btnExec.Enabled = false;
             this.btnExec.Location = new System.Drawing.Point(720, 235);
             this.btnExec.Name = "btnExec";
             this.btnExec.Size = new System.Drawing.Size(75, 23);

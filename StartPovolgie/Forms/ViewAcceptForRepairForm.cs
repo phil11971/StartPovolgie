@@ -125,18 +125,22 @@ namespace StartPovolgie.Forms
             tbTotal.Text = total.ToString();
 
             new FaultController().Update(faults);
+
+            btnExec.Enabled = true;
         }
 
         private void btnExec_Click(object sender, EventArgs e)
         {
-            if (!tbAmountRepair.Text.Equals("") && !tbTotal.Text.Equals(""))
-            {
-                ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
-                new ReturnFromRepairController().Insert(returnFromRepair);
-            }
-            else
-            {
-                MessageBox.Show("Сначала рассчитайте стоимость ремонта");
+            if (MessageBox.Show("Вы действительно хотите завершить приём в ремонт?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { 
+                if (!tbAmountRepair.Text.Equals("") && !tbTotal.Text.Equals(""))
+                {
+                    ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
+                    new ReturnFromRepairController().Insert(returnFromRepair);
+                }
+                else
+                {
+                    MessageBox.Show("Сначала рассчитайте стоимость ремонта");
+                }
             }
         }
 

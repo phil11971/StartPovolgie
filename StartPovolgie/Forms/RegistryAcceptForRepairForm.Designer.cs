@@ -62,6 +62,7 @@
             this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
+            this.btnApply = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
@@ -71,6 +72,7 @@
             // 
             // gbFilter
             // 
+            this.gbFilter.Controls.Add(this.btnApply);
             this.gbFilter.Controls.Add(this.rbStatus);
             this.gbFilter.Controls.Add(this.rbReceiptDate);
             this.gbFilter.Controls.Add(this.label2);
@@ -153,17 +155,13 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.DisplayMember = "Принято в ремонт";
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Принято в ремонт ",
-            "Завершена"});
             this.cbStatus.Location = new System.Drawing.Point(217, 44);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(158, 21);
             this.cbStatus.TabIndex = 20;
-            this.cbStatus.ValueMember = "Принято в ремонт";
+            this.cbStatus.Tag = "";
             // 
             // gbFind
             // 
@@ -382,6 +380,16 @@
             // 
             this.registryAcceptTableAdapter.ClearBeforeFill = true;
             // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(262, 104);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(113, 23);
+            this.btnApply.TabIndex = 29;
+            this.btnApply.Text = "Применить";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
             // RegistryAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,5 +452,6 @@
         private System.Windows.Forms.RadioButton rbPhone;
         private System.Windows.Forms.MaskedTextBox mtbFind;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnApply;
     }
 }

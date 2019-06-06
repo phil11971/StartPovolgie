@@ -35,9 +35,7 @@
             this.dtpS = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.rbServiceCost = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.btnForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -51,7 +49,7 @@
             this.groupBox1.Controls.Add(this.dtpS);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 51);
+            this.groupBox1.Size = new System.Drawing.Size(374, 51);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
@@ -91,12 +89,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.radioButton7);
             this.groupBox2.Controls.Add(this.rbServiceCost);
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Location = new System.Drawing.Point(13, 70);
+            this.groupBox2.Location = new System.Drawing.Point(12, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 118);
+            this.groupBox2.Size = new System.Drawing.Size(274, 72);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выберите отчет";
@@ -104,7 +100,7 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(7, 65);
+            this.radioButton6.Location = new System.Drawing.Point(7, 42);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(232, 17);
             this.radioButton6.TabIndex = 10;
@@ -112,42 +108,20 @@
             this.radioButton6.Text = "объем выполненных работ по типу услуг";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(6, 88);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(231, 17);
-            this.radioButton7.TabIndex = 11;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "объем выполненных работ по мастерам";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
             // rbServiceCost
             // 
             this.rbServiceCost.AutoSize = true;
-            this.rbServiceCost.Location = new System.Drawing.Point(7, 42);
+            this.rbServiceCost.Location = new System.Drawing.Point(7, 19);
             this.rbServiceCost.Name = "rbServiceCost";
-            this.rbServiceCost.Size = new System.Drawing.Size(236, 17);
+            this.rbServiceCost.Size = new System.Drawing.Size(266, 17);
             this.rbServiceCost.TabIndex = 9;
             this.rbServiceCost.TabStop = true;
-            this.rbServiceCost.Text = "количество оставленных товаров по типу";
+            this.rbServiceCost.Text = "количество оставленных товаров по типу услуг";
             this.rbServiceCost.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(7, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(196, 17);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "количество оставленных товаров";
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // btnForm
             // 
-            this.btnForm.Location = new System.Drawing.Point(276, 135);
+            this.btnForm.Location = new System.Drawing.Point(292, 89);
             this.btnForm.Name = "btnForm";
             this.btnForm.Size = new System.Drawing.Size(95, 53);
             this.btnForm.TabIndex = 12;
@@ -159,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 195);
+            this.ClientSize = new System.Drawing.Size(392, 152);
             this.Controls.Add(this.btnForm);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -186,8 +160,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton rbServiceCost;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.Button btnForm;
     }
 }

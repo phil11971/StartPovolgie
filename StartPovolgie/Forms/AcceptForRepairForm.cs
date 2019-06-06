@@ -178,7 +178,7 @@ namespace StartPovolgie.Forms
                     }
                     if (dgvClient.CurrentRow == null)
                     {
-                        MessageBox.Show("Введите данные о клиенте", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Введите данные о клиенте", "Ошибка добваления", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace StartPovolgie.Forms
 {
@@ -22,6 +23,18 @@ namespace StartPovolgie.Forms
         {
             InitializeComponent();
             this.employee = employee;
+            if (employee.Job.Equals("Администратор"))
+            {
+                btnAccept.Visible = true;
+                btnDetail.Visible = false;
+                btnDel.Visible = false;
+            }
+            else
+            {
+                btnAccept.Visible = false;
+                btnDetail.Visible = true;
+                btnDel.Visible = true;
+            }
         }
 
         public RegistryAcceptForRepairForm()
@@ -35,6 +48,9 @@ namespace StartPovolgie.Forms
         private void RegistryAcceptForRepairForm_Load(object sender, EventArgs e)
         {
             registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
+            cbStatus.Items.Add("Принято в ремонт");
+            cbStatus.Items.Add("Завершена");
+            cbStatus.Text = "Принято в ремонт";
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -81,17 +97,37 @@ namespace StartPovolgie.Forms
         {
             if (rbLastName.Checked)
             {
-                registryAcceptBindingSource.Filter = String.Format("clientFullName LIKE \'{0}%\'", mtbFind.Text.Trim());
+                string sql = string.Format("SELECT * FROM RegistryAccept WHERE clientFullName LIKE \'{0}%\'", mtbFind.Text.Trim());
+
+                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    spDataSet.RegistryAccept.Clear();
+                    dataAdapter.Fill(spDataSet.RegistryAccept);
+                }
+
+                dgvAccept.DataSource = spDataSet.RegistryAccept;
             }
             else
             {
-                registryAcceptBindingSource.Filter = String.Format("phone=\'{0}\'", mtbFind.Text.Trim());
+                string sql = string.Format("SELECT * FROM RegistryAccept WHERE phone=\'{0}\'", mtbFind.Text.Trim());
+
+                using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    spDataSet.RegistryAccept.Clear();
+                    dataAdapter.Fill(spDataSet.RegistryAccept);
+                }
+
+                dgvAccept.DataSource = spDataSet.RegistryAccept;
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            registryAcceptBindingSource.Filter = "";
+            registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
         }
 
         private void rbReceiptDate_CheckedChanged(object sender, EventArgs e)
@@ -102,16 +138,70 @@ namespace StartPovolgie.Forms
                 string dateS = date[1] + "-" + date[0] + "-" + date[2];
                 date = dtpPo.Text.Split('-');
                 string datePo = date[1] + "-" + date[0] + "-" + date[2];
-                string filter = String.Format("receipt_date >= '{0}' AND receipt_date<='{1}'", dateS, datePo);
+                string filter = String.Format("receipt_date >= '{0}' AND receipt_date <= '{1}'", dateS, datePo);
                 var table = registryAcceptTableAdapter.GetData();
                 DataRow[] dataRows = table.Select(filter);
                 dgvAccept.DataSource = dataRows;
             }*/
+
+            
+
         }
 
         private void rbStatus_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            if (rbReceiptDate.Checked)
+            {
+                if (dtpPo.Value.Date >= dtpS.Value.Date)
+                {
+                    DateTime dateS = dtpS.Value.Date;
+                    DateTime datePo = dtpPo.Value.Date;
+                    string strDateS = dateS.Year + "-" + dateS.Month + "-" + dateS.Day;
+                    string strDatePo = datePo.Year + "-" + datePo.Month + "-" + datePo.Day;
+                    string sql = string.Format("SELECT * FROM RegistryAccept WHERE receipt_date BETWEEN '{0}' AND '{1}'", strDateS, strDatePo);
+
+                    using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                    {
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                        spDataSet.RegistryAccept.Clear();
+                        dataAdapter.Fill(spDataSet.RegistryAccept);
+                    }
+
+                    dgvAccept.DataSource = spDataSet.RegistryAccept;
+                }
+                else
+                {
+                    MessageBox.Show("Даты введены неверно");
+                }
+            }
+            else if (rbStatus.Checked)
+            {
+                if (cbStatus.Text.Equals("Принято в ремонт"))
+                {
+                    registryAcceptTableAdapter.Fill(spDataSet.RegistryAccept);
+                    dgvAccept.DataSource = spDataSet.RegistryAccept;
+                }
+                else
+                {
+                    string sql = "SELECT * FROM RegistryAccept WHERE issue_date IS NOT NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, ConnectionDB.Connect()))
+                    {
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                        spDataSet.RegistryAccept.Clear();
+                        dataAdapter.Fill(spDataSet.RegistryAccept);
+                    }
+
+                    dgvAccept.DataSource = spDataSet.RegistryAccept;
+                }
+            }
         }
     }
 }
