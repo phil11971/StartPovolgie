@@ -48,11 +48,6 @@ namespace StartPovolgie.Forms
             new SpecializationForm().ShowDialog();
         }
 
-        private void состояниеНеисправностиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FaultStatusForm().ShowDialog();
-        }
-
         private void товарыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new GoodForm().ShowDialog();

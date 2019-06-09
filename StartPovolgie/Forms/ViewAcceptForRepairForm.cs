@@ -610,6 +610,7 @@ namespace StartPovolgie.Forms
         private void btnDelFault_Click(object sender, EventArgs e)
         {
             new FaultController().DeleteById(Convert.ToInt32(dgvFault.CurrentRow.Cells[0].Value));
+            faultTableAdapter.Fill(spDataSet.Fault);
         }
     }
 }

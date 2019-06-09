@@ -41,7 +41,6 @@
             this.товарыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.специализацииМастеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.офисныеТелефоныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.состояниеНеисправностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новаяЗаявкаНаРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.реестрПриемовВРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,8 +84,7 @@
             this.сотрудникиToolStripMenuItem,
             this.товарыToolStripMenuItem,
             this.специализацииМастеровToolStripMenuItem,
-            this.офисныеТелефоныToolStripMenuItem,
-            this.состояниеНеисправностиToolStripMenuItem});
+            this.офисныеТелефоныToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -94,7 +92,7 @@
             // типыТоваровToolStripMenuItem
             // 
             this.типыТоваровToolStripMenuItem.Name = "типыТоваровToolStripMenuItem";
-            this.типыТоваровToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.типыТоваровToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.типыТоваровToolStripMenuItem.Text = "Типы товаров";
             this.типыТоваровToolStripMenuItem.Click += new System.EventHandler(this.типыТоваровToolStripMenuItem_Click);
             // 
@@ -104,7 +102,7 @@
             this.работыУслугиToolStripMenuItem,
             this.запчастиToolStripMenuItem});
             this.прайслистыToolStripMenuItem.Name = "прайслистыToolStripMenuItem";
-            this.прайслистыToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.прайслистыToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.прайслистыToolStripMenuItem.Text = "Прайс-листы";
             // 
             // работыУслугиToolStripMenuItem
@@ -124,7 +122,7 @@
             // клиентыToolStripMenuItem
             // 
             this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
-            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
             this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
@@ -134,7 +132,7 @@
             this.мастерыToolStripMenuItem,
             this.администраторыToolStripMenuItem});
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
-            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
             // 
             // мастерыToolStripMenuItem
@@ -154,30 +152,23 @@
             // товарыToolStripMenuItem
             // 
             this.товарыToolStripMenuItem.Name = "товарыToolStripMenuItem";
-            this.товарыToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.товарыToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.товарыToolStripMenuItem.Text = "Товары";
             this.товарыToolStripMenuItem.Click += new System.EventHandler(this.товарыToolStripMenuItem_Click);
             // 
             // специализацииМастеровToolStripMenuItem
             // 
             this.специализацииМастеровToolStripMenuItem.Name = "специализацииМастеровToolStripMenuItem";
-            this.специализацииМастеровToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.специализацииМастеровToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.специализацииМастеровToolStripMenuItem.Text = "Специализации мастеров";
             this.специализацииМастеровToolStripMenuItem.Click += new System.EventHandler(this.специализацииМастеровToolStripMenuItem_Click);
             // 
             // офисныеТелефоныToolStripMenuItem
             // 
             this.офисныеТелефоныToolStripMenuItem.Name = "офисныеТелефоныToolStripMenuItem";
-            this.офисныеТелефоныToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.офисныеТелефоныToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.офисныеТелефоныToolStripMenuItem.Text = "Офисные телефоны";
             this.офисныеТелефоныToolStripMenuItem.Click += new System.EventHandler(this.офисныеТелефоныToolStripMenuItem_Click);
-            // 
-            // состояниеНеисправностиToolStripMenuItem
-            // 
-            this.состояниеНеисправностиToolStripMenuItem.Name = "состояниеНеисправностиToolStripMenuItem";
-            this.состояниеНеисправностиToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.состояниеНеисправностиToolStripMenuItem.Text = "Состояние неисправности";
-            this.состояниеНеисправностиToolStripMenuItem.Click += new System.EventHandler(this.состояниеНеисправностиToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -347,7 +338,6 @@
         private System.Windows.Forms.ToolStripMenuItem мастерыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem администраторыToolStripMenuItem;
         private System.Windows.Forms.LinkLabel lblEmp;
-        private System.Windows.Forms.ToolStripMenuItem состояниеНеисправностиToolStripMenuItem;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.ToolStripMenuItem реестрПриемовВРемонтToolStripMenuItem;
         private System.Windows.Forms.Button btnRepair;

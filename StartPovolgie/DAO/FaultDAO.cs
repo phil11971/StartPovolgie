@@ -24,11 +24,10 @@ namespace StartPovolgie.DAO
 
                     table.Columns.Add("desc_fault", typeof(string));
                     table.Columns.Add("id_accept", typeof(int));
-                    table.Columns.Add("id_fs", typeof(int));
 
                     foreach (var fault in faults)
                     {
-                        table.Rows.Add(fault.Desc, idAccept, fault.IdFaultStatus);
+                        table.Rows.Add(fault.Desc, idAccept);
                     }
 
                     string sqlExpression = "sp_InsertFaults";

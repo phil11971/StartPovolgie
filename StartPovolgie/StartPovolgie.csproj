@@ -93,7 +93,6 @@
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\FaultController.cs" />
     <Compile Include="Controller\FaultSparePartController.cs" />
-    <Compile Include="Controller\FaultStatusController.cs" />
     <Compile Include="Controller\MasterController.cs" />
     <Compile Include="Controller\MasterSpecializationController.cs" />
     <Compile Include="Controller\OfficePhoneController.cs" />
@@ -110,7 +109,6 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\FaultDAO.cs" />
     <Compile Include="DAO\FaultSparePartDAO.cs" />
-    <Compile Include="DAO\FaultStatusDAO.cs" />
     <Compile Include="DAO\MasterDAO.cs" />
     <Compile Include="DAO\MasterSpecializationDAO.cs" />
     <Compile Include="DAO\OfficePhoneDAO.cs" />
@@ -166,12 +164,6 @@
     </Compile>
     <Compile Include="Forms\AddSpecializationForm.Designer.cs">
       <DependentUpon>AddSpecializationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddFaultStatusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddFaultStatusForm.Designer.cs">
-      <DependentUpon>AddFaultStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddTypeGoodForm.cs">
       <SubType>Form</SubType>
@@ -281,12 +273,6 @@
     <Compile Include="Forms\SpecializationForm.Designer.cs">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FaultStatusForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FaultStatusForm.Designer.cs">
-      <DependentUpon>FaultStatusForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\TypeGoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,7 +292,6 @@
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Fault.cs" />
     <Compile Include="Model\FaultSparePart.cs" />
-    <Compile Include="Model\FaultStatus.cs" />
     <Compile Include="Model\Master.cs" />
     <Compile Include="Model\OfficePhone.cs" />
     <Compile Include="Model\ReturnFromRepair.cs" />
@@ -358,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSpecializationForm.resx">
       <DependentUpon>AddSpecializationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddFaultStatusForm.resx">
-      <DependentUpon>AddFaultStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTypeGoodForm.resx">
       <DependentUpon>AddTypeGoodForm.cs</DependentUpon>
@@ -415,9 +397,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SpecializationForm.resx">
       <DependentUpon>SpecializationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FaultStatusForm.resx">
-      <DependentUpon>FaultStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeGoodForm.resx">
       <DependentUpon>TypeGoodForm.cs</DependentUpon>

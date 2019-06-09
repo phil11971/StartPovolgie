@@ -87,12 +87,11 @@ namespace StartPovolgie.DAO
 
                     table.Columns.Add("desc_fault", typeof(string));
                     table.Columns.Add("id_accept", typeof(int));
-                    table.Columns.Add("id_fs", typeof(int));
 
 
                     foreach (var fault in acceptForRepair.Faults)
                     {
-                        table.Rows.Add(fault.Desc, idAccept, fault.IdFaultStatus);
+                        table.Rows.Add(fault.Desc, idAccept);
                     }
 
                     sqlExpression = "sp_InsertFaults";
