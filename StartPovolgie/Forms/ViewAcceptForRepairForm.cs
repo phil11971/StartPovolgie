@@ -27,6 +27,18 @@ namespace StartPovolgie.Forms
             InitializeComponent();
             this.acceptForRepair = acceptForRepair;
             this.employee = employee;
+            if (employee.Job.Equals("Администратор"))
+            {
+                btnAddFault.Enabled = false;
+                btnDelFault.Enabled = false;
+                btnExec.Enabled = false;
+            }
+            else
+            {
+                btnAddFault.Enabled = true;
+                btnDelFault.Enabled = true;
+                btnExec.Enabled = true;
+            }
         }
 
         private void ViewAcceptForRepairForm_Load(object sender, EventArgs e)
@@ -65,12 +77,16 @@ namespace StartPovolgie.Forms
             {
                 btnAddFault.Enabled = false;
                 btnDelFault.Enabled = false;
+                btnAddSparePartForCurrFault.Enabled = false;
+                btnDelSparePartForCurrFault.Enabled = false;
                 btnExec.Enabled = false;
             }
             else
             {
                 btnAddFault.Enabled = true;
                 btnDelFault.Enabled = true;
+                btnAddSparePartForCurrFault.Enabled = true;
+                btnDelSparePartForCurrFault.Enabled = true;
                 btnExec.Enabled = true;
             }
         }
@@ -589,6 +605,11 @@ namespace StartPovolgie.Forms
             var addFaultForm = new AddFaultForm(Convert.ToInt32(tbIdAccept.Text.ToString()));
             addFaultForm.Closed += Apda_RecFormed;
             addFaultForm.ShowDialog();
+        }
+
+        private void btnDelFault_Click(object sender, EventArgs e)
+        {
+            new FaultController().DeleteById(Convert.ToInt32(dgvFault.CurrentRow.Cells[0].Value));
         }
     }
 }

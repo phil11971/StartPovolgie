@@ -57,9 +57,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvFault = new System.Windows.Forms.DataGridView();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faultStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.faultStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +77,7 @@
             this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
-            this.faultStatusTableAdapter = new StartPovolgie.SPDataSetTableAdapters.FaultStatusTableAdapter();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
@@ -89,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.goodBindingSource)).BeginInit();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
@@ -365,8 +361,7 @@
             this.dgvFault.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFault.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFault.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvtbcDescFault,
-            this.faultStatus});
+            this.dgvtbcDescFault});
             this.dgvFault.EnableHeadersVisualStyles = false;
             this.dgvFault.Location = new System.Drawing.Point(327, 181);
             this.dgvFault.Name = "dgvFault";
@@ -374,24 +369,6 @@
             this.dgvFault.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFault.Size = new System.Drawing.Size(339, 129);
             this.dgvFault.TabIndex = 4;
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
-            // 
-            // faultStatus
-            // 
-            this.faultStatus.DataSource = this.faultStatusBindingSource;
-            this.faultStatus.DisplayMember = "name_fs";
-            this.faultStatus.HeaderText = "Состояние";
-            this.faultStatus.Name = "faultStatus";
-            this.faultStatus.ValueMember = "id_fs";
-            // 
-            // faultStatusBindingSource
-            // 
-            this.faultStatusBindingSource.DataMember = "FaultStatus";
-            this.faultStatusBindingSource.DataSource = this.spDataSet;
             // 
             // tabPage2
             // 
@@ -564,9 +541,10 @@
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
             // 
-            // faultStatusTableAdapter
+            // dgvtbcDescFault
             // 
-            this.faultStatusTableAdapter.ClearBeforeFill = true;
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
             // 
             // AcceptForRepairForm
             // 
@@ -595,7 +573,6 @@
             this.gbFind.ResumeLayout(false);
             this.gbFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFault)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faultStatusBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
@@ -656,9 +633,6 @@
         private SPDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
         private System.Windows.Forms.Button btnCancelGood;
         private System.Windows.Forms.Button btnCancelClient;
-        private SPDataSetTableAdapters.FaultStatusTableAdapter faultStatusTableAdapter;
-        private System.Windows.Forms.BindingSource faultStatusBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvtbcDescFault;
-        private System.Windows.Forms.DataGridViewComboBoxColumn faultStatus;
     }
 }

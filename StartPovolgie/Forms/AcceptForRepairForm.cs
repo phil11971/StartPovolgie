@@ -36,7 +36,6 @@ namespace StartPovolgie.Forms
             typeGoodTableAdapter.Fill(spDataSet.TypeGood);
             clientTableAdapter.Fill(spDataSet.Client);
             goodTableAdapter.Fill(spDataSet.Good);
-            faultStatusTableAdapter.Fill(spDataSet.FaultStatus);
             idclientDataGridViewTextBoxColumn.Visible = false;
         }
 

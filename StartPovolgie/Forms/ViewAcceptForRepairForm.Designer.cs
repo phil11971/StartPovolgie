@@ -68,6 +68,8 @@
             this.tbMail = new System.Windows.Forms.TextBox();
             this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDelFault = new System.Windows.Forms.Button();
+            this.btnAddFault = new System.Windows.Forms.Button();
             this.dgvSparePart = new System.Windows.Forms.DataGridView();
             this.idfaultDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idspDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,12 +80,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faultSparePartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvFault = new System.Windows.Forms.DataGridView();
-            this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costeliminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmasterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idfsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelSparePartForCurrFault = new System.Windows.Forms.Button();
             this.btnAddSparePartForCurrFault = new System.Windows.Forms.Button();
@@ -110,8 +106,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnExec = new System.Windows.Forms.Button();
             this.returnFromRepairTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ReturnFromRepairTableAdapter();
-            this.btnAddFault = new System.Windows.Forms.Button();
-            this.btnDelFault = new System.Windows.Forms.Button();
+            this.idfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descfaultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costeliminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idacceptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbPrint.SuspendLayout();
@@ -497,6 +495,26 @@
             this.tabPage3.Text = "Используемые запчасти";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnDelFault
+            // 
+            this.btnDelFault.Location = new System.Drawing.Point(153, 4);
+            this.btnDelFault.Name = "btnDelFault";
+            this.btnDelFault.Size = new System.Drawing.Size(145, 23);
+            this.btnDelFault.TabIndex = 17;
+            this.btnDelFault.Text = "Удалить неисправность";
+            this.btnDelFault.UseVisualStyleBackColor = true;
+            this.btnDelFault.Click += new System.EventHandler(this.btnDelFault_Click);
+            // 
+            // btnAddFault
+            // 
+            this.btnAddFault.Location = new System.Drawing.Point(6, 4);
+            this.btnAddFault.Name = "btnAddFault";
+            this.btnAddFault.Size = new System.Drawing.Size(145, 23);
+            this.btnAddFault.TabIndex = 16;
+            this.btnAddFault.Text = "Добавить неисправность";
+            this.btnAddFault.UseVisualStyleBackColor = true;
+            this.btnAddFault.Click += new System.EventHandler(this.btnAddFault_Click);
+            // 
             // dgvSparePart
             // 
             this.dgvSparePart.AutoGenerateColumns = false;
@@ -580,9 +598,7 @@
             this.idfaultDataGridViewTextBoxColumn,
             this.descfaultDataGridViewTextBoxColumn,
             this.costeliminationDataGridViewTextBoxColumn,
-            this.idacceptDataGridViewTextBoxColumn,
-            this.idmasterDataGridViewTextBoxColumn,
-            this.idfsDataGridViewTextBoxColumn});
+            this.idacceptDataGridViewTextBoxColumn});
             this.dgvFault.DataSource = this.faultBindingSource;
             this.dgvFault.EnableHeadersVisualStyles = false;
             this.dgvFault.Location = new System.Drawing.Point(6, 33);
@@ -593,47 +609,6 @@
             this.dgvFault.Size = new System.Drawing.Size(339, 171);
             this.dgvFault.TabIndex = 14;
             this.dgvFault.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFault_CellClick);
-            // 
-            // idfaultDataGridViewTextBoxColumn
-            // 
-            this.idfaultDataGridViewTextBoxColumn.DataPropertyName = "id_fault";
-            this.idfaultDataGridViewTextBoxColumn.HeaderText = "id_fault";
-            this.idfaultDataGridViewTextBoxColumn.Name = "idfaultDataGridViewTextBoxColumn";
-            this.idfaultDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idfaultDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // descfaultDataGridViewTextBoxColumn
-            // 
-            this.descfaultDataGridViewTextBoxColumn.DataPropertyName = "desc_fault";
-            this.descfaultDataGridViewTextBoxColumn.HeaderText = "Описание неисправности";
-            this.descfaultDataGridViewTextBoxColumn.Name = "descfaultDataGridViewTextBoxColumn";
-            // 
-            // costeliminationDataGridViewTextBoxColumn
-            // 
-            this.costeliminationDataGridViewTextBoxColumn.DataPropertyName = "cost_elimination";
-            this.costeliminationDataGridViewTextBoxColumn.HeaderText = "Стоимость устранения";
-            this.costeliminationDataGridViewTextBoxColumn.Name = "costeliminationDataGridViewTextBoxColumn";
-            // 
-            // idacceptDataGridViewTextBoxColumn
-            // 
-            this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.HeaderText = "id_accept";
-            this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
-            this.idacceptDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idmasterDataGridViewTextBoxColumn
-            // 
-            this.idmasterDataGridViewTextBoxColumn.DataPropertyName = "id_master";
-            this.idmasterDataGridViewTextBoxColumn.HeaderText = "id_master";
-            this.idmasterDataGridViewTextBoxColumn.Name = "idmasterDataGridViewTextBoxColumn";
-            this.idmasterDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idfsDataGridViewTextBoxColumn
-            // 
-            this.idfsDataGridViewTextBoxColumn.DataPropertyName = "id_fs";
-            this.idfsDataGridViewTextBoxColumn.HeaderText = "id_fs";
-            this.idfsDataGridViewTextBoxColumn.Name = "idfsDataGridViewTextBoxColumn";
-            this.idfsDataGridViewTextBoxColumn.Visible = false;
             // 
             // faultBindingSource
             // 
@@ -823,24 +798,32 @@
             // 
             this.returnFromRepairTableAdapter.ClearBeforeFill = true;
             // 
-            // btnAddFault
+            // idfaultDataGridViewTextBoxColumn
             // 
-            this.btnAddFault.Location = new System.Drawing.Point(6, 4);
-            this.btnAddFault.Name = "btnAddFault";
-            this.btnAddFault.Size = new System.Drawing.Size(145, 23);
-            this.btnAddFault.TabIndex = 16;
-            this.btnAddFault.Text = "Добавить неисправность";
-            this.btnAddFault.UseVisualStyleBackColor = true;
-            this.btnAddFault.Click += new System.EventHandler(this.btnAddFault_Click);
+            this.idfaultDataGridViewTextBoxColumn.DataPropertyName = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn.HeaderText = "id_fault";
+            this.idfaultDataGridViewTextBoxColumn.Name = "idfaultDataGridViewTextBoxColumn";
+            this.idfaultDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idfaultDataGridViewTextBoxColumn.Visible = false;
             // 
-            // btnDelFault
+            // descfaultDataGridViewTextBoxColumn
             // 
-            this.btnDelFault.Location = new System.Drawing.Point(153, 4);
-            this.btnDelFault.Name = "btnDelFault";
-            this.btnDelFault.Size = new System.Drawing.Size(145, 23);
-            this.btnDelFault.TabIndex = 17;
-            this.btnDelFault.Text = "Удалить неисправность";
-            this.btnDelFault.UseVisualStyleBackColor = true;
+            this.descfaultDataGridViewTextBoxColumn.DataPropertyName = "desc_fault";
+            this.descfaultDataGridViewTextBoxColumn.HeaderText = "Описание неисправности";
+            this.descfaultDataGridViewTextBoxColumn.Name = "descfaultDataGridViewTextBoxColumn";
+            // 
+            // costeliminationDataGridViewTextBoxColumn
+            // 
+            this.costeliminationDataGridViewTextBoxColumn.DataPropertyName = "cost_elimination";
+            this.costeliminationDataGridViewTextBoxColumn.HeaderText = "Стоимость устранения";
+            this.costeliminationDataGridViewTextBoxColumn.Name = "costeliminationDataGridViewTextBoxColumn";
+            // 
+            // idacceptDataGridViewTextBoxColumn
+            // 
+            this.idacceptDataGridViewTextBoxColumn.DataPropertyName = "id_accept";
+            this.idacceptDataGridViewTextBoxColumn.HeaderText = "id_accept";
+            this.idacceptDataGridViewTextBoxColumn.Name = "idacceptDataGridViewTextBoxColumn";
+            this.idacceptDataGridViewTextBoxColumn.Visible = false;
             // 
             // ViewAcceptForRepairForm
             // 
@@ -988,13 +971,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private SPDataSetTableAdapters.ReturnFromRepairTableAdapter returnFromRepairTableAdapter;
         private System.Windows.Forms.BindingSource returnFromRepairBindingSource;
+        private System.Windows.Forms.Button btnDelFault;
+        private System.Windows.Forms.Button btnAddFault;
         private System.Windows.Forms.DataGridViewTextBoxColumn idfaultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descfaultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costeliminationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idmasterDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idfsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnDelFault;
-        private System.Windows.Forms.Button btnAddFault;
     }
 }

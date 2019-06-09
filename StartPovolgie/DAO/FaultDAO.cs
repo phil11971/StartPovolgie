@@ -35,9 +35,6 @@ namespace StartPovolgie.DAO
                     SqlCommand command = new SqlCommand(sqlExpression, connection);
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command = new SqlCommand(sqlExpression, connection);
-                    command.CommandType = CommandType.StoredProcedure;
-
                     SqlParameter tmpTableParam = new SqlParameter
                     {
                         ParameterName = "@tmpTable",
