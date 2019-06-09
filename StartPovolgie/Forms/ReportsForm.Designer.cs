@@ -56,7 +56,7 @@
             // 
             // dtpPo
             // 
-            this.dtpPo.Location = new System.Drawing.Point(209, 22);
+            this.dtpPo.Location = new System.Drawing.Point(209, 18);
             this.dtpPo.Name = "dtpPo";
             this.dtpPo.Size = new System.Drawing.Size(124, 20);
             this.dtpPo.TabIndex = 4;

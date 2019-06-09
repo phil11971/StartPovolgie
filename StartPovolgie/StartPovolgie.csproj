@@ -191,6 +191,12 @@
     <Compile Include="Forms\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddFaultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddFaultForm.Designer.cs">
+      <DependentUpon>AddFaultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InfoUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddFaultForm.resx">
+      <DependentUpon>AddFaultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InfoUserForm.resx">
       <DependentUpon>InfoUserForm.cs</DependentUpon>

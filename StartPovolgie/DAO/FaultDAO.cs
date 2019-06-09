@@ -11,10 +11,51 @@ namespace StartPovolgie.DAO
 {
     public class FaultDAO
     {
-        //todo
-        public bool Insert(Fault fault)
+
+        public bool Insert(LinkedList<Fault> faults, int idAccept)
         {
-            return true;
+            try
+            {
+
+                using (SqlConnection connection = ConnectionDB.Connect())
+                {
+
+                    DataTable table = new DataTable();
+
+                    table.Columns.Add("desc_fault", typeof(string));
+                    table.Columns.Add("id_accept", typeof(int));
+                    table.Columns.Add("id_fs", typeof(int));
+
+                    foreach (var fault in faults)
+                    {
+                        table.Rows.Add(fault.Desc, idAccept, fault.IdFaultStatus);
+                    }
+
+                    string sqlExpression = "sp_InsertFaults";
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command = new SqlCommand(sqlExpression, connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tmpTableParam = new SqlParameter
+                    {
+                        ParameterName = "@tmpTable",
+                        SqlDbType = SqlDbType.Structured,
+                        TypeName = "FaultTableType",
+                        Value = table,
+                    };
+                    command.Parameters.Add(tmpTableParam);
+
+                    command.ExecuteNonQuery();
+
+                }
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
         }
 
         public bool Update(List<Fault> faults)

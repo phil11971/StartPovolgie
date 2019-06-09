@@ -23,18 +23,6 @@ namespace StartPovolgie.Forms
         {
             InitializeComponent();
             this.employee = employee;
-            if (employee.Job.Equals("Администратор"))
-            {
-                btnAccept.Visible = true;
-                btnDetail.Visible = false;
-                btnDel.Visible = false;
-            }
-            else
-            {
-                btnAccept.Visible = false;
-                btnDetail.Visible = true;
-                btnDel.Visible = true;
-            }
         }
 
         public RegistryAcceptForRepairForm()
@@ -70,7 +58,7 @@ namespace StartPovolgie.Forms
         {
             AcceptForRepair acceptForRepair = new AcceptForRepair((int)dgvAccept.CurrentRow.Cells[0].Value,
                 (int)dgvAccept.CurrentRow.Cells[5].Value, (int)dgvAccept.CurrentRow.Cells[3].Value, (int)dgvAccept.CurrentRow.Cells[7].Value);
-            var viewAcceptForRepairForm = new ViewAcceptForRepairForm(acceptForRepair);
+            var viewAcceptForRepairForm = new ViewAcceptForRepairForm(acceptForRepair, employee);
             viewAcceptForRepairForm.Closing += AddTypeOfDevicesForm_Closing;
             viewAcceptForRepairForm.ShowDialog();
         }

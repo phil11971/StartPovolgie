@@ -10,9 +10,9 @@ namespace StartPovolgie.Controller
 {
     public class FaultController
     {
-        public bool Insert(Fault fault)
+        public bool Insert(LinkedList<Fault> faults, int idAccept)
         {
-            if (new FaultDAO().Insert(fault)) return true;
+            if (new FaultDAO().Insert(faults, idAccept)) return true;
             else return false;
         }
 

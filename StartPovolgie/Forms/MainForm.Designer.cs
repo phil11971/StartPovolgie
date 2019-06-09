@@ -312,7 +312,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Серивис-центр \"Старт-Поволжье\"";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();

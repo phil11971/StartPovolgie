@@ -15,8 +15,6 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                if (!HasSameType(client, false))
-                {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
                     string sql = "Insert into Client (lname, fname, patronymic, phone, mail, address) values (@lname, @fname, @patronymic, @phone, @mail, @address)";
 
@@ -68,9 +66,6 @@ namespace StartPovolgie.DAO
                     }
                     ConnectionDB.Disconnect(sqlConnection);
                     return true;
-                }
-                else
-                    return false;
             }
             catch (SqlException ex)
             {
@@ -82,7 +77,7 @@ namespace StartPovolgie.DAO
         {
             try
             {
-                if (HasSameType(client, true))
+                if (HasSameType(client))
                 {
                     SqlConnection sqlConnection = ConnectionDB.Connect();
                     string sql = "Update Client Set lname=@lname, " +
@@ -158,14 +153,12 @@ namespace StartPovolgie.DAO
             }
         }
 
-        private bool HasSameType(Client client, bool isUpdate)
+        private bool HasSameType(Client client)
         {
             try
             {
                 SqlConnection sqlConnection = ConnectionDB.Connect();
-                string sql = string.Format("Select count(id_client) From Client Where mail='{0}'", client.Mail);
-                if (isUpdate)
-                    sql = string.Format("Select count(id_client) From Client Where id_client='{0}'", client.Id);
+                string sql = string.Format("Select count(id_client) From Client Where id_client='{0}'", client.Id);
                 SqlCommand cmd = sqlConnection.CreateCommand();
                 cmd.CommandText = sql;
                 SqlDataReader dataReader = cmd.ExecuteReader();

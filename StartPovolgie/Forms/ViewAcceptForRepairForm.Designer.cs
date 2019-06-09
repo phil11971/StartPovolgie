@@ -110,6 +110,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnExec = new System.Windows.Forms.Button();
             this.returnFromRepairTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ReturnFromRepairTableAdapter();
+            this.btnAddFault = new System.Windows.Forms.Button();
+            this.btnDelFault = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.acceptForRepairBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             this.gbPrint.SuspendLayout();
@@ -481,6 +483,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnDelFault);
+            this.tabPage3.Controls.Add(this.btnAddFault);
             this.tabPage3.Controls.Add(this.dgvSparePart);
             this.tabPage3.Controls.Add(this.dgvFault);
             this.tabPage3.Controls.Add(this.btnDelSparePartForCurrFault);
@@ -638,7 +642,7 @@
             // 
             // btnDelSparePartForCurrFault
             // 
-            this.btnDelSparePartForCurrFault.Location = new System.Drawing.Point(294, 6);
+            this.btnDelSparePartForCurrFault.Location = new System.Drawing.Point(588, 6);
             this.btnDelSparePartForCurrFault.Name = "btnDelSparePartForCurrFault";
             this.btnDelSparePartForCurrFault.Size = new System.Drawing.Size(266, 23);
             this.btnDelSparePartForCurrFault.TabIndex = 13;
@@ -648,7 +652,7 @@
             // 
             // btnAddSparePartForCurrFault
             // 
-            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(6, 6);
+            this.btnAddSparePartForCurrFault.Location = new System.Drawing.Point(304, 6);
             this.btnAddSparePartForCurrFault.Name = "btnAddSparePartForCurrFault";
             this.btnAddSparePartForCurrFault.Size = new System.Drawing.Size(278, 23);
             this.btnAddSparePartForCurrFault.TabIndex = 12;
@@ -819,6 +823,25 @@
             // 
             this.returnFromRepairTableAdapter.ClearBeforeFill = true;
             // 
+            // btnAddFault
+            // 
+            this.btnAddFault.Location = new System.Drawing.Point(6, 4);
+            this.btnAddFault.Name = "btnAddFault";
+            this.btnAddFault.Size = new System.Drawing.Size(145, 23);
+            this.btnAddFault.TabIndex = 16;
+            this.btnAddFault.Text = "Добавить неисправность";
+            this.btnAddFault.UseVisualStyleBackColor = true;
+            this.btnAddFault.Click += new System.EventHandler(this.btnAddFault_Click);
+            // 
+            // btnDelFault
+            // 
+            this.btnDelFault.Location = new System.Drawing.Point(153, 4);
+            this.btnDelFault.Name = "btnDelFault";
+            this.btnDelFault.Size = new System.Drawing.Size(145, 23);
+            this.btnDelFault.TabIndex = 17;
+            this.btnDelFault.Text = "Удалить неисправность";
+            this.btnDelFault.UseVisualStyleBackColor = true;
+            // 
             // ViewAcceptForRepairForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -971,5 +994,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idacceptDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idmasterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idfsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnDelFault;
+        private System.Windows.Forms.Button btnAddFault;
     }
 }

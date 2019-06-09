@@ -19,12 +19,14 @@ namespace StartPovolgie.Forms
 {
     public partial class ViewAcceptForRepairForm : Form
     {
+        public Employee employee { get; private set; }
         AcceptForRepair acceptForRepair;
 
-        public ViewAcceptForRepairForm(AcceptForRepair acceptForRepair)
+        public ViewAcceptForRepairForm(AcceptForRepair acceptForRepair, Employee employee)
         {
             InitializeComponent();
             this.acceptForRepair = acceptForRepair;
+            this.employee = employee;
         }
 
         private void ViewAcceptForRepairForm_Load(object sender, EventArgs e)
@@ -58,6 +60,19 @@ namespace StartPovolgie.Forms
             {
                 tbAmountSpareParts.Text = (Convert.ToSingle(tbTotal.Text.ToString()) - Convert.ToSingle(tbAmountRepair.Text.ToString())).ToString();
             }
+
+            if (employee.Job.Equals("Администратор"))
+            {
+                btnAddFault.Enabled = false;
+                btnDelFault.Enabled = false;
+                btnExec.Enabled = false;
+            }
+            else
+            {
+                btnAddFault.Enabled = true;
+                btnDelFault.Enabled = true;
+                btnExec.Enabled = true;
+            }
         }
 
         private void dgvFault_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -77,6 +92,7 @@ namespace StartPovolgie.Forms
 
         private void Apda_RecFormed(object sender, EventArgs e)
         {
+            faultTableAdapter.Fill(spDataSet.Fault);
             faultSparePartTableAdapter.Fill(spDataSet.FaultSparePart);
             faultSparePartBindingSource.Filter = String.Format("id_fault=\'{0}\'", dgvFault.CurrentRow.Cells[0].Value); ;
         }
@@ -568,5 +584,11 @@ namespace StartPovolgie.Forms
             }
         }
 
+        private void btnAddFault_Click(object sender, EventArgs e)
+        {
+            var addFaultForm = new AddFaultForm(Convert.ToInt32(tbIdAccept.Text.ToString()));
+            addFaultForm.Closed += Apda_RecFormed;
+            addFaultForm.ShowDialog();
+        }
     }
 }
