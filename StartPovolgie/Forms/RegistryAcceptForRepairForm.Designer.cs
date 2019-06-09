@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbFilter = new System.Windows.Forms.GroupBox();
+            this.btnApply = new System.Windows.Forms.Button();
             this.rbStatus = new System.Windows.Forms.RadioButton();
             this.rbReceiptDate = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.registryAcceptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spDataSet = new StartPovolgie.SPDataSet();
             this.registryAcceptTableAdapter = new StartPovolgie.SPDataSetTableAdapters.RegistryAcceptTableAdapter();
-            this.btnApply = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             this.gbFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccept)).BeginInit();
@@ -87,6 +87,16 @@
             this.gbFilter.TabIndex = 12;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Фильтрация списка";
+            // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(262, 104);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(113, 23);
+            this.btnApply.TabIndex = 29;
+            this.btnApply.Text = "Применить";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // rbStatus
             // 
@@ -263,6 +273,8 @@
             // 
             // dgvAccept
             // 
+            this.dgvAccept.AllowUserToAddRows = false;
+            this.dgvAccept.AllowUserToDeleteRows = false;
             this.dgvAccept.AutoGenerateColumns = false;
             this.dgvAccept.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -379,16 +391,6 @@
             // registryAcceptTableAdapter
             // 
             this.registryAcceptTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnApply
-            // 
-            this.btnApply.Location = new System.Drawing.Point(262, 104);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(113, 23);
-            this.btnApply.TabIndex = 29;
-            this.btnApply.Text = "Применить";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // RegistryAcceptForRepairForm
             // 

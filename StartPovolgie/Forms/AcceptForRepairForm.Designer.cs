@@ -57,6 +57,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvFault = new System.Windows.Forms.DataGridView();
+            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@
             this.goodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.GoodTableAdapter();
             this.typeGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.TypeGoodTableAdapter();
             this.clientTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ClientTableAdapter();
-            this.dgvtbcDescFault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGood)).BeginInit();
@@ -370,6 +370,11 @@
             this.dgvFault.Size = new System.Drawing.Size(339, 129);
             this.dgvFault.TabIndex = 4;
             // 
+            // dgvtbcDescFault
+            // 
+            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
+            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvClient);
@@ -540,11 +545,6 @@
             // clientTableAdapter
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
-            // 
-            // dgvtbcDescFault
-            // 
-            this.dgvtbcDescFault.HeaderText = "Описание неисправности";
-            this.dgvtbcDescFault.Name = "dgvtbcDescFault";
             // 
             // AcceptForRepairForm
             // 

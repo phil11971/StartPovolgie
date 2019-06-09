@@ -148,7 +148,6 @@ namespace StartPovolgie.Forms
 
         private void btnFindClient_Click(object sender, EventArgs e)
         {
-            //todo maskedtb
             if (rbLastName.Checked)
                 clientBindingSource.Filter = String.Format("lname=\'{0}\'", mtbFind.Text.Trim());
             else
@@ -210,14 +209,7 @@ namespace StartPovolgie.Forms
         //todo print
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PrintAcceptForRepair();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Сначала оформите приём в ремонт");
-            }
+             PrintAcceptForRepair();
         }
 
         private void PrintAcceptForRepair()
@@ -239,7 +231,7 @@ namespace StartPovolgie.Forms
                 Paragraph actNumP = new Paragraph("Акт №  " + acceptForRepair.Id, font14Bold);
                 actNumP.Alignment = Element.ALIGN_CENTER;
                 doc.Add(actNumP);
-                actNumP = new Paragraph("о приемке техники на диагностику", font14Bold);
+                actNumP = new Paragraph("о приёме техники на диагностику", font14Bold);
                 actNumP.Alignment = Element.ALIGN_CENTER;
                 doc.Add(actNumP);
                 doc.Add(new Paragraph("\n", font12));
@@ -324,49 +316,40 @@ namespace StartPovolgie.Forms
                 doc.Add(pdfTable);
 
                 doc.Add(new Paragraph("\n", font12));
-                p = new Paragraph("Заявленная неисправность:", font14Bold);
+                p = new Paragraph("Заявленные неисправности:", font14Bold);
                 p.IndentationLeft = 15f;
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
 
-                p = new Paragraph(rtbComment.Text.Trim(), font12);
-                p.IndentationLeft = 15f;
-                p.Alignment = Element.ALIGN_LEFT;
-                doc.Add(p);
                 doc.Add(new Paragraph("\n", font12));
-                pdfTable = new PdfPTable(3);
+                pdfTable = new PdfPTable(2);
 
                 pdfTable.TotalWidth = 500f;
                 pdfTable.LockedWidth = true;
-                widths = new float[] { 20f, 200f, 140f };
+                widths = new float[] { 20f, 200f};
                 pdfTable.SetWidths(widths);
 
                 cell = new PdfPCell(new Paragraph("№", font12Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Наименование неисправности", font12Bold));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Состояние", font12Bold));
+                cell = new PdfPCell(new Paragraph("Наименование", font12Bold));
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
 
-                cell = new PdfPCell(new Paragraph("1", font12));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Не заряжается", font12));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Paragraph("Диагностика", font12));
-                cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
-                cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
-                pdfTable.AddCell(cell);
-
+                int k = 1;
+                for (int i = 0; i < dgvFault.RowCount-1; i++)
+                {
+                    cell = new PdfPCell(new Paragraph(k++.ToString(), font12));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                    pdfTable.AddCell(cell);
+                    cell = new PdfPCell(new Paragraph(dgvFault.Rows[i].Cells[0].Value.ToString(), font12));
+                    cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+                    cell.HorizontalAlignment = PdfPCell.ALIGN_LEFT;
+                    pdfTable.AddCell(cell);
+                }
                 doc.Add(pdfTable);
 
                 p = new Paragraph("Диагностика проводится в течение трех полных рабочих дней. Диагностика является бесплатной при условии последующего ремонта в нашем СЦ. " +
@@ -381,22 +364,13 @@ namespace StartPovolgie.Forms
                 doc.Add(new Paragraph("\n", font12));
                 doc.Add(new Paragraph("\n", font12));
 
-                string admin = String.Format("Администратор: {0}", employee.LastName + " " + employee.FirstName + " " + employee.Patronymic);
-                p = new Paragraph(admin +"       Заказчик: ______________________", font12);
+                string admin = String.Format("Администратор: {0}", employee.LastName + " " + employee.FirstName);
+                p = new Paragraph(admin + "   ______________________", font12);
                 p.IndentationLeft = 12f;
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
 
                 doc.Add(new Paragraph("\n", font12));
-
-                p = new Paragraph("М.П.                                                                          М.П.", font12);
-                p.IndentationLeft = 120f;
-                p.Alignment = Element.ALIGN_LEFT;
-                doc.Add(p);
-
-
-                doc.Add(new Paragraph("\n\n\n", font12));
-
 
                 doc.Close();
 
@@ -407,7 +381,7 @@ namespace StartPovolgie.Forms
             }
             catch (System.IO.IOException)
             {
-                MessageBox.Show("Закройте ранее сформированный талон на приемку!", "Ошибка формирования талона приемки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Закройте ранее сформированный талон на приём!", "Ошибка формирования талона приёма", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
