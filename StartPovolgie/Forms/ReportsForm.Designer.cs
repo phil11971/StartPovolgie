@@ -34,8 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpS = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.rbServiceCost = new System.Windows.Forms.RadioButton();
+            this.rbCntGood = new System.Windows.Forms.RadioButton();
             this.btnForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,8 +88,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton6);
             this.groupBox2.Controls.Add(this.rbServiceCost);
+            this.groupBox2.Controls.Add(this.rbCntGood);
             this.groupBox2.Location = new System.Drawing.Point(12, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(274, 72);
@@ -97,27 +97,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выберите отчет";
             // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(7, 42);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(232, 17);
-            this.radioButton6.TabIndex = 10;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "объем выполненных работ по типу услуг";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
             // rbServiceCost
             // 
             this.rbServiceCost.AutoSize = true;
-            this.rbServiceCost.Location = new System.Drawing.Point(7, 19);
+            this.rbServiceCost.Location = new System.Drawing.Point(7, 42);
             this.rbServiceCost.Name = "rbServiceCost";
-            this.rbServiceCost.Size = new System.Drawing.Size(266, 17);
-            this.rbServiceCost.TabIndex = 9;
-            this.rbServiceCost.TabStop = true;
-            this.rbServiceCost.Text = "количество оставленных товаров по типу услуг";
+            this.rbServiceCost.Size = new System.Drawing.Size(232, 17);
+            this.rbServiceCost.TabIndex = 10;
+            this.rbServiceCost.Text = "объем выполненных работ по типу услуг";
             this.rbServiceCost.UseVisualStyleBackColor = true;
+            // 
+            // rbCntGood
+            // 
+            this.rbCntGood.AutoSize = true;
+            this.rbCntGood.Checked = true;
+            this.rbCntGood.Location = new System.Drawing.Point(7, 19);
+            this.rbCntGood.Name = "rbCntGood";
+            this.rbCntGood.Size = new System.Drawing.Size(266, 17);
+            this.rbCntGood.TabIndex = 9;
+            this.rbCntGood.TabStop = true;
+            this.rbCntGood.Text = "количество оставленных товаров по типу услуг";
+            this.rbCntGood.UseVisualStyleBackColor = true;
             // 
             // btnForm
             // 
@@ -158,8 +158,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpS;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton rbServiceCost;
+        private System.Windows.Forms.RadioButton rbCntGood;
         private System.Windows.Forms.Button btnForm;
     }
 }

@@ -48,11 +48,19 @@ namespace StartPovolgie.Forms
                 else
                 {
                     MessageBox.Show("За выбранный период услуги не оказывались!", "Формирование отчета", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnForm.Enabled = true;
                 }
             }
-            //ReportForm rf = new ReportForm();
-            //rf.Show();
+            else
+            {
+                if (new ReturnFromRepairController().HasServiceInPeriod(dtpS.Value, dtpPo.Value))
+                {
+                    new ReportForm("\'Количество оставленных товаров\'", dtpS.Value, dtpPo.Value).ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("За выбранный период товары не принимались!", "Формирование отчета", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

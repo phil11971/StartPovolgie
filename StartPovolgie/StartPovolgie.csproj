@@ -87,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AcceptForRepairController.cs" />
-    <Compile Include="Controller\AdministratorController.cs" />
     <Compile Include="Controller\ClientController.cs" />
     <Compile Include="Controller\GoodController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Controller\SpecializationController.cs" />
     <Compile Include="Controller\TypeGoodController.cs" />
     <Compile Include="DAO\AcceptForRepairDAO.cs" />
-    <Compile Include="DAO\AdministratorDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\GoodDAO.cs" />
     <Compile Include="DAO\ConnectionDB.cs" />
@@ -249,6 +247,12 @@
     <Compile Include="Forms\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\servc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>servc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\SparePartsForFaultForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +389,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\servc.resx">
+      <DependentUpon>servc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\servc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>servc.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SparePartsForFaultForm.resx">
       <DependentUpon>SparePartsForFaultForm.cs</DependentUpon>

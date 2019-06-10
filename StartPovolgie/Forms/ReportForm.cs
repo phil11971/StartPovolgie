@@ -45,6 +45,20 @@ namespace StartPovolgie.Forms
                         crystalReportViewer1.Refresh();
                         this.Controls.Add(crystalReportViewer1);
                         crystalReportViewer1.Dock = DockStyle.Fill;
+                        
+                        break;
+                    }
+                case "\'Количество оставленных товаров\'":
+                    {
+
+                        serviceCostTableAdapter.Fill(spDataSet.ServiceCost, dateS.ToShortDateString(), datePo.ToShortDateString());
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load(@"D:\8 семак\диплом\ВКРБ Филатова\Программа\StartPovolgie\StartPovolgie\Forms\servc.rpt");
+                        doc.SetDataSource(spDataSet);
+                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.Refresh();
+                        this.Controls.Add(crystalReportViewer1);
+                        crystalReportViewer1.Dock = DockStyle.Fill;
                         /*ReportDataSource reportDataSource = new ReportDataSource();
                         reportDataSource.Name = "DataSetServiceCost";
                         reportDataSource.Value = serviceCostBindingSource;//serviceCenterDBDataSet.ServiceCosts;
@@ -64,7 +78,6 @@ namespace StartPovolgie.Forms
                         */
                         break;
                     }
-
 
             }
 

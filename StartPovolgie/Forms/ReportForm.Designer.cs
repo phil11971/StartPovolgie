@@ -62,16 +62,15 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = "D:\\8 семак\\диплом\\ВКРБ Филатова\\Программа\\StartPovolgie\\StartPovolgie\\Forms\\servc" +
     ".rpt";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 300);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(849, 534);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 300);
+            this.ClientSize = new System.Drawing.Size(849, 534);
             this.Controls.Add(this.crystalReportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "ReportForm";
             this.Text = "Отчет Типы товаров";

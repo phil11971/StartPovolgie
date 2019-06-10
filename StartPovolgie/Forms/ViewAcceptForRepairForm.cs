@@ -185,6 +185,8 @@ namespace StartPovolgie.Forms
                 {
                     ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
                     new ReturnFromRepairController().Insert(returnFromRepair);
+                    btnCalc.Enabled = false;
+                    btnExec.Enabled = false;
                 }
                 else
                 {
