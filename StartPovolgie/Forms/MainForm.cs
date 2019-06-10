@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -123,6 +124,11 @@ namespace StartPovolgie.Forms
         private void lblEmp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new InfoUserForm(employee).ShowDialog();
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"UserGuide.pdf");
         }
     }
 }

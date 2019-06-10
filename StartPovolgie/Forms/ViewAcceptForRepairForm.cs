@@ -31,13 +31,11 @@ namespace StartPovolgie.Forms
             {
                 btnAddFault.Enabled = false;
                 btnDelFault.Enabled = false;
-                btnExec.Enabled = false;
             }
             else
             {
                 btnAddFault.Enabled = true;
                 btnDelFault.Enabled = true;
-                btnExec.Enabled = true;
             }
         }
 
@@ -73,22 +71,40 @@ namespace StartPovolgie.Forms
                 tbAmountSpareParts.Text = (Convert.ToSingle(tbTotal.Text.ToString()) - Convert.ToSingle(tbAmountRepair.Text.ToString())).ToString();
             }
 
-            if (employee.Job.Equals("Администратор"))
+            
+
+            var table = returnFromRepairTableAdapter.GetData();
+            string filter = "";
+            filter += String.Format("id_return={0}", Int32.Parse(tbIdAccept.Text.ToString()));
+            DataRow[] dataRows = table.Select(filter);
+            if (dataRows.Length == 1)
             {
+                btnCalc.Enabled = false;
+                dtpIssueDate.Enabled = false;
+                rtbDescJob.Enabled = false;
                 btnAddFault.Enabled = false;
                 btnDelFault.Enabled = false;
                 btnAddSparePartForCurrFault.Enabled = false;
                 btnDelSparePartForCurrFault.Enabled = false;
-                btnExec.Enabled = false;
             }
             else
             {
-                btnAddFault.Enabled = true;
-                btnDelFault.Enabled = true;
-                btnAddSparePartForCurrFault.Enabled = true;
-                btnDelSparePartForCurrFault.Enabled = true;
-                btnExec.Enabled = true;
+                if (employee.Job.Equals("Администратор"))
+                {
+                    btnAddFault.Enabled = false;
+                    btnDelFault.Enabled = false;
+                    btnAddSparePartForCurrFault.Enabled = false;
+                    btnDelSparePartForCurrFault.Enabled = false;
+                }
+                else
+                {
+                    btnAddFault.Enabled = true;
+                    btnDelFault.Enabled = true;
+                    btnAddSparePartForCurrFault.Enabled = true;
+                    btnDelSparePartForCurrFault.Enabled = true;
+                }
             }
+
         }
 
         private void dgvFault_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,7 +137,7 @@ namespace StartPovolgie.Forms
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgvFault.Rows.Count-1; i++)
+            for (int i = 0; i < dgvFault.Rows.Count; i++)
             {
                 if (dgvFault.Rows[i].Cells[2].Value.ToString().Equals(""))
                 {
@@ -131,7 +147,7 @@ namespace StartPovolgie.Forms
             }
             float priceFaults = 0;//ст-ть ремонта
             List<Fault> faults = new List<Fault>();
-            for (int i = 0; i < dgvFault.Rows.Count-1; i++)
+            for (int i = 0; i < dgvFault.Rows.Count; i++)
             {
                 priceFaults += Convert.ToSingle(dgvFault.Rows[i].Cells[2].Value.ToString());
                 faults.Add(new Fault(Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()), Convert.ToSingle(dgvFault.Rows[i].Cells[2].Value.ToString())));
@@ -140,7 +156,7 @@ namespace StartPovolgie.Forms
 
             string filter = "";
             filter += String.Format("id_fault={0}", Int32.Parse(dgvFault.Rows[0].Cells[0].Value.ToString()));
-            for (int i = 1; i < dgvFault.Rows.Count - 1; i++)
+            for (int i = 1; i < dgvFault.Rows.Count; i++)
             {
                 filter += String.Format(" OR id_fault={0}", Int32.Parse(dgvFault.Rows[i].Cells[0].Value.ToString()));
             }
@@ -158,20 +174,21 @@ namespace StartPovolgie.Forms
 
             new FaultController().Update(faults);
 
-            btnExec.Enabled = true;
+            if(employee.Job.Equals("Мастер"))
+                btnExec.Enabled = true;
         }
 
         private void btnExec_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите завершить приём в ремонт?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) { 
-                if (!tbAmountRepair.Text.Equals("") && !tbTotal.Text.Equals(""))
+                if (!tbAmountRepair.Text.Equals("") && !tbTotal.Text.Equals("") && !rtbDescJob.Text.Equals(""))
                 {
                     ReturnFromRepair returnFromRepair = new ReturnFromRepair(Int32.Parse(tbIdAccept.Text), rtbDescJob.Text.Trim(), dtpIssueDate.Value.Date, float.Parse(tbAmountRepair.Text), float.Parse(tbTotal.Text));
                     new ReturnFromRepairController().Insert(returnFromRepair);
                 }
                 else
                 {
-                    MessageBox.Show("Сначала рассчитайте стоимость ремонта");
+                    MessageBox.Show("Рассчитайте стоимость ремонта и укажите описание работ!");
                 }
             }
         }
@@ -440,6 +457,21 @@ namespace StartPovolgie.Forms
 
                 doc.Add(new Paragraph("\n", font12));
 
+                Paragraph p = new Paragraph("Описание работ:", font12Bold);
+                p.IndentationLeft = 15f;
+                p.Alignment = Element.ALIGN_LEFT;
+                doc.Add(p);
+
+                doc.Add(new Paragraph("\n", font12));
+
+                p = new Paragraph(rtbDescJob.Text, font12);
+                p.IndentationLeft = 12f;
+                p.IndentationRight = 12f;
+                p.Alignment = Element.ALIGN_JUSTIFIED;
+                doc.Add(p);
+
+                doc.Add(new Paragraph("\n", font12));
+
                 PdfPTable pdfTable = new PdfPTable(3);
 
                 pdfTable.TotalWidth = 500f;
@@ -459,8 +491,9 @@ namespace StartPovolgie.Forms
                 cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 pdfTable.AddCell(cell);
+
                 int numAccept = 0;
-                for (int i = 0; i < dgvFault.RowCount - 1; i++)
+                for (int i = 0; i < dgvFault.RowCount; i++)
                 {
                     numAccept++;
                     pdfTable.AddCell(new Paragraph(numAccept.ToString(), font12));
@@ -470,12 +503,12 @@ namespace StartPovolgie.Forms
                 doc.Add(pdfTable);
 
                 //doc.Add(new Paragraph("\n", font12));
-                Paragraph p = new Paragraph("Итого по выполненным работам: " + tbAmountRepair.Text.Trim() + " руб. 00 коп.", font12Bold);
+                p = new Paragraph("Итого по выполненным работам: " + tbAmountRepair.Text.Trim() + " руб. 00 коп.", font12Bold);
                 p.IndentationLeft = 15f;
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
 
-                if (dgvSparePart.Rows.Count != 1)
+                if (dgvSparePart.Rows.Count != 0)
                 {
                     doc.Add(new Paragraph("\n", font12));
                     pdfTable = new PdfPTable(5);
@@ -489,7 +522,7 @@ namespace StartPovolgie.Forms
                     cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                     cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                     pdfTable.AddCell(cell);
-                    cell = new PdfPCell(new Paragraph("Наименование запчасти/расх.материала", font12Bold));
+                    cell = new PdfPCell(new Paragraph("Наименование запчасти", font12Bold));
                     cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
                     cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                     pdfTable.AddCell(cell);
@@ -506,7 +539,7 @@ namespace StartPovolgie.Forms
                     cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                     pdfTable.AddCell(cell);
                     numAccept = 0;
-                    for (int i = 0; i < dgvSparePart.RowCount - 1; i++)
+                    for (int i = 0; i < dgvSparePart.RowCount; i++)
                     {
                         numAccept++;
                         pdfTable.AddCell(new Paragraph(numAccept.ToString(), font12));
@@ -518,7 +551,7 @@ namespace StartPovolgie.Forms
                     doc.Add(pdfTable);
 
                     //doc.Add(new Paragraph("\n", font12));
-                    p = new Paragraph("Итого по используемым запчастям/расх.материалам: " + tbAmountSpareParts.Text.Trim() + " руб. 00 коп.", font12Bold);
+                    p = new Paragraph("Итого по используемым запчастям: " + tbAmountSpareParts.Text.Trim() + " руб. 00 коп.", font12Bold);
                     p.IndentationLeft = 15f;
                     p.Alignment = Element.ALIGN_LEFT;
                     doc.Add(p);
@@ -546,21 +579,13 @@ namespace StartPovolgie.Forms
                 doc.Add(new Paragraph("\n", font12));
                 doc.Add(new Paragraph("\n", font12));
 
-                p = new Paragraph("Исполнитель: СЦ Старт-Поволжье ______________       Заказчик: ______________________", font12);
+                string admin = String.Format("Администратор: {0}", employee.LastName + " " + employee.FirstName);
+                p = new Paragraph(admin + "   ______________________", font12);
                 p.IndentationLeft = 12f;
                 p.Alignment = Element.ALIGN_LEFT;
                 doc.Add(p);
 
                 doc.Add(new Paragraph("\n", font12));
-
-                p = new Paragraph("М.П.                                                                          М.П.", font12);
-                p.IndentationLeft = 120f;
-                p.Alignment = Element.ALIGN_LEFT;
-                doc.Add(p);
-
-
-                doc.Add(new Paragraph("\n\n\n", font12));
-
 
                 doc.Close();
 
