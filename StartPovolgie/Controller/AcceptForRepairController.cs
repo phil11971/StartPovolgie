@@ -26,5 +26,13 @@ namespace StartPovolgie.Controller
         {
             new AcceptForRepairDAO().DeleteById(id);
         }
+
+        public bool HasGoodInPeriod(DateTime dateS, DateTime datePo)
+        {
+            if (new AcceptForRepairDAO().HasGoodInPeriod(dateS, datePo))
+                return true;
+            else
+                return false;
+        }
     }
 }

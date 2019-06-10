@@ -33,9 +33,11 @@
             this.serviceCostTableAdapter = new StartPovolgie.SPDataSetTableAdapters.ServiceCostTableAdapter();
             this.serviceCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.servc1 = new StartPovolgie.Reports.servc();
+            this.countGoodTableAdapter = new StartPovolgie.SPDataSetTableAdapters.CountGoodTableAdapter();
+            this.countGoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceCostBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countGoodBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spDataSet
@@ -65,6 +67,10 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(849, 534);
             this.crystalReportViewer1.TabIndex = 0;
             // 
+            // countGoodTableAdapter
+            // 
+            this.countGoodTableAdapter.ClearBeforeFill = true;
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -77,6 +83,7 @@
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.spDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceCostBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countGoodBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,6 +93,7 @@
         private SPDataSetTableAdapters.ServiceCostTableAdapter serviceCostTableAdapter;
         private System.Windows.Forms.BindingSource serviceCostBindingSource;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private Reports.servc servc1;
+        private SPDataSetTableAdapters.CountGoodTableAdapter countGoodTableAdapter;
+        private System.Windows.Forms.BindingSource countGoodBindingSource;
     }
 }

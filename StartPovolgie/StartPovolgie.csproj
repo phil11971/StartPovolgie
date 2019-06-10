@@ -187,6 +187,12 @@
     <Compile Include="Forms\AddFaultForm.Designer.cs">
       <DependentUpon>AddFaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\cntg.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cntg.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\InfoUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddFaultForm.resx">
       <DependentUpon>AddFaultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\cntg.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cntg.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InfoUserForm.resx">
       <DependentUpon>InfoUserForm.cs</DependentUpon>

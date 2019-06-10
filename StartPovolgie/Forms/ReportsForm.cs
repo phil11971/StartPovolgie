@@ -52,7 +52,7 @@ namespace StartPovolgie.Forms
             }
             else
             {
-                if (new ReturnFromRepairController().HasServiceInPeriod(dtpS.Value, dtpPo.Value))
+                if (new AcceptForRepairController().HasGoodInPeriod(dtpS.Value, dtpPo.Value))
                 {
                     new ReportForm("\'Количество оставленных товаров\'", dtpS.Value, dtpPo.Value).ShowDialog();
                 }
